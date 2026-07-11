@@ -38,7 +38,7 @@ async function startQuiz() {
   const res = await fetch('/api/quiz/start', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ questionCount: count })
+    body: JSON.stringify({ candidateName: candidateName(), questionCount: count })
   });
   const data = await res.json();
   currentQuestions = data.questions;
@@ -77,6 +77,8 @@ function renderQuiz(questions) {
       card.appendChild(label);
     });
 
+    card.appendChild(buildDifficultyPicker(q.id));
+
     quizForm.appendChild(card);
   });
 
@@ -88,10 +90,48 @@ function renderQuiz(questions) {
   quizForm.appendChild(submitBtn);
 }
 
+const DIFFICULTY_LEVELS = [
+  { value: 'EASY', label: 'Asan' },
+  { value: 'MEDIUM', label: 'Orta' },
+  { value: 'HARD', label: 'Çətin' }
+];
+
+function buildDifficultyPicker(questionId) {
+  const wrap = document.createElement('div');
+  wrap.className = 'difficulty-picker';
+  wrap.dataset.questionId = questionId;
+
+  const label = document.createElement('span');
+  label.className = 'difficulty-label';
+  label.textContent = 'Bu sual sizə necə gəldi?';
+  wrap.appendChild(label);
+
+  DIFFICULTY_LEVELS.forEach(level => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'difficulty-btn';
+    btn.textContent = level.label;
+    btn.dataset.value = level.value;
+    btn.addEventListener('click', () => {
+      wrap.querySelectorAll('.difficulty-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      wrap.dataset.selected = level.value;
+    });
+    wrap.appendChild(btn);
+  });
+
+  return wrap;
+}
+
 async function submitQuiz() {
   const answers = currentQuestions.map(q => {
     const checked = quizForm.querySelector(`input[name="q-${q.id}"]:checked`);
-    return { questionId: q.id, selectedIndex: checked ? parseInt(checked.value, 10) : -1 };
+    const picker = quizForm.querySelector(`.difficulty-picker[data-question-id="${q.id}"]`);
+    return {
+      questionId: q.id,
+      selectedIndex: checked ? parseInt(checked.value, 10) : -1,
+      perceivedDifficulty: picker ? picker.dataset.selected || null : null
+    };
   });
 
   const res = await fetch('/api/quiz/submit', {

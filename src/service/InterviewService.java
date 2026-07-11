@@ -1,9 +1,11 @@
 package service;
 
+import model.AnswerSubmission;
 import model.GradeResult;
 import model.InterviewSession;
 import model.Question;
 import model.QuestionResult;
+import repository.MasteryRepository;
 import repository.QuestionBank;
 import repository.SessionRepository;
 
@@ -17,46 +19,56 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
 
 public class InterviewService {
 
     private static final double WEAK_TOPIC_THRESHOLD = 0.6;
+    private static final String EASY_RATING = "EASY";
     private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
 
     private final List<Question> questionBank = QuestionBank.getQuestions();
     private final List<InterviewSession> sessions = SessionRepository.getSessions();
+    private final Map<String, Set<UUID>> masteredQuestions = MasteryRepository.getMasteredQuestions();
 
-    public List<Question> pickRandomQuestions(int count) {
-        List<Question> pool = new ArrayList<>(questionBank);
+    public List<Question> pickRandomQuestions(String candidateName, int count) {
+        Set<UUID> mastered = masteredQuestions.getOrDefault(candidateName, Set.of());
+        List<Question> pool = questionBank.stream()
+                .filter(q -> !mastered.contains(q.getId()))
+                .collect(Collectors.toCollection(ArrayList::new));
         Collections.shuffle(pool);
         return new ArrayList<>(pool.subList(0, Math.min(count, pool.size())));
     }
 
-    public GradeResult grade(String candidateName, Map<UUID, Integer> answersByQuestionId) {
+    public GradeResult grade(String candidateName, List<AnswerSubmission> submissions) {
         Map<String, Integer> topicCorrect = new LinkedHashMap<>();
         Map<String, Integer> topicTotal = new LinkedHashMap<>();
         List<QuestionResult> details = new ArrayList<>();
         int correctAnswers = 0;
         int score = 0;
 
-        for (Map.Entry<UUID, Integer> entry : answersByQuestionId.entrySet()) {
-            Question question = findQuestion(entry.getKey());
+        for (AnswerSubmission submission : submissions) {
+            Question question = findQuestion(submission.questionId());
             if (question == null) {
                 continue;
             }
-            int selected = entry.getValue();
+            int selected = submission.selectedIndex();
             boolean isCorrect = selected == question.getCorrectOptionIndex();
             topicTotal.merge(question.getTopic(), 1, Integer::sum);
             if (isCorrect) {
                 correctAnswers++;
                 score += question.getDifficulty().getPoints();
                 topicCorrect.merge(question.getTopic(), 1, Integer::sum);
+                if (EASY_RATING.equalsIgnoreCase(submission.perceivedDifficulty())) {
+                    masteredQuestions.computeIfAbsent(candidateName, k -> ConcurrentHashMap.newKeySet()).add(question.getId());
+                }
             }
             details.add(new QuestionResult(question, selected, isCorrect));
         }
 
         Set<String> weakTopics = findWeakTopics(topicCorrect, topicTotal);
-        int total = answersByQuestionId.size();
+        int total = submissions.size();
         sessions.add(new InterviewSession(candidateName, total, correctAnswers, score, topicCorrect, topicTotal, weakTopics));
         return new GradeResult(total, correctAnswers, score, weakTopics, details);
     }

@@ -3,6 +3,7 @@ package web;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
 
+import model.AnswerSubmission;
 import model.GradeResult;
 import model.Question;
 import model.QuestionResult;
@@ -46,8 +47,9 @@ public class Server {
         }
         Map<?, ?> body = parseBody(exchange);
         int count = body.containsKey("questionCount") ? ((Number) body.get("questionCount")).intValue() : 10;
+        String candidateName = String.valueOf(body.get("candidateName"));
 
-        List<Question> questions = interviewService.pickRandomQuestions(count);
+        List<Question> questions = interviewService.pickRandomQuestions(candidateName, count);
         List<Object> payload = questions.stream().map(Server::questionPayload).collect(Collectors.toList());
         sendJson(exchange, 200, Map.of("questions", payload));
     }
@@ -61,15 +63,16 @@ public class Server {
         String candidateName = String.valueOf(body.get("candidateName"));
         List<?> answers = body.get("answers") instanceof List<?> list ? list : List.of();
 
-        Map<UUID, Integer> answersByQuestionId = new LinkedHashMap<>();
+        List<AnswerSubmission> submissions = new ArrayList<>();
         for (Object o : answers) {
             Map<?, ?> a = (Map<?, ?>) o;
             UUID id = UUID.fromString(String.valueOf(a.get("questionId")));
             int selected = ((Number) a.get("selectedIndex")).intValue();
-            answersByQuestionId.put(id, selected);
+            Object perceivedDifficulty = a.get("perceivedDifficulty");
+            submissions.add(new AnswerSubmission(id, selected, perceivedDifficulty == null ? null : String.valueOf(perceivedDifficulty)));
         }
 
-        GradeResult result = interviewService.grade(candidateName, answersByQuestionId);
+        GradeResult result = interviewService.grade(candidateName, submissions);
 
         List<Object> details = new ArrayList<>();
         for (QuestionResult qr : result.details()) {

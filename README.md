@@ -7,6 +7,7 @@ Java texniki müsahibəsini brauzerdə simulyasiya edən veb tətbiq.
 - Çətinlik səviyyəsinə görə bal hesablayır
 - Zəif mövzuları göstərir
 - İnkişaf statistikasını (keçmiş müsahibələr üzrə bal və nəticələr) saxlayır
+- Hər sualdan sonra "Asan / Orta / Çətin" seçimi ilə şəxsi qiymətləndirməyə imkan verir — "Asan" işarələnib düzgün cavablanan suallar həmin istifadəçiyə bir daha göstərilmir
 
 Heç bir xarici asılılıq (Maven/Gradle/kitabxana) yoxdur — yalnız JDK.
 
@@ -32,8 +33,10 @@ src/
   model/InterviewSession.java  - tamamlanmış müsahibənin nəticəsi
   model/GradeResult.java       - qiymətləndirmə nəticəsi (bal, düzgün cavablar, zəif mövzular)
   model/QuestionResult.java    - hər sualın fərdi nəticəsi
+  model/AnswerSubmission.java  - cavab göndərişi (sual id, seçim, şəxsi çətinlik qiyməti)
   repository/QuestionBank.java - hazır sual bankı
   repository/SessionRepository.java - keçmiş müsahibələrin yaddaşda saxlanması
+  repository/MasteryRepository.java - "Asan" işarələnib düzgün cavablanan sualların namizəd üzrə yaddaşda saxlanması
   service/InterviewService.java     - müsahibənin qiymətləndirilməsi, bal hesablanması, statistika
   web/Server.java              - JDK-nin daxili HttpServer-i ilə REST API + statik fayl serveri
   web/JsonUtil.java            - asılılıqsız JSON parse/serialize
@@ -46,7 +49,7 @@ public/
 
 | Metod | Yol | Təsvir |
 |---|---|---|
-| POST | `/api/quiz/start` | `{questionCount}` → təsadüfi seçilmiş suallar (düzgün cavab olmadan) |
-| POST | `/api/quiz/submit` | `{candidateName, answers:[{questionId, selectedIndex}]}` → bal, düzgün cavablar, zəif mövzular |
+| POST | `/api/quiz/start` | `{candidateName, questionCount}` → təsadüfi seçilmiş suallar (namizədin "Asan+düzgün" işarələdiyi suallar çıxarılmış, düzgün cavab olmadan) |
+| POST | `/api/quiz/submit` | `{candidateName, answers:[{questionId, selectedIndex, perceivedDifficulty}]}` → bal, düzgün cavablar, zəif mövzular |
 | GET | `/api/stats/weak?candidate=` | Namizədin bütün müsahibələri üzrə mövzu statistikası |
 | GET | `/api/stats/progress?candidate=` | Namizədin müsahibə tarixçəsi və orta bal |
