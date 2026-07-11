@@ -2,7 +2,7 @@
 
 Java texniki müsahibəsini brauzerdə simulyasiya edən veb tətbiq.
 
-- Java sualları verir (20 mövzu, 200 sual: OOP, Kolleksiyalar, İstisnalar, Multithreading, JVM və Yaddaş, String, Generics, Stream və Lambda, SOLID Prinsipləri, Dizayn Şablonları, Java 8+ Xüsusiyyətləri, Testing, Spring Framework Əsasları, JDBC və Verilənlər Bazası, REST API və Veb Servislər, Concurrency Alətləri, Annotations və Reflection, I/O və Serialization, Maven və Gradle, Kod Keyfiyyəti və Clean Code)
+- Java sualları verir (50 mövzu, 1000 sual — Core Java, kolleksiyalar/data strukturları, concurrency/JVM, dil xüsusiyyətləri, testing/keyfiyyət, Spring/veb, verilənlər bazası, DevOps/infra, memarlıq/təhlükəsizlik, proses/alətlər sahələrindən)
 - Cavabları yoxlayır
 - Çətinlik səviyyəsinə görə bal hesablayır
 - Zəif mövzuları göstərir
@@ -34,7 +34,8 @@ src/
   model/GradeResult.java       - qiymətləndirmə nəticəsi (bal, düzgün cavablar, zəif mövzular)
   model/QuestionResult.java    - hər sualın fərdi nəticəsi
   model/AnswerSubmission.java  - cavab göndərişi (sual id, seçim, şəxsi çətinlik qiyməti)
-  repository/QuestionBank.java - hazır sual bankı
+  repository/QuestionBank.java - 10 bank faylını birləşdirən aqreqator (1000 sual, 50 mövzu, hərəsi 20 sual)
+  repository/bank/*.java       - mövzu qruplarına görə bölünmüş sual faylları (hər biri 100 sual/5 mövzu)
   repository/SessionRepository.java - keçmiş müsahibələrin yaddaşda saxlanması
   repository/MasteryRepository.java - "Asan" işarələnib düzgün cavablanan sualların namizəd üzrə yaddaşda saxlanması
   service/InterviewService.java     - müsahibənin qiymətləndirilməsi, bal hesablanması, statistika
