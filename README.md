@@ -1,8 +1,8 @@
 # Java Interview Simulator
 
-Java texniki müsahibəsini simulyasiya edir — həm konsolda, həm də veb brauzerdə.
+Java texniki müsahibəsini brauzerdə simulyasiya edən veb tətbiq.
 
-- Java sualları verir (9 mövzu, 54 sual: OOP, Kolleksiyalar, İstisnalar, Multithreading, JVM və Yaddaş, String, Generics, Stream və Lambda, SOLID Prinsipləri)
+- Java sualları verir (12 mövzu, 96 sual: OOP, Kolleksiyalar, İstisnalar, Multithreading, JVM və Yaddaş, String, Generics, Stream və Lambda, SOLID Prinsipləri, Dizayn Şablonları, Java 8+ Xüsusiyyətləri, Testing)
 - Cavabları yoxlayır
 - Çətinlik səviyyəsinə görə bal hesablayır
 - Zəif mövzuları göstərir
@@ -10,7 +10,7 @@ Java texniki müsahibəsini simulyasiya edir — həm konsolda, həm də veb bra
 
 Heç bir xarici asılılıq (Maven/Gradle/kitabxana) yoxdur — yalnız JDK.
 
-## Veb UI ilə işə salma
+## İşə salma
 
 ```
 javac -d out $(find src -name "*.java")
@@ -23,18 +23,10 @@ Fərqli port üçün: `java -cp out web.Server 9090`
 
 Server `public/` qovluğunu statik fayl kimi verir, ona görə əmri layihənin kök qovluğundan (bu README-nin olduğu yerdən) işə salmaq lazımdır.
 
-## Konsol versiyası ilə işə salma
-
-```
-javac -d out $(find src -name "*.java")
-java -cp out Main
-```
-
 ## Struktur
 
 ```
 src/
-  Main.java                    - konsol menyusu
   model/Question.java          - sual (mövzu, variantlar, düzgün cavab, çətinlik)
   model/Difficulty.java        - EASY/MEDIUM/HARD, hər biri bal dəyəri ilə
   model/InterviewSession.java  - tamamlanmış müsahibənin nəticəsi
@@ -42,8 +34,7 @@ src/
   model/QuestionResult.java    - hər sualın fərdi nəticəsi
   repository/QuestionBank.java - hazır sual bankı
   repository/SessionRepository.java - keçmiş müsahibələrin yaddaşda saxlanması
-  service/InterviewService.java     - müsahibənin aparılması, bal hesablanması, statistika
-                                       (həm konsol, həm veb API tərəfindən istifadə olunur)
+  service/InterviewService.java     - müsahibənin qiymətləndirilməsi, bal hesablanması, statistika
   web/Server.java              - JDK-nin daxili HttpServer-i ilə REST API + statik fayl serveri
   web/JsonUtil.java            - asılılıqsız JSON parse/serialize
 

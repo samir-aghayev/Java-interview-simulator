@@ -14,11 +14,9 @@ import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 public class InterviewService {
 
@@ -123,94 +121,12 @@ public class InterviewService {
         return response;
     }
 
-    public void startInterview(Scanner scanner, String candidateName, int questionCount) {
-        List<Question> selected = pickRandomQuestions(questionCount);
-        Map<UUID, Integer> answers = new LinkedHashMap<>();
-
-        for (int i = 0; i < selected.size(); i++) {
-            Question question = selected.get(i);
-            System.out.println("\nSual " + (i + 1) + "/" + selected.size() + " [" + question.getTopic() + "]");
-            System.out.println(question.getText());
-            List<String> options = question.getOptions();
-            for (int j = 0; j < options.size(); j++) {
-                System.out.println((j + 1) + ". " + options.get(j));
-            }
-            System.out.print("Cavabınız (1-" + options.size() + "): ");
-            int answer = readOptionIndex(scanner, options.size());
-            answers.put(question.getId(), answer - 1);
-            System.out.println((answer - 1) == question.getCorrectOptionIndex()
-                    ? "Düzgün!"
-                    : "Səhv. Düzgün cavab: " + options.get(question.getCorrectOptionIndex()));
-        }
-
-        GradeResult result = grade(candidateName, answers);
-        System.out.println("\n=== Nəticə ===");
-        System.out.println("Düzgün cavablar: " + result.correctAnswers() + "/" + result.totalQuestions());
-        System.out.println("Toplanan bal: " + result.score());
-        System.out.println(result.weakTopics().isEmpty()
-                ? "Zəif mövzu aşkarlanmadı. Əla nəticə!"
-                : "Zəif mövzular: " + String.join(", ", result.weakTopics()));
-    }
-
-    public void showWeakTopics(String candidateName) {
-        Map<String, Object> summary = weakTopicsSummary(candidateName);
-        List<?> topics = (List<?>) summary.get("topics");
-        if (topics.isEmpty()) {
-            System.out.println("Bu istifadəçi üçün müsahibə tarixçəsi tapılmadı.");
-            return;
-        }
-        System.out.println("=== Mövzu üzrə statistika ===");
-        for (Object o : topics) {
-            Map<?, ?> row = (Map<?, ?>) o;
-            System.out.printf("%s: %d/%d (%.1f%%)%n", row.get("topic"), (Integer) row.get("correct"),
-                    (Integer) row.get("total"), (Double) row.get("percent"));
-        }
-        List<?> weakTopics = (List<?>) summary.get("weakTopics");
-        System.out.println(weakTopics.isEmpty()
-                ? "Zəif mövzu yoxdur."
-                : "Zəif mövzular: " + weakTopics.stream().map(String::valueOf).collect(Collectors.joining(", ")));
-    }
-
-    public void showProgressStatistics(String candidateName) {
-        Map<String, Object> summary = progressSummary(candidateName);
-        List<?> sessionList = (List<?>) summary.get("sessions");
-        if (sessionList.isEmpty()) {
-            System.out.println("Bu istifadəçi üçün müsahibə tarixçəsi tapılmadı.");
-            return;
-        }
-        System.out.println("=== İnkişaf Statistikası ===");
-        for (Object o : sessionList) {
-            Map<?, ?> row = (Map<?, ?>) o;
-            System.out.printf("%s | Bal: %d | Düzgün: %d/%d%n", row.get("dateTime"), (Integer) row.get("score"),
-                    (Integer) row.get("correctAnswers"), (Integer) row.get("totalQuestions"));
-        }
-        System.out.printf("Orta bal: %.1f%n", (Double) summary.get("averageScore"));
-        if (summary.containsKey("improvement")) {
-            int improvement = (Integer) summary.get("improvement");
-            System.out.println("İlk müsahibədən son müsahibəyə dəyişmə: " + (improvement >= 0 ? "+" : "") + improvement + " bal");
-        }
-    }
-
     private List<InterviewSession> sessionsFor(String candidateName) {
         return sessions.stream().filter(session -> session.getCandidateName().equals(candidateName)).toList();
     }
 
     private Question findQuestion(UUID id) {
         return questionBank.stream().filter(q -> q.getId().equals(id)).findFirst().orElse(null);
-    }
-
-    private int readOptionIndex(Scanner scanner, int optionCount) {
-        while (true) {
-            String input = scanner.nextLine().trim();
-            try {
-                int value = Integer.parseInt(input);
-                if (value >= 1 && value <= optionCount) {
-                    return value;
-                }
-            } catch (NumberFormatException ignored) {
-            }
-            System.out.print("Zəhmət olmasa 1-" + optionCount + " arasında rəqəm daxil edin: ");
-        }
     }
 
     private Set<String> findWeakTopics(Map<String, Integer> correct, Map<String, Integer> total) {
