@@ -2,7 +2,7 @@
 
 Java texniki müsahibəsini brauzerdə simulyasiya edən veb tətbiq.
 
-- Java sualları verir (12 mövzu, 96 sual: OOP, Kolleksiyalar, İstisnalar, Multithreading, JVM və Yaddaş, String, Generics, Stream və Lambda, SOLID Prinsipləri, Dizayn Şablonları, Java 8+ Xüsusiyyətləri, Testing)
+- Java sualları verir (20 mövzu, 200 sual: OOP, Kolleksiyalar, İstisnalar, Multithreading, JVM və Yaddaş, String, Generics, Stream və Lambda, SOLID Prinsipləri, Dizayn Şablonları, Java 8+ Xüsusiyyətləri, Testing, Spring Framework Əsasları, JDBC və Verilənlər Bazası, REST API və Veb Servislər, Concurrency Alətləri, Annotations və Reflection, I/O və Serialization, Maven və Gradle, Kod Keyfiyyəti və Clean Code)
 - Cavabları yoxlayır
 - Çətinlik səviyyəsinə görə bal hesablayır
 - Zəif mövzuları göstərir
