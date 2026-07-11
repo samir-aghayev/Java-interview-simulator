@@ -65,15 +65,15 @@ function renderQuiz(questions) {
     text.textContent = q.text;
     card.appendChild(text);
 
-    q.options.forEach((option, optIndex) => {
+    q.options.forEach(option => {
       const label = document.createElement('label');
       label.className = 'option';
       const radio = document.createElement('input');
       radio.type = 'radio';
       radio.name = 'q-' + q.id;
-      radio.value = optIndex;
+      radio.value = option.index;
       label.appendChild(radio);
-      label.appendChild(document.createTextNode(option));
+      label.appendChild(document.createTextNode(option.text));
       card.appendChild(label);
     });
 
@@ -188,15 +188,15 @@ function renderResult(result) {
     text.textContent = detail.text;
     card.appendChild(text);
 
-    detail.options.forEach((option, optIndex) => {
+    detail.options.forEach(option => {
       const row = document.createElement('div');
       row.className = 'option';
-      if (optIndex === detail.correctIndex) {
+      if (option.index === detail.correctIndex) {
         row.classList.add('correct');
-      } else if (optIndex === detail.selectedIndex && !detail.correct) {
+      } else if (option.index === detail.selectedIndex && !detail.correct) {
         row.classList.add('incorrect');
       }
-      row.textContent = option;
+      row.textContent = option.text;
       card.appendChild(row);
     });
 

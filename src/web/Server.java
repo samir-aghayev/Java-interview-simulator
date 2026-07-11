@@ -17,6 +17,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -126,8 +127,26 @@ public class Server {
         row.put("id", question.getId().toString());
         row.put("topic", question.getTopic());
         row.put("text", question.getText());
-        row.put("options", question.getOptions());
+        row.put("options", shuffledOptions(question));
         return row;
+    }
+
+    private static List<Object> shuffledOptions(Question question) {
+        List<String> options = question.getOptions();
+        List<Integer> order = new ArrayList<>();
+        for (int i = 0; i < options.size(); i++) {
+            order.add(i);
+        }
+        Collections.shuffle(order);
+
+        List<Object> shuffled = new ArrayList<>();
+        for (int canonicalIndex : order) {
+            Map<String, Object> option = new LinkedHashMap<>();
+            option.put("index", canonicalIndex);
+            option.put("text", options.get(canonicalIndex));
+            shuffled.add(option);
+        }
+        return shuffled;
     }
 
     private static String contentType(String path) {

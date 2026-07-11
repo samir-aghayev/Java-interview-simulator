@@ -8,6 +8,7 @@ Java texniki müsahibəsini brauzerdə simulyasiya edən veb tətbiq.
 - Zəif mövzuları göstərir
 - İnkişaf statistikasını (keçmiş müsahibələr üzrə bal və nəticələr) saxlayır
 - Hər sualdan sonra "Asan / Orta / Çətin" seçimi ilə şəxsi qiymətləndirməyə imkan verir — "Asan" işarələnib düzgün cavablanan suallar həmin istifadəçiyə bir daha göstərilmir
+- Cavab variantlarının sırası hər sorğuda yenidən qarışdırılır (mövqeyə görə əzbərləmənin qarşısını almaq üçün — eyni sualı ikinci dəfə görəndə düzgün cavab fərqli yerdə ola bilər)
 
 Heç bir xarici asılılıq (Maven/Gradle/kitabxana) yoxdur — yalnız JDK.
 
@@ -50,7 +51,7 @@ public/
 
 | Metod | Yol | Təsvir |
 |---|---|---|
-| POST | `/api/quiz/start` | `{candidateName, questionCount}` → təsadüfi seçilmiş suallar (namizədin "Asan+düzgün" işarələdiyi suallar çıxarılmış, düzgün cavab olmadan) |
-| POST | `/api/quiz/submit` | `{candidateName, answers:[{questionId, selectedIndex, perceivedDifficulty}]}` → bal, düzgün cavablar, zəif mövzular |
+| POST | `/api/quiz/start` | `{candidateName, questionCount}` → təsadüfi seçilmiş suallar (namizədin "Asan+düzgün" işarələdiyi suallar çıxarılmış, hər sualın variantları həmin sorğu üçün təzədən qarışdırılmış, `options: [{index, text}]` formatında — `index` sualın kanonik/authoring indeksidir, göstərilən sıra deyil) |
+| POST | `/api/quiz/submit` | `{candidateName, answers:[{questionId, selectedIndex, perceivedDifficulty}]}` → bal, düzgün cavablar, zəif mövzular (`selectedIndex` kanonik indeksdir, `/api/quiz/start`-da alınan `option.index` dəyəri) |
 | GET | `/api/stats/weak?candidate=` | Namizədin bütün müsahibələri üzrə mövzu statistikası |
 | GET | `/api/stats/progress?candidate=` | Namizədin müsahibə tarixçəsi və orta bal |
