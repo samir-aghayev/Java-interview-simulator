@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="az">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Java Interview Simulator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">☕ Java Interview Simulator</div>
+  <div class="candidate">
+    <label for="candidateName">Ad:</label>
+    <input id="candidateName" type="text" placeholder="Adınızı daxil edin">
+  </div>
+</header>
+
+<nav class="tabs">
+  <button class="tab active" data-view="quiz">Müsahibə</button>
+  <button class="tab" data-view="weak">Zəif Mövzular</button>
+  <button class="tab" data-view="progress">İnkişaf Statistikası</button>
+</nav>
+
+<main>
+  <section id="view-quiz" class="view active">
+    <div id="quiz-setup" class="card">
+      <h2>Müsahibəyə başla</h2>
+      <label for="questionCount">Sual sayı</label>
+      <input id="questionCount" type="number" min="1" max="54" value="10">
+      <button id="startBtn" class="primary">Başla</button>
+      <p id="setup-error" class="error"></p>
+    </div>
+
+    <form id="quiz-form" class="hidden"></form>
+
+    <div id="quiz-result" class="card hidden"></div>
+  </section>
+
+  <section id="view-weak" class="view">
+    <div class="card">
+      <h2>Mövzu üzrə statistika</h2>
+      <div id="weak-content">
+        <p class="muted">Yüklənir...</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-progress" class="view">
+    <div class="card">
+      <h2>İnkişaf statistikası</h2>
+      <div id="progress-content">
+        <p class="muted">Yüklənir...</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
