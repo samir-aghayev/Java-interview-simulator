@@ -1,0 +1,56 @@
+databaseChangeLog:
+  - changeSet:
+      id: 004-session-mastery-user-fk
+      author: interview-simulator
+      changes:
+        - sql:
+            sql: DELETE FROM session_topic_stat
+        - sql:
+            sql: DELETE FROM interview_session
+        - sql:
+            sql: DELETE FROM mastered_question
+
+        - dropIndex:
+            tableName: interview_session
+            indexName: idx_interview_session_candidate
+        - dropColumn:
+            tableName: interview_session
+            columnName: candidate_name
+        - addColumn:
+            tableName: interview_session
+            columns:
+              - column: {name: user_id, type: UUID, constraints: {nullable: false}}
+        - addForeignKeyConstraint:
+            baseTableName: interview_session
+            baseColumnNames: user_id
+            referencedTableName: app_user
+            referencedColumnNames: id
+            constraintName: fk_interview_session_user
+            onDelete: CASCADE
+        - createIndex:
+            tableName: interview_session
+            indexName: idx_interview_session_user
+            columns:
+              - column: {name: user_id}
+
+        - dropUniqueConstraint:
+            tableName: mastered_question
+            constraintName: uq_mastered_question
+        - dropColumn:
+            tableName: mastered_question
+            columnName: candidate_name
+        - addColumn:
+            tableName: mastered_question
+            columns:
+              - column: {name: user_id, type: UUID, constraints: {nullable: false}}
+        - addForeignKeyConstraint:
+            baseTableName: mastered_question
+            baseColumnNames: user_id
+            referencedTableName: app_user
+            referencedColumnNames: id
+            constraintName: fk_mastered_question_user
+            onDelete: CASCADE
+        - addUniqueConstraint:
+            tableName: mastered_question
+            columnNames: user_id, question_id
+            constraintName: uq_mastered_question

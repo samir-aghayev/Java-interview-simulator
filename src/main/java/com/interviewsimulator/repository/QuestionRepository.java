@@ -10,6 +10,6 @@ public interface QuestionRepository extends JpaRepository<QuestionEntity, UUID> 
 
     @org.springframework.data.jpa.repository.Query(
             "select q from QuestionEntity q where q.id not in "
-                    + "(select m.question.id from MasteredQuestionEntity m where m.candidateName = :candidateName)")
-    List<QuestionEntity> findAvailableForCandidate(String candidateName);
+                    + "(select m.question.id from MasteredQuestionEntity m where m.user.id = :userId)")
+    List<QuestionEntity> findAvailableForUser(UUID userId);
 }

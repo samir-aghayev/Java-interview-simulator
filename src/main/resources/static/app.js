@@ -1,12 +1,122 @@
-const candidateInput = document.getElementById('candidateName');
-candidateInput.value = localStorage.getItem('candidateName') || '';
-candidateInput.addEventListener('input', () => {
-  localStorage.setItem('candidateName', candidateInput.value.trim());
+const TOKEN_KEY = 'jits_token';
+const USER_KEY = 'jits_user';
+
+function getToken() {
+  return localStorage.getItem(TOKEN_KEY);
+}
+
+function getUser() {
+  const raw = localStorage.getItem(USER_KEY);
+  return raw ? JSON.parse(raw) : null;
+}
+
+function setSession(token, user) {
+  localStorage.setItem(TOKEN_KEY, token);
+  localStorage.setItem(USER_KEY, JSON.stringify(user));
+}
+
+function clearSession() {
+  localStorage.removeItem(TOKEN_KEY);
+  localStorage.removeItem(USER_KEY);
+}
+
+async function authFetch(url, options = {}) {
+  const token = getToken();
+  const headers = Object.assign({}, options.headers, token ? { Authorization: 'Bearer ' + token } : {});
+  const res = await fetch(url, Object.assign({}, options, { headers }));
+  if (res.status === 401) {
+    clearSession();
+    showAuthView();
+    throw new Error('Unauthorized');
+  }
+  return res;
+}
+
+async function errorMessage(res, fallback) {
+  const body = await res.json().catch(() => ({}));
+  return body.message || body.error || fallback;
+}
+
+const authView = document.getElementById('view-auth');
+const appTabs = document.getElementById('app-tabs');
+const userBar = document.getElementById('user-bar');
+const userDisplayName = document.getElementById('userDisplayName');
+const loginCard = document.getElementById('login-card');
+const registerCard = document.getElementById('register-card');
+
+function showAuthView() {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  authView.classList.add('active');
+  appTabs.classList.add('hidden');
+  userBar.classList.add('hidden');
+}
+
+function showAppView() {
+  const user = getUser();
+  userDisplayName.textContent = user ? user.displayName : '';
+  userBar.classList.remove('hidden');
+  appTabs.classList.remove('hidden');
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.getElementById('view-quiz').classList.add('active');
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelector('.tab[data-view="quiz"]').classList.add('active');
+}
+
+document.getElementById('showRegister').addEventListener('click', (e) => {
+  e.preventDefault();
+  loginCard.classList.add('hidden');
+  registerCard.classList.remove('hidden');
 });
 
-function candidateName() {
-  return candidateInput.value.trim();
-}
+document.getElementById('showLogin').addEventListener('click', (e) => {
+  e.preventDefault();
+  registerCard.classList.add('hidden');
+  loginCard.classList.remove('hidden');
+});
+
+document.getElementById('loginBtn').addEventListener('click', async () => {
+  const errorEl = document.getElementById('login-error');
+  errorEl.textContent = '';
+  const email = document.getElementById('loginEmail').value.trim();
+  const password = document.getElementById('loginPassword').value;
+  const res = await fetch('/api/auth/login', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, password })
+  });
+  if (!res.ok) {
+    errorEl.textContent = await errorMessage(res, 'Daxil olma uğursuz oldu.');
+    return;
+  }
+  const data = await res.json();
+  setSession(data.token, { email: data.email, displayName: data.displayName, role: data.role });
+  showAppView();
+});
+
+document.getElementById('registerBtn').addEventListener('click', async () => {
+  const errorEl = document.getElementById('register-error');
+  errorEl.textContent = '';
+  const displayName = document.getElementById('registerDisplayName').value.trim();
+  const email = document.getElementById('registerEmail').value.trim();
+  const password = document.getElementById('registerPassword').value;
+  const res = await fetch('/api/auth/register', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email, password, displayName })
+  });
+  if (!res.ok) {
+    errorEl.textContent = await errorMessage(res, 'Qeydiyyat uğursuz oldu.');
+    return;
+  }
+  const data = await res.json();
+  setSession(data.token, { email: data.email, displayName: data.displayName, role: data.role });
+  showAppView();
+});
+
+document.getElementById('logoutBtn').addEventListener('click', () => {
+  clearSession();
+  showAuthView();
+});
 
 document.querySelectorAll('.tab').forEach(tab => {
   tab.addEventListener('click', () => {
@@ -29,16 +139,12 @@ document.getElementById('startBtn').addEventListener('click', startQuiz);
 
 async function startQuiz() {
   setupError.textContent = '';
-  if (!candidateName()) {
-    setupError.textContent = 'Zəhmət olmasa əvvəlcə adınızı daxil edin.';
-    return;
-  }
   const count = parseInt(document.getElementById('questionCount').value, 10) || 10;
 
-  const res = await fetch('/api/quiz/start', {
+  const res = await authFetch('/api/quiz/start', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ candidateName: candidateName(), questionCount: count })
+    body: JSON.stringify({ questionCount: count })
   });
   const data = await res.json();
   currentQuestions = data.questions;
@@ -134,10 +240,10 @@ async function submitQuiz() {
     };
   });
 
-  const res = await fetch('/api/quiz/submit', {
+  const res = await authFetch('/api/quiz/submit', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ candidateName: candidateName(), answers })
+    body: JSON.stringify({ answers })
   });
   const result = await res.json();
   renderResult(result);
@@ -229,16 +335,12 @@ function statTile(value, label) {
 
 async function loadWeakTopics() {
   const container = document.getElementById('weak-content');
-  if (!candidateName()) {
-    container.innerHTML = '<p class="muted">Statistikanı görmək üçün əvvəlcə adınızı daxil edin.</p>';
-    return;
-  }
   container.innerHTML = '<p class="muted">Yüklənir...</p>';
-  const res = await fetch('/api/stats/weak?candidate=' + encodeURIComponent(candidateName()));
+  const res = await authFetch('/api/stats/weak');
   const data = await res.json();
 
   if (data.topics.length === 0) {
-    container.innerHTML = '<p class="muted">Bu istifadəçi üçün müsahibə tarixçəsi tapılmadı.</p>';
+    container.innerHTML = '<p class="muted">Müsahibə tarixçəsi tapılmadı.</p>';
     return;
   }
 
@@ -274,16 +376,12 @@ async function loadWeakTopics() {
 
 async function loadProgress() {
   const container = document.getElementById('progress-content');
-  if (!candidateName()) {
-    container.innerHTML = '<p class="muted">Statistikanı görmək üçün əvvəlcə adınızı daxil edin.</p>';
-    return;
-  }
   container.innerHTML = '<p class="muted">Yüklənir...</p>';
-  const res = await fetch('/api/stats/progress?candidate=' + encodeURIComponent(candidateName()));
+  const res = await authFetch('/api/stats/progress');
   const data = await res.json();
 
   if (data.sessions.length === 0) {
-    container.innerHTML = '<p class="muted">Bu istifadəçi üçün müsahibə tarixçəsi tapılmadı.</p>';
+    container.innerHTML = '<p class="muted">Müsahibə tarixçəsi tapılmadı.</p>';
     return;
   }
 
@@ -307,4 +405,10 @@ async function loadProgress() {
   });
   table.appendChild(tbody);
   container.appendChild(table);
+}
+
+if (getToken()) {
+  showAppView();
+} else {
+  showAuthView();
 }

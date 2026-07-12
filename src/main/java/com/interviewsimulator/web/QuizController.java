@@ -6,11 +6,12 @@ import com.interviewsimulator.dto.QuizStartRequest;
 import com.interviewsimulator.dto.QuizStartResponse;
 import com.interviewsimulator.dto.QuizSubmitRequest;
 import com.interviewsimulator.dto.WeakTopicsResponse;
+import com.interviewsimulator.security.AuthenticatedUser;
 import com.interviewsimulator.service.InterviewService;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -25,23 +26,23 @@ public class QuizController {
     }
 
     @PostMapping("/api/quiz/start")
-    public QuizStartResponse start(@RequestBody QuizStartRequest request) {
+    public QuizStartResponse start(@AuthenticationPrincipal AuthenticatedUser principal, @RequestBody QuizStartRequest request) {
         int count = request.questionCount() != null ? request.questionCount() : DEFAULT_QUESTION_COUNT;
-        return new QuizStartResponse(interviewService.pickRandomQuestions(request.candidateName(), count));
+        return new QuizStartResponse(interviewService.pickRandomQuestions(principal.id(), count));
     }
 
     @PostMapping("/api/quiz/submit")
-    public GradeResponse submit(@RequestBody QuizSubmitRequest request) {
-        return interviewService.grade(request.candidateName(), request.answers());
+    public GradeResponse submit(@AuthenticationPrincipal AuthenticatedUser principal, @RequestBody QuizSubmitRequest request) {
+        return interviewService.grade(principal.id(), request.answers());
     }
 
     @GetMapping("/api/stats/weak")
-    public WeakTopicsResponse weak(@RequestParam("candidate") String candidateName) {
-        return interviewService.weakTopicsSummary(candidateName);
+    public WeakTopicsResponse weak(@AuthenticationPrincipal AuthenticatedUser principal) {
+        return interviewService.weakTopicsSummary(principal.id());
     }
 
     @GetMapping("/api/stats/progress")
-    public ProgressResponse progress(@RequestParam("candidate") String candidateName) {
-        return interviewService.progressSummary(candidateName);
+    public ProgressResponse progress(@AuthenticationPrincipal AuthenticatedUser principal) {
+        return interviewService.progressSummary(principal.id());
     }
 }

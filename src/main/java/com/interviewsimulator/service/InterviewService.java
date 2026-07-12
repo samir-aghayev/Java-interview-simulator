@@ -13,9 +13,11 @@ import com.interviewsimulator.entity.InterviewSessionEntity;
 import com.interviewsimulator.entity.MasteredQuestionEntity;
 import com.interviewsimulator.entity.QuestionEntity;
 import com.interviewsimulator.entity.QuestionOptionEntity;
+import com.interviewsimulator.entity.UserEntity;
 import com.interviewsimulator.repository.InterviewSessionRepository;
 import com.interviewsimulator.repository.MasteredQuestionRepository;
 import com.interviewsimulator.repository.QuestionRepository;
+import com.interviewsimulator.repository.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,6 +29,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeSet;
+import java.util.UUID;
 
 @Service
 public class InterviewService {
@@ -38,18 +41,21 @@ public class InterviewService {
     private final QuestionRepository questionRepository;
     private final InterviewSessionRepository sessionRepository;
     private final MasteredQuestionRepository masteredQuestionRepository;
+    private final UserRepository userRepository;
 
     public InterviewService(QuestionRepository questionRepository,
                              InterviewSessionRepository sessionRepository,
-                             MasteredQuestionRepository masteredQuestionRepository) {
+                             MasteredQuestionRepository masteredQuestionRepository,
+                             UserRepository userRepository) {
         this.questionRepository = questionRepository;
         this.sessionRepository = sessionRepository;
         this.masteredQuestionRepository = masteredQuestionRepository;
+        this.userRepository = userRepository;
     }
 
     @Transactional(readOnly = true)
-    public List<QuestionDto> pickRandomQuestions(String candidateName, int count) {
-        List<QuestionEntity> pool = new ArrayList<>(questionRepository.findAvailableForCandidate(candidateName));
+    public List<QuestionDto> pickRandomQuestions(UUID userId, int count) {
+        List<QuestionEntity> pool = new ArrayList<>(questionRepository.findAvailableForUser(userId));
         Collections.shuffle(pool);
         List<QuestionEntity> selected = pool.subList(0, Math.min(count, pool.size()));
         List<QuestionDto> result = new ArrayList<>();
@@ -60,7 +66,7 @@ public class InterviewService {
     }
 
     @Transactional
-    public GradeResponse grade(String candidateName, List<AnswerSubmissionDto> submissions) {
+    public GradeResponse grade(UUID userId, List<AnswerSubmissionDto> submissions) {
         Map<String, Integer> topicCorrect = new LinkedHashMap<>();
         Map<String, Integer> topicTotal = new LinkedHashMap<>();
         List<QuestionResultDto> details = new ArrayList<>();
@@ -81,8 +87,8 @@ public class InterviewService {
                 score += pointsFor(question.getDifficulty());
                 topicCorrect.merge(question.getTopic(), 1, Integer::sum);
                 if (EASY_RATING.equalsIgnoreCase(submission.perceivedDifficulty())
-                        && !masteredQuestionRepository.existsByCandidateNameAndQuestionId(candidateName, question.getId())) {
-                    masteredQuestionRepository.save(new MasteredQuestionEntity(candidateName, question));
+                        && !masteredQuestionRepository.existsByUser_IdAndQuestion_Id(userId, question.getId())) {
+                    masteredQuestionRepository.save(new MasteredQuestionEntity(userRepository.getReferenceById(userId), question));
                 }
             }
             details.add(new QuestionResultDto(question.getId().toString(), question.getTopic(), question.getText(),
@@ -92,7 +98,8 @@ public class InterviewService {
         List<String> weakTopics = new ArrayList<>(findWeakTopics(topicCorrect, topicTotal));
         int total = submissions.size();
 
-        InterviewSessionEntity session = new InterviewSessionEntity(candidateName, total, correctAnswers, score);
+        UserEntity user = userRepository.getReferenceById(userId);
+        InterviewSessionEntity session = new InterviewSessionEntity(user, total, correctAnswers, score);
         topicTotal.forEach((topic, totalCount) ->
                 session.addTopicStat(topic, topicCorrect.getOrDefault(topic, 0), totalCount));
         sessionRepository.save(session);
@@ -101,8 +108,8 @@ public class InterviewService {
     }
 
     @Transactional(readOnly = true)
-    public WeakTopicsResponse weakTopicsSummary(String candidateName) {
-        List<InterviewSessionEntity> candidateSessions = sessionRepository.findByCandidateNameOrderByDateTimeDesc(candidateName);
+    public WeakTopicsResponse weakTopicsSummary(UUID userId) {
+        List<InterviewSessionEntity> candidateSessions = sessionRepository.findByUser_IdOrderByDateTimeDesc(userId);
         if (candidateSessions.isEmpty()) {
             return new WeakTopicsResponse(List.of(), List.of());
         }
@@ -125,8 +132,8 @@ public class InterviewService {
     }
 
     @Transactional(readOnly = true)
-    public ProgressResponse progressSummary(String candidateName) {
-        List<InterviewSessionEntity> candidateSessions = sessionRepository.findByCandidateNameOrderByDateTimeDesc(candidateName)
+    public ProgressResponse progressSummary(UUID userId) {
+        List<InterviewSessionEntity> candidateSessions = sessionRepository.findByUser_IdOrderByDateTimeDesc(userId)
                 .stream()
                 .sorted(Comparator.comparing(InterviewSessionEntity::getDateTime))
                 .toList();

@@ -57,15 +57,31 @@ body {
   font-weight: 700;
 }
 
-.candidate {
+.user-bar {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
 }
 
-.candidate label {
+.user-bar span {
   color: var(--muted);
   font-size: 0.9rem;
+}
+
+button.secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button.secondary:hover {
+  border-color: var(--primary);
+  color: var(--primary);
 }
 
 input[type="text"],
@@ -163,6 +179,10 @@ button.primary:hover {
 
 .muted {
   color: var(--muted);
+}
+
+.muted a {
+  color: var(--primary);
 }
 
 .question-card {

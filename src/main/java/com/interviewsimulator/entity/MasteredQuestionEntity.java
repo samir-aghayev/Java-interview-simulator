@@ -1,6 +1,5 @@
 package com.interviewsimulator.entity;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -13,15 +12,16 @@ import jakarta.persistence.UniqueConstraint;
 import java.util.UUID;
 
 @Entity
-@Table(name = "mastered_question", uniqueConstraints = @UniqueConstraint(columnNames = {"candidate_name", "question_id"}))
+@Table(name = "mastered_question", uniqueConstraints = @UniqueConstraint(columnNames = {"user_id", "question_id"}))
 public class MasteredQuestionEntity {
 
     @Id
     @GeneratedValue
     private UUID id;
 
-    @Column(name = "candidate_name", nullable = false)
-    private String candidateName;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private UserEntity user;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "question_id", nullable = false)
@@ -30,8 +30,8 @@ public class MasteredQuestionEntity {
     protected MasteredQuestionEntity() {
     }
 
-    public MasteredQuestionEntity(String candidateName, QuestionEntity question) {
-        this.candidateName = candidateName;
+    public MasteredQuestionEntity(UserEntity user, QuestionEntity question) {
+        this.user = user;
         this.question = question;
     }
 
@@ -39,8 +39,8 @@ public class MasteredQuestionEntity {
         return id;
     }
 
-    public String getCandidateName() {
-        return candidateName;
+    public UserEntity getUser() {
+        return user;
     }
 
     public QuestionEntity getQuestion() {

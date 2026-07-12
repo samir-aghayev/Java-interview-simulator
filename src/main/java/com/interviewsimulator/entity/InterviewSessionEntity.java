@@ -3,8 +3,11 @@ package com.interviewsimulator.entity;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -21,8 +24,9 @@ public class InterviewSessionEntity {
     @GeneratedValue
     private UUID id;
 
-    @Column(name = "candidate_name", nullable = false)
-    private String candidateName;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    private UserEntity user;
 
     @Column(name = "date_time", nullable = false)
     private LocalDateTime dateTime;
@@ -42,8 +46,8 @@ public class InterviewSessionEntity {
     protected InterviewSessionEntity() {
     }
 
-    public InterviewSessionEntity(String candidateName, int totalQuestions, int correctAnswers, int score) {
-        this.candidateName = candidateName;
+    public InterviewSessionEntity(UserEntity user, int totalQuestions, int correctAnswers, int score) {
+        this.user = user;
         this.dateTime = LocalDateTime.now();
         this.totalQuestions = totalQuestions;
         this.correctAnswers = correctAnswers;
@@ -54,8 +58,8 @@ public class InterviewSessionEntity {
         return id;
     }
 
-    public String getCandidateName() {
-        return candidateName;
+    public UserEntity getUser() {
+        return user;
     }
 
     public LocalDateTime getDateTime() {

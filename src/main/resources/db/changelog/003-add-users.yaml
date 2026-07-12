@@ -1,0 +1,14 @@
+databaseChangeLog:
+  - changeSet:
+      id: 003-add-users
+      author: interview-simulator
+      changes:
+        - createTable:
+            tableName: app_user
+            columns:
+              - column: {name: id, type: UUID, constraints: {primaryKey: true, nullable: false}}
+              - column: {name: email, type: VARCHAR(255), constraints: {nullable: false, unique: true, uniqueConstraintName: uq_app_user_email}}
+              - column: {name: password_hash, type: VARCHAR(255), constraints: {nullable: false}}
+              - column: {name: display_name, type: VARCHAR(255), constraints: {nullable: false}}
+              - column: {name: role, type: VARCHAR(20), constraints: {nullable: false}}
+              - column: {name: created_at, type: TIMESTAMP, constraints: {nullable: false}}

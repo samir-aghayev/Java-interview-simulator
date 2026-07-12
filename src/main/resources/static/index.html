@@ -9,20 +9,46 @@
 <body>
 <header class="topbar">
   <div class="brand">☕ Java Interview Simulator</div>
-  <div class="candidate">
-    <label for="candidateName">Ad:</label>
-    <input id="candidateName" type="text" placeholder="Adınızı daxil edin">
+  <div id="user-bar" class="user-bar hidden">
+    <span id="userDisplayName"></span>
+    <button id="logoutBtn" class="secondary">Çıxış</button>
   </div>
 </header>
 
-<nav class="tabs">
+<nav id="app-tabs" class="tabs hidden">
   <button class="tab active" data-view="quiz">Müsahibə</button>
   <button class="tab" data-view="weak">Zəif Mövzular</button>
   <button class="tab" data-view="progress">İnkişaf Statistikası</button>
 </nav>
 
 <main>
-  <section id="view-quiz" class="view active">
+  <section id="view-auth" class="view active">
+    <div id="login-card" class="card">
+      <h2>Daxil ol</h2>
+      <label for="loginEmail">Email</label>
+      <input id="loginEmail" type="email" placeholder="email@nümunə.com">
+      <label for="loginPassword">Şifrə</label>
+      <input id="loginPassword" type="password" placeholder="Şifrənizi daxil edin">
+      <button id="loginBtn" class="primary">Daxil ol</button>
+      <p id="login-error" class="error"></p>
+      <p class="muted">Hesabınız yoxdur? <a href="#" id="showRegister">Qeydiyyatdan keç</a></p>
+    </div>
+
+    <div id="register-card" class="card hidden">
+      <h2>Qeydiyyat</h2>
+      <label for="registerDisplayName">Ad</label>
+      <input id="registerDisplayName" type="text" placeholder="Adınız">
+      <label for="registerEmail">Email</label>
+      <input id="registerEmail" type="email" placeholder="email@nümunə.com">
+      <label for="registerPassword">Şifrə</label>
+      <input id="registerPassword" type="password" placeholder="Ən azı 8 simvol">
+      <button id="registerBtn" class="primary">Qeydiyyatdan keç</button>
+      <p id="register-error" class="error"></p>
+      <p class="muted">Artıq hesabınız var? <a href="#" id="showLogin">Daxil ol</a></p>
+    </div>
+  </section>
+
+  <section id="view-quiz" class="view">
     <div id="quiz-setup" class="card">
       <h2>Müsahibəyə başla</h2>
       <label for="questionCount">Sual sayı</label>

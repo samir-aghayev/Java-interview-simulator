@@ -5,3 +5,9 @@ databaseChangeLog:
   - include:
       file: db/changelog/002-seed-questions.yaml
       relativeToChangelogFile: false
+  - include:
+      file: db/changelog/003-add-users.yaml
+      relativeToChangelogFile: false
+  - include:
+      file: db/changelog/004-session-mastery-user-fk.yaml
+      relativeToChangelogFile: false

@@ -9,13 +9,15 @@ Java texniki müsahibəsini brauzerdə simulyasiya edən veb tətbiq.
 - İnkişaf statistikasını (keçmiş müsahibələr üzrə bal və nəticələr) saxlayır
 - Hər sualdan sonra "Asan / Orta / Çətin" seçimi ilə şəxsi qiymətləndirməyə imkan verir — "Asan" işarələnib düzgün cavablanan suallar həmin istifadəçiyə bir daha göstərilmir
 - Cavab variantlarının sırası hər sorğuda yenidən qarışdırılır (mövqeyə görə əzbərləmənin qarşısını almaq üçün — eyni sualı ikinci dəfə görəndə düzgün cavab fərqli yerdə ola bilər)
+- Sign Up / Sign In ilə real istifadəçi hesabları (email + şifrə, bcrypt hash) — eyni anda yüzlərlə istifadəçi öz müsahibə tarixçəsini ayrıca saxlaya bilər
 
 ## Stack
 
 - **Gradle** (build)
-- **Spring Boot 3** (`spring-boot-starter-web`, `spring-boot-starter-data-jpa`)
+- **Spring Boot 3** (`spring-boot-starter-web`, `spring-boot-starter-data-jpa`, `spring-boot-starter-security`, `spring-boot-starter-validation`)
 - **PostgreSQL** (məlumat bazası)
 - **Liquibase** (sxem və seed data miqrasiyaları)
+- **JWT** (stateless autentifikasiya, `jjwt`)
 
 ## İşə salma
 
@@ -33,7 +35,7 @@ Java texniki müsahibəsini brauzerdə simulyasiya edən veb tətbiq.
    ./gradlew bootRun
    ```
 
-   Bağlantı parametrləri `application.yml`-də mühit dəyişənləri ilə override oluna bilər: `DB_URL`, `DB_USER`, `DB_PASSWORD`, `SERVER_PORT`.
+   Bağlantı parametrləri `application.yml`-də mühit dəyişənləri ilə override oluna bilər: `DB_URL`, `DB_USER`, `DB_PASSWORD`, `SERVER_PORT`, `JWT_SECRET`, `JWT_EXPIRATION_MINUTES`. **Production-a keçməzdən əvvəl `JWT_SECRET` mütləq dəyişdirilməlidir.**
 
 3. Brauzerdə aç: http://localhost:8080
 
@@ -42,11 +44,12 @@ Java texniki müsahibəsini brauzerdə simulyasiya edən veb tətbiq.
 ```
 src/main/java/com/interviewsimulator/
   InterviewSimulatorApplication.java   - Spring Boot giriş nöqtəsi
-  entity/         - JPA entity-ləri (QuestionEntity, QuestionOptionEntity, InterviewSessionEntity, SessionTopicStatEntity, MasteredQuestionEntity)
+  entity/         - JPA entity-ləri (UserEntity, QuestionEntity, QuestionOptionEntity, InterviewSessionEntity, SessionTopicStatEntity, MasteredQuestionEntity)
   repository/     - Spring Data JPA repository interfeysləri
   service/        - InterviewService: sualların seçilməsi, qiymətləndirmə, statistika
+  security/       - JWT yaradılması/yoxlanması, Spring Security konfiqurasiyası, autentifikasiya endpoint-ləri üçün rate limiting
   dto/            - REST API üçün request/response modelləri
-  web/            - QuizController (REST endpoint-lər)
+  web/            - QuizController və AuthController (REST endpoint-lər)
 
 src/main/resources/
   application.yml               - server və verilənlər bazası konfiqurasiyası
@@ -56,9 +59,15 @@ src/main/resources/
 
 ## API
 
+Autentifikasiya endpoint-ləri istisna olmaqla, bütün endpoint-lər `Authorization: Bearer <token>` header-i tələb edir.
+
 | Metod | Yol | Təsvir |
 |---|---|---|
-| POST | `/api/quiz/start` | `{candidateName, questionCount}` → təsadüfi seçilmiş suallar (namizədin "Asan+düzgün" işarələdiyi suallar çıxarılmış, hər sualın variantları həmin sorğu üçün təzədən qarışdırılmış, `options: [{index, text}]` formatında — `index` sualın kanonik/authoring indeksidir, göstərilən sıra deyil) |
-| POST | `/api/quiz/submit` | `{candidateName, answers:[{questionId, selectedIndex, perceivedDifficulty}]}` → bal, düzgün cavablar, zəif mövzular (`selectedIndex` kanonik indeksdir, `/api/quiz/start`-da alınan `option.index` dəyəri) |
-| GET | `/api/stats/weak?candidate=` | Namizədin bütün müsahibələri üzrə mövzu statistikası |
-| GET | `/api/stats/progress?candidate=` | Namizədin müsahibə tarixçəsi və orta bal |
+| POST | `/api/auth/register` | `{email, password, displayName}` → hesab yaradır, `{token, email, displayName, role}` qaytarır |
+| POST | `/api/auth/login` | `{email, password}` → `{token, email, displayName, role}` qaytarır |
+| POST | `/api/quiz/start` | `{questionCount}` → təsadüfi seçilmiş suallar (istifadəçinin "Asan+düzgün" işarələdiyi suallar çıxarılmış, hər sualın variantları həmin sorğu üçün təzədən qarışdırılmış, `options: [{index, text}]` formatında — `index` sualın kanonik/authoring indeksidir, göstərilən sıra deyil) |
+| POST | `/api/quiz/submit` | `{answers:[{questionId, selectedIndex, perceivedDifficulty}]}` → bal, düzgün cavablar, zəif mövzular (`selectedIndex` kanonik indeksdir, `/api/quiz/start`-da alınan `option.index` dəyəri) |
+| GET | `/api/stats/weak` | Cari istifadəçinin bütün müsahibələri üzrə mövzu statistikası |
+| GET | `/api/stats/progress` | Cari istifadəçinin müsahibə tarixçəsi və orta bal |
+
+Autentifikasiya endpoint-ləri IP üzrə sadə rate limiting ilə qorunur (dəqiqədə maks. 10 cəhd).

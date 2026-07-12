@@ -8,5 +8,5 @@ import java.util.UUID;
 
 public interface InterviewSessionRepository extends JpaRepository<InterviewSessionEntity, UUID> {
 
-    List<InterviewSessionEntity> findByCandidateNameOrderByDateTimeDesc(String candidateName);
+    List<InterviewSessionEntity> findByUser_IdOrderByDateTimeDesc(UUID userId);
 }
