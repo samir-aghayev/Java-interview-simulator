@@ -102,6 +102,46 @@ body.dark-mode .dark-mode-toggle {
   border-color: rgba(255, 255, 255, 0.1);
 }
 
+/* ===== Dil seçici ===== */
+.lang-toggle {
+  position: fixed;
+  top: 16px;
+  right: 72px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 999px;
+  padding: 4px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+body.dark-mode .lang-toggle {
+  background: rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.lang-toggle button {
+  border: none;
+  background: transparent;
+  color: var(--text-color);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 7px 11px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.lang-toggle button.active {
+  background: var(--primary-color);
+  color: #fff;
+}
+
 /* ===== Auth səhifəsi ===== */
 .auth-page {
   min-height: 100vh;

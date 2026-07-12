@@ -16,7 +16,9 @@ import com.interviewsimulator.entity.QuestionOptionEntity;
 import com.interviewsimulator.entity.UserEntity;
 import com.interviewsimulator.repository.InterviewSessionRepository;
 import com.interviewsimulator.repository.MasteredQuestionRepository;
+import com.interviewsimulator.repository.QuestionOptionTranslationRepository;
 import com.interviewsimulator.repository.QuestionRepository;
+import com.interviewsimulator.repository.QuestionTranslationRepository;
 import com.interviewsimulator.repository.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -42,19 +44,50 @@ public class InterviewService {
     private final InterviewSessionRepository sessionRepository;
     private final MasteredQuestionRepository masteredQuestionRepository;
     private final UserRepository userRepository;
+    private final QuestionTranslationRepository questionTranslationRepository;
+    private final QuestionOptionTranslationRepository optionTranslationRepository;
 
     public InterviewService(QuestionRepository questionRepository,
                              InterviewSessionRepository sessionRepository,
                              MasteredQuestionRepository masteredQuestionRepository,
-                             UserRepository userRepository) {
+                             UserRepository userRepository,
+                             QuestionTranslationRepository questionTranslationRepository,
+                             QuestionOptionTranslationRepository optionTranslationRepository) {
         this.questionRepository = questionRepository;
         this.sessionRepository = sessionRepository;
         this.masteredQuestionRepository = masteredQuestionRepository;
         this.userRepository = userRepository;
+        this.questionTranslationRepository = questionTranslationRepository;
+        this.optionTranslationRepository = optionTranslationRepository;
+    }
+
+    /** Verilmiş suallar üçün lokala uyğun tərcümə mətnləri (tapılmayan üçün orijinala fallback). */
+    private record Translations(Map<UUID, String> questionText, Map<UUID, String> optionText) {
+        static final Translations EMPTY = new Translations(Map.of(), Map.of());
+    }
+
+    private Translations loadTranslations(String locale, List<QuestionEntity> questions) {
+        if (locale == null || locale.isBlank() || "az".equalsIgnoreCase(locale.trim()) || questions.isEmpty()) {
+            return Translations.EMPTY;
+        }
+        String normalized = locale.trim().toLowerCase();
+        List<UUID> questionIds = questions.stream().map(QuestionEntity::getId).toList();
+        List<UUID> optionIds = questions.stream()
+                .flatMap(q -> q.getOptions().stream())
+                .map(QuestionOptionEntity::getId)
+                .toList();
+        Map<UUID, String> questionText = new LinkedHashMap<>();
+        questionTranslationRepository.findByLocaleAndQuestion_IdIn(normalized, questionIds)
+                .forEach(tr -> questionText.put(tr.getQuestion().getId(), tr.getText()));
+        Map<UUID, String> optionText = new LinkedHashMap<>();
+        optionTranslationRepository.findByLocaleAndOption_IdIn(normalized, optionIds)
+                .forEach(tr -> optionText.put(tr.getOption().getId(), tr.getText()));
+        return new Translations(questionText, optionText);
     }
 
     @Transactional(readOnly = true)
-    public List<QuestionDto> pickRandomQuestions(UUID userId, int count, String subject, List<String> topics) {
+    public List<QuestionDto> pickRandomQuestions(UUID userId, int count, String subject, List<String> topics,
+                                                  String locale) {
         List<QuestionEntity> pool = new ArrayList<>(questionRepository.findAvailableForUser(userId));
         if (topics != null && !topics.isEmpty()) {
             pool.removeIf(q -> !topics.contains(q.getTopic()));
@@ -63,23 +96,29 @@ public class InterviewService {
         }
         Collections.shuffle(pool);
         List<QuestionEntity> selected = pool.subList(0, Math.min(count, pool.size()));
+        Translations translations = loadTranslations(locale, selected);
         List<QuestionDto> result = new ArrayList<>();
         for (QuestionEntity question : selected) {
-            result.add(toDto(question));
+            result.add(toDto(question, translations));
         }
         return result;
     }
 
     @Transactional
-    public GradeResponse grade(UUID userId, List<AnswerSubmissionDto> submissions) {
+    public GradeResponse grade(UUID userId, List<AnswerSubmissionDto> submissions, String locale) {
         Map<String, Integer> topicCorrect = new LinkedHashMap<>();
         Map<String, Integer> topicTotal = new LinkedHashMap<>();
         List<QuestionResultDto> details = new ArrayList<>();
         int correctAnswers = 0;
         int score = 0;
 
+        Map<UUID, QuestionEntity> questionsById = new LinkedHashMap<>();
+        questionRepository.findAllById(submissions.stream().map(AnswerSubmissionDto::questionId).toList())
+                .forEach(q -> questionsById.put(q.getId(), q));
+        Translations translations = loadTranslations(locale, new ArrayList<>(questionsById.values()));
+
         for (AnswerSubmissionDto submission : submissions) {
-            QuestionEntity question = questionRepository.findById(submission.questionId()).orElse(null);
+            QuestionEntity question = questionsById.get(submission.questionId());
             if (question == null) {
                 continue;
             }
@@ -96,8 +135,9 @@ public class InterviewService {
                     masteredQuestionRepository.save(new MasteredQuestionEntity(userRepository.getReferenceById(userId), question));
                 }
             }
-            details.add(new QuestionResultDto(question.getId().toString(), question.getTopic(), question.getText(),
-                    optionDtos(question), selected, correctIndex, isCorrect));
+            details.add(new QuestionResultDto(question.getId().toString(), question.getTopic(),
+                    translations.questionText().getOrDefault(question.getId(), question.getText()),
+                    optionDtos(question, translations), selected, correctIndex, isCorrect));
         }
 
         List<String> weakTopics = new ArrayList<>(findWeakTopics(topicCorrect, topicTotal));
@@ -175,11 +215,13 @@ public class InterviewService {
         return Math.round(value * 10) / 10.0;
     }
 
-    private QuestionDto toDto(QuestionEntity question) {
-        return new QuestionDto(question.getId().toString(), question.getTopic(), question.getText(), optionDtos(question));
+    private QuestionDto toDto(QuestionEntity question, Translations translations) {
+        return new QuestionDto(question.getId().toString(), question.getTopic(),
+                translations.questionText().getOrDefault(question.getId(), question.getText()),
+                optionDtos(question, translations));
     }
 
-    private List<QuestionOptionDto> optionDtos(QuestionEntity question) {
+    private List<QuestionOptionDto> optionDtos(QuestionEntity question, Translations translations) {
         List<Integer> order = new ArrayList<>();
         for (int i = 0; i < question.getOptions().size(); i++) {
             order.add(i);
@@ -189,7 +231,8 @@ public class InterviewService {
         List<QuestionOptionDto> shuffled = new ArrayList<>();
         for (int canonicalIndex : order) {
             QuestionOptionEntity option = question.getOptions().get(canonicalIndex);
-            shuffled.add(new QuestionOptionDto(canonicalIndex, option.getOptionText()));
+            String text = translations.optionText().getOrDefault(option.getId(), option.getOptionText());
+            shuffled.add(new QuestionOptionDto(canonicalIndex, text));
         }
         return shuffled;
     }

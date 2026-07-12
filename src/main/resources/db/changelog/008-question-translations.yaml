@@ -1,0 +1,71 @@
+databaseChangeLog:
+  - changeSet:
+      id: 008-question-translations
+      author: interview-simulator
+      changes:
+        - createTable:
+            tableName: question_translation
+            columns:
+              - column: {name: id, type: UUID, constraints: {primaryKey: true, nullable: false}}
+              - column: {name: question_id, type: UUID, constraints: {nullable: false}}
+              - column: {name: locale, type: VARCHAR(5), constraints: {nullable: false}}
+              - column: {name: text, type: TEXT, constraints: {nullable: false}}
+        - addForeignKeyConstraint:
+            baseTableName: question_translation
+            baseColumnNames: question_id
+            referencedTableName: question
+            referencedColumnNames: id
+            constraintName: fk_question_translation_question
+            onDelete: CASCADE
+        - addUniqueConstraint:
+            tableName: question_translation
+            columnNames: question_id, locale
+            constraintName: uq_question_translation
+
+        - createTable:
+            tableName: question_option_translation
+            columns:
+              - column: {name: id, type: UUID, constraints: {primaryKey: true, nullable: false}}
+              - column: {name: option_id, type: UUID, constraints: {nullable: false}}
+              - column: {name: locale, type: VARCHAR(5), constraints: {nullable: false}}
+              - column: {name: text, type: TEXT, constraints: {nullable: false}}
+        - addForeignKeyConstraint:
+            baseTableName: question_option_translation
+            baseColumnNames: option_id
+            referencedTableName: question_option
+            referencedColumnNames: id
+            constraintName: fk_question_option_translation_option
+            onDelete: CASCADE
+        - addUniqueConstraint:
+            tableName: question_option_translation
+            columnNames: option_id, locale
+            constraintName: uq_question_option_translation
+
+  - changeSet:
+      id: 008b-seed-tr-translations
+      author: interview-simulator
+      changes:
+        - loadData:
+            tableName: question_translation
+            file: db/changelog/data/question_translations_tr.csv
+            relativeToChangelogFile: false
+            separator: ","
+            quotchar: '"'
+            usePreparedStatements: true
+            columns:
+              - column: {name: id, type: UUID}
+              - column: {name: question_id, type: UUID}
+              - column: {name: locale, type: STRING}
+              - column: {name: text, type: STRING}
+        - loadData:
+            tableName: question_option_translation
+            file: db/changelog/data/question_option_translations_tr.csv
+            relativeToChangelogFile: false
+            separator: ","
+            quotchar: '"'
+            usePreparedStatements: true
+            columns:
+              - column: {name: id, type: UUID}
+              - column: {name: option_id, type: UUID}
+              - column: {name: locale, type: STRING}
+              - column: {name: text, type: STRING}

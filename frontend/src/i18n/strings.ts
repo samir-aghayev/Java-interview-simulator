@@ -1,7 +1,20 @@
-// Bütün UI mətnləri burada mərkəzləşdirilib — gələcəkdə TR dəstəyi üçün
-// ikinci dil map-i və seçici əlavə etmək kifayətdir.
+// Bütün UI mətnləri burada mərkəzləşdirilib. Dil seçimi localStorage-da saxlanılır;
+// dil dəyişəndə səhifə yenidən yüklənir (komponentlərə toxunmadan sadə yanaşma).
 
-export const t = {
+export type Lang = 'az' | 'tr';
+
+const LANG_KEY = 'jits_lang';
+
+export function getLang(): Lang {
+  return localStorage.getItem(LANG_KEY) === 'tr' ? 'tr' : 'az';
+}
+
+export function setLang(lang: Lang): void {
+  localStorage.setItem(LANG_KEY, lang);
+  window.location.reload();
+}
+
+const az = {
   appName: '☕ Java Interview Simulator',
 
   // Auth
@@ -143,3 +156,148 @@ export const t = {
   nextPage: 'Növbəti →',
   pageInfo: (page: number, total: number, count: number) => `Səhifə ${page}/${total} (cəmi ${count})`
 };
+
+const tr: typeof az = {
+  appName: '☕ Java Interview Simulator',
+
+  // Auth
+  loginTitle: 'Giriş',
+  registerTitle: 'Kayıt Ol',
+  emailPlaceholder: 'E-postanızı girin',
+  passwordPlaceholder: 'Şifrenizi girin',
+  passwordSetPlaceholder: 'Şifre belirleyin',
+  passwordConfirmPlaceholder: 'Şifreyi onaylayın',
+  firstNamePlaceholder: 'Adınız',
+  lastNamePlaceholder: 'Soyadınız',
+  birthDatePlaceholder: 'Doğum tarihi (isteğe bağlı)',
+  countryPlaceholder: 'Ülke (isteğe bağlı)',
+  genderPlaceholder: 'Cinsiyet (isteğe bağlı)',
+  employmentPlaceholder: 'Çalışma durumu (isteğe bağlı)',
+  educationPlaceholder: 'Eğitim durumu (isteğe bağlı)',
+  genderMale: 'Erkek',
+  genderFemale: 'Kadın',
+  employmentStudent: 'Öğrenci',
+  employmentEmployed: 'Çalışıyor',
+  employmentUnemployed: 'İşsiz',
+  employmentFreelancer: 'Serbest çalışan',
+  employmentOther: 'Diğer',
+  educationHighSchool: 'Lise',
+  educationBachelor: 'Lisans',
+  educationMaster: 'Yüksek lisans',
+  educationPhd: 'Doktora',
+  educationOther: 'Diğer',
+  loginButton: 'Giriş yap',
+  registerButton: 'Kayıt ol',
+  noAccount: 'Hesabınız yok mu?',
+  haveAccount: 'Zaten hesabınız var mı?',
+  registerLink: 'Kayıt olun',
+  loginLink: 'Giriş yapın',
+  loginFailed: 'Giriş başarısız oldu.',
+  registerFailed: 'Kayıt başarısız oldu.',
+  passwordsDontMatch: 'Şifreler aynı değil!',
+  passwordRequirementsTitle: 'Şifre gereksinimleri:',
+  reqLength: 'En az 8 karakter',
+  reqCase: 'Büyük ve küçük harf (A-z)',
+  reqNumber: 'Rakam (0-9)',
+  reqSpecial: 'Sembol (!@#$%)',
+  passwordWeak: 'Şifre tüm gereksinimleri karşılamalı!',
+
+  // Navigasyon
+  tabQuiz: 'Mülakat',
+  tabWeak: 'Zayıf Konular',
+  tabProgress: 'Gelişim İstatistikleri',
+  adminPanelLink: 'Yönetici Paneli',
+  backToApp: '← Ana sayfa',
+  logout: 'Çıkış',
+
+  // Quiz kurulumu
+  quizSetupTitle: 'Mülakata başla',
+  questionCountLabel: 'Soru sayısı',
+  subjectLabel: 'Alan',
+  mixedOption: 'Karışık (tüm alanlar)',
+  topicsLabel: 'Konular (seçilmezse alanın tamamı)',
+  allTopics: 'Tümü',
+  startButton: 'Başla',
+  loading: 'Yükleniyor...',
+  noQuestionsAvailable: 'Bu seçim için soru bulunamadı.',
+
+  // Quiz akışı
+  difficultyPrompt: 'Bu soru size nasıl geldi?',
+  difficultyEasy: 'Kolay',
+  difficultyMedium: 'Orta',
+  difficultyHard: 'Zor',
+  submitAnswers: 'Cevapları gönder',
+  reportButton: 'Hata bildir',
+
+  // Report modalı
+  reportTitle: 'Soru/cevap hatası bildir',
+  reportPlaceholder: 'Soruda veya cevapta neyin yanlış olduğunu yazın (en az 5 karakter)...',
+  reportSend: 'Gönder',
+  reportCancel: 'İptal',
+  reportSuccess: 'Bildirim gönderildi. Teşekkürler!',
+  reportFailed: 'Bildirim gönderilemedi.',
+
+  // Sonuç
+  resultTitle: 'Sonuç',
+  scoreLabel: 'Puan',
+  correctLabel: 'Doğru cevap',
+  noWeakTopics: 'Zayıf konu bulunamadı. Harika sonuç!',
+  weakTopicsLabel: 'Zayıf konular:',
+  retryButton: 'Yeniden başla',
+
+  // İstatistikler
+  weakTitle: 'Konu bazında istatistikler',
+  noHistory: 'Mülakat geçmişi bulunamadı.',
+  weakHint: 'Dikkat etmeniz gereken konular ⚠ işaretiyle gösterilmiştir.',
+  progressTitle: 'Gelişim istatistikleri',
+  averagePercent: 'Ortalama başarı',
+  improvement: 'İlk→son değişim',
+  dateColumn: 'Tarih',
+  scoreColumn: 'Puan',
+  correctColumn: 'Doğru',
+  percentColumn: 'Yüzde',
+
+  // Yönetici
+  adminTitle: 'Yönetici Paneli',
+  adminTabQuestions: 'Sorular',
+  adminTabUsers: 'Kullanıcılar',
+  adminTabReports: 'Bildirimler',
+  adminTabAudit: 'Denetim',
+  searchQuestions: 'Alan, konu veya metne göre ara...',
+  searchUsers: 'E-posta veya ada göre ara...',
+  searchButton: 'Ara',
+  newQuestion: '+ Yeni soru',
+  editQuestion: 'Soruyu düzenle',
+  subjectField: 'Alan (örn. Java, SQL, Frontend...)',
+  topicField: 'Konu',
+  textField: 'Soru metni',
+  difficultyField: 'Zorluk',
+  optionsField: 'Seçenekler (doğru olanı işaretleyin)',
+  optionPlaceholder: 'Seçenek',
+  saveButton: 'Kaydet',
+  cancelButton: 'İptal',
+  editButton: 'Düzenle',
+  deactivateButton: 'Devre dışı bırak',
+  restoreButton: 'Geri yükle',
+  activeBadge: 'aktif',
+  inactiveBadge: 'pasif',
+  saveFailed: 'Kaydedilemedi.',
+  loadFailed: 'Yüklenemedi.',
+  noResults: 'Sonuç bulunamadı.',
+  makeAdmin: 'Yönetici yap',
+  makeUser: 'Kullanıcı yap',
+  roleChangeFailed: 'Rol değiştirilemedi.',
+  registeredAt: 'Kayıt',
+  statusFilterAll: 'Tümü',
+  resolveButton: 'Çözüldü',
+  dismissButton: 'Reddet',
+  reportedQuestion: 'Soru',
+  reporterLabel: 'Bildiren',
+  noReports: 'Bildirim yok.',
+  noAudit: 'Denetim kaydı yok.',
+  prevPage: '← Önceki',
+  nextPage: 'Sonraki →',
+  pageInfo: (page: number, total: number, count: number) => `Sayfa ${page}/${total} (toplam ${count})`
+};
+
+export const t = getLang() === 'tr' ? tr : az;

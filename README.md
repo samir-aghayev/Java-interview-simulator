@@ -26,6 +26,11 @@ through the admin panel without any schema changes.
 - **Soft delete for questions** — deactivated questions leave the quiz pool but past results
   keep their integrity; questions can be restored
 - **Dark mode** — animated toggle, persisted per browser
+- **Two UI languages** — Azerbaijani and Turkish (AZ/TR toggle, persisted per browser); questions
+  are served in the selected language when a translation exists, falling back to the original.
+  The first 100 questions (OOP, String, Collections, Exceptions, Stream & Lambda) ship with
+  hand-written Turkish translations; more are added incrementally via the
+  `question_translation` / `question_option_translation` tables
 
 ## Tech stack
 
@@ -106,8 +111,8 @@ backend and the Vite dev server side by side — Vite proxies `/api` to `localho
 cd frontend && npm install && npm run dev   # http://localhost:5173
 ```
 
-All UI strings are centralized in `frontend/src/i18n/strings.ts`, ready for additional
-languages (Turkish support is planned).
+All UI strings are centralized in `frontend/src/i18n/strings.ts` with Azerbaijani and Turkish
+maps; the language choice is stored in `localStorage` and applied on reload.
 
 ## API
 
@@ -126,8 +131,8 @@ Auth endpoints are rate-limited to 10 attempts per minute per IP.
 | Method | Path | Description |
 |---|---|---|
 | GET | `/api/meta/topics` | `[{subject, topics[]}]` — active subjects and their topics |
-| POST | `/api/quiz/start` | `{questionCount, subject?, topics?}` → random questions from the filtered pool, excluding the user's mastered questions; options are `{index, text}` pairs freshly shuffled per request (`index` is the canonical authoring index) |
-| POST | `/api/quiz/submit` | `{answers: [{questionId, selectedIndex, perceivedDifficulty}]}` → score, correct answers, weak topics, per-question details |
+| POST | `/api/quiz/start` | `{questionCount, subject?, topics?, locale?}` → random questions from the filtered pool, excluding the user's mastered questions; options are `{index, text}` pairs freshly shuffled per request (`index` is the canonical authoring index); `locale` (`az`/`tr`) serves translated text where available |
+| POST | `/api/quiz/submit` | `{answers: [{questionId, selectedIndex, perceivedDifficulty}], locale?}` → score, correct answers, weak topics, per-question details |
 | GET | `/api/stats/weak` | Per-topic accuracy across the current user's sessions |
 | GET | `/api/stats/progress` | Session history and average score |
 | POST | `/api/reports` | `{questionId, message}` — flag a wrong question/answer |

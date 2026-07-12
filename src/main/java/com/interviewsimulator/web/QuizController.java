@@ -32,13 +32,13 @@ public class QuizController {
     public QuizStartResponse start(@AuthenticationPrincipal AuthenticatedUser principal, @RequestBody QuizStartRequest request) {
         int count = request.questionCount() != null ? Math.max(0, request.questionCount()) : DEFAULT_QUESTION_COUNT;
         return new QuizStartResponse(interviewService.pickRandomQuestions(principal.id(), count,
-                request.subject(), request.topics()));
+                request.subject(), request.topics(), request.locale()));
     }
 
     @PostMapping("/api/quiz/submit")
     public GradeResponse submit(@AuthenticationPrincipal AuthenticatedUser principal, @RequestBody QuizSubmitRequest request) {
         List<AnswerSubmissionDto> answers = request.answers() != null ? request.answers() : List.of();
-        return interviewService.grade(principal.id(), answers);
+        return interviewService.grade(principal.id(), answers, request.locale());
     }
 
     @GetMapping("/api/stats/weak")

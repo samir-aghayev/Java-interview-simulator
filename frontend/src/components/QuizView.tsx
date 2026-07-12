@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { api, ApiError } from '../api/client';
-import { t } from '../i18n/strings';
+import { getLang, t } from '../i18n/strings';
 import type { GradeResponse, Question, QuizStartResponse, SubjectTopics } from '../types';
 import ReportModal from './ReportModal';
 
@@ -44,7 +44,7 @@ export default function QuizView() {
     setError('');
     setLoading(true);
     try {
-      const body: Record<string, unknown> = { questionCount: count };
+      const body: Record<string, unknown> = { questionCount: count, locale: getLang() };
       if (subject && selectedTopics.length > 0) {
         body.topics = selectedTopics;
       } else if (subject) {
@@ -74,6 +74,7 @@ export default function QuizView() {
     setLoading(true);
     try {
       const payload = {
+        locale: getLang(),
         answers: questions.map(q => ({
           questionId: q.id,
           selectedIndex: answers[q.id] ?? -1,

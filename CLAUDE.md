@@ -1,10 +1,17 @@
 # Project conventions
 
+## Roadmap priority (owner decision, 2026-07-12)
+
+1. Turkish language support (UI + question translations)
+2. Question banks for new subjects (SQL, frontend, data analysis, AI, Excel, SAP, math)
+3. Optional features (Google OAuth, password reset, leaderboard, JUnit tests)
+4. Java 25 upgrade (see below) — **deprioritized to last by the owner**
+
 ## Java version policy
 
-**Minimum Java 25** for all future work (owner requirement, 2026-07).
+**Minimum Java 25** (owner requirement, 2026-07) — scheduled as roadmap item 4, not before.
 
-The codebase currently targets Java 21. The first task of the next work phase is the upgrade:
+The codebase currently targets Java 21. The upgrade steps:
 
 1. Gradle wrapper → 9.x (`gradle/wrapper/gradle-wrapper.properties`, Java 25 toolchains need Gradle 9+)
 2. Spring Boot → 3.5.x or newer (Java 25 support)

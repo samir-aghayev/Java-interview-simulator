@@ -5,6 +5,7 @@ import AuthPage from './components/AuthPage';
 import MainPage from './components/MainPage';
 import AdminPage from './components/admin/AdminPage';
 import DarkModeToggle from './components/DarkModeToggle';
+import LanguageToggle from './components/LanguageToggle';
 
 function RequireAuth({ children }: { children: ReactNode }) {
   const { isAuthenticated } = useAuth();
@@ -21,6 +22,7 @@ export default function App() {
   return (
     <>
       <DarkModeToggle />
+      <LanguageToggle />
       <Routes>
         <Route path="/login" element={<AuthPage />} />
         <Route

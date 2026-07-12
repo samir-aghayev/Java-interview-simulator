@@ -2,5 +2,5 @@ package com.interviewsimulator.dto;
 
 import java.util.List;
 
-public record QuizStartRequest(Integer questionCount, String subject, List<String> topics) {
+public record QuizStartRequest(Integer questionCount, String subject, List<String> topics, String locale) {
 }
