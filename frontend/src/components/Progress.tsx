@@ -23,14 +23,14 @@ export default function Progress() {
         <>
           <div className="score-summary">
             <div className="stat-tile">
-              <div className="value">{data.averageScore}</div>
-              <div className="label">{t.averageScore}</div>
+              <div className="value">{data.averagePercent}%</div>
+              <div className="label">{t.averagePercent}</div>
             </div>
-            {typeof data.improvement === 'number' && (
+            {typeof data.improvementPercent === 'number' && (
               <div className="stat-tile">
                 <div className="value">
-                  {data.improvement >= 0 ? '+' : ''}
-                  {data.improvement}
+                  {data.improvementPercent >= 0 ? '+' : ''}
+                  {data.improvementPercent}%
                 </div>
                 <div className="label">{t.improvement}</div>
               </div>
@@ -42,6 +42,7 @@ export default function Progress() {
                 <th>{t.dateColumn}</th>
                 <th>{t.scoreColumn}</th>
                 <th>{t.correctColumn}</th>
+                <th>{t.percentColumn}</th>
               </tr>
             </thead>
             <tbody>
@@ -52,6 +53,7 @@ export default function Progress() {
                   <td>
                     {s.correctAnswers}/{s.totalQuestions}
                   </td>
+                  <td>{s.percent}%</td>
                 </tr>
               ))}
             </tbody>

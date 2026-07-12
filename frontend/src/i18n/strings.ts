@@ -94,11 +94,12 @@ export const t = {
   noHistory: 'Müsahibə tarixçəsi tapılmadı.',
   weakHint: 'Diqqət yetirməli olduğunuz mövzular ⚠ işarəsi ilə göstərilib.',
   progressTitle: 'İnkişaf statistikası',
-  averageScore: 'Orta bal',
+  averagePercent: 'Orta göstərici',
   improvement: 'İlk→son dəyişmə',
   dateColumn: 'Tarix',
   scoreColumn: 'Bal',
   correctColumn: 'Düzgün',
+  percentColumn: 'Faiz',
 
   // Admin
   adminTitle: 'Admin Panel',

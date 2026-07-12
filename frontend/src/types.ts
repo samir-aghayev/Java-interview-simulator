@@ -45,12 +45,13 @@ export interface SessionSummary {
   score: number;
   correctAnswers: number;
   totalQuestions: number;
+  percent: number;
 }
 
 export interface ProgressResponse {
   sessions: SessionSummary[];
-  averageScore: number;
-  improvement: number | null;
+  averagePercent: number;
+  improvementPercent: number | null;
 }
 
 export interface AuthUser {

@@ -103,11 +103,15 @@ public class InterviewService {
         List<String> weakTopics = new ArrayList<>(findWeakTopics(topicCorrect, topicTotal));
         int total = submissions.size();
 
-        UserEntity user = userRepository.getReferenceById(userId);
-        InterviewSessionEntity session = new InterviewSessionEntity(user, total, correctAnswers, score);
-        topicTotal.forEach((topic, totalCount) ->
-                session.addTopicStat(topic, topicCorrect.getOrDefault(topic, 0), totalCount));
-        sessionRepository.save(session);
+        // Boş cavab siyahısı statistikaya sessiya kimi yazılmır — 0/0-lıq sessiyalar
+        // orta göstəricini süni şəkildə aşağı salardı.
+        if (total > 0) {
+            UserEntity user = userRepository.getReferenceById(userId);
+            InterviewSessionEntity session = new InterviewSessionEntity(user, total, correctAnswers, score);
+            topicTotal.forEach((topic, totalCount) ->
+                    session.addTopicStat(topic, topicCorrect.getOrDefault(topic, 0), totalCount));
+            sessionRepository.save(session);
+        }
 
         return new GradeResponse(total, correctAnswers, score, weakTopics, details);
     }
@@ -146,15 +150,29 @@ public class InterviewService {
         List<SessionSummaryDto> sessionList = new ArrayList<>();
         for (InterviewSessionEntity session : candidateSessions) {
             sessionList.add(new SessionSummaryDto(session.getDateTime().format(DATE_FORMAT), session.getScore(),
-                    session.getCorrectAnswers(), session.getTotalQuestions()));
+                    session.getCorrectAnswers(), session.getTotalQuestions(), sessionPercent(session)));
         }
 
-        double averageScore = candidateSessions.stream().mapToInt(InterviewSessionEntity::getScore).average().orElse(0);
-        Integer improvement = candidateSessions.size() > 1
-                ? candidateSessions.get(candidateSessions.size() - 1).getScore() - candidateSessions.get(0).getScore()
+        // Orta göstərici: sessiyaların düzgün cavab faizlərinin ortalaması. Xam balların
+        // ortalaması sual sayından/çətinlikdən asılı olduğu üçün müqayisəyə yararsızdır.
+        double averagePercent = candidateSessions.stream().mapToDouble(this::sessionPercent).average().orElse(0);
+        Double improvementPercent = candidateSessions.size() > 1
+                ? round1(sessionPercent(candidateSessions.get(candidateSessions.size() - 1))
+                        - sessionPercent(candidateSessions.get(0)))
                 : null;
 
-        return new ProgressResponse(sessionList, Math.round(averageScore * 10) / 10.0, improvement);
+        return new ProgressResponse(sessionList, round1(averagePercent), improvementPercent);
+    }
+
+    private double sessionPercent(InterviewSessionEntity session) {
+        if (session.getTotalQuestions() == 0) {
+            return 0;
+        }
+        return round1(100.0 * session.getCorrectAnswers() / session.getTotalQuestions());
+    }
+
+    private double round1(double value) {
+        return Math.round(value * 10) / 10.0;
     }
 
     private QuestionDto toDto(QuestionEntity question) {
