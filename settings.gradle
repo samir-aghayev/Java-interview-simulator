@@ -1,1 +1,6 @@
+plugins {
+    // JDK 21 maşında yoxdursa, Gradle onu avtomatik endirsin
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.8.0'
+}
+
 rootProject.name = 'interview-simulator'

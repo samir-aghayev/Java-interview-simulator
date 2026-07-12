@@ -39,6 +39,13 @@ through the admin panel without any schema changes.
 
 ## Quick start
 
+### Prerequisites
+
+- **Java 17+** on your PATH to launch Gradle (the build itself auto-downloads **JDK 21** via the
+  Foojay toolchain resolver if it's not installed)
+- **Node.js 18+** (`npm` must be on your PATH) — used to build the React frontend
+- **PostgreSQL** running locally (any recent version)
+
 1. Create the database and user (once):
 
    ```sql
@@ -50,14 +57,33 @@ through the admin panel without any schema changes.
 2. Run the application (Liquibase migrations run automatically and seed the question bank;
    the React frontend is built by Gradle via npm and packaged into the jar):
 
+   Linux / macOS:
+
    ```bash
    ADMIN_EMAIL=admin@example.com ADMIN_PASSWORD=change-me ./gradlew bootRun
+   ```
+
+   Windows (PowerShell):
+
+   ```powershell
+   $env:ADMIN_EMAIL="admin@example.com"; $env:ADMIN_PASSWORD="change-me"; .\gradlew.bat bootRun
    ```
 
    `ADMIN_EMAIL`/`ADMIN_PASSWORD` bootstrap the first admin account: if the email exists it is
    promoted to ADMIN, otherwise the account is created.
 
 3. Open http://localhost:8080
+
+### Troubleshooting
+
+| Symptom | Fix |
+|---|---|
+| `Cannot run program "npm"` / `npm: command not found` | Install Node.js 18+ and reopen the terminal so `npm` is on PATH |
+| `No matching toolchains found for Java 21` | Pull the latest code (the Foojay resolver auto-downloads JDK 21), or install JDK 21 manually |
+| `Connection to localhost:5432 refused` | PostgreSQL is not running — start the service |
+| `FATAL: password authentication failed for user "interview_app"` | Re-run the `CREATE USER` / `GRANT` statements from step 1, or set `DB_USER`/`DB_PASSWORD` |
+| `FATAL: database "interview_simulator" does not exist` | Run the `CREATE DATABASE` statement from step 1 |
+| Liquibase error `permission denied for schema public` (PostgreSQL 15+) | Run `GRANT ALL ON SCHEMA public TO interview_app;` inside the `interview_simulator` database |
 
 ### Configuration (environment variables)
 
