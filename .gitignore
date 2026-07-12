@@ -2,3 +2,6 @@ out/
 *.class
 .idea/
 *.iml
+build/
+.gradle/
+!gradle/wrapper/gradle-wrapper.jar

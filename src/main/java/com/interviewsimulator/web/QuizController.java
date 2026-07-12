@@ -1,0 +1,47 @@
+package com.interviewsimulator.web;
+
+import com.interviewsimulator.dto.GradeResponse;
+import com.interviewsimulator.dto.ProgressResponse;
+import com.interviewsimulator.dto.QuizStartRequest;
+import com.interviewsimulator.dto.QuizStartResponse;
+import com.interviewsimulator.dto.QuizSubmitRequest;
+import com.interviewsimulator.dto.WeakTopicsResponse;
+import com.interviewsimulator.service.InterviewService;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class QuizController {
+
+    private static final int DEFAULT_QUESTION_COUNT = 10;
+
+    private final InterviewService interviewService;
+
+    public QuizController(InterviewService interviewService) {
+        this.interviewService = interviewService;
+    }
+
+    @PostMapping("/api/quiz/start")
+    public QuizStartResponse start(@RequestBody QuizStartRequest request) {
+        int count = request.questionCount() != null ? request.questionCount() : DEFAULT_QUESTION_COUNT;
+        return new QuizStartResponse(interviewService.pickRandomQuestions(request.candidateName(), count));
+    }
+
+    @PostMapping("/api/quiz/submit")
+    public GradeResponse submit(@RequestBody QuizSubmitRequest request) {
+        return interviewService.grade(request.candidateName(), request.answers());
+    }
+
+    @GetMapping("/api/stats/weak")
+    public WeakTopicsResponse weak(@RequestParam("candidate") String candidateName) {
+        return interviewService.weakTopicsSummary(candidateName);
+    }
+
+    @GetMapping("/api/stats/progress")
+    public ProgressResponse progress(@RequestParam("candidate") String candidateName) {
+        return interviewService.progressSummary(candidateName);
+    }
+}

@@ -1,0 +1,86 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-init-schema
+      author: interview-simulator
+      changes:
+        - createTable:
+            tableName: question
+            columns:
+              - column: {name: id, type: UUID, constraints: {primaryKey: true, nullable: false}}
+              - column: {name: topic, type: VARCHAR(255), constraints: {nullable: false}}
+              - column: {name: text, type: TEXT, constraints: {nullable: false}}
+              - column: {name: difficulty, type: VARCHAR(20), constraints: {nullable: false}}
+
+        - createTable:
+            tableName: question_option
+            columns:
+              - column: {name: id, type: UUID, constraints: {primaryKey: true, nullable: false}}
+              - column: {name: question_id, type: UUID, constraints: {nullable: false}}
+              - column: {name: position, type: INT, constraints: {nullable: false}}
+              - column: {name: option_text, type: TEXT, constraints: {nullable: false}}
+              - column: {name: is_correct, type: BOOLEAN, constraints: {nullable: false}}
+        - addForeignKeyConstraint:
+            baseTableName: question_option
+            baseColumnNames: question_id
+            referencedTableName: question
+            referencedColumnNames: id
+            constraintName: fk_question_option_question
+            onDelete: CASCADE
+        - createIndex:
+            tableName: question_option
+            indexName: idx_question_option_question_id
+            columns:
+              - column: {name: question_id}
+
+        - createTable:
+            tableName: interview_session
+            columns:
+              - column: {name: id, type: UUID, constraints: {primaryKey: true, nullable: false}}
+              - column: {name: candidate_name, type: VARCHAR(255), constraints: {nullable: false}}
+              - column: {name: date_time, type: TIMESTAMP, constraints: {nullable: false}}
+              - column: {name: total_questions, type: INT, constraints: {nullable: false}}
+              - column: {name: correct_answers, type: INT, constraints: {nullable: false}}
+              - column: {name: score, type: INT, constraints: {nullable: false}}
+        - createIndex:
+            tableName: interview_session
+            indexName: idx_interview_session_candidate
+            columns:
+              - column: {name: candidate_name}
+
+        - createTable:
+            tableName: session_topic_stat
+            columns:
+              - column: {name: id, type: UUID, constraints: {primaryKey: true, nullable: false}}
+              - column: {name: session_id, type: UUID, constraints: {nullable: false}}
+              - column: {name: topic, type: VARCHAR(255), constraints: {nullable: false}}
+              - column: {name: correct_count, type: INT, constraints: {nullable: false}}
+              - column: {name: total_count, type: INT, constraints: {nullable: false}}
+        - addForeignKeyConstraint:
+            baseTableName: session_topic_stat
+            baseColumnNames: session_id
+            referencedTableName: interview_session
+            referencedColumnNames: id
+            constraintName: fk_session_topic_stat_session
+            onDelete: CASCADE
+        - addUniqueConstraint:
+            tableName: session_topic_stat
+            columnNames: session_id, topic
+            constraintName: uq_session_topic_stat
+
+        - createTable:
+            tableName: mastered_question
+            columns:
+              - column: {name: id, type: UUID, constraints: {primaryKey: true, nullable: false}}
+              - column: {name: candidate_name, type: VARCHAR(255), constraints: {nullable: false}}
+              - column: {name: question_id, type: UUID, constraints: {nullable: false}}
+        - addForeignKeyConstraint:
+            baseTableName: mastered_question
+            baseColumnNames: question_id
+            referencedTableName: question
+            referencedColumnNames: id
+            constraintName: fk_mastered_question_question
+            onDelete: CASCADE
+        - addUniqueConstraint:
+            tableName: mastered_question
+            columnNames: candidate_name, question_id
+            constraintName: uq_mastered_question

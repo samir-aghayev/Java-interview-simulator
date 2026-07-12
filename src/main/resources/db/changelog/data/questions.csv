@@ -1,0 +1,1001 @@
+id,topic,text,difficulty
+874f6344-d6c1-463e-af68-44b3488d1171,"OOP","Java-da hansı açar söz bir sinifin başqa sinifdən miras almasını təmin edir?",EASY
+f16e621b-8aed-4ccd-ac8a-06824bbf7b64,"OOP","Aşağıdakılardan hansı Java-da çoxvarislik (multiple inheritance) əldə etmək üçün istifadə olunur?",MEDIUM
+c6ceaa95-ad71-4a9d-a68c-235c79e83f4c,"OOP","Encapsulation (inkapsulyasiya) nəyi ifadə edir?",EASY
+c2dd4038-fdaf-4595-80f2-30a4bdafaf5b,"OOP","Java-da 'this' açar sözü nə üçün istifadə olunur?",EASY
+c81b1891-ef0c-4743-bded-ae3a3b20b5aa,"OOP","Polymorphism (çoxformalılıq) Java-da necə əldə edilir?",MEDIUM
+c9008e25-dd7b-440d-9e6c-0c018a7c50db,"OOP","Abstract class ilə interface arasındakı əsas fərq nədir (Java 8-ə qədər)?",MEDIUM
+75957d4a-9f2c-48ca-ad9a-478abd900396,"OOP","Constructor overloading nə deməkdir?",EASY
+86e8e2b0-272c-452b-866f-00a35852d313,"OOP","Java-da 'super' açar sözü nə üçün istifadə olunur?",EASY
+7cb14be2-dc51-4535-a1b0-9e43e443897f,"OOP","Java-da 'instanceof' operatoru nə üçün istifadə olunur?",EASY
+9c54af88-14e8-4309-80aa-abf2d2e81e19,"OOP","Composition (kompozisiya) inheritance-dan nə ilə fərqlənir?",MEDIUM
+fc704fbe-b8e2-41a4-847b-8025e35e76e0,"OOP","Method overloading və method overriding arasındakı fərq nədir?",EASY
+d6c22c0b-b44b-4c5e-afe5-1b994d8997a6,"OOP","Java-da bütün siniflər hansı sinifdən miras alır?",EASY
+c5b17820-9182-4f1c-8955-5fe5b11e164a,"OOP","Abstract metod nə deməkdir?",EASY
+29496ef9-6bf4-4311-9c96-82dcdddd0f92,"OOP","Java-da 'final' sinif nə deməkdir?",EASY
+534149da-4afc-4ae9-8627-47eb31b2812c,"OOP","Interface-də default metod (Java 8+) nəyə imkan verir?",MEDIUM
+b4a83a4a-275f-4a1d-9a23-11401a4f27bf,"OOP","Aggregation və Composition arasındakı fərq nədir?",MEDIUM
+bb5963c3-5dcb-44fa-9193-4dff756bf63d,"OOP","Java-da konstruktor override edilə bilərmi?",MEDIUM
+f5c88150-6e3e-4039-bf66-23ed1ee94657,"OOP","Static metod polymorphism-ə (runtime) tabedirmi?",HARD
+fd9ca9b7-1c69-48c7-816f-971b48e13600,"OOP","Marker interface nədir (məs. Serializable)?",MEDIUM
+2078cf02-f3f7-4a90-957b-4bf990772a0d,"OOP","Java-da 'protected' access modifier nəyə icazə verir?",MEDIUM
+083b2df5-ecf0-4381-947a-494665fdd0aa,"SOLID Prinsipləri","Single Responsibility Principle (SRP) nəyi ifadə edir?",MEDIUM
+f8641315-0457-4fdb-8e94-dddae0d43d0e,"SOLID Prinsipləri","Open/Closed Principle nə deməkdir?",MEDIUM
+1451ae88-f0f9-4532-8d4a-33bd71df9804,"SOLID Prinsipləri","Liskov Substitution Principle nəyi tələb edir?",HARD
+99d5a536-614c-4f26-95c4-153974df3f20,"SOLID Prinsipləri","Interface Segregation Principle nəyi tövsiyə edir?",MEDIUM
+846dd111-fb10-41ae-866d-05746d1d8c69,"SOLID Prinsipləri","Dependency Inversion Principle nəyi ifadə edir?",HARD
+d97ead7f-106a-4352-aadc-b1d2272bd293,"SOLID Prinsipləri","SOLID prinsiplərinin əsas məqsədi nədir?",EASY
+ed482394-2c4b-4778-a892-fc39fe290398,"SOLID Prinsipləri","SOLID-in 'S' hərfi nəyi bildirir?",EASY
+bb4c590c-471e-4e5f-af6a-761cb63549c8,"SOLID Prinsipləri","Dependency Injection SOLID-in hansı prinsipi ilə birbaşa bağlıdır?",MEDIUM
+d5386923-0a20-468b-bef2-0bd864f3e7dd,"SOLID Prinsipləri","SOLID-in 'O' hərfi hansı prinsipi bildirir?",EASY
+9a47bb22-f794-434f-aa1d-05497a9970cf,"SOLID Prinsipləri","Liskov Substitution Principle pozulduqda adətən nə baş verir?",MEDIUM
+88679912-740e-4c3b-a2db-5bb4ab564e45,"SOLID Prinsipləri","SOLID-in 'I' hərfi hansı prinsipi bildirir?",EASY
+cbd7625d-bd28-4ede-a680-45d698790bf3,"SOLID Prinsipləri","SOLID-in 'L' hərfi hansı prinsipi bildirir?",EASY
+f1c5df34-b647-4f4f-a752-41967a41deb2,"SOLID Prinsipləri","SOLID-in 'D' hərfi hansı prinsipi bildirir?",EASY
+3866f185-857d-4141-ac06-8211b22fde9f,"SOLID Prinsipləri","Open/Closed Principle-i həyata keçirmək üçün adətən hansı texnikadan istifadə olunur?",MEDIUM
+28d8c2e5-ef6e-4947-9956-e6b323f07688,"SOLID Prinsipləri","Single Responsibility Principle pozulduqda ən çox hansı problem yaranır?",MEDIUM
+842f7fc1-f87a-453b-b47b-100eb0ae5afd,"SOLID Prinsipləri","Interface Segregation Principle-i pozan koda nümunə hansıdır?",MEDIUM
+2c4076a8-156f-4647-a386-1da5cd3ecf88,"SOLID Prinsipləri","Dependency Inversion Principle-i tətbiq etmək üçün Spring-də nədən istifadə olunur?",MEDIUM
+bd8b38fa-f2cd-469d-a11b-48969b26dae6,"SOLID Prinsipləri","SOLID prinsipləri hansı proqramlaşdırma paradiqmasına aiddir?",EASY
+6b5a5a17-6e9a-4f6a-8a07-dbf00f472405,"SOLID Prinsipləri","Liskov Substitution Principle-i pozan tipik nümunə hansıdır?",HARD
+6d2bbc81-f342-4234-a99e-fc0c8abfd89d,"SOLID Prinsipləri","SOLID prinsiplərini kim təklif edib?",EASY
+d26cad88-609b-4a0b-8fcc-c4f47f00b56c,"Dizayn Şablonları","Singleton dizayn şablonu nəyi təmin edir?",EASY
+87ef7615-1446-4252-b2a7-ba7488b7ef8c,"Dizayn Şablonları","Factory Method şablonunun məqsədi nədir?",MEDIUM
+39f61544-9a2b-4c3f-90ab-2e9419242e84,"Dizayn Şablonları","Observer dizayn şablonu nə üçün istifadə olunur?",MEDIUM
+023eecc8-d771-4727-97d6-902fee5a909b,"Dizayn Şablonları","Builder dizayn şablonu hansı problemi həll edir?",MEDIUM
+08b2d72b-9ae6-44ec-84d7-2b49956c9ceb,"Dizayn Şablonları","Strategy dizayn şablonu nəyi təmin edir?",MEDIUM
+1b9984a8-c4ed-4c79-95fc-ea6c4f907b1a,"Dizayn Şablonları","Decorator dizayn şablonu nə edir?",HARD
+62384ca2-ed89-424c-9851-de07a5ecffb8,"Dizayn Şablonları","Adapter dizayn şablonu nə üçün istifadə olunur?",MEDIUM
+89ed2255-e9d6-4408-b1a9-82cef5353641,"Dizayn Şablonları","Dependency Injection dizayn şablonunun əsas faydası nədir?",MEDIUM
+a1062f37-7f84-4886-b529-4134c1fef556,"Dizayn Şablonları","Facade dizayn şablonu nə edir?",MEDIUM
+8dd37cab-86b2-4f42-8feb-29c276194655,"Dizayn Şablonları","Command dizayn şablonu nəyi encapsulate edir?",HARD
+e978adee-1864-404e-a414-2e7a5c5defad,"Dizayn Şablonları","Dizayn şablonları hansı üç əsas kateqoriyaya bölünür?",MEDIUM
+b59b21e2-64e6-4b9a-9ceb-f92038cb7592,"Dizayn Şablonları","Prototype dizayn şablonu nə edir?",MEDIUM
+055ea08e-d72a-4d80-bfae-6e0f99b953c1,"Dizayn Şablonları","Proxy dizayn şablonu nə üçün istifadə olunur?",HARD
+505ea324-1820-4733-8b18-1a9681182180,"Dizayn Şablonları","Template Method dizayn şablonu nəyi təyin edir?",HARD
+f4c50d7b-7598-4a85-a035-d1edb960e2a9,"Dizayn Şablonları","Chain of Responsibility dizayn şablonu nə edir?",HARD
+bb035698-97d3-4f8b-99c8-eee31e5e1730,"Dizayn Şablonları","State dizayn şablonu nə üçün istifadə olunur?",HARD
+f39f5e47-8bf4-444c-bb18-b1595885ce93,"Dizayn Şablonları","Abstract Factory dizayn şablonu Factory Method-dan nə ilə fərqlənir?",HARD
+8c749f3b-7578-4749-bb50-0f54c14f2880,"Dizayn Şablonları","Anti-pattern nə deməkdir?",MEDIUM
+fab1d713-8ac1-4bdb-905f-81c5b78bb258,"Dizayn Şablonları","Composite dizayn şablonu nə edir?",HARD
+4c698f2e-f7a9-4353-b2a3-c76e2baac26b,"Dizayn Şablonları","Dizayn şablonlarından istifadənin əsas faydası nədir?",EASY
+ebb7af7e-4d7e-4878-8f47-7ac917c67ec2,"Object Sinifinin Metodları","Java-da hər sinif hansı sinifin metodlarını irsən alır?",EASY
+81d1c542-7c2e-47bd-a219-f3326d360ef0,"Object Sinifinin Metodları","equals() metodunu override edərkən hansı metodu da override etmək tövsiyə olunur?",MEDIUM
+25f3e62b-0d86-4b9f-9206-fa20afc57d94,"Object Sinifinin Metodları","hashCode() və equals() kontraktına görə, əgər iki obyekt equals() ilə bərabərdirsə, nə olmalıdır?",MEDIUM
+49f56237-a66e-4c60-89e1-f001afa742ad,"Object Sinifinin Metodları","toString() metodunun default implementasiyası nə qaytarır?",EASY
+89151d7c-60b6-4f2d-b2a9-372ee3a6003b,"Object Sinifinin Metodları","clone() metodunu istifadə etmək üçün sinif hansı interfeysi implement etməlidir?",MEDIUM
+3fdedc82-bc27-40ca-92f4-9e8c49b08989,"Object Sinifinin Metodları","getClass() metodu nə qaytarır?",EASY
+447667b0-31f8-4c9e-b1fe-ec76dad3ddc4,"Object Sinifinin Metodları","equals() metodu override edilmədikdə default davranış nədir?",EASY
+7ddb8828-e7c4-4cc3-aaee-1e57c41ab426,"Object Sinifinin Metodları","Niyə equals() metodunda 'instanceof' və ya getClass() müqayisəsi istifadə olunur?",MEDIUM
+0ff0f1cc-6858-4214-a423-685568562e92,"Object Sinifinin Metodları","finalize() metodu nə üçün nəzərdə tutulmuşdu (indi deprecated)?",HARD
+3e428b5c-d7c7-455c-972e-455813e4a61b,"Object Sinifinin Metodları","Records (Java 14+) equals(), hashCode() və toString() metodlarını necə təmin edir?",MEDIUM
+5ff9fbcb-2faf-4f42-b948-f5ae2d72fc32,"Object Sinifinin Metodları","Object sinifinin wait(), notify(), notifyAll() metodları nə üçündür?",HARD
+8e5e959b-a0bf-43e1-9e0d-464836b02a79,"Object Sinifinin Metodları","İki obyektin '==' ilə bərabər olması nə deməkdir?",EASY
+f895c79b-ab54-4f5e-9274-433d6a36b813,"Object Sinifinin Metodları","Comparable interfeysindəki compareTo() metodu nəyi qaytarır?",MEDIUM
+8702f8c6-84af-480c-b297-f528253e36b5,"Object Sinifinin Metodları","Immutable sinifdə equals() və hashCode() niyə xüsusilə vacibdir (məs. HashMap açarı kimi istifadə üçün)?",MEDIUM
+13390ce9-935c-44f9-943b-2702ae63a3cb,"Object Sinifinin Metodları","Object.equals() metodunun kontraktına aid olmayan xassə hansıdır?",MEDIUM
+3a849da7-00cf-43cc-aa59-9cad28825c8c,"Object Sinifinin Metodları","toString() metodunu override etməyin əsas faydası nədir?",EASY
+be06fe2d-8bd2-4a72-8067-e49f610bfe5c,"Object Sinifinin Metodları","Bir sinifi HashSet-də düzgün işlətmək üçün nəyi təmin etmək lazımdır?",MEDIUM
+40300b07-3e8b-4384-b223-349c158327c3,"Object Sinifinin Metodları","Records-un komponentləri (fields) default olaraq necədir?",MEDIUM
+81645c7f-d61d-4f4c-88f5-8dc653fcf654,"Object Sinifinin Metodları","Object sinifinin hashCode() metodunun default implementasiyası nəyə əsaslanır (əksər JVM-lərdə)?",MEDIUM
+f082c930-0f8e-49ea-adda-2ad33bf915c1,"Object Sinifinin Metodları","Niyə mutable obyektləri HashMap açarı kimi istifadə etmək təhlükəlidir?",HARD
+e868306c-5f13-48e8-9774-7aa0f6fdd695,"Immutability Dizaynı","Immutable obyekt nə deməkdir?",EASY
+a58b32c4-2f2f-48f4-8e96-621e80103c0d,"Immutability Dizaynı","Java-da immutable sinif yaratmaq üçün hansı addımlar tələb olunur?",MEDIUM
+e2491000-6781-48fd-be4d-e6653c5f4aac,"Immutability Dizaynı","Immutable obyektlərin thread-safety baxımından üstünlüyü nədir?",MEDIUM
+87cb324b-ae54-4d4a-8b9e-52ef152635fd,"Immutability Dizaynı","Defensive copy (müdafiə kopyası) nə üçün istifadə olunur?",MEDIUM
+73205ab3-97ad-43e5-92e5-8310444a6d4f,"Immutability Dizaynı","Java-da hansı sinif immutable-un klassik nümunəsidir?",EASY
+c055b263-4167-4dcf-91d6-3cf486e92ea6,"Immutability Dizaynı","Immutable obyektlərin dezavantajı nə ola bilər?",MEDIUM
+518e948e-3b94-4326-874f-e2df8db6c017,"Immutability Dizaynı","Java 16+ Record-lar niyə immutability üçün əlverişlidir?",MEDIUM
+2800254b-7f20-463f-b59a-ff616504eb9e,"Immutability Dizaynı","Immutable sinifdə final açar sözünün rolu nədir?",MEDIUM
+e6d08311-3ce8-420e-9861-6080f0a1fc87,"Immutability Dizaynı","Builder pattern immutable obyektlərin yaradılmasında necə kömək edir?",MEDIUM
+5cf3cb13-cadf-4451-9e63-f044ca3a6efd,"Immutability Dizaynı","Immutable kolleksiya yaratmaq üçün Java-da hansı metoddan istifadə olunur (Java 9+)?",EASY
+4ca61b1e-561b-45fd-8246-a5efd1ea0312,"Immutability Dizaynı","Immutable obyektlər niyə HashMap açarı kimi ideal hesab olunur?",MEDIUM
+d7a28111-5251-40cb-84d8-ad8cd29e17da,"Immutability Dizaynı","'with' metodları (məs. withName()) immutable dizaynda nə üçün istifadə olunur?",MEDIUM
+5c293a6e-24bc-4b3b-be94-41ac789396cf,"Immutability Dizaynı","Immutability funksional proqramlaşdırma ilə necə əlaqəlidir?",MEDIUM
+b7b38c82-a849-4fc4-8505-0ba21aa0503d,"Immutability Dizaynı","Enum-lar niyə təbii olaraq immutable-dır?",MEDIUM
+61c65aeb-df74-40c5-8c33-a71dad152f31,"Immutability Dizaynı","Immutable sinifdə array sahəsi olduqda hansı risk var?",HARD
+30d10107-3341-4fa0-9564-7eaffb016dbd,"Immutability Dizaynı","Immutability caching (keşləmə) üçün niyə faydalıdır?",MEDIUM
+ea1faa36-1ac4-49ec-805a-54a60122c7a2,"Immutability Dizaynı","Java-da 'final' massiv (array) elan etmək massivin elementlərini immutable edirmi?",HARD
+b4397eed-e126-4a2d-8833-7af2d116aa7f,"Immutability Dizaynı","Value Object (dəyər obyekti) konsepsiyası immutability ilə necə bağlıdır?",MEDIUM
+858770ef-4753-426f-bc40-d3ba5eccb36e,"Immutability Dizaynı","Immutable obyektlər arasında paylaşılan referanslar (sharing) niyə təhlükəsizdir?",MEDIUM
+364c47ea-f905-4e44-9a60-61344edbaf84,"Immutability Dizaynı","Immutable dizaynın SOLID prinsipləri ilə əlaqəsi nədir?",HARD
+7fbca004-7bbb-47bd-8d6a-34d2b27f7d31,"Kolleksiyalar","ArrayList və LinkedList arasındakı əsas fərq nədir?",MEDIUM
+9163a4f2-318f-4281-9d9b-4a7bce962135,"Kolleksiyalar","HashMap-də açarların unikallığı necə təmin olunur?",MEDIUM
+92d792b9-62f3-4ad9-a2a8-13abca3a4bb9,"Kolleksiyalar","Hansı kolleksiya interfeysi dublikat elementlərə icazə vermir?",EASY
+835abfa7-e50c-4e8c-9d02-7816ab708939,"Kolleksiyalar","TreeMap elementləri necə saxlayır?",HARD
+85ca412c-ffbd-497c-85d0-99b7982720dc,"Kolleksiyalar","Iterator və ListIterator arasındakı fərq nədir?",MEDIUM
+dc61177e-dcac-4232-a2f1-621e1f3421a7,"Kolleksiyalar","ConcurrentModificationException nə vaxt yaranır?",HARD
+f6b0f254-a1da-405b-9f19-73f4da08ecab,"Kolleksiyalar","PriorityQueue elementləri necə sıralayır?",MEDIUM
+7a63d6b4-fd7d-4152-8592-f0944ca19bf0,"Kolleksiyalar","Collections.unmodifiableList() nə edir?",MEDIUM
+ec9890d4-0fe4-4552-b1dd-6f94146d1a22,"Kolleksiyalar","LinkedHashMap HashMap-dən nə ilə fərqlənir?",MEDIUM
+fac52381-7460-4643-877d-bad754073e2c,"Kolleksiyalar","Comparable və Comparator interfeysləri arasındakı fərq nədir?",MEDIUM
+c70852e6-cda4-4359-af4f-ef3a2d3ed256,"Kolleksiyalar","HashSet-in daxili implementasiyası nəyə əsaslanır?",MEDIUM
+4107d93c-0027-4daf-8fe4-31677511ddd6,"Kolleksiyalar","Deque interfeysi nəyi təmsil edir?",MEDIUM
+4c73befc-9ec5-4f85-8fbc-561024f831e2,"Kolleksiyalar","Vector və ArrayList arasındakı fərq nədir?",MEDIUM
+e1b56987-3110-477b-b7ee-02d6c6ed0436,"Kolleksiyalar","EnumMap nədir?",HARD
+859a6cae-6042-47e0-a8b3-ddcc1ff8d076,"Kolleksiyalar","Collections.sort() metodu hansı alqoritmdən istifadə edir (obyektlər üçün)?",HARD
+88949631-e057-4d9e-b7e2-29ad90b3338d,"Kolleksiyalar","NavigableMap interfeysi nəyi təmin edir?",HARD
+7c765927-1ab5-4da4-aae3-ae4b85841665,"Kolleksiyalar","Kolleksiyada fail-fast iterator nə deməkdir?",HARD
+7ccd3ef4-d7ef-4441-ac6c-7f113d490c58,"Kolleksiyalar","Arrays.asList() metodu ilə yaradılan List-in ölçüsü dəyişdirilə bilərmi?",HARD
+77a7a37a-257d-44e2-b05d-80a5bf2ebfce,"Kolleksiyalar","Stack sinifi hansı sinifi extend edir Java-da?",MEDIUM
+f4b0c511-afec-4faa-b92c-54b596c80393,"Kolleksiyalar","Java-da Map interfeysi Collection interfeysini extend edirmi?",MEDIUM
+06991dab-7741-40c2-9fc0-746f32b86b32,"Generics","Generics-in əsas məqsədi nədir?",MEDIUM
+8dac1b40-726b-4a61-80da-dcf655fd80f5,"Generics","'List<?>' ifadəsi nəyi bildirir?",MEDIUM
+67b0b290-9140-462b-8998-93aa1cea5237,"Generics","'<T extends Number>' bildirişi nəyi ifadə edir?",HARD
+bee2b4f1-4c67-4c13-83e4-b0263b30e744,"Generics","Type erasure nədir?",HARD
+0680da1a-4600-4326-ab2e-a0da8c8ae9b3,"Generics","Generic metod necə elan olunur?",MEDIUM
+e870a510-8c42-4028-9d12-8907cb01a6d0,"Generics","Raw type (məs. List list = new ArrayList()) istifadəsi nə üçün tövsiyə olunmur?",MEDIUM
+2035c058-150a-4dac-829b-18a34175049f,"Generics","'? super T' wildcard nəyi ifadə edir?",HARD
+1199e4ee-0ff7-4efa-b8f7-de2bc8c1db64,"Generics","Generic sinifdə statik sahə niyə generic tip parametrindən istifadə edə bilməz?",HARD
+84630dbe-bfa7-412c-b9f8-5b2c11750205,"Generics","Bounded type parameter nədir?",MEDIUM
+2be0c236-b4d0-4b84-b58f-6209ab8ffb0e,"Generics","Generic array yaratmaq (məs. new T[10]) Java-da niyə mümkün deyil?",HARD
+cadb4979-b66a-4f84-b0c3-e724531b96c8,"Generics","PECS principle (Producer Extends, Consumer Super) nəyi izah edir?",HARD
+53ce289b-edf6-4868-af20-f66362bf81c2,"Generics","Generic sinifdə birdən çox tip parametri necə istifadə olunur?",MEDIUM
+e3f2a5cd-cd28-4068-8ffe-78c9b5d9a68a,"Generics","Unbounded wildcard (<?>) nə vaxt istifadə olunur?",MEDIUM
+ed2db7c3-d79b-4130-90b1-efaa8b81042b,"Generics","Generic interfeysin implementasiyasında tip parametri necə konkretləşdirilə bilər?",MEDIUM
+443b2b75-d464-4cd2-8242-2af4e70d86c3,"Generics","Java-da generics niyə 'reified' deyil (C#-dan fərqli olaraq)?",HARD
+2597628c-c787-48d0-acf3-32fddefc93f9,"Generics","Generic metodda tip parametrini çağırış zamanı açıq şəkildə necə göstərmək olar?",HARD
+d63a68a6-5140-4819-9895-c53671b79334,"Generics","Bridge metod (bridge method) nədir?",HARD
+974fb1b2-6b37-4003-a45b-ee890e87f97d,"Generics","Generics istifadə etməklə hansı runtime xətasının qarşısı compile zamanı alınır?",MEDIUM
+fffe646d-3e17-45d0-b719-633769fa9ae2,"Generics","Diamond operator (<>) Java 7+-da nəyə imkan verir?",EASY
+3698438e-f4a9-4017-9272-bb6ab490c609,"Generics","Generic sinifin instansiyasında tip parametri üçün primitiv tip (məs. int) istifadə oluna bilərmi?",MEDIUM
+e19db565-068b-41f5-a91a-a2b5f4193049,"Verilənlər Strukturları","Massiv (array) və List arasındakı əsas fərq nədir?",EASY
+11908518-e104-49be-8b5e-df2d61fc0224,"Verilənlər Strukturları","Stack (yığın) verilənlər strukturu hansı prinsiplə işləyir?",EASY
+99978309-d288-4ce0-aa28-b5e11bb88bc2,"Verilənlər Strukturları","Queue (növbə) verilənlər strukturu hansı prinsiplə işləyir?",EASY
+771c8eab-02f5-4745-9619-a77d74754655,"Verilənlər Strukturları","Linked List-in Array-dən üstünlüyü nədir?",MEDIUM
+91f1b53f-e7ae-45d0-847c-fc92e6b4414e,"Verilənlər Strukturları","Binary Tree-də hər node-un maksimum neçə uşağı ola bilər?",EASY
+b609209a-a2bd-4edb-a43b-7e5c405e03e8,"Verilənlər Strukturları","Hash table-də collision (toqquşma) nə vaxt baş verir?",MEDIUM
+2a5ed77a-6da2-4352-81d7-6e59f5240cc4,"Verilənlər Strukturları","Graph (qraf) verilənlər strukturunda 'node' və 'edge' nəyi ifadə edir?",EASY
+18e49a91-5cfd-4691-bc3e-2ce9aa517557,"Verilənlər Strukturları","Trie (prefix tree) verilənlər strukturu ən çox nə üçün istifadə olunur?",HARD
+663f5a64-7dad-4875-b6f6-750d6b8daf09,"Verilənlər Strukturları","Heap verilənlər strukturunun əsas xüsusiyyəti nədir?",MEDIUM
+f2fa08d2-e9ea-4089-820d-c25097e58139,"Verilənlər Strukturları","Dynamic Array (məs. ArrayList) tutumu (capacity) dolduqda nə baş verir?",MEDIUM
+d2e316c0-8db9-417a-84ca-e22ce2293dbe,"Verilənlər Strukturları","Circular Linked List adi Linked List-dən nə ilə fərqlənir?",MEDIUM
+2393bdb5-0a95-43b9-98b7-fd51375e2872,"Verilənlər Strukturları","Doubly Linked List-in üstünlüyü Singly Linked List-ə görə nədir?",MEDIUM
+a54446aa-b628-4f72-a988-a6dff639c238,"Verilənlər Strukturları","Balanced Binary Search Tree (məs. AVL, Red-Black) niyə vacibdir?",HARD
+944e205a-6765-425f-a6d7-83fff7d5a6a1,"Verilənlər Strukturları","Set verilənlər strukturunun əsas xüsusiyyəti nədir?",EASY
+09f531fd-d18d-463d-a164-30e1efc4e500,"Verilənlər Strukturları","Adjacency List qrafın təsviri üçün nə üçün istifadə olunur?",MEDIUM
+aea05f2c-6d05-48bf-8783-75be5b0505d6,"Verilənlər Strukturları","Skip List nədir?",HARD
+416b4f2c-6d7d-403c-b42c-21b26ec8123b,"Verilənlər Strukturları","LRU Cache (Least Recently Used) implementasiyası üçün adətən hansı iki struktur birləşdirilir?",HARD
+3d4bb4ab-729e-477e-bda0-4500d145bcc3,"Verilənlər Strukturları","Priority Queue-nun daxili implementasiyası ən çox hansı struktura əsaslanır?",MEDIUM
+c89281ce-5e84-4bca-b5db-00e1e5fc5b8f,"Verilənlər Strukturları","Sparse array nə deməkdir?",MEDIUM
+f7cd53ac-5418-43fc-a18b-2afff37bd867,"Verilənlər Strukturları","Tree-də 'leaf node' nəyi ifadə edir?",EASY
+43e1ab9e-acf2-433d-b475-877b5b4085f1,"Sıralama Alqoritmləri","Bubble Sort-un orta hal zaman mürəkkəbliyi nədir?",EASY
+11b09971-a0d6-40da-9f11-ef36882abc83,"Sıralama Alqoritmləri","Quick Sort-un əsas iş prinsipi nədir?",MEDIUM
+e3c7d87d-b2dc-42ed-90c9-b1e08ac65c9b,"Sıralama Alqoritmləri","Merge Sort-un zaman mürəkkəbliyi (bütün hallarda) nədir?",MEDIUM
+d859c949-82e8-483f-94a9-2635de2e4a3e,"Sıralama Alqoritmləri","Hansı sıralama alqoritmi 'stable' (sabit) hesab olunur, yəni bərabər elementlərin nisbi sırasını saxlayır?",MEDIUM
+1c1042d5-936c-40ab-94b5-b998d896e671,"Sıralama Alqoritmləri","Insertion Sort ən çox nə vaxt effektivdir?",MEDIUM
+1a640320-edba-424c-aad5-29b3800b40f3,"Sıralama Alqoritmləri","Quick Sort-un ən pis hal zaman mürəkkəbliyi nə vaxt yaranır?",HARD
+afcffbfc-89ad-422c-b6a3-06f3c7c0c2c8,"Sıralama Alqoritmləri","Heap Sort-un zaman mürəkkəbliyi nədir?",MEDIUM
+97c5a9a8-6a74-4076-9182-f1a0437264ae,"Sıralama Alqoritmləri","Counting Sort hansı şəraitdə effektivdir?",HARD
+782a7cf5-6388-433a-8bfb-95357270b3bb,"Sıralama Alqoritmləri","In-place sıralama alqoritmi nə deməkdir?",MEDIUM
+1d09d4b3-4cc3-4df5-978d-3c0a43dc4fb1,"Sıralama Alqoritmləri","Java-nın Arrays.sort() metodu primitiv massivlər üçün hansı alqoritmi istifadə edir?",HARD
+7c2528bc-aa1b-4840-b8da-f5223fd204d3,"Sıralama Alqoritmləri","Selection Sort-un iş prinsipi nədir?",EASY
+166d251a-e8e1-4065-999c-2759ea0876fa,"Sıralama Alqoritmləri","Sıralama alqoritmlərinin aşağı sərhədi (comparison-based) nədir?",HARD
+b42298b5-26e2-4842-bb56-754b7642750e,"Sıralama Alqoritmləri","Radix Sort necə işləyir?",HARD
+f4835781-ad0a-4fd7-9ca1-694d02b109cd,"Sıralama Alqoritmləri","Hansı sıralama alqoritmi divide-and-conquer (böl və hökm sür) strategiyasına əsaslanır?",MEDIUM
+bf9e5348-0ba9-4704-9e26-67958a111695,"Sıralama Alqoritmləri","Bucket Sort-un əsas ideyası nədir?",HARD
+a0c199a2-0c89-4811-86c2-c2f2a5db03c2,"Sıralama Alqoritmləri","Java-nın Collections.sort() və Arrays.sort() (obyektlər üçün) hansı alqoritmi istifadə edir?",HARD
+039c6dcf-044f-4a6e-8653-51e0b936c130,"Sıralama Alqoritmləri","Ən pis halda O(n²) mürəkkəbliyə malik olmayan alqoritm hansıdır?",MEDIUM
+666ae1d2-d654-4f8a-ac8f-4266fdfc42e5,"Sıralama Alqoritmləri","Sıralama alqoritmi seçərkən nəyə diqqət edilməlidir?",MEDIUM
+f80f23b9-97ac-448b-896f-14f3b07d85b6,"Sıralama Alqoritmləri","Shell Sort nəyin təkmilləşdirilmiş versiyasıdır?",HARD
+e9116bfa-88f5-4fa0-b0d2-4a2625aa8cbc,"Sıralama Alqoritmləri","Comparator istifadə edərək Java-da kolleksiyanı azalan qaydada necə sıralamaq olar?",MEDIUM
+79011b84-203d-42d4-87a3-32aee649f4a9,"Axtarış Alqoritmləri və Ağaclar","Binary Search hansı şərti tələb edir?",EASY
+063c2828-e929-47c0-be6b-b9f3a46090b4,"Axtarış Alqoritmləri və Ağaclar","Binary Search-ün zaman mürəkkəbliyi nədir?",EASY
+602fffab-19e1-46c9-8e3a-db742321b40c,"Axtarış Alqoritmləri və Ağaclar","Linear Search-ün zaman mürəkkəbliyi nədir?",EASY
+4cdafa10-47ba-4e82-b0bc-6eda26d7ab68,"Axtarış Alqoritmləri və Ağaclar","Binary Search Tree (BST)-də sol alt ağacdakı bütün node-lar nəyə görə kiçikdir?",EASY
+41f49e33-00b0-46e6-921f-b3b2c80edee3,"Axtarış Alqoritmləri və Ağaclar","Depth-First Search (DFS) qraf/ağac gəzintisi hansı verilənlər strukturundan istifadə edir (adətən)?",MEDIUM
+6764afa2-01ab-43b9-a5ae-0597bf52ede4,"Axtarış Alqoritmləri və Ağaclar","Breadth-First Search (BFS) qraf/ağac gəzintisi hansı verilənlər strukturundan istifadə edir?",MEDIUM
+bd8a4a06-cbd8-4a09-b0c2-72d44010f5f7,"Axtarış Alqoritmləri və Ağaclar","In-order traversal Binary Search Tree-də nə nəticə verir?",MEDIUM
+c4a3d395-ab1a-4a1d-af11-3395017040e6,"Axtarış Alqoritmləri və Ağaclar","AVL Tree nəyi təmin edir?",HARD
+e7af4b9e-d878-4a20-94be-9a27a111cfb9,"Axtarış Alqoritmləri və Ağaclar","Red-Black Tree hansı məqsədlə istifadə olunur?",HARD
+43c2628d-4c80-44ce-86e9-2c425693c891,"Axtarış Alqoritmləri və Ağaclar","B-Tree verilənlər bazası indekslərində niyə geniş istifadə olunur?",HARD
+2c1bdbae-9513-4963-a933-c280607b865d,"Axtarış Alqoritmləri və Ağaclar","Dijkstra alqoritmi nə üçün istifadə olunur?",HARD
+f83f7b15-a859-47ea-82c9-c352570d9485,"Axtarış Alqoritmləri və Ağaclar","Binary Search-ü sort olunmamış massivdə tətbiq etsək nə baş verir?",MEDIUM
+446acd9d-cfe9-44e6-a8ed-c9084e6f402d,"Axtarış Alqoritmləri və Ağaclar","Trie ağacında axtarışın zaman mürəkkəbliyi nəyə bağlıdır?",HARD
+874b45f0-eae2-4661-8fd3-c67a4a9365f4,"Axtarış Alqoritmləri və Ağaclar","Heap-də (min-heap) minimum elementə çıxış zaman mürəkkəbliyi nədir?",MEDIUM
+fbb7c70b-3b58-4bd3-afed-3d115c0b2399,"Axtarış Alqoritmləri və Ağaclar","Tree-in 'height' (hündürlük) anlayışı nəyi ifadə edir?",MEDIUM
+07a885d4-6273-42f2-9f6a-b6d3681c1e69,"Axtarış Alqoritmləri və Ağaclar","Pre-order traversal-da node-lar hansı ardıcıllıqla ziyarət olunur?",MEDIUM
+c586b63e-7dc9-4a20-9a6f-1000c84fd452,"Axtarış Alqoritmləri və Ağaclar","Post-order traversal-da node-lar hansı ardıcıllıqla ziyarət olunur?",MEDIUM
+aa038019-ca5f-4388-866e-929479e81624,"Axtarış Alqoritmləri və Ağaclar","Java-da HashMap-də axtarışın orta hal zaman mürəkkəbliyi nədir?",MEDIUM
+9c20bd17-e41c-4c34-b45d-3d7e6998e367,"Axtarış Alqoritmləri və Ağaclar","A* axtarış alqoritmi Dijkstra-dan nə ilə fərqlənir?",HARD
+edb06246-97ab-4573-8077-ea6170a6170e,"Axtarış Alqoritmləri və Ağaclar","TreeSet/TreeMap-in daxili implementasiyası nəyə əsaslanır?",HARD
+694ccfc5-8e63-4d6d-b964-0dfba5cd082c,"Multithreading","Java-da yeni thread yaratmağın neçə əsas yolu var?",EASY
+e413ffd7-f869-4578-af7b-3c42fc7c94e2,"Multithreading","'synchronized' açar sözü nə üçün istifadə olunur?",MEDIUM
+0212b852-1fbd-45e8-95ca-8e17f928687b,"Multithreading","Thread.sleep() metodu nə edir?",EASY
+f51284ac-f0f0-4e28-b14c-7dd5a8fe0c5d,"Multithreading","Deadlock nə deməkdir?",HARD
+c9093b62-9405-4e74-a4c8-77e0e342485b,"Multithreading","wait() və sleep() metodları arasındakı fərq nədir?",HARD
+60e6f467-2860-4599-849b-1ec10fa711ce,"Multithreading","ExecutorService nə üçün istifadə olunur?",MEDIUM
+f942a8cb-c757-4c7e-ae31-59fd0147fb78,"Multithreading","Runnable və Callable arasındakı fərq nədir?",MEDIUM
+4331bf12-a250-489f-bee9-2d516cca3fea,"Multithreading","Thread-safe kolleksiyaya nümunə göstərin.",MEDIUM
+5343bfed-f933-4723-b30d-8b3217a7d09f,"Multithreading","volatile açar sözünün təyinatı nədir?",HARD
+9c9eb7cd-3dc6-4ee3-9562-a81adeb39d28,"Multithreading","Thread pool-un istifadəsinin əsas üstünlüyü nədir?",MEDIUM
+5c1f8cc3-92f1-4e5c-bd71-3fc340c93484,"Multithreading","Java-da Thread-in start() və run() metodları arasındakı fərq nədir?",MEDIUM
+6e56e468-be39-4b8e-bfe5-5e4b534c3317,"Multithreading","Java Memory Model (JMM) nəyi təmin edir?",HARD
+d99bffea-c60c-4f8c-9e11-0fd32bd318db,"Multithreading","Daemon thread nədir?",MEDIUM
+f18f0179-a385-45c2-b8fb-043ecc62c0fe,"Multithreading","synchronized metod ilə synchronized blok arasındakı fərq nədir?",MEDIUM
+a31aec28-71b2-4d09-a57c-0391e83ec980,"Multithreading","interrupt() metodu thread-ə nə edir?",MEDIUM
+710e678d-7c3c-4286-a691-c88fdbb5e653,"Multithreading","Livelock nə deməkdir?",HARD
+1312270f-1a8e-44b9-b487-753d2917c285,"Multithreading","Starvation (thread aclığı) nə deməkdir?",HARD
+979068df-cad0-4549-bfe8-e4ac3df952e6,"Multithreading","Thread sinifinin setPriority() metodu nəyə təsir edir?",MEDIUM
+214b90cd-5090-4d04-b6e0-8cd72fef64e7,"Multithreading","join() metodu nə edir?",MEDIUM
+874aa3b8-efdd-4790-a467-cb071fd1163f,"Multithreading","Java-da 'happens-before' münasibəti nəyi təmin edir?",HARD
+0122c594-7e6a-49be-93e4-ac66837cc7fc,"Concurrency Alətləri","AtomicInteger sinifinin məqsədi nədir?",MEDIUM
+ceb84e4f-5b6d-485c-84c6-72279159388a,"Concurrency Alətləri","CountDownLatch nə üçün istifadə olunur?",MEDIUM
+4e27a118-3f4c-482c-a390-4d8230b76d17,"Concurrency Alətləri","Semaphore nə edir?",MEDIUM
+2846d086-1a95-4d9a-9a98-778c154657f3,"Concurrency Alətləri","Future interfeysi nə üçün istifadə olunur?",MEDIUM
+c2913108-1f88-4499-a658-be6e18c309e8,"Concurrency Alətləri","ReentrantLock, synchronized açar sözündən nə ilə fərqlənir?",HARD
+cb3503a8-cc9a-4e51-8e78-4c6dcfece7de,"Concurrency Alətləri","CyclicBarrier və CountDownLatch arasındakı fərq nədir?",HARD
+ce575945-f3f6-49ea-9495-8a5cbdcf6299,"Concurrency Alətləri","ThreadLocal nə üçün istifadə olunur?",MEDIUM
+f4ea5fe2-9d97-46d1-8fef-6adda340b2d8,"Concurrency Alətləri","Fork/Join Framework nə üçün nəzərdə tutulub?",HARD
+6854ab42-df9d-4e39-b9c9-b45e7661ba37,"Concurrency Alətləri","BlockingQueue nə edir?",MEDIUM
+592aeb74-90f0-4c4e-99aa-a7c632c2a0c8,"Concurrency Alətləri","Race condition nə deməkdir?",MEDIUM
+b640de4e-0875-4d8d-8def-4c69674dd0dd,"Concurrency Alətləri","CompletionService nə üçün istifadə olunur?",HARD
+45ecf0a6-99cf-44be-9bcd-d394fc12ebf3,"Concurrency Alətləri","StampedLock, ReentrantReadWriteLock-dan nə ilə fərqlənir?",HARD
+f7c8d93c-d5aa-4bb7-84af-1e6bd9c03a2b,"Concurrency Alətləri","ExecutorService-in shutdown() və shutdownNow() metodları arasındakı fərq nədir?",MEDIUM
+01b270b7-2c05-40b8-8008-1681e1de03d8,"Concurrency Alətləri","CopyOnWriteArrayList nə vaxt effektivdir?",HARD
+29c7c52f-36ea-49c5-865b-997227518a00,"Concurrency Alətləri","Executors.newFixedThreadPool() nə yaradır?",MEDIUM
+9669316d-9833-45b7-ae0c-c1d7631c4231,"Concurrency Alətləri","AtomicReference nə üçün istifadə olunur?",MEDIUM
+1ae07edb-f264-4af5-b958-c5759277dc06,"Concurrency Alətləri","compareAndSet() (CAS) əməliyyatı nəyi təmin edir?",HARD
+ec148f39-f5a9-434d-a103-a7c70a1a48e0,"Concurrency Alətləri","ScheduledExecutorService nə üçün istifadə olunur?",MEDIUM
+2853c4b7-acf4-4bb8-aa6d-2fee25c127e8,"Concurrency Alətləri","Phaser sinifi nə üçün istifadə olunur?",HARD
+4da8d312-d1e6-4821-ae42-ad42ebaa3983,"Concurrency Alətləri","Immutable obyektlərin concurrency-də üstünlüyü nədir?",MEDIUM
+67809a56-d49b-45b2-aef7-a7ad4675859f,"JVM və Yaddaş","Garbage Collector-un vəzifəsi nədir?",EASY
+6ba52506-8fb7-46f2-aa47-1f3bff239266,"JVM və Yaddaş","Java-da 'Heap' yaddaşı nə üçün istifadə olunur?",MEDIUM
+1f1c2d94-8041-46e3-bef9-ebe49aae8ab3,"JVM və Yaddaş","JVM, JRE və JDK arasındakı fərq nədir?",MEDIUM
+bed2a9a5-0be6-43fe-b1e1-efc31a0d3064,"JVM və Yaddaş","'static' açar sözü ilə elan olunan dəyişən nəyə aiddir?",EASY
+def4fd9d-b3eb-49b4-9b57-21d5505c42ae,"JVM və Yaddaş","Stack yaddaşında nə saxlanılır?",EASY
+744cf480-c47b-46fa-96d8-9fa3d584abd4,"JVM və Yaddaş","'final' açar sözü dəyişənə tətbiq edildikdə nə deməkdir?",EASY
+528eb9d9-69d2-4c55-ba1e-88f9212228c9,"JVM və Yaddaş","Memory leak Java-da necə baş verə bilər?",HARD
+a7c8f8ad-c6a4-4c3d-9c81-0c08e2117b45,"JVM və Yaddaş","Classloader-in vəzifəsi nədir?",MEDIUM
+318d00a6-181c-41d8-aa07-1268e77e89ba,"JVM və Yaddaş","JIT (Just-In-Time) compiler nə edir?",HARD
+c5842c3a-6230-4704-ba6a-96268bb49f97,"JVM və Yaddaş","Metaspace (Java 8+) nə üçün istifadə olunur?",HARD
+3825c81e-07df-4a5d-9f01-cb1075c903bd,"JVM və Yaddaş","Young Generation və Old Generation Heap-də nəyi təmsil edir?",HARD
+15970f30-241d-42c3-aabd-d1bdda2190bc,"JVM və Yaddaş","Minor GC və Major (Full) GC arasındakı fərq nədir?",HARD
+104a9191-2acf-47a7-9b1c-9faa405f00bc,"JVM və Yaddaş","-Xmx JVM parametri nəyi təyin edir?",MEDIUM
+cfd4a06b-8e05-465a-8784-379b5708617b,"JVM və Yaddaş","OutOfMemoryError nə vaxt yaranır?",EASY
+2749c5b3-bc76-41c7-a25d-017ac9ab650f,"JVM və Yaddaş","Java-da 'escape analysis' nə edir?",HARD
+d2250656-4f8e-4721-8baf-57b55a77762f,"JVM və Yaddaş","String Pool hansı yaddaş sahəsində saxlanılır (Java 7+)?",HARD
+97d505fa-f268-4c33-8fc7-058344ebeec6,"JVM və Yaddaş","GC 'stop-the-world' pauzası nə deməkdir?",MEDIUM
+1faf453f-d79e-4f3f-99ad-0d575d644634,"JVM və Yaddaş","G1 Garbage Collector-in əsas məqsədi nədir?",HARD
+a6482004-9555-4f6c-8942-8bab04e09c60,"JVM və Yaddaş","Java-da soft reference, weak reference və phantom reference-lərin əsas fərqi nədir?",HARD
+0d6e8220-9f74-4510-9a61-69fcab46776d,"JVM və Yaddaş","Java-da 'compact strings' (Java 9+) optimizasiyası nə edir?",HARD
+09a3b2f4-3377-4f7e-9a0d-cfd83fcf6317,"JVM Performans Tənzimləmə","JVM performans tənzimləməsinin əsas məqsədi nədir?",EASY
+be4bb9c3-40f4-4367-b490-d71c02c936a9,"JVM Performans Tənzimləmə","-Xms və -Xmx parametrlərini eyni dəyərə təyin etməyin faydası nədir?",MEDIUM
+27e593f3-042d-494e-aa6c-bc8e9203689b,"JVM Performans Tənzimləmə","JVM profiling alətləri (məs. JProfiler, VisualVM) nə üçün istifadə olunur?",MEDIUM
+5893f714-b7e0-40e7-ab82-e994e4cb0a13,"JVM Performans Tənzimləmə","Thread dump nədir?",MEDIUM
+6e4a19d9-2c1e-4fa6-8b0f-75d88d603446,"JVM Performans Tənzimləmə","Heap dump nə üçün istifadə olunur?",MEDIUM
+3d269505-c3b9-482b-8e3b-4acbf5ea422f,"JVM Performans Tənzimləmə","JVM warm-up nə deməkdir?",MEDIUM
+2c2ddd7a-7029-4b8e-bee5-f255939b65de,"JVM Performans Tənzimləmə","Hansı JVM parametri GC alqoritmini seçmək üçün istifadə olunur?",MEDIUM
+d344fa03-57d6-4e5a-b29a-4b46d23cd78f,"JVM Performans Tənzimləmə","Throughput və latency arasındakı fərq performans tənzimləməsində nədir?",MEDIUM
+84d9e70e-0a04-4e68-b480-91568ca3e851,"JVM Performans Tənzimləmə","JMH (Java Microbenchmark Harness) nə üçün istifadə olunur?",MEDIUM
+00fccdbe-a8cd-4087-b268-d487773631c0,"JVM Performans Tənzimləmə","JVM-də 'GC pause time' niyə vacibdir izləmək üçün?",MEDIUM
+4f3dc876-faf9-485d-8446-a222aa911342,"JVM Performans Tənzimləmə","Object pooling nə vaxt performans üçün faydalı ola bilər?",MEDIUM
+1e0f9233-99ea-414d-84f0-8f35a05bfbba,"JVM Performans Tənzimləmə","CPU profiling ilə memory profiling arasındakı fərq nədir?",EASY
+fee255b0-9fed-4d44-b898-7121f09bc31c,"JVM Performans Tənzimləmə","String konkatenasiyası dövrədə (loop) niyə performans problemi yarada bilər?",MEDIUM
+3b6f16fa-75fc-4bfa-b8d9-40562c5173e3,"JVM Performans Tənzimləmə","Lazy initialization performans baxımından nə üçün faydalı ola bilər?",MEDIUM
+6e23479b-2537-43f6-ab7a-be26cf253c29,"JVM Performans Tənzimləmə","Autoboxing/unboxing performans baxımından niyə diqqətlə istifadə edilməlidir?",MEDIUM
+0fb558e4-be3c-4fa8-9f43-fab1c0e0a065,"JVM Performans Tənzimləmə","JVM-də Just-In-Time (JIT) compilation-un tier səviyyələri nəyi ifadə edir?",HARD
+de43b17c-0871-4e06-bae7-84ce2e91d8bc,"JVM Performans Tənzimləmə","Connection pooling performansa necə kömək edir?",MEDIUM
+b349e2c1-1ac1-4f08-adc7-2f6c942f5b76,"JVM Performans Tənzimləmə","Hansı vasitə ilə production mühitində canlı JVM-ə qoşulub metrikaları izləmək olar?",MEDIUM
+e1f82857-e8be-4acd-ab83-59e6c4e03bbd,"JVM Performans Tənzimləmə","Excessive logging performansa necə təsir edə bilər?",EASY
+3a4a88c4-1c0c-472e-99f2-f9ddc586f4a7,"JVM Performans Tənzimləmə","Performans tənzimləməsində 'premature optimization' nəyə görə riskli sayılır?",MEDIUM
+f1cfebb6-7551-4108-a019-5573cd2693d6,"Alqoritmlər və Mürəkkəblik","Big-O notasiyası nəyi ifadə edir?",EASY
+49293fa8-33b9-4e41-9d40-7128876850c1,"Alqoritmlər və Mürəkkəblik","O(1) mürəkkəblik nə deməkdir?",EASY
+520a7cac-a766-496e-bda5-e63c2c4bceeb,"Alqoritmlər və Mürəkkəblik","O(n) mürəkkəblik nəyə uyğundur?",EASY
+b605fc8f-d794-4e25-b6de-8b58afaa06a1,"Alqoritmlər və Mürəkkəblik","O(n²) mürəkkəblik ən çox hansı ssenaridə rast gəlinir?",EASY
+9ee5354a-d5c2-44fa-96e4-7e74a3c9a7fc,"Alqoritmlər və Mürəkkəblik","Space complexity (yer mürəkkəbliyi) nəyi ölçür?",EASY
+8ca31693-adbd-4532-a9e9-5c68e46e4f74,"Alqoritmlər və Mürəkkəblik","Amortized analysis nə deməkdir?",HARD
+31ad6cd1-f723-4525-9eed-475699f23f52,"Alqoritmlər və Mürəkkəblik","Recursive alqoritmin zaman mürəkkəbliyini analiz etmək üçün hansı üsul istifadə olunur?",HARD
+b07d8003-36b1-4d8a-a9de-57820ff662fe,"Alqoritmlər və Mürəkkəblik","Dynamic Programming (dinamik proqramlaşdırma) nə üçün istifadə olunur?",MEDIUM
+43a3f9f7-73da-4ece-b67f-2d3929861197,"Alqoritmlər və Mürəkkəblik","Greedy alqoritm strategiyası nəyə əsaslanır?",MEDIUM
+ad7a51ff-a009-4dfa-add4-41971ae94311,"Alqoritmlər və Mürəkkəblik","Best case, average case və worst case mürəkkəblik nəyi ifadə edir?",MEDIUM
+a9eea59e-1759-4772-8b2e-9dcb0a8c6bab,"Alqoritmlər və Mürəkkəblik","O(log n) mürəkkəblik tipik olaraq hansı alqoritmlərdə rast gəlinir?",EASY
+f046d15b-838e-4d04-a449-dd6286772fa9,"Alqoritmlər və Mürəkkəblik","NP-complete problem nə deməkdir?",HARD
+a23ce248-6a6b-41d6-ac36-6e233acd38ee,"Alqoritmlər və Mürəkkəblik","Memoization nə deməkdir?",MEDIUM
+da1502ad-fabf-4128-aa5b-f325f1fe0256,"Alqoritmlər və Mürəkkəblik","İki alqoritmin O(n) və O(n log n) mürəkkəbliyi arasında böyük n üçün hansı daha sürətlidir?",MEDIUM
+d0f934c6-a79e-4d22-bec1-1fb80a8b3026,"Alqoritmlər və Mürəkkəblik","Divide and Conquer (böl və hökm sür) strategiyasının üç əsas addımı hansılardır?",MEDIUM
+5965252b-29b3-474e-9971-6644ae0dde84,"Alqoritmlər və Mürəkkəblik","Backtracking alqoritmi nə vaxt istifadə olunur?",MEDIUM
+18411327-3e08-4dd4-8b64-c005e21ac7d4,"Alqoritmlər və Mürəkkəblik","Two Pointer texnikası hansı problemlərdə tez-tez istifadə olunur?",MEDIUM
+0bc4d234-b947-4f15-a88a-8107f0976b4a,"Alqoritmlər və Mürəkkəblik","Sliding Window texnikası nəyi optimallaşdırır?",MEDIUM
+c205477e-b1db-4986-aa34-d13fe05e8170,"Alqoritmlər və Mürəkkəblik","Big-O, Big-Theta və Big-Omega arasındakı fərq nədir?",HARD
+3a6192d0-2255-48d1-b161-80846819adc5,"Alqoritmlər və Mürəkkəblik","Alqoritm mürəkkəbliyini qiymətləndirərkən niyə sabitlər (constants) adətən nəzərə alınmır?",MEDIUM
+03daffab-8e26-4d9c-a234-52900382ce52,"String","Java-da String niyə immutable-dır?",MEDIUM
+df2ff622-1edc-4e29-9eef-e84f543e9404,"String","String, StringBuilder və StringBuffer arasındakı fərq nədir?",MEDIUM
+97fa681d-4b82-4245-897f-a089e1cb9585,"String","'==' operatoru ilə .equals() metodu String-lər üçün nəyə görə fərqlənir?",EASY
+137b93af-e85b-4942-b634-1e5b1c049b0b,"String","String Pool nədir?",MEDIUM
+cd7f1dd7-618a-4328-af6a-f10d8f24f793,"String","intern() metodu nə edir?",HARD
+b9fa1abe-d7d4-4a65-80b8-51001d2e02a8,"String","String.format() metodunun məqsədi nədir?",EASY
+fd1d6bd3-3226-42b3-b754-1fa1bea31a2f,"String","StringBuilder-in append() metodu nə edir?",EASY
+455ece0e-5c88-4810-a103-b5f95f5c2a09,"String","String.split() metodu nə qaytarır?",EASY
+e4bc668e-1552-4e85-bdad-95b2ec91c05a,"String","String.valueOf() metodunun məqsədi nədir?",EASY
+47154018-b0fd-47ae-851b-8ae9ecae6bc5,"String","StringBuilder-in ilkin tutumu (capacity) neçədir (default konstruktorla)?",HARD
+d450f3f6-af07-4692-af2d-ad93559a42ca,"String","String-in immutable olması hash-based kolleksiyalarda (HashMap açarı) niyə üstünlükdür?",MEDIUM
+d7ec3297-13d7-494b-8f1a-2ce21bc8b138,"String","String.equalsIgnoreCase() metodu nə edir?",EASY
+dafb4b36-efe9-4a17-8ad4-404e92ee2c33,"String","compareTo() metodu String-lər üçün nəyə əsasən müqayisə aparır?",MEDIUM
+33866c4e-86c8-4705-8512-2cbd6adaad42,"String","Text Block (Java 15+) string immutability-ni dəyişirmi?",MEDIUM
+a79c1ce5-2719-4816-90c4-4f480cea74a1,"String","StringBuilder-in reverse() metodu nə edir?",EASY
+aab43628-711f-4b78-a9b2-2963d91a8b93,"String","String-lərin müqayisəsində niyə '==' əvəzinə equals() istifadə edilməlidir?",EASY
+f6a4f4f9-7871-4ad0-bfff-425b2d98994c,"String","CharSequence interfeysi hansı siniflər tərəfindən implement olunur?",MEDIUM
+970ed806-e15e-45ad-bd7b-7cc7f611eda4,"String","String.trim() və String.strip() (Java 11+) arasındakı fərq nədir?",MEDIUM
+7a86a0a1-eff9-4ce6-88b3-48da5f71f856,"String","String-in hashCode() metodu niyə keşlənir (cache olunur)?",HARD
+2464ca4a-8cce-40f1-bd6b-7b4eba3623e8,"String","String.chars() metodu (Java 8+) nə qaytarır?",MEDIUM
+c4deee6e-92fa-4bc2-b75a-27a6aef30982,"Java 8+ Xüsusiyyətləri","'var' açar sözü Java-da nəyi ifadə edir?",MEDIUM
+975864fe-06f0-4b8f-96d2-93a10e878f03,"Java 8+ Xüsusiyyətləri","Record (Java 14+) nədir?",MEDIUM
+6f496d73-db3b-4c47-a250-0dbe810f4229,"Java 8+ Xüsusiyyətləri","Sealed class (Java 17+) nəyi məhdudlaşdırır?",HARD
+4c6622f6-539a-4733-8f55-3905fa19ed4c,"Java 8+ Xüsusiyyətləri","Text block (""""""..."""""") Java 15+-da nə üçün istifadə olunur?",EASY
+a2176cdc-471d-4d9a-a02b-bfa4f207d44d,"Java 8+ Xüsusiyyətləri","Switch expression (Java 14+) klassik switch-dən nə ilə fərqlənir?",MEDIUM
+57686398-3a1d-4550-a1c3-35eaae5744a0,"Java 8+ Xüsusiyyətləri","Pattern matching for instanceof (Java 16+) nəyi asanlaşdırır?",MEDIUM
+b1e5abcd-529f-4a19-985e-02ae6bf84e47,"Java 8+ Xüsusiyyətləri","Optional.orElseGet() və Optional.orElse() arasındakı fərq nədir?",HARD
+f2e3acf9-0871-4a72-9c26-a4f995fa209a,"Java 8+ Xüsusiyyətləri","CompletableFuture nə üçün istifadə olunur?",HARD
+0d9291da-1e0a-49d1-8b66-5bfa5eea06f4,"Java 8+ Xüsusiyyətləri","Enhanced for-each loop-da 'var' istifadəsi nəyə imkan verir?",EASY
+7042d264-8ecb-44c8-a3a9-6ddbf865bb14,"Java 8+ Xüsusiyyətləri","java.time paketi (Java 8+) nəyi əvəz etmək üçün təqdim olunub?",MEDIUM
+cc5d52ee-7ac8-4853-943f-928fa1267c5d,"Java 8+ Xüsusiyyətləri","Stream.of() metodu nə edir?",EASY
+b3dcb788-56c4-40d0-96f2-ebc0fdee3b14,"Java 8+ Xüsusiyyətləri","Java 8-də Date/Time API-də LocalDate, LocalTime və LocalDateTime arasındakı fərq nədir?",EASY
+fdaccfe9-ccd6-46ce-aac3-94808ca9e525,"Java 8+ Xüsusiyyətləri","Interface-də static metod (Java 8+) nəyə imkan verir?",MEDIUM
+60e057f1-4130-445b-836b-fa7afe883c89,"Java 8+ Xüsusiyyətləri","var ilə elan olunan dəyişənin tipi sonradan dəyişdirilə bilərmi?",MEDIUM
+674b2879-cb0e-4d7f-be99-c19ff6b96170,"Java 8+ Xüsusiyyətləri","Java 9-da modul sistemi (Project Jigsaw) nə üçün təqdim olunub?",HARD
+e87dacfb-3ce2-4513-a7c7-ea2c4b17dfd7,"Java 8+ Xüsusiyyətləri","Java 10-da 'var' yalnız hansı kontekstdə istifadə oluna bilər?",MEDIUM
+12fc6d3d-b2ff-44cd-b03c-4119e92f0d2d,"Java 8+ Xüsusiyyətləri","Records-da compact constructor nədir?",HARD
+bdef1ec0-335c-4adf-a002-4da5627b1ab9,"Java 8+ Xüsusiyyətləri","Java 17-də sealed interfeys nəyi məhdudlaşdırır?",HARD
+9234b7ef-1fb0-48d7-8842-22dc957422fd,"Java 8+ Xüsusiyyətləri","Enhanced switch statement-də ox (->) sintaksisi hansı problemi həll edir?",MEDIUM
+4d038c76-fe59-43be-8abe-6cdb6ed37976,"Java 8+ Xüsusiyyətləri","Helpful NullPointerExceptions (Java 14+) nə edir?",MEDIUM
+02764e84-5ca2-4180-ba36-ba3acadc39a9,"Stream və Lambda","Lambda ifadəsi nədir?",EASY
+bc8afe34-d2d4-44ae-ba34-ba8b61b52b4b,"Stream və Lambda","Stream API-də 'map()' metodu nə edir?",EASY
+13656718-7eae-48f1-9db8-48254653a1a5,"Stream və Lambda","'filter()' və 'map()' arasındakı fərq nədir?",EASY
+17b51ea8-1ab4-45ea-9f59-c0dbe9e20dc8,"Stream və Lambda","Stream-lər neçə dəfə istifadə oluna bilər?",MEDIUM
+acafe5ed-91f4-4f95-b339-0ada8ae0902b,"Stream və Lambda","'reduce()' metodunun məqsədi nədir?",MEDIUM
+38a84e39-57fe-434b-b155-7efe4d7e526b,"Stream və Lambda","Functional interface nədir?",MEDIUM
+dc132b4e-e02f-42f5-bdbf-12b203eb327d,"Stream və Lambda","Optional sinifinin məqsədi nədir?",MEDIUM
+ddef261f-f8a2-4c66-861e-27d3be6c37c3,"Stream və Lambda","Stream.collect(Collectors.toList()) nə edir?",EASY
+d2a8b9c9-f559-4e5c-ac4e-8042db489e72,"Stream və Lambda","Method reference (məs. String::toUpperCase) nədir?",MEDIUM
+c87598f8-e95b-4538-a2cd-7308257d0238,"Stream və Lambda","Parallel stream nə vaxt istifadə edilməlidir?",MEDIUM
+e4344523-2cc2-491f-b1ca-b704f27685f0,"Stream və Lambda","Stream.sorted() metodunun default davranışı nədir?",EASY
+10a7f065-8e12-4e71-a59e-94893f009a37,"Stream və Lambda","IntStream, DoubleStream və LongStream niyə mövcuddur?",MEDIUM
+f153a55b-913d-4e95-a095-55edafa4d4e8,"Stream və Lambda","Stream.peek() metodu nə üçün istifadə olunur?",MEDIUM
+ac643ea0-e025-444c-94cc-8c4a65b5e90c,"Stream və Lambda","Collectors.groupingBy() nə edir?",MEDIUM
+b7118c41-baed-424d-b30a-9f3d2bc28329,"Stream və Lambda","flatMap() və map() arasındakı fərq nədir?",MEDIUM
+eb7879d9-c622-4588-9b28-188a5d3c45f8,"Stream və Lambda","Lambda ifadəsi hansı interfeysi implement edə bilər?",MEDIUM
+d5339fae-f01e-42f3-9f48-647b051ea8f2,"Stream və Lambda","Stream.anyMatch(), allMatch() və noneMatch() metodları nə qaytarır?",EASY
+4ecdcc28-c97f-4c86-b68d-a697c34d7de3,"Stream və Lambda","Stream API-də terminal əməliyyat (terminal operation) nə deməkdir?",MEDIUM
+73deef88-87b3-45ae-a50c-2e7897b25389,"Stream və Lambda","Supplier, Consumer və Function functional interfeysləri arasındakı fərq nədir?",MEDIUM
+415bb119-843b-432f-af39-dbbf4d30f3cf,"Stream və Lambda","Stream.distinct() metodu nə edir?",EASY
+13a7efc3-77a2-4fd0-9a2e-d559f9ef518b,"Enum-lar","Java-da enum nədir?",EASY
+8c2f4d52-1792-4f19-ba48-d44f17a78cb1,"Enum-lar","Enum konstantaları default olaraq necədir?",EASY
+700108fc-c0e1-4ea5-adbc-313286187f47,"Enum-lar","Enum-da constructor ola bilərmi?",MEDIUM
+f7a5709e-85cc-44a9-beda-308bd43deec8,"Enum-lar","Enum-un values() metodu nə qaytarır?",EASY
+73496347-c577-42ca-9e39-f85670a9941b,"Enum-lar","Enum-un valueOf() metodu nə edir?",EASY
+596bb6e5-e7d4-462d-a409-e2e7f78596dc,"Enum-lar","Enum switch statement-də necə istifadə oluna bilər?",MEDIUM
+e4afda77-f1a9-488c-9cb5-b9a905ab3c18,"Enum-lar","Enum-lar interfeys implement edə bilərmi?",MEDIUM
+9715cf41-deb5-4816-8458-e8dd7bfbb14b,"Enum-lar","Enum-un ordinal() metodu nə qaytarır?",MEDIUM
+24e85d0e-b168-49fe-b03f-369cba385a1a,"Enum-lar","EnumSet nədir?",MEDIUM
+329d3b12-2848-46a2-8015-7bb5925e406b,"Enum-lar","Enum-da hər konstant üçün fərqli metod davranışı necə təmin edilə bilər?",HARD
+3ef413a6-2102-4f4e-b36c-a0de2af0e035,"Enum-lar","Enum-un name() və toString() metodları fərqlənə bilərmi?",MEDIUM
+d44ca762-7ac9-41cc-81f1-d1bfb410652a,"Enum-lar","Enum-lar niyə Singleton pattern üçün effektiv üsul hesab olunur?",HARD
+b38632b2-dc58-4f05-bc91-92da06d23a1f,"Enum-lar","Enum-un compareTo() metodu nəyə əsasən müqayisə aparır?",MEDIUM
+9358c6b3-d613-4261-a454-f51fc55abceb,"Enum-lar","Enum-da abstract metod elan etmək mümkündürmü?",MEDIUM
+21bf9add-9ae2-4986-8b8c-c8ebbe0a7981,"Enum-lar","Enum-lar Java-da niyə heç vaxt null ola bilməz (default olaraq)?",MEDIUM
+6098c7fe-a69d-482e-b30b-bacb2ddf35e0,"Enum-lar","EnumMap adi HashMap-dən performans baxımından niyə üstündür (enum açarları üçün)?",HARD
+b18845a4-338b-44cc-9dc2-28adab6c1fb3,"Enum-lar","Enum-da sahə (field) və metod əlavə etmək olarmı?",MEDIUM
+fcff6743-4ad4-4f32-9e06-efe0e643f6a7,"Enum-lar","Java-da enum-lar hansı sinifi implicit olaraq extend edir?",MEDIUM
+9fab4de2-0184-44cf-b8aa-af0d2276e783,"Enum-lar","Enum-un serialization-u niyə etibarlı sayılır?",HARD
+8c1a0a90-15ff-46d7-a0b5-4b4c2044d93f,"Enum-lar","Bir enum konstantasına eyni zamanda birdən çox interfeys implement etmək mümkündürmü (enum səviyyəsində)?",MEDIUM
+363b2b7c-5d7f-456f-af47-e180322b48fa,"Functional Programming Konsepsiyaları","Pure function (təmiz funksiya) nə deməkdir?",EASY
+74c48936-1833-4e4d-91ee-41de596bee4a,"Functional Programming Konsepsiyaları","Side effect (yan-effekt) funksional proqramlaşdırmada nəyi ifadə edir?",MEDIUM
+91cf6d4b-6571-46d0-8c12-6e2a3199d562,"Functional Programming Konsepsiyaları","Higher-order function nə deməkdir?",MEDIUM
+70dcdad5-1496-4342-8c91-2c03cac9398d,"Functional Programming Konsepsiyaları","Immutability funksional proqramlaşdırmada niyə vacibdir?",MEDIUM
+d62193ae-3932-4842-a89b-b2510146d28f,"Functional Programming Konsepsiyaları","Currying nə deməkdir?",HARD
+3d6c99d1-d971-4456-b01b-a1ada9685e5b,"Functional Programming Konsepsiyaları","Java-da lambda ifadələri funksional proqramlaşdırmanı necə dəstəkləyir?",MEDIUM
+37863221-5c73-4a93-8434-a99b671f486d,"Functional Programming Konsepsiyaları","Referential transparency nə deməkdir?",HARD
+a7793911-8dfd-4bca-a85a-244bda1cb3c7,"Functional Programming Konsepsiyaları","Function composition (funksiya kompozisiyası) nə edir?",MEDIUM
+a631e5fb-2340-47df-af75-d940eee1e55c,"Functional Programming Konsepsiyaları","Java-da Function.andThen() və Function.compose() arasındakı fərq nədir?",HARD
+f7c78494-2e76-4f06-a1fe-a70e9ba14c64,"Functional Programming Konsepsiyaları","Recursion (rekursiya) funksional proqramlaşdırmada niyə tez-tez istifadə olunur?",MEDIUM
+a6b85ad4-130b-4c63-ac42-3446d2e41ccb,"Functional Programming Konsepsiyaları","Tail recursion nə deməkdir?",HARD
+3ae686be-66be-4b1f-8c13-1a5806031f51,"Functional Programming Konsepsiyaları","Java-da niyə tail-call optimization avtomatik təmin edilmir (bəzi funksional dillərdən fərqli olaraq)?",HARD
+65362e10-026d-44b0-9f4d-8a73b56e56cb,"Functional Programming Konsepsiyaları","Monad konsepsiyası (Optional kimi) funksional proqramlaşdırmada nəyə xidmət edir?",HARD
+60466103-d6cc-40c6-8998-2c5c781b28e3,"Functional Programming Konsepsiyaları","Immutable data strukturları ilə mutable data strukturları arasındakı seçim performansa necə təsir edə bilər?",MEDIUM
+c375bb0d-e7e4-42fc-ad80-feba5ef4e72d,"Functional Programming Konsepsiyaları","Declarative (bəyan edici) proqramlaşdırma stili imperativ stildən nə ilə fərqlənir?",MEDIUM
+ff4fea9d-bd6c-4c1c-8814-94ad7e06c6b1,"Functional Programming Konsepsiyaları","Lazy evaluation (tənbəl hesablama) nə deməkdir?",MEDIUM
+9fffe426-b6f6-49e6-8794-d00a099d9aad,"Functional Programming Konsepsiyaları","Java-da BiFunction interfeysi nəyi təmsil edir?",MEDIUM
+0555756d-85ab-40f4-9d89-4ad76c4bca0a,"Functional Programming Konsepsiyaları","Funksional proqramlaşdırmada 'first-class function' nə deməkdir?",MEDIUM
+8bb58356-2f69-4feb-9353-e03c38b37c9a,"Functional Programming Konsepsiyaları","Java Stream API-nin funksional proqramlaşdırma prinsiplərinə necə uyğunlaşdığı deyilə bilər?",MEDIUM
+ddb6df4b-4395-4e47-a8e1-63e30fc5e0cd,"Functional Programming Konsepsiyaları","Funksional proqramlaşdırmada 'idempotent' əməliyyat nə deməkdir?",HARD
+c5add546-eb25-4090-a8eb-a74adaa5bd97,"Testing","JUnit-də @Test annotasiyası nə üçün istifadə olunur?",EASY
+2fbdda95-f5c3-4361-9be6-1ab61e3dee20,"Testing","@BeforeEach annotasiyası nə vaxt icra olunur?",EASY
+2a6482a3-9ecc-4ca0-8495-010626832894,"Testing","Mock obyekt nə üçün istifadə olunur?",MEDIUM
+fd4495a6-9bd4-4f1e-8cdf-cbabb1ac40d6,"Testing","assertEquals() metodu nə edir?",EASY
+debeef79-4084-4d43-9fae-aeebbfaad58a,"Testing","Unit test və Integration test arasındakı fərq nədir?",MEDIUM
+123ee049-6557-4632-8c7d-f25c430408d3,"Testing","assertThrows() nə üçün istifadə olunur?",MEDIUM
+5314df98-3ae3-448b-ad56-1ba2c23be3e2,"Testing","Test coverage (kod əhatəsi) nəyi göstərir?",EASY
+e5a9650e-32fa-4ebb-bde5-3373cdcda60b,"Testing","TDD (Test-Driven Development) yanaşmasının əsas prinsipi nədir?",MEDIUM
+3d8cebe3-1b36-4312-8ba4-0db5e20fcdd0,"Testing","@Mock və @InjectMocks annotasiyaları (Mockito) nə üçün istifadə olunur?",MEDIUM
+d1373055-8e27-4b01-b856-efe468c12de2,"Testing","Parametrized test nə üçün istifadə olunur?",MEDIUM
+3a1dcba3-eb08-4171-b009-f9c030c829cf,"Testing","@AfterEach annotasiyası nə vaxt icra olunur?",EASY
+7d603703-5309-409e-a434-d296c7d8d0e3,"Testing","@BeforeAll və @AfterAll annotasiyaları (JUnit 5) nə vaxt icra olunur və hansı şərtlə?",MEDIUM
+b3009d10-cd6d-49bb-b047-579db83b6adf,"Testing","Test Pyramid konsepsiyası nəyi tövsiyə edir?",MEDIUM
+b745ec8f-5e6d-4560-b02a-e75eaaa3bcb3,"Testing","Stub və Mock arasındakı fərq nədir?",HARD
+4a7235c3-4c34-4d47-a99e-d8bcb0da74b0,"Testing","@Disabled (JUnit 5) annotasiyası nə edir?",EASY
+eba76572-834f-4c0c-97c2-c9fc199ea7ba,"Testing","Code coverage 100% olması nəyi zəmanət etmir?",MEDIUM
+2a4ec934-f2c1-47e3-bbe6-28dca89d046a,"Testing","Test Doubles kateqoriyasına hansı daxildir?",HARD
+9ac1b43d-bba4-4f6c-9dda-9b26c8b0c06d,"Testing","Integration test nə vaxt yazılmalıdır?",MEDIUM
+4514a160-a3d2-4eb4-96fa-d27ada7c84ce,"Testing","assertAll() metodu (JUnit 5) nə üçün istifadə olunur?",MEDIUM
+4dd295dd-d08d-41ae-98d6-740abdbf9feb,"Testing","Test Isolation (test təcridi) nə üçün vacibdir?",MEDIUM
+30e3a645-cfd8-4e3b-8c25-2fc0e23b9afc,"Kod Keyfiyyəti və Clean Code","Code smell nə deməkdir?",MEDIUM
+eee4e2a3-c7a9-495d-a3de-ea60ab310c13,"Kod Keyfiyyəti və Clean Code","DRY prinsipi nəyi ifadə edir?",EASY
+e012cf37-db23-4347-85ac-89708bfb653d,"Kod Keyfiyyəti və Clean Code","Code review-un əsas məqsədi nədir?",EASY
+6999638b-7e1f-41b5-9ae8-947a9d2ed973,"Kod Keyfiyyəti və Clean Code","Refactoring nə deməkdir?",MEDIUM
+de2c5162-12db-40cc-a21d-7aed32806498,"Kod Keyfiyyəti və Clean Code","Cyclomatic complexity nəyi ölçür?",MEDIUM
+20b77d43-8b6e-41d8-b800-1a180cc143e3,"Kod Keyfiyyəti və Clean Code","YAGNI prinsipi nə deməkdir?",MEDIUM
+97b7ddb2-8e06-4b13-9c3a-08596b692c9d,"Kod Keyfiyyəti və Clean Code","Static code analysis alətləri (məs. SonarQube) nə üçün istifadə olunur?",MEDIUM
+6bfebeb9-fbbe-42a8-9264-5cdac7b97586,"Kod Keyfiyyəti və Clean Code","Magic number nə deməkdir?",EASY
+22c61cbc-b012-4035-b292-dfd0bb89c712,"Kod Keyfiyyəti və Clean Code","Technical debt nəyi ifadə edir?",MEDIUM
+30d0800c-99ca-4915-82ea-775e5b2eb1fb,"Kod Keyfiyyəti və Clean Code","Pair programming-in üstünlüyü nədir?",EASY
+d401a5eb-588b-4338-81ea-6a671aece74d,"Kod Keyfiyyəti və Clean Code","KISS prinsipi nəyi ifadə edir?",EASY
+424100eb-5fb0-45e4-b502-a847d5e39fc0,"Kod Keyfiyyəti və Clean Code","Code duplication (kod təkrarı) niyə problemdir?",EASY
+80975fa0-d8f4-4ed2-ad63-0c8d04e10c4c,"Kod Keyfiyyəti və Clean Code","Naming convention-ların (adlandırma qaydaları) kod keyfiyyətinə təsiri nədir?",EASY
+ebb8a1f9-d293-4d81-b464-d3e5e30ca25d,"Kod Keyfiyyəti və Clean Code","God Class (God Object) anti-pattern-i nədir?",MEDIUM
+3c34deb6-97c7-4b07-9cb1-18ca6b0ab3ed,"Kod Keyfiyyəti və Clean Code","Boy Scout Rule (izçi qaydası) proqramlaşdırmada nəyi tövsiyə edir?",MEDIUM
+1e9bd00d-191d-4cb8-908e-1b18353d3e18,"Kod Keyfiyyəti və Clean Code","Linting alətləri (məs. Checkstyle) nə üçün istifadə olunur?",MEDIUM
+f400fa41-c909-4967-bfa0-9b8784d6b58c,"Kod Keyfiyyəti və Clean Code","Comments (şərhlər) haqqında Clean Code prinsipi nə deyir?",MEDIUM
+414c96b0-9506-451d-b372-3bd070b20854,"Kod Keyfiyyəti və Clean Code","Feature Envy code smell-i nəyi ifadə edir?",HARD
+42613431-69a1-46bc-b5c0-1eb2fb04631d,"Kod Keyfiyyəti və Clean Code","Continuous Integration (CI) kod keyfiyyətinə necə kömək edir?",MEDIUM
+e4a82a94-faca-41b7-a996-f592e5d47f1f,"Kod Keyfiyyəti və Clean Code","Kod baxışında (code review) 'nitpicking' nə deməkdir?",MEDIUM
+e4a689cf-c1c9-4ce1-b28d-9fecbda5489c,"Annotations və Reflection","Java-da annotation nədir?",EASY
+a569ce47-0b33-4e3d-b4fc-e498a34dff95,"Annotations və Reflection","@Override annotasiyası nə üçün istifadə olunur?",EASY
+28ce204b-f42e-496a-b92d-ea59e07ec962,"Annotations və Reflection","Reflection API nə üçün istifadə olunur?",MEDIUM
+b0d3dbbe-138e-4bd2-b32a-f1ea345907b8,"Annotations və Reflection","@FunctionalInterface annotasiyası nə edir?",MEDIUM
+4b9b95b7-5e6c-41ba-9eb4-2a4cab7b9c83,"Annotations və Reflection","Class.forName() metodu nə edir?",MEDIUM
+08edc389-4c50-45c5-8a0e-e640a961974b,"Annotations və Reflection","Custom annotation necə yaradılır?",MEDIUM
+500cd4b2-75f0-491c-8f28-ff012b6e5884,"Annotations və Reflection","Retention Policy (@Retention) annotasiyanın nəyini müəyyən edir?",HARD
+4e2bbad0-8843-4566-8a52-5bb6320eb888,"Annotations və Reflection","Reflection-un mənfi tərəfi nədir?",MEDIUM
+38df624e-d40c-44fe-9350-7750b1c542ff,"Annotations və Reflection","getDeclaredFields() metodu nə qaytarır?",MEDIUM
+60750706-2829-4743-9b2f-7f1f9bff246a,"Annotations və Reflection","Annotation processor nə üçün istifadə olunur?",HARD
+dcb1c55b-5eeb-4dca-8324-c3aebd7ab373,"Annotations və Reflection","@Deprecated annotasiyası nə edir?",EASY
+a6005351-c797-4b7b-b743-8d2827d93cba,"Annotations və Reflection","@SuppressWarnings annotasiyası nə üçün istifadə olunur?",MEDIUM
+b953ee6f-429f-4c47-88de-65d3cbccfed5,"Annotations və Reflection","@Target annotasiyası nəyi müəyyən edir?",MEDIUM
+5e39311b-5838-4538-82af-a2750e5e5f90,"Annotations və Reflection","Method.invoke() metodu Reflection API-də nə edir?",MEDIUM
+b3c16854-d096-4aea-a1de-7a0ae0a16358,"Annotations və Reflection","setAccessible(true) Reflection-da nə edir?",HARD
+2abc57ec-7110-465d-88db-8468bd7b9ffd,"Annotations və Reflection","Spring Framework-də annotation-lar (məs. @Autowired) daxildə necə emal olunur?",MEDIUM
+d5c02975-2002-49a5-b246-02cd03b1a4f1,"Annotations və Reflection","Annotasiyada default dəyər necə təyin edilir?",MEDIUM
+86c7c17b-087b-4d1d-9fd4-90254de88ec0,"Annotations və Reflection","@Inherited annotasiyası nə edir?",HARD
+243abddc-328a-4cb4-b5d3-8ff479fa5342,"Annotations və Reflection","Reflection istifadə edərək private sahəyə dəyər təyin etmək mümkündürmü?",HARD
+90c3ccf1-acf2-43b4-92ca-50ce31621c95,"Annotations və Reflection","Annotation-lar generic tip parametri qəbul edə bilərmi?",HARD
+7702ca2a-8573-4f50-a920-de86876b5732,"I/O və Serialization","Serialization nədir?",EASY
+dbdfea69-d9cd-4379-aa21-a58e8156b865,"I/O və Serialization","Serializable interfeysi nə üçün implement edilir?",EASY
+a0dd22a5-4121-4238-ba68-1640abddbc0f,"I/O və Serialization","transient açar sözü nə edir?",MEDIUM
+0c6f47c0-a2e6-4029-8b0a-ccacd9168811,"I/O və Serialization","BufferedReader niyə adi FileReader-dən daha sürətlidir?",MEDIUM
+5ff8172d-96d1-4c74-9ca2-c07d94fcde90,"I/O və Serialization","try-with-resources I/O əməliyyatlarında niyə vacibdir?",MEDIUM
+bad7c485-7c2b-42a3-93d5-468a165dd384,"I/O və Serialization","InputStream və Reader arasındakı fərq nədir?",MEDIUM
+37f077d9-db93-46a9-a337-00ef5fad5fe7,"I/O və Serialization","serialVersionUID nə üçün istifadə olunur?",HARD
+72ad7494-9492-45dc-9ad2-2bf338301e43,"I/O və Serialization","java.nio.file.Files sinifi nə üçün istifadə olunur?",MEDIUM
+427b53bd-1f42-4bef-8bca-187aadb03b37,"I/O və Serialization","Deserialization zamanı təhlükəsizlik riski nə ola bilər?",HARD
+1a0ac8f9-2e83-4c83-b83b-560763900462,"I/O və Serialization","System.out.println() daxili olaraq hansı axını istifadə edir?",EASY
+fc2574bb-d9c7-4dd1-b4cd-643b333a38fd,"I/O və Serialization","Files.readAllLines() metodu nə qaytarır?",EASY
+b42b03ae-ab20-40b2-9a9f-e74067eaefcf,"I/O və Serialization","PrintWriter və BufferedWriter arasındakı fərq nədir?",MEDIUM
+d6cbee99-082d-4c2e-a7d4-03e511bd8176,"I/O və Serialization","Java-da fayl oxumaq üçün 'try-with-resources' istifadə edilmədikdə hansı risk yaranır?",MEDIUM
+e0160b3e-f339-4dce-9626-2cd24dc1bdaa,"I/O və Serialization","OutputStream və Writer arasındakı fərq nədir?",MEDIUM
+94ba1167-6302-4336-a558-c543d0737b57,"I/O və Serialization","Java-da RandomAccessFile nə üçün istifadə olunur?",HARD
+f956f14a-abe8-4a73-915f-cd1d0c332159,"I/O və Serialization","Externalizable interfeysi Serializable-dan nə ilə fərqlənir?",HARD
+3c4e7edf-8b40-45b5-b098-eabdfd348aea,"I/O və Serialization","Java-da fayl yolu (path) əməliyyatları üçün hansı müasir API tövsiyə olunur?",MEDIUM
+26620614-f4a1-4825-bea9-c7a209de12af,"I/O və Serialization","Buffered stream-lərin əsas faydası nədir?",MEDIUM
+e49ced4e-62b4-4c72-80d3-661fbeb56b12,"I/O və Serialization","Java-da standart giriş (System.in) necə oxunur?",EASY
+b83deeab-3141-48e1-8675-61de0893a091,"I/O və Serialization","Object Serialization-da 'readObject()' və 'writeObject()' metodlarını əl ilə override etməyin məqsədi nədir?",HARD
+174a28a0-5dd7-4c94-8657-9f26831b5a7a,"Serialization Formatları","JSON formatının əsas üstünlüyü nədir?",EASY
+07932bae-107b-4527-ac96-6318ff219ffa,"Serialization Formatları","XML və JSON arasındakı əsas fərq nədir?",EASY
+1d8f0adf-f1b2-4e98-a853-888d050517b5,"Serialization Formatları","Jackson kitabxanası Java-da nə üçün istifadə olunur?",MEDIUM
+20caf884-75ee-472b-b4c2-bcb64dc1c3b0,"Serialization Formatları","@JsonProperty annotasiyası (Jackson) nə üçün istifadə olunur?",MEDIUM
+927e0a0a-7d3e-4e0c-bdc3-7de6b03120fb,"Serialization Formatları","Protobuf (Protocol Buffers) JSON-dan nə ilə fərqlənir?",MEDIUM
+9c97fe8e-609d-4685-9caa-08b41281eb55,"Serialization Formatları","YAML formatı nə üçün tez-tez konfiqurasiya fayllarında istifadə olunur?",MEDIUM
+3415a829-7b36-409b-a6d2-fb3832ea9e2c,"Serialization Formatları","JSON-da massiv (array) hansı simvollarla göstərilir?",EASY
+5fa5d376-81cf-4df8-8519-d802ca673c6a,"Serialization Formatları","@JsonIgnore annotasiyası (Jackson) nə edir?",MEDIUM
+f7a13d4d-8434-4fbd-b6d1-baf027aab649,"Serialization Formatları","Serialization formatı seçərkən hansı amillər nəzərə alınmalıdır?",MEDIUM
+72b6e3c9-ae7d-42bf-93bf-94353f0bc210,"Serialization Formatları","Gson kitabxanası nədir?",MEDIUM
+14a65624-4497-490d-9799-5619e87fd3ac,"Serialization Formatları","XML-in Schema (XSD) ilə validasiyası nəyə imkan verir?",MEDIUM
+b54c2022-fdde-4d7c-9584-5fba8c8ec8e9,"Serialization Formatları","Avro serialization formatının əsas xüsusiyyəti nədir?",HARD
+87490de0-0d9f-4ed6-967d-3de9cee72a50,"Serialization Formatları","JSON-un null dəyəri necə göstərilir?",EASY
+081a934e-a05f-4d14-9175-49354cdc4b35,"Serialization Formatları","Binary serialization formatlarının (Protobuf, Avro) mətn əsaslı formatlara (JSON, XML) üstünlüyü nədir?",MEDIUM
+de0ae39e-a72e-4c28-b015-94066e5347df,"Serialization Formatları","@JsonCreator annotasiyası (Jackson) nə üçün istifadə olunur?",HARD
+69ce8377-3f23-4f75-b1cb-8e577a459a61,"Serialization Formatları","JSON Schema nə üçün istifadə olunur?",MEDIUM
+98c8df15-d7f7-4e03-9243-4384c0afa075,"Serialization Formatları","Serializasiya zamanı circular reference (dövri referans) problemi necə həll edilə bilər?",HARD
+1c994705-cdfd-480f-838a-4a176e274278,"Serialization Formatları","MessagePack nədir?",HARD
+46ff673d-984c-444e-b488-eb8c41a5954a,"Serialization Formatları","API-lərdə content negotiation zamanı Accept header-i nəyi bildirir?",MEDIUM
+edad8289-a528-4cd8-a625-91190b3d4489,"Serialization Formatları","Serialization formatının versiyalaşdırılması (schema evolution) niyə vacibdir?",MEDIUM
+dae14ff0-b5f9-4fc4-9346-f4d4bb330076,"Spring Framework Əsasları","Spring Framework-də IoC (Inversion of Control) nəyi ifadə edir?",MEDIUM
+a3bad069-704b-49a5-acb5-96e65df3db15,"Spring Framework Əsasları","@Autowired annotasiyası nə üçün istifadə olunur?",EASY
+10bc21df-f78d-4a69-a8d4-fbbc037a57d1,"Spring Framework Əsasları","Spring-də Bean nədir?",EASY
+2ac0bdb7-6739-49ed-9aec-b36d2966cbee,"Spring Framework Əsasları","@Component, @Service və @Repository annotasiyaları arasındakı fərq nədir?",MEDIUM
+e3a4770f-b534-43ff-b487-07b5cb660f3d,"Spring Framework Əsasları","Spring Boot-un əsas üstünlüyü nədir?",EASY
+51440ed8-aaa3-4418-8dbe-38a1e1db4fa2,"Spring Framework Əsasları","Dependency Injection-un növləri hansılardır?",MEDIUM
+4544ac9f-9679-43a0-8419-36d4e6cd73ac,"Spring Framework Əsasları","@RestController annotasiyası nə edir?",MEDIUM
+682abf40-8aa3-493e-93c4-2e035ad8ff0b,"Spring Framework Əsasları","Spring-də Bean-in default scope-u nədir?",MEDIUM
+ce46086a-132a-4717-b91d-e85d38bff840,"Spring Framework Əsasları","@Transactional annotasiyası nəyi təmin edir?",MEDIUM
+24f5fb59-5d30-42ed-a887-9de918dc4a5b,"Spring Framework Əsasları","Spring-də Application Context nədir?",MEDIUM
+f8c943b5-a509-47e0-aaea-d569e4e79b7b,"Spring Framework Əsasları","Spring-də @Qualifier annotasiyası nə üçün istifadə olunur?",MEDIUM
+02d49166-6485-472f-8b51-d22aa13ba6da,"Spring Framework Əsasları","Spring-də @Configuration annotasiyası nə edir?",MEDIUM
+5122d7f2-2e5b-499f-a4d1-57bc86990a27,"Spring Framework Əsasları","Spring-də @Value annotasiyası nə üçün istifadə olunur?",MEDIUM
+22947a01-c447-455a-9a78-6b39ff65ce02,"Spring Framework Əsasları","Spring Data JPA nə üçün istifadə olunur?",MEDIUM
+0c1992a3-19de-46e6-9d65-2f6cff139f7d,"Spring Framework Əsasları","Spring-də @ExceptionHandler annotasiyası nə edir?",MEDIUM
+0e084ee3-6ad2-4862-ac1b-aac6a51dda90,"Spring Framework Əsasları","Spring-də profile (@Profile) konsepsiyası nə üçündür?",MEDIUM
+306c9211-7540-45c9-a933-12522fcbbea6,"Spring Framework Əsasları","Spring-in Aspect-Oriented Programming (AOP) dəstəyi nə üçün istifadə olunur?",HARD
+d2cf6505-0c1a-42fe-954e-a5be04397dfd,"Spring Framework Əsasları","@PostConstruct annotasiyası nə vaxt icra olunur?",MEDIUM
+805d3d41-4e96-4b05-9788-0d40dfe0ed72,"Spring Framework Əsasları","Spring-də circular dependency (dövri asılılıq) problemi nə vaxt yaranır?",HARD
+e3956e09-f569-40f8-91b4-09eabd88ab68,"Spring Framework Əsasları","Spring Boot Actuator nə üçün istifadə olunur?",MEDIUM
+787a86ab-4bf3-4196-a9a5-720972989c67,"REST API və Veb Servislər","REST nə deməkdir?",EASY
+e80ba015-139e-4b24-807a-72dd03a3e972,"REST API və Veb Servislər","HTTP metodlarından GET və POST arasındakı əsas fərq nədir?",EASY
+9a603545-a654-438b-984e-071d67976835,"REST API və Veb Servislər","HTTP status kodu 404 nəyi bildirir?",EASY
+485c132e-f284-4966-b09e-6920a2cc79ec,"REST API və Veb Servislər","PUT və PATCH HTTP metodları arasındakı fərq nədir?",MEDIUM
+8b01b528-35c5-400d-b95d-88fecbc7870b,"REST API və Veb Servislər","Idempotent HTTP metodu nə deməkdir?",MEDIUM
+22b7244b-60b2-45ba-b20b-3a00b77a2a60,"REST API və Veb Servislər","JSON verilənlər formatının əsas üstünlüyü nədir?",EASY
+a287ac36-cab4-4824-8e57-ad6b45447002,"REST API və Veb Servislər","@RequestBody annotasiyası (Spring) nə edir?",MEDIUM
+376eca1e-4837-4527-9801-c8418cefb77a,"REST API və Veb Servislər","API versiyalaşdırması nə üçün vacibdir?",MEDIUM
+43b59165-80ce-4489-a7e8-346957b71ae2,"REST API və Veb Servislər","Statelessness REST memarlığında nəyi ifadə edir?",MEDIUM
+b72afe9c-71ac-4b78-b2f9-1389b56d2a50,"REST API və Veb Servislər","CORS (Cross-Origin Resource Sharing) nə üçündür?",MEDIUM
+be68a63b-3ad7-4f1f-880c-76e261fd911a,"REST API və Veb Servislər","SOAP və REST arasındakı əsas fərq nədir?",MEDIUM
+0b57bd21-9f84-4ea9-93d4-734bc95afe6a,"REST API və Veb Servislər","HATEOAS REST memarlığında nəyi ifadə edir?",HARD
+cefd366c-af53-4a13-be6a-be131f2910ea,"REST API və Veb Servislər","HTTP 500 status kodu nəyi bildirir?",EASY
+88677916-534f-47b9-a164-d831a570c15c,"REST API və Veb Servislər","HTTP 201 status kodu adətən hansı əməliyyatdan sonra qaytarılır?",EASY
+c3675af1-2f8a-46be-a461-a7a88062c86e,"REST API və Veb Servislər","Pagination (səhifələmə) REST API-lərdə nə üçün vacibdir?",MEDIUM
+76f6b4b9-d5bf-47d5-9348-26a502cffa46,"REST API və Veb Servislər","REST API-də DELETE metodu idempotent hesab olunurmu?",MEDIUM
+d0f905a2-5484-4da4-b0dd-f0a0959810ba,"REST API və Veb Servislər","API Gateway nə üçün istifadə olunur?",MEDIUM
+c68e4403-08fa-4c6a-a199-44940ed3c74b,"REST API və Veb Servislər","Rate limiting API-lərdə nə üçün tətbiq olunur?",MEDIUM
+76f27ec2-8409-45e4-9c90-55ad94052e73,"REST API və Veb Servislər","GraphQL REST-dən nə ilə fərqlənir?",MEDIUM
+65089a98-5d34-4149-802d-744437f239cf,"REST API və Veb Servislər","Webhook nədir?",MEDIUM
+04093ed8-469c-4020-a2ed-d4c72542fc53,"WebSocket və Real-vaxt Kommunikasiya","WebSocket protokolu HTTP-dən nə ilə fərqlənir?",MEDIUM
+742afa5f-103f-4738-bff3-9540c8df269e,"WebSocket və Real-vaxt Kommunikasiya","WebSocket bağlantısı necə başlayır (handshake)?",MEDIUM
+171d5982-7828-4220-88f0-a78c8695676a,"WebSocket və Real-vaxt Kommunikasiya","WebSocket-in tipik istifadə sahələrinə hansı aiddir?",EASY
+366cbc3b-3eb7-4a3e-a952-2415559584d1,"WebSocket və Real-vaxt Kommunikasiya","Server-Sent Events (SSE) WebSocket-dən nə ilə fərqlənir?",MEDIUM
+7a532883-b492-482e-b262-8078fcdb5ccd,"WebSocket və Real-vaxt Kommunikasiya","Spring-də WebSocket dəstəyi üçün hansı annotasiya istifadə olunur?",MEDIUM
+f591ebcf-2e82-4b9b-95b4-eccd50640e5e,"WebSocket və Real-vaxt Kommunikasiya","STOMP protokolu nə üçün WebSocket üzərində istifadə olunur?",HARD
+8dc559bd-dca0-4e49-a212-463c80cca0aa,"WebSocket və Real-vaxt Kommunikasiya","WebSocket bağlantısının uzun müddət açıq qalması hansı resurs riskini yaradır?",MEDIUM
+9376de48-3154-4b14-97d7-a6fdf5f22974,"WebSocket və Real-vaxt Kommunikasiya","Long polling nədir?",MEDIUM
+ff9f2a82-c792-46ae-a7af-eae2f102191d,"WebSocket və Real-vaxt Kommunikasiya","WebSocket-də mesaj broker (message broker) rolu nədir?",MEDIUM
+57960ac2-e4c2-4b67-bf43-6ce9a40ea5a8,"WebSocket və Real-vaxt Kommunikasiya","WebSocket bağlantısında təhlükəsizlik (autentifikasiya) necə təmin edilə bilər?",MEDIUM
+51ee7eef-d6a4-464f-bc9a-ea70c0299b7c,"WebSocket və Real-vaxt Kommunikasiya","Socket.IO nədir?",MEDIUM
+00b91c44-be44-43ac-a53c-b7c383b0135a,"WebSocket və Real-vaxt Kommunikasiya","WebSocket vasitəsilə göndərilən mesajlar hansı formatda ola bilər?",EASY
+080ed5f8-d8b5-45bd-a670-1df57bb6e000,"WebSocket və Real-vaxt Kommunikasiya","Real-vaxt tətbiqlərdə 'heartbeat' mesajları nə üçün istifadə olunur?",MEDIUM
+c7123169-2235-4635-9991-aca298bbb5cc,"WebSocket və Real-vaxt Kommunikasiya","Fərqli server instansiyaları arasında WebSocket mesajlarını necə paylaşmaq olar (horizontal scaling)?",HARD
+f46a4ff4-1c72-4f87-b67c-a792f96e39ff,"WebSocket və Real-vaxt Kommunikasiya","WebSocket-in CORS ilə əlaqəsi nədir?",MEDIUM
+5a251d9b-318e-4f41-aead-41fd2dec6cca,"WebSocket və Real-vaxt Kommunikasiya","Reconnection strategiyası WebSocket klientlərində niyə vacibdir?",MEDIUM
+f9f3d900-25bc-4158-bf94-18d1a34f0719,"WebSocket və Real-vaxt Kommunikasiya","WebSocket protokolunun URL sxemi nədir?",EASY
+2740eadd-7266-4b85-ae15-c2431126c94c,"WebSocket və Real-vaxt Kommunikasiya","Real-vaxt bildirişlər üçün push notification WebSocket-dən nə ilə fərqlənir?",MEDIUM
+4343f12e-285a-41b3-ae7d-9df5fac00eff,"WebSocket və Real-vaxt Kommunikasiya","Backpressure (əks təzyiq) real-vaxt streaming sistemlərində nəyi ifadə edir?",HARD
+368964c9-31d0-479b-830b-f0085d3a886c,"WebSocket və Real-vaxt Kommunikasiya","WebSocket bağlantısı bağlandıqda (close event) hansı məlumat ötürülür?",MEDIUM
+8d7643b7-e6b9-4ba2-8100-1650cab0ab8b,"API Dizaynı və Sənədləşmə","OpenAPI (Swagger) specification nə üçün istifadə olunur?",MEDIUM
+68a45b03-b5cb-4432-bcfd-80d3c41e6fac,"API Dizaynı və Sənədləşmə","API dizaynında 'resource naming' üçün REST konvensiyası nə tövsiyə edir?",EASY
+591fe426-3092-4006-b9f3-f3b0038497e7,"API Dizaynı və Sənədləşmə","API versiyalaşdırmasının ümumi üsullarından biri hansıdır?",MEDIUM
+19bb063d-4920-477f-8245-f50f064aef7d,"API Dizaynı və Sənədləşmə","Swagger UI nə təqdim edir?",EASY
+0a00d867-7d03-41b6-9288-ec5f6dffc17d,"API Dizaynı və Sənədləşmə","API dizaynında 'contract-first' yanaşması nə deməkdir?",MEDIUM
+614ae560-402c-4a74-ac7a-74134ccdadca,"API Dizaynı və Sənədləşmə","API-lərdə error response formatının standartlaşdırılması (məs. RFC 7807 Problem Details) nə üçün faydalıdır?",MEDIUM
+e2382012-e9ba-4cda-879c-d1e6846ec85a,"API Dizaynı və Sənədləşmə","API dokumentasiyasında 'request/response examples' niyə vacibdir?",EASY
+d76a7da2-5f96-4159-9fb8-bf56faf04227,"API Dizaynı və Sənədləşmə","API-də backward compatibility (geriyə uyğunluq) nəyi ifadə edir?",MEDIUM
+02c72c70-e7d7-4287-8505-9927cd04a3e2,"API Dizaynı və Sənədləşmə","API Design-First vs Code-First yanaşmalarının fərqi nədir?",MEDIUM
+93dca629-6830-4318-8f89-8beab50646af,"API Dizaynı və Sənədləşmə","REST API-də HTTP status kodlarının düzgün istifadəsi niyə vacibdir?",MEDIUM
+076fa646-0f66-4956-b9e1-aaf24dcdb55a,"API Dizaynı və Sənədləşmə","API-lərdə HATEOAS-ın praktikada az istifadə olunmasının səbəbi nə ola bilər?",HARD
+7cdd9770-5dea-4194-8386-947355837a86,"API Dizaynı və Sənədləşmə","API sənədləşməsində 'deprecated' işarəsi nə bildirir?",EASY
+fce7de18-8f1f-4898-9116-2b3e835fefe5,"API Dizaynı və Sənədləşmə","API Rate Limit haqqında məlumat adətən hansı yolla klientə bildirilir?",MEDIUM
+a0ec9c35-63f9-4507-958e-6c5714ebfdfa,"API Dizaynı və Sənədləşmə","API dizaynında idempotency key konsepsiyası nə üçün istifadə olunur?",HARD
+7e4f382c-7a23-4733-b35f-3c91c714b59a,"API Dizaynı və Sənədləşmə","OpenAPI spesifikasiyasından avtomatik client SDK generasiya etmək mümkündürmü?",MEDIUM
+836c73ce-a1e4-41ee-9668-d0d20ca25939,"API Dizaynı və Sənədləşmə","API-lərdə 'breaking change' nəyi ifadə edir?",MEDIUM
+e85db57b-89e0-48ca-a741-0b9c54dd9b50,"API Dizaynı və Sənədləşmə","API dizaynında konsistent (ardıcıl) adlandırma niyə vacibdir?",EASY
+0a8b7e2c-b35e-4d4b-85db-ceaed89886ca,"API Dizaynı və Sənədləşmə","API-lərdə sorğu parametrlərinin (query parameters) filtrasiya üçün istifadəsinə nümunə hansıdır?",EASY
+61049a0d-58af-4105-b709-1be6cad1cebd,"API Dizaynı və Sənədləşmə","Postman kolleksiyaları API test və sənədləşməsində nə üçün istifadə olunur?",EASY
+9d7194ba-fcb5-4120-a9e4-e1961a7031d3,"API Dizaynı və Sənədləşmə","API dizaynında 'sparse fieldsets' konsepsiyası nə edir?",MEDIUM
+908bad32-e94f-475e-8de5-a3d297b9ea54,"Autentifikasiya və Avtorizasiya","Autentifikasiya (authentication) və avtorizasiya (authorization) arasındakı fərq nədir?",EASY
+0b139bbe-0767-4a74-9291-b40e12ac9dc9,"Autentifikasiya və Avtorizasiya","JWT (JSON Web Token) nədən ibarətdir?",MEDIUM
+574deed9-78bd-40b7-a823-99e598ec01df,"Autentifikasiya və Avtorizasiya","JWT-nin stateless (vəziyyətsiz) olması nə üstünlük verir?",MEDIUM
+c050e9dd-2f1d-4b7a-83c1-e067dcaf7ad7,"Autentifikasiya və Avtorizasiya","OAuth2 protokolunun əsas məqsədi nədir?",MEDIUM
+a26bad02-cb0c-46b2-a362-e29e9e67d2ca,"Autentifikasiya və Avtorizasiya","OAuth2-də 'access token' və 'refresh token' arasındakı fərq nədir?",MEDIUM
+eaf8ee2f-7c47-4b40-aebd-f213b512adb8,"Autentifikasiya və Avtorizasiya","Spring Security-də autentifikasiya prosesini idarə edən əsas interfeys hansıdır?",MEDIUM
+aeed7ef2-2ae9-410c-9b61-4ec33e5a36b9,"Autentifikasiya və Avtorizasiya","Role-Based Access Control (RBAC) nə deməkdir?",EASY
+ae7fd711-ad70-485c-a3ba-4521e90bcfc4,"Autentifikasiya və Avtorizasiya","Şifrələrin verilənlər bazasında saxlanması üçün niyə hashing (məs. bcrypt) istifadə olunur?",MEDIUM
+5a9d9027-23ce-4a2b-8bba-958e7d18779e,"Autentifikasiya və Avtorizasiya","CSRF (Cross-Site Request Forgery) həmləsi nədir?",MEDIUM
+840b83ea-02f3-4ead-b1b8-1b94a00eb0c3,"Autentifikasiya və Avtorizasiya","Session-based autentifikasiya JWT-based autentifikasiyadan nə ilə fərqlənir?",MEDIUM
+680f4cf6-16c0-426b-8c58-b2a94b826631,"Autentifikasiya və Avtorizasiya","OAuth2-də 'Authorization Code' grant type nə üçün istifadə olunur?",HARD
+bf961222-4d30-4d42-967a-28cc7b01ccfc,"Autentifikasiya və Avtorizasiya","Two-Factor Authentication (2FA) nəyi təmin edir?",EASY
+3387d52b-765e-4c77-92a2-7646ef839975,"Autentifikasiya və Avtorizasiya","Spring Security-də @PreAuthorize annotasiyası nə edir?",MEDIUM
+cee6cc5a-3f14-479f-ac1a-81623b1ab2d7,"Autentifikasiya və Avtorizasiya","Single Sign-On (SSO) nə üçün istifadə olunur?",MEDIUM
+56b01cfe-cac1-4b75-b9fe-4f6312d1d4ed,"Autentifikasiya və Avtorizasiya","OpenID Connect OAuth2-dən nə ilə fərqlənir?",HARD
+69159c48-f303-472e-9307-18fe628af571,"Autentifikasiya və Avtorizasiya","API açarları (API keys) autentifikasiyanın hansı formasıdır?",MEDIUM
+f017cae9-ddcc-4e95-9a00-972e2e9a2771,"Autentifikasiya və Avtorizasiya","Principle of Least Privilege (ən az imtiyaz prinsipi) nə deməkdir?",MEDIUM
+f6d6bd92-caed-40c1-afff-268a674e8392,"Autentifikasiya və Avtorizasiya","JWT token-in etibarlılıq müddəti (expiration) niyə vacibdir?",MEDIUM
+7363ff66-62b4-42d6-84a9-0ca04ab736ac,"Autentifikasiya və Avtorizasiya","Basic Authentication-un təhlükəsizlik baxımından zəif tərəfi nədir?",MEDIUM
+62e8a09f-f247-4dc4-b4c2-04808ac70cdd,"Autentifikasiya və Avtorizasiya","Avtorizasiya yoxlaması yalnız frontend-də (klient tərəfində) aparılması niyə təhlükəlidir?",MEDIUM
+62fe82aa-124a-403f-98f4-d312248327f8,"JDBC və Verilənlər Bazası","JDBC nədir?",EASY
+15c0cef6-871d-4da2-9af4-27f29afd137f,"JDBC və Verilənlər Bazası","PreparedStatement, Statement-dən nə ilə fərqlənir?",MEDIUM
+a512aa04-6e46-4eaa-a0e5-b06111e420bb,"JDBC və Verilənlər Bazası","Connection Pool nə üçün istifadə olunur?",MEDIUM
+e8462acc-2340-4ac1-8099-4855d6a8fa81,"JDBC və Verilənlər Bazası","ORM (Object-Relational Mapping) nədir?",MEDIUM
+55723fc1-51ad-4085-b38c-caf1fb4f412a,"JDBC və Verilənlər Bazası","SQL injection həmləsindən qorunmaq üçün ən yaxşı üsul hansıdır?",MEDIUM
+83cae4ff-d1aa-4f7f-a072-fea081761a7e,"JDBC və Verilənlər Bazası","Transaction-un ACID xüsusiyyətləri nələrdir?",MEDIUM
+5fedb583-5635-4cda-b6c3-79dc3317ec15,"JDBC və Verilənlər Bazası","ResultSet nədir?",EASY
+55874226-f417-4921-acfb-9cb125adbe7a,"JDBC və Verilənlər Bazası","Hibernate-də lazy loading nə deməkdir?",MEDIUM
+cb161b1e-a730-43ac-a926-9726df537061,"JDBC və Verilənlər Bazası","commit() və rollback() metodları nə üçündür?",MEDIUM
+06e8b2de-a90d-46fa-84c9-438095c49da8,"JDBC və Verilənlər Bazası","N+1 select problemi nədir?",HARD
+31f2bd29-b53c-48f1-904a-1a486a16ac0d,"JDBC və Verilənlər Bazası","DriverManager sinifi JDBC-də nə üçün istifadə olunur?",MEDIUM
+8a42257c-5092-4ae9-b63c-58257dd3dc84,"JDBC və Verilənlər Bazası","CallableStatement nə üçün istifadə olunur?",MEDIUM
+ce84c412-05ba-4f78-be31-6b2d88f42abe,"JDBC və Verilənlər Bazası","Batch processing (JDBC-də addBatch/executeBatch) nə üçün istifadə olunur?",MEDIUM
+ba03d7a5-018c-4b76-bf9b-7512229c939b,"JDBC və Verilənlər Bazası","JDBC-də autoCommit rejimi default olaraq necədir?",MEDIUM
+01d04bae-e352-4a23-b99a-4e594655e865,"JDBC və Verilənlər Bazası","Connection.setAutoCommit(false) nə vaxt istifadə olunur?",MEDIUM
+a15b58ea-7292-4a8c-bc37-522bc39ba449,"JDBC və Verilənlər Bazası","SQL-də JOIN əməliyyatının məqsədi nədir?",EASY
+2bf72889-fa34-4997-bfa2-248e28be2fc1,"JDBC və Verilənlər Bazası","Optimistic locking və pessimistic locking arasındakı fərq nədir?",HARD
+67cd05cc-e38f-4d10-91c4-b03505ccb450,"JDBC və Verilənlər Bazası","JPA-da @Entity annotasiyası nə edir?",MEDIUM
+92dd9778-6ccc-46e4-9ce7-f408ac800be7,"JDBC və Verilənlər Bazası","Database Connection Pool-un ölçüsünü çox böyük təyin etməyin riski nədir?",MEDIUM
+3817e4c8-15b0-44ea-a158-ab64f16aeef3,"JDBC və Verilənlər Bazası","JDBC URL-i (məs. jdbc:mysql://localhost:3306/mydb) nəyi ehtiva edir?",EASY
+b00480f3-b8fc-43af-8dc1-00a06184c55d,"SQL və Verilənlər Bazası Dizaynı","Normalization (normallaşdırma) verilənlər bazası dizaynında nəyi hədəfləyir?",MEDIUM
+dba213b2-367d-4f34-85ad-31d216a79101,"SQL və Verilənlər Bazası Dizaynı","Primary key nədir?",EASY
+70cce645-fee0-4d76-9414-80712bdb2d91,"SQL və Verilənlər Bazası Dizaynı","Foreign key nə üçün istifadə olunur?",EASY
+49e16392-b684-4f62-9440-23fee2544484,"SQL və Verilənlər Bazası Dizaynı","INNER JOIN və LEFT JOIN arasındakı fərq nədir?",MEDIUM
+fd19c3fc-7e25-4217-9cf0-1c9dc2935ebb,"SQL və Verilənlər Bazası Dizaynı","GROUP BY sərəncamı nə üçün istifadə olunur?",MEDIUM
+3ed119a3-85f8-4dc6-9b5b-6e2d1963c09d,"SQL və Verilənlər Bazası Dizaynı","WHERE və HAVING sərəncamları arasındakı fərq nədir?",MEDIUM
+576ce18b-d262-47f4-8503-876332b169bf,"SQL və Verilənlər Bazası Dizaynı","Third Normal Form (3NF) nəyi tələb edir?",HARD
+f73b7543-b7e9-46b5-a181-423540cecbf9,"SQL və Verilənlər Bazası Dizaynı","Denormalization nə vaxt istifadə edilə bilər?",MEDIUM
+fbb79454-e790-4192-8eab-89163df37785,"SQL və Verilənlər Bazası Dizaynı","SQL-də UNION və UNION ALL arasındakı fərq nədir?",MEDIUM
+e3172bc4-603b-4dfa-8611-864a6c09904d,"SQL və Verilənlər Bazası Dizaynı","Composite key (mürəkkəb açar) nə deməkdir?",MEDIUM
+f9605b10-e4be-4853-95da-c50f2fd8905b,"SQL və Verilənlər Bazası Dizaynı","SQL-də subquery (alt-sorğu) nə üçün istifadə olunur?",MEDIUM
+c16d357a-248a-4beb-8fa2-7662091f3a62,"SQL və Verilənlər Bazası Dizaynı","Referential integrity (istinad bütövlüyü) nəyi təmin edir?",MEDIUM
+ea6ce720-1302-4258-b376-32780f7ee381,"SQL və Verilənlər Bazası Dizaynı","SQL-də DISTINCT açar sözü nə edir?",EASY
+52f1a8ca-130e-4fce-8b48-68af956debb9,"SQL və Verilənlər Bazası Dizaynı","View (görünüş) verilənlər bazasında nədir?",MEDIUM
+7b1f165c-a906-4f02-be45-bdc3416aea91,"SQL və Verilənlər Bazası Dizaynı","Stored Procedure-un üstünlüyü nədir?",MEDIUM
+3d3a1850-96d3-477d-a6e3-bb712feb83c6,"SQL və Verilənlər Bazası Dizaynı","SQL Injection həmləsi nədir?",MEDIUM
+3024bcb0-a261-4db9-800c-24f34970fb91,"SQL və Verilənlər Bazası Dizaynı","ER Diagram (Entity-Relationship Diagram) nə üçün istifadə olunur?",EASY
+3952c3ba-2987-413f-b012-b66d5f3db9b6,"SQL və Verilənlər Bazası Dizaynı","Trigger (tetikleyici) verilənlər bazasında nə edir?",MEDIUM
+4b7f441d-b2e9-4c41-a08d-54c4b73399d3,"SQL və Verilənlər Bazası Dizaynı","One-to-Many əlaqə nümunəsi hansıdır?",EASY
+f80a59ed-fcb1-405d-a890-73823968821c,"SQL və Verilənlər Bazası Dizaynı","SQL-də EXISTS operatoru nə üçün istifadə olunur?",MEDIUM
+828cb054-46f2-4435-9a23-2d5670a29520,"NoSQL Verilənlər Bazaları","NoSQL verilənlər bazaları RDBMS-dən nə ilə fərqlənir?",EASY
+c6ad0af3-03f0-4f83-bc95-38dfc641db17,"NoSQL Verilənlər Bazaları","MongoDB hansı NoSQL kateqoriyasına aiddir?",EASY
+872b0436-3993-4988-9483-044ef673e43e,"NoSQL Verilənlər Bazaları","Redis əsasən nə üçün istifadə olunur?",MEDIUM
+2b1a8555-13f6-4087-9ac1-b9672d2c6b44,"NoSQL Verilənlər Bazaları","CAP teoremi nəyi ifadə edir?",HARD
+11ff0a16-3516-4057-b069-c83a718ed318,"NoSQL Verilənlər Bazaları","Cassandra hansı NoSQL kateqoriyasına aiddir?",MEDIUM
+c9d86794-7ba9-4610-80d5-0014a1d08f08,"NoSQL Verilənlər Bazaları","NoSQL verilənlər bazalarının horizontal scaling (üfüqi genişlənmə) baxımından üstünlüyü nədir?",MEDIUM
+dbf52e5e-7b9d-4054-b47c-aa6c1f54bb97,"NoSQL Verilənlər Bazaları","Eventual consistency (nəhayət uyğunluq) nə deməkdir?",HARD
+0fee5a91-3bdb-4d89-a2db-d450985236ea,"NoSQL Verilənlər Bazaları","Neo4j hansı NoSQL kateqoriyasına aiddir?",MEDIUM
+1ae3ee50-344c-4b7a-8ec2-d520499dfd7d,"NoSQL Verilənlər Bazaları","NoSQL-də şəma (schema) çevikliyinin əsas faydası nədir?",MEDIUM
+d3f5e6f4-d96b-4161-9450-6b582d31062a,"NoSQL Verilənlər Bazaları","NoSQL verilənlər bazası nə vaxt RDBMS-dən üstün ola bilər?",MEDIUM
+196167a3-1e8a-4e46-ae2a-d04a1c24ffdd,"NoSQL Verilənlər Bazaları","Sharding (parçalama) nə deməkdir?",MEDIUM
+8b04950b-8578-4a9b-850e-5b13dda0121e,"NoSQL Verilənlər Bazaları","Document database-də 'document' nəyi təmsil edir?",EASY
+a94e5b52-c0ac-46f7-b61e-09190cb1ad2f,"NoSQL Verilənlər Bazaları","NoSQL verilənlər bazalarında transaction (tranzaksiya) dəstəyi ənənəvi RDBMS ilə necə müqayisə olunur?",HARD
+4600d854-0fe6-48e7-807e-9984d98fb237,"NoSQL Verilənlər Bazaları","Key-value store-un tipik istifadə nümunəsi hansıdır?",MEDIUM
+c83048e1-cb51-4ac4-ae17-13a27549803f,"NoSQL Verilənlər Bazaları","NoSQL verilənlər bazalarında indekslənmə RDBMS-dəkindən nə ilə fərqlənə bilər?",MEDIUM
+fcb99904-fea5-4aa3-b49d-ef530ff5466b,"NoSQL Verilənlər Bazaları","Polyglot persistence nə deməkdir?",HARD
+4bcecfa9-9404-459a-8a87-f0f8c1ee89bd,"NoSQL Verilənlər Bazaları","MongoDB-də 'collection' anlayışı SQL-də nəyə uyğun gəlir?",MEDIUM
+a0996e14-682f-4823-8c72-04f14136b7fd,"NoSQL Verilənlər Bazaları","Elasticsearch əsasən nə üçün istifadə olunur?",MEDIUM
+ca2b44d0-96fb-4fd9-8a0e-cf8dd16b15cd,"NoSQL Verilənlər Bazaları","NoSQL verilənlər bazasında BASE modeli (Basically Available, Soft state, Eventual consistency) ACID-dən nə ilə fərqlənir?",HARD
+1b4f96a0-635d-4d9c-8cc8-981077b08452,"NoSQL Verilənlər Bazaları","Verilənlər bazası seçimi zamanı NoSQL və RDBMS arasında qərar vermək üçün hansı amillər nəzərə alınmalıdır?",MEDIUM
+2db378c7-814a-4d9b-82cc-221b74c2fd56,"Verilənlər Bazası İndeksləmə və Optimallaşdırma","Verilənlər bazası indeksi (index) nə üçün istifadə olunur?",EASY
+c7713cb5-0d23-492e-9201-51209eebc617,"Verilənlər Bazası İndeksləmə və Optimallaşdırma","İndeksin əlavə edilməsinin mənfi tərəfi nədir?",MEDIUM
+1b5b001a-0716-4f27-9c10-3dfac4f68d08,"Verilənlər Bazası İndeksləmə və Optimallaşdırma","Clustered index və non-clustered index arasındakı fərq nədir?",HARD
+2806f164-cea3-4eb9-aa32-f28360e5aec0,"Verilənlər Bazası İndeksləmə və Optimallaşdırma","Composite index (mürəkkəb indeks) nə vaxt faydalıdır?",MEDIUM
+68802109-646f-4eba-80f4-8e2ca2cedd03,"Verilənlər Bazası İndeksləmə və Optimallaşdırma","EXPLAIN (və ya EXPLAIN PLAN) sərəncamı nə üçün istifadə olunur?",MEDIUM
+0273bf36-7d61-4dbd-85d6-126a43a05a6c,"Verilənlər Bazası İndeksləmə və Optimallaşdırma","N+1 query problemi necə optimallaşdırıla bilər?",HARD
+25ab6bca-47bd-48b2-8433-7d9a8ac0b29e,"Verilənlər Bazası İndeksləmə və Optimallaşdırma","Query caching (sorğu keşləmə) nə üçün faydalıdır?",MEDIUM
+daef45f8-ebe7-4cbb-88c7-ec8f63742e2d,"Verilənlər Bazası İndeksləmə və Optimallaşdırma","Full table scan nə deməkdir?",MEDIUM
+ac5a37e0-9134-441c-b41d-764dbae8f9e6,"Verilənlər Bazası İndeksləmə və Optimallaşdırma","Verilənlər bazası partitioning (bölünmə) nə üçün istifadə olunur?",MEDIUM
+26aee066-9677-4971-8488-34fad4c9836d,"Verilənlər Bazası İndeksləmə və Optimallaşdırma","SELECT * əvəzinə lazımi sütunları seçmək niyə performans üçün tövsiyə olunur?",EASY
+6b561273-73ad-4805-a24e-7d9550d53889,"Verilənlər Bazası İndeksləmə və Optimallaşdırma","Verilənlər bazası query optimizer-i nə edir?",MEDIUM
+37c1c180-090b-4f15-910c-c231f50120a2,"Verilənlər Bazası İndeksləmə və Optimallaşdırma","Covering index nə deməkdir?",HARD
+aa89abdc-74e2-416a-8dd8-0ce28d58cb09,"Verilənlər Bazası İndeksləmə və Optimallaşdırma","Verilənlər bazasında connection pooling niyə performans üçün vacibdir?",MEDIUM
+b5670b44-6207-4556-a7a8-ecf3078d90f7,"Verilənlər Bazası İndeksləmə və Optimallaşdırma","Lazy loading verilənlər bazası performansına necə təsir edə bilər?",MEDIUM
+8ec48a8b-966a-48b1-8817-aba2bdff84d8,"Verilənlər Bazası İndeksləmə və Optimallaşdırma","Verilənlər bazası replikasiyası (replication) nə üçün istifadə olunur?",MEDIUM
+e6b64816-3443-4be8-a9da-8523abea86f9,"Verilənlər Bazası İndeksləmə və Optimallaşdırma","Slow query log nə üçün istifadə olunur?",MEDIUM
+c411a15a-cd46-40e1-b5df-9871a700c2c0,"Verilənlər Bazası İndeksləmə və Optimallaşdırma","İndeks seçərkən hansı sütunlar üstünlük təşkil etməlidir?",MEDIUM
+be81afe0-9eb4-4789-8921-acedaaad7de1,"Verilənlər Bazası İndeksləmə və Optimallaşdırma","Database vacuuming/analyzing (məs. PostgreSQL-də) nə üçün lazımdır?",HARD
+96fe6d0d-ec7b-490d-90be-10ae698d114c,"Verilənlər Bazası İndeksləmə və Optimallaşdırma","Read replica nə üçün istifadə olunur?",MEDIUM
+5750644f-745e-4bb2-bfda-26608a5edc37,"Verilənlər Bazası İndeksləmə və Optimallaşdırma","Materialized view adi view-dan nə ilə fərqlənir?",HARD
+cde26dcc-b55a-4e1d-a7a8-9c7445087994,"Keşləmə Strategiyaları","Keşləmə (caching) nə üçün istifadə olunur?",EASY
+126e8913-66b1-44de-8201-0df270721c45,"Keşləmə Strategiyaları","Cache-Aside (Lazy Loading) strategiyası necə işləyir?",MEDIUM
+a89caa51-dff9-4385-856f-56aef3a9f74f,"Keşləmə Strategiyaları","Write-Through keşləmə strategiyası nə edir?",MEDIUM
+6f5843a3-0eba-4e04-b774-e79e4b2e2514,"Keşləmə Strategiyaları","Write-Behind (Write-Back) keşləmə strategiyası nə edir?",HARD
+8a6062b7-a431-4b83-b428-c8524acd513a,"Keşləmə Strategiyaları","Cache eviction policy (keş çıxarma siyasəti) nə üçün lazımdır?",MEDIUM
+b2cedce0-10c3-4871-946f-87be77bc18fa,"Keşləmə Strategiyaları","LRU (Least Recently Used) eviction siyasəti nəyi çıxarır?",MEDIUM
+b4c634a0-70b2-41d0-aaeb-9903e7afcd1b,"Keşləmə Strategiyaları","Cache invalidation (keş etibarsızlaşdırma) niyə çətin problem hesab olunur?",HARD
+f4b2851e-1640-4fe6-b6fb-4b060b4bcb2a,"Keşləmə Strategiyaları","Distributed cache (paylanmış keş, məs. Redis cluster) nə üçün istifadə olunur?",MEDIUM
+7b1f5671-9723-4f3a-a7a7-306cbf15d807,"Keşləmə Strategiyaları","Cache stampede (keş basqını) problemi nə vaxt yaranır?",HARD
+1249db40-2a69-4d9c-adfc-1d5cb6f4e4f2,"Keşləmə Strategiyaları","TTL (Time To Live) keşləmədə nəyi ifadə edir?",EASY
+136ea28f-ce52-4dab-900a-bcfbffc2f18d,"Keşləmə Strategiyaları","Application-level caching və HTTP caching arasındakı fərq nədir?",MEDIUM
+66c5fe86-2f67-4da0-ac94-885e66756058,"Keşləmə Strategiyaları","CDN (Content Delivery Network) keşləmə baxımından nə edir?",MEDIUM
+1ec6f1e6-03e9-4d89-be67-7db854c7bfa0,"Keşləmə Strategiyaları","Keşləmə strategiyası seçərkən consistency və performans arasında hansı trade-off nəzərə alınmalıdır?",MEDIUM
+dcb0c451-fbf7-48b9-a55e-db3ba9e0c168,"Keşləmə Strategiyaları","Spring-də @Cacheable annotasiyası nə edir?",MEDIUM
+02eb01cf-81e5-4d83-b8d0-c5a3156089ed,"Keşləmə Strategiyaları","Cache warming (keşin qızdırılması) nə deməkdir?",MEDIUM
+e7f2a4a0-a95e-4f34-b3aa-683b974ff2f8,"Keşləmə Strategiyaları","Keşləmədə 'hit rate' (uğur nisbəti) nəyi ölçür?",MEDIUM
+bb46cc52-436b-48aa-9cee-debf6d38eed3,"Keşləmə Strategiyaları","Session caching nə üçün istifadə olunur?",MEDIUM
+9cafb402-0753-45a7-83d7-016e972f178c,"Keşləmə Strategiyaları","Keşdə saxlanılan datanın ölçüsü çox böyük olduqda hansı risk yaranır?",MEDIUM
+265132d2-88f7-4bc1-a6cf-eb69d02062f9,"Keşləmə Strategiyaları","Read-through cache nə edir?",HARD
+0367f14a-1f79-4c0a-9a54-4ba56f144936,"Keşləmə Strategiyaları","Keşləmə strategiyası seçərkən data-nın nə qədər tez-tez dəyişdiyi niyə vacibdir?",MEDIUM
+78a49eb3-553d-4baf-a54f-4782a05d404c,"Maven və Gradle","Maven-in əsas məqsədi nədir?",EASY
+37fdcb00-a8d6-4149-917e-7d8414bf2a66,"Maven və Gradle","pom.xml faylı nəyi təsvir edir?",EASY
+c8438c6d-a463-49e5-af99-442ae4f4b086,"Maven və Gradle","Maven-də 'dependency' nə deməkdir?",EASY
+094b904e-2220-43f0-a4fd-8194fb37addb,"Maven və Gradle","Gradle, Maven-dən nə ilə fərqlənir?",MEDIUM
+ea3f1b04-d5c7-4e9e-a737-ef0936df0d7e,"Maven və Gradle","Maven-in 'build lifecycle' mərhələlərindən biri deyil hansıdır?",MEDIUM
+1fe020c8-12b6-4c05-a95e-df208fb887aa,"Maven və Gradle","Semantic Versioning-də (MAJOR.MINOR.PATCH) MAJOR versiyasının artması nəyi bildirir?",MEDIUM
+8cc34a34-faf0-45e3-8d7f-4649df9b9aa2,"Maven və Gradle","Maven repository (local, central, remote) nə üçündür?",MEDIUM
+c3a9dccb-a9a4-42a3-8203-cb30e8f9f6fe,"Maven və Gradle","'mvn clean install' əmri nə edir?",MEDIUM
+9fd5c4f7-19a6-474a-b9d0-a36b35667d35,"Maven və Gradle","Gradle-də build.gradle faylının rolu nədir?",EASY
+2d15eb19-37de-4940-b7e4-1cf95b3b0f66,"Maven və Gradle","Transitive dependency nə deməkdir?",MEDIUM
+5a52debc-7115-438d-8326-0cbe51df9787,"Maven və Gradle","Maven-də 'scope' (məs. compile, test, provided) nəyi müəyyən edir?",MEDIUM
+996d96c2-4bfa-414a-8125-bc38a367375b,"Maven və Gradle","Maven-in 'plugin' anlayışı nəyi ifadə edir?",MEDIUM
+be7b2112-73cd-4733-8bdc-992ba9f9aa6a,"Maven və Gradle","Gradle-də 'task' nədir?",MEDIUM
+438614e7-cfa7-42c9-bd69-6c7c1f2a1aa6,"Maven və Gradle","Maven-in 'parent POM' konsepsiyası nə üçün istifadə olunur?",MEDIUM
+bd149e60-cd21-47df-81dc-deefddc7c194,"Maven və Gradle","Gradle-in 'incremental build' xüsusiyyəti nə edir?",MEDIUM
+7b871b1e-b62b-4087-8cb0-68ccf972433b,"Maven və Gradle","Maven-də 'SNAPSHOT' versiyası nə deməkdir?",MEDIUM
+45944112-c693-4f2a-a12a-4fee301ebf83,"Maven və Gradle","Build alətlərində 'reproducible build' (təkrarlana bilən build) nə üçün vacibdir?",MEDIUM
+cba7220e-3823-444e-a8c7-29d9022d3a4a,"Maven və Gradle","Maven-in 'install' phase-i nə edir?",MEDIUM
+49d65fb4-73f3-4ccf-ae66-39ad0b8c42e2,"Maven və Gradle","Gradle Wrapper (gradlew) nə üçün istifadə olunur?",MEDIUM
+8cb84383-c6f1-4d9b-98f8-7fa82c6e16e2,"Maven və Gradle","Maven-in effective POM anlayışı nədir?",HARD
+ccbc5efe-0152-4c0c-9d87-855451d3c8ee,"Docker və Konteynerləşdirmə","Docker konteyneri nədir?",EASY
+881c9715-43d5-4449-963b-1e8f97f10efd,"Docker və Konteynerləşdirmə","Docker image və Docker container arasındakı fərq nədir?",EASY
+12f94437-33e4-4147-a2c0-7a714cd8580a,"Docker və Konteynerləşdirmə","Dockerfile nədir?",EASY
+472b1b1e-8384-42c9-89b0-ca78e107ae3f,"Docker və Konteynerləşdirmə","Docker konteynerləri virtual machine-lərdən nə ilə fərqlənir?",MEDIUM
+e3d2a90f-597f-4a78-a6a7-714255c1bad6,"Docker və Konteynerləşdirmə","docker-compose nə üçün istifadə olunur?",MEDIUM
+1936ca90-a43a-4ad8-9f69-61642cb871de,"Docker və Konteynerləşdirmə","Docker-də layer (qat) konsepsiyası nə üçün faydalıdır?",MEDIUM
+c3ff2f76-123a-4816-a028-f775b3b444a2,"Docker və Konteynerləşdirmə","Docker Hub nədir?",EASY
+33db415e-57d2-41fc-8fd4-4f46bd848b55,"Docker və Konteynerləşdirmə","Multi-stage build Docker-də nə üçün istifadə olunur?",MEDIUM
+3adee36b-cc6a-4af5-9179-dc52444c5d17,"Docker və Konteynerləşdirmə","Docker volume nə üçün istifadə olunur?",MEDIUM
+43c6b674-6474-40ab-85e3-db89badaa36e,"Docker və Konteynerləşdirmə","Docker-də EXPOSE təlimatı nə edir?",MEDIUM
+581137fc-843b-4e95-bc93-dd7048fb9ea2,"Docker və Konteynerləşdirmə","Docker network rejimləri (bridge, host, none) nəyi idarə edir?",MEDIUM
+a8e86aa1-5188-4920-bd09-8b9bfadacc12,"Docker və Konteynerləşdirmə","Konteynerlərin stateless dizayn edilməsi niyə tövsiyə olunur?",MEDIUM
+1367cd86-02a3-45cd-aeb5-e0d219224c2b,"Docker və Konteynerləşdirmə","Docker-də .dockerignore faylı nə üçündür?",MEDIUM
+5f8d5dd2-d98d-4ea9-bb65-5df0f0c506ea,"Docker və Konteynerləşdirmə","Container orchestration (orkestrasiya) nə deməkdir?",MEDIUM
+d2021a82-a7a6-4199-9d76-0bcf9b1592bb,"Docker və Konteynerləşdirmə","Docker image-in ölçüsünü kiçiltmək üçün hansı üsul tövsiyə olunur?",MEDIUM
+b45e8d4e-0606-498b-afa4-699f26c13ba6,"Docker və Konteynerləşdirmə","Docker konteynerinin restart policy-si nə üçün istifadə olunur?",MEDIUM
+54f8fa19-92f8-471b-881a-050eefd01ba2,"Docker və Konteynerləşdirmə","Docker Swarm nədir?",MEDIUM
+773cd891-d255-4302-b596-708d4b79c6a9,"Docker və Konteynerləşdirmə","Konteynerləşdirmənin CI/CD pipeline-larında rolü nədir?",MEDIUM
+6ea28d64-a18c-4043-ba93-b76af1662211,"Docker və Konteynerləşdirmə","Docker-də ENTRYPOINT və CMD təlimatları arasındakı fərq nədir?",HARD
+8ac4cb5a-d918-4b36-b45c-6b44ffe0885d,"Docker və Konteynerləşdirmə","Docker-in təhlükəsizlik baxımından tövsiyə olunan praktikalarından biri hansıdır?",MEDIUM
+9e0dedb6-2305-40c6-a1bf-413d8e763b6f,"Kubernetes Əsasları","Kubernetes nədir?",EASY
+404e3d7b-3513-4de9-b4b9-f3fd73f4eaaf,"Kubernetes Əsasları","Kubernetes-də Pod nədir?",EASY
+b694ab3d-ad13-4744-9fc2-731637e056a3,"Kubernetes Əsasları","Kubernetes Service nə üçün istifadə olunur?",MEDIUM
+fafd7005-e99f-43d7-b55b-47727b55263a,"Kubernetes Əsasları","Kubernetes Deployment obyekti nəyi idarə edir?",MEDIUM
+5fb8707f-d339-4d46-a10e-4f24b871c6d8,"Kubernetes Əsasları","Kubernetes-də ReplicaSet nə edir?",MEDIUM
+8fc7491b-c6a4-4412-a9c3-a02a7adf4c32,"Kubernetes Əsasları","Horizontal Pod Autoscaler (HPA) nə üçün istifadə olunur?",MEDIUM
+12ce0de7-81bb-408a-95ff-9d4861200e09,"Kubernetes Əsasları","Kubernetes-də Namespace nə üçün istifadə olunur?",MEDIUM
+e2dc798a-7fe2-45e3-906f-f46caca7c2bd,"Kubernetes Əsasları","Kubernetes ConfigMap nə üçün istifadə olunur?",MEDIUM
+4cc40ef3-ccfe-412a-a694-473a8f52f84d,"Kubernetes Əsasları","Kubernetes Secret, ConfigMap-dən nə ilə fərqlənir?",MEDIUM
+ad9f96e3-2a26-4aaf-8fc7-3ab571b2db97,"Kubernetes Əsasları","Kubernetes-də liveness probe və readiness probe arasındakı fərq nədir?",HARD
+4e18741e-754c-48e9-8f60-3729a86f75b1,"Kubernetes Əsasları","Kubernetes-də Ingress nə üçün istifadə olunur?",MEDIUM
+f6f43d98-d4ac-4cb1-a228-6bb954b2dce0,"Kubernetes Əsasları","Kubernetes-də etcd nə rol oynayır?",HARD
+30d5ed8f-2c5a-414e-a2c6-18c4704cfa67,"Kubernetes Əsasları","kubectl nədir?",EASY
+a7f0dc45-9594-4281-b61d-3ef245921e31,"Kubernetes Əsasları","Kubernetes-də rolling update strategiyası nə edir?",MEDIUM
+0427e40f-3065-4db2-b837-007a8ad0a7a0,"Kubernetes Əsasları","StatefulSet, Deployment-dən nə ilə fərqlənir?",HARD
+8006b37e-c11d-45a8-80c0-594847a8135d,"Kubernetes Əsasları","Kubernetes-də node nədir?",EASY
+d361ced6-b58d-49c9-9084-bb3979aa4864,"Kubernetes Əsasları","Kubernetes-də Helm nədir?",MEDIUM
+5b787b6c-b0b5-47f8-9b75-e41f3af99a6a,"Kubernetes Əsasları","Kubernetes-də resource limits və requests nə üçün təyin edilir?",MEDIUM
+ce35e375-1890-4f71-a30a-e56fc62d7bbd,"Kubernetes Əsasları","Kubernetes-də self-healing xüsusiyyəti nə deməkdir?",MEDIUM
+174f0cb9-1546-4ba4-b3f9-8bac43c87a63,"Kubernetes Əsasları","Kubernetes klasterini cloud provider-lərdə idarə edilən xidmət kimi təklif edən nümunələr hansılardır?",MEDIUM
+41affb22-8a7a-4149-a16d-ca20f6900a30,"CI/CD və DevOps","CI (Continuous Integration) nə deməkdir?",EASY
+6a4eaadc-0b96-405e-8346-002a2b958b47,"CI/CD və DevOps","CD (Continuous Delivery/Deployment) nə deməkdir?",EASY
+bcdcd852-e58d-4820-8c8f-dcb04bd34bc5,"CI/CD və DevOps","CI/CD pipeline-ının tipik mərhələləri hansılardır?",EASY
+f8952f0e-b19b-4e2f-86f9-cc4fb2f63686,"CI/CD və DevOps","DevOps mədəniyyətinin əsas məqsədi nədir?",EASY
+022f12e8-dd08-4d8b-a1cc-028cae0a925e,"CI/CD və DevOps","Jenkins nədir?",EASY
+458012a6-9ef4-468d-a3e0-4045b90756d3,"CI/CD və DevOps","Infrastructure as Code (IaC) nə deməkdir?",MEDIUM
+125c1ebf-5794-47b5-836b-d397f09760d8,"CI/CD və DevOps","Blue-Green Deployment strategiyası nə edir?",MEDIUM
+672b3813-ef2a-46d4-82ad-b4b55ade771f,"CI/CD və DevOps","Canary Deployment nə deməkdir?",MEDIUM
+e494a289-3abf-4c81-b9a3-d35b166d58e1,"CI/CD və DevOps","Pipeline-da avtomatik testlərin rolü nədir?",EASY
+2eb81649-a96f-4ffd-b03b-1212617271c3,"CI/CD və DevOps","GitOps yanaşması nə deməkdir?",MEDIUM
+414c135d-2b2b-46e1-a076-fe4c8f96210f,"CI/CD və DevOps","Feature flag (feature toggle) nə üçün istifadə olunur?",MEDIUM
+3c6a347a-459b-4d20-a5a8-d3599d608085,"CI/CD və DevOps","Continuous Monitoring CI/CD pipeline-ında niyə vacibdir?",MEDIUM
+e44e95ce-078c-4cc9-bde3-47290530a218,"CI/CD və DevOps","Rollback strategiyası CI/CD-də nə üçün vacibdir?",MEDIUM
+fcd174df-4830-450d-bf6c-1e9cdc52bc66,"CI/CD və DevOps","Artifact repository (məs. Nexus, Artifactory) CI/CD-də nə rol oynayır?",MEDIUM
+56e4282e-fb27-437f-a79d-9d53d991f34e,"CI/CD və DevOps","Pipeline as Code (məs. Jenkinsfile) nə üçün üstünlük təşkil edir?",MEDIUM
+534bf586-7251-4deb-8312-41859cd5f048,"CI/CD və DevOps","Shift-left testing DevOps-da nə deməkdir?",MEDIUM
+1aee389a-0d35-40c1-b646-28bcd3b25328,"CI/CD və DevOps","SRE (Site Reliability Engineering) nə üçün mövcuddur?",MEDIUM
+3eec5ced-eecc-41e6-afb6-b76f264b2e3d,"CI/CD və DevOps","Deployment pipeline-da 'quality gate' nə edir?",MEDIUM
+8cbea5b4-3479-4aa4-9e15-05ef11dca470,"CI/CD və DevOps","Immutable infrastructure konsepsiyası nə deməkdir?",MEDIUM
+aa919976-273d-4f6f-87a6-adcf1994cd6b,"CI/CD və DevOps","Mean Time To Recovery (MTTR) metrikası nəyi ölçür?",MEDIUM
+431c9262-a6e4-4c09-9566-6d4023cf9c5d,"Mesaj Növbələri","Mesaj növbəsi (message queue) nə üçün istifadə olunur?",EASY
+cd572ec1-a16b-4ccc-8235-d491ad796020,"Mesaj Növbələri","Producer və Consumer mesajlaşma sistemlərində nəyi ifadə edir?",EASY
+a05cb24f-934b-4c3a-a81f-472b8e16133c,"Mesaj Növbələri","Apache Kafka nədir?",EASY
+7e945cb8-014e-46a2-ba3a-70a25c65fb56,"Mesaj Növbələri","Kafka-da 'topic' nədir?",EASY
+2b356031-03e6-42ba-8b8b-fab5f2382bdc,"Mesaj Növbələri","Kafka-da partition (bölmə) nə üçün istifadə olunur?",MEDIUM
+16f1b43b-15bc-43b8-b783-a1977ad40451,"Mesaj Növbələri","RabbitMQ hansı mesajlaşma protokolunu əsas götürür?",MEDIUM
+f3bae049-5dac-4e79-8a46-86e1c9b67352,"Mesaj Növbələri","Point-to-Point (növbə) və Publish-Subscribe mesajlaşma modelləri arasındakı fərq nədir?",MEDIUM
+c94a5899-e55e-4e5c-8d5b-31ebf73cb0ab,"Mesaj Növbələri","Kafka-da consumer group nə üçün istifadə olunur?",MEDIUM
+7fb8a688-1945-44d6-9827-bf136027c59d,"Mesaj Növbələri","Message broker-in dead letter queue (DLQ) konsepsiyası nə üçündür?",MEDIUM
+d0f82332-b9c6-4ca7-81a7-1a29473cb979,"Mesaj Növbələri","Mesaj növbələrinin əsas üstünlüyü nədir (sistemlər arasında)?",MEDIUM
+09d6c27f-6de5-498c-b46a-cf380bc0f4b2,"Mesaj Növbələri","Kafka-da 'offset' nəyi ifadə edir?",MEDIUM
+cd435524-7a0e-49b6-8e7d-5e99a69014f2,"Mesaj Növbələri","At-least-once, at-most-once və exactly-once çatdırılma zəmanətləri nəyi ifadə edir?",HARD
+6d067e72-7408-4f44-8388-47963fdbef06,"Mesaj Növbələri","Message queue istifadə edərək sistem dizaynında hansı problem azalır?",MEDIUM
+e6682752-655e-4dd5-b469-6b063a254651,"Mesaj Növbələri","Kafka-nın 'replication factor' parametri nəyi təmin edir?",MEDIUM
+419a2f96-6381-4d13-9b38-1e2b04fc631f,"Mesaj Növbələri","RabbitMQ-da 'exchange' nə rol oynayır?",MEDIUM
+9de4b97d-2262-465f-a926-6fd08b2c1a18,"Mesaj Növbələri","Event-driven architecture (hadisə əsaslı memarlıq) mesaj növbələri ilə necə bağlıdır?",MEDIUM
+5a486c35-d08d-441b-986c-4890f97f0ab4,"Mesaj Növbələri","Mesaj sıralamasının (ordering) qorunması Kafka-da necə təmin edilir?",HARD
+52f52dc1-eda9-4f39-acfe-ef2db68d062e,"Mesaj Növbələri","Message queue-nun batch emalı (batch processing) ilə real-time streaming arasındakı fərqi necə körpüləyə bilər?",MEDIUM
+17ea04c8-b9d9-49cf-9582-4ae73866b4cd,"Mesaj Növbələri","Mikroservis memarlığında mesaj növbələri hansı ssenaridə xüsusilə faydalıdır?",MEDIUM
+762c2e8b-41a2-47b2-a3b2-8129a7f7b57a,"Mesaj Növbələri","Mesaj brokerinin yüksək əlçatanlığı (high availability) necə təmin edilir?",MEDIUM
+e77f4176-5db4-415f-b5fa-b37eedfc2f54,"Sistem Dizaynı Əsasları","Scalability (miqyaslanma) sistemin nəyini ifadə edir?",EASY
+29bfd277-ab33-4d2d-8952-33b6614bfadf,"Sistem Dizaynı Əsasları","Vertical scaling (şaquli miqyaslanma) və horizontal scaling (üfüqi miqyaslanma) arasındakı fərq nədir?",MEDIUM
+22a9b79f-cee0-4d3f-9f4e-92688b3817c7,"Sistem Dizaynı Əsasları","Load balancer (yük balanslayıcı) nə üçün istifadə olunur?",EASY
+9b193313-3fa4-42c1-86f9-fa1cce06fb72,"Sistem Dizaynı Əsasları","Sistem dizaynında single point of failure (tək uğursuzluq nöqtəsi) nə üçün riskli sayılır?",MEDIUM
+cb455b31-621f-41c4-828a-7825c7b15b42,"Sistem Dizaynı Əsasları","CAP teoremi sistem dizaynında hansı seçimi vurğulayır?",HARD
+710b0c92-ee66-4b23-834f-1cfe21a639d3,"Sistem Dizaynı Əsasları","Fault tolerance (xətaya dözümlülük) nə deməkdir?",MEDIUM
+aeafdb95-2d20-4b75-b1cf-d74be95efc6b,"Sistem Dizaynı Əsasları","Sistem dizaynında throughput və latency arasındakı əlaqə necədir?",MEDIUM
+e4d91e82-e6bb-4193-86b9-8d7ce3acda75,"Sistem Dizaynı Əsasları","Content Delivery Network (CDN) sistem dizaynında nəyə kömək edir?",MEDIUM
+ff345284-9084-45f3-b8c4-08bf43a01278,"Sistem Dizaynı Əsasları","Sistem dizaynında 'back-of-envelope estimation' nə üçün aparılır?",MEDIUM
+2c1ce638-095f-42dc-804e-983e2a7bd4c7,"Sistem Dizaynı Əsasları","Consistent Hashing paylanmış sistemlərdə nə üçün istifadə olunur?",HARD
+c468499c-e1df-4a1b-991a-ffc7c53cd8e4,"Sistem Dizaynı Əsasları","Sistem dizaynında 'bottleneck' (darboğaz) nəyi ifadə edir?",MEDIUM
+70e8d852-299d-4883-afc1-32654446ca46,"Sistem Dizaynı Əsasları","Sistem dizaynında capacity planning nə üçün vacibdir?",MEDIUM
+a10b7784-4db5-4b3c-a9dc-bf32ab06af58,"Sistem Dizaynı Əsasları","Reverse proxy nə üçün istifadə olunur?",MEDIUM
+7dca69cf-096b-4f27-b262-430d6df58c3e,"Sistem Dizaynı Əsasları","Data partitioning (sharding) sistem dizaynında nə üçün istifadə olunur?",MEDIUM
+c6aa8f3e-cf7f-453a-855f-e39914d3f35b,"Sistem Dizaynı Əsasları","Sistem dizaynında idempotency niyə vacibdir (məs. ödəniş sistemlərində)?",MEDIUM
+a02ef526-520a-48e9-a822-bb4614456693,"Sistem Dizaynı Əsasları","Sistem dizaynında 'graceful degradation' nə deməkdir?",MEDIUM
+902e6735-e5eb-428a-9c04-ef5dc2475f96,"Sistem Dizaynı Əsasları","Sistem dizaynı müsahibələrində 'trade-off' anlayışı niyə vacibdir?",MEDIUM
+6c3126d4-6fc8-4b02-8e63-741dce4059b5,"Sistem Dizaynı Əsasları","Sistem dizaynında 'SLA' (Service Level Agreement) nəyi ifadə edir?",MEDIUM
+81fcab77-bab3-4b06-8b02-8bf3923f29cb,"Sistem Dizaynı Əsasları","Rate limiting sistem dizaynında hansı problemin qarşısını almağa kömək edir?",MEDIUM
+f21675d5-624c-449d-a247-bcc3be2c9042,"Sistem Dizaynı Əsasları","Sistem dizaynında 'read-heavy' və 'write-heavy' sistemlər üçün fərqli strategiyalar niyə tələb olunur?",MEDIUM
+b403c9ff-1d24-4bb6-ae9c-027ea9be1d51,"Mikroservislər Memarlığı","Mikroservis memarlığı nə deməkdir?",EASY
+80fa27b0-c626-439e-b384-4b406a4f23d5,"Mikroservislər Memarlığı","Monolit memarlıq ilə mikroservis memarlığı arasındakı əsas fərq nədir?",EASY
+f454ea79-ce70-4d97-bae0-95cbb2d99392,"Mikroservislər Memarlığı","Mikroservislərin əsas üstünlüyü nədir?",MEDIUM
+e022c6b3-4c45-4712-88f6-b3ec8803b0ec,"Mikroservislər Memarlığı","Mikroservislərin əsas çətinliyi/dezavantajı nədir?",MEDIUM
+3e9c65fb-3a63-4b49-8708-05598c9df4cf,"Mikroservislər Memarlığı","Servislər arasında kommunikasiya üçün ümumi üsullardan biri hansıdır?",MEDIUM
+ef9424b5-728e-44da-b11c-6ff014ecccf5,"Mikroservislər Memarlığı","Mikroservis memarlığında 'database per service' prinsipi nə deməkdir?",MEDIUM
+a6948f0d-1f82-4446-92f2-91d9de0bc158,"Mikroservislər Memarlığı","Service Discovery mikroservis memarlığında nə üçün lazımdır?",MEDIUM
+f7ef37c2-d9c5-4ed9-9dc7-d3c0e82c88c8,"Mikroservislər Memarlığı","Circuit Breaker pattern mikroservislərdə nə üçün istifadə olunur?",HARD
+33a7a93c-54d5-439a-86a9-b7114bb91ac7,"Mikroservislər Memarlığı","Distributed tracing mikroservislərdə nə üçün istifadə olunur?",MEDIUM
+6ccbf6f6-9a54-42af-8441-219c07408c71,"Mikroservislər Memarlığı","Saga pattern mikroservislərdə nə üçün istifadə olunur?",HARD
+e45af713-d569-488f-91cd-98425ee4c536,"Mikroservislər Memarlığı","Strangler Fig pattern nə üçün istifadə olunur?",HARD
+fd2032ee-900e-4f74-862b-489694acc362,"Mikroservislər Memarlığı","Mikroservislərdə 'bounded context' (Domain-Driven Design-dan) nəyi ifadə edir?",HARD
+191a7fe0-b63e-4956-be9d-a597825bf1c1,"Mikroservislər Memarlığı","Mikroservislərdə API Gateway-in rolu nədir?",MEDIUM
+823e89a3-73cc-4081-af0e-fcd869e7301e,"Mikroservislər Memarlığı","Mikroservislərdə konfiqurasiyaların mərkəzləşdirilməsi (Config Server) nə üçün faydalıdır?",MEDIUM
+fc274f14-f580-439a-b504-0e2e427c1c32,"Mikroservislər Memarlığı","Mikroservislər arasında data consistency-ni təmin etmək niyə çətindir?",HARD
+ca11d2e1-e3cc-4d73-9043-188d05b3f895,"Mikroservislər Memarlığı","Mikroservis memarlığına keçid nə vaxt tövsiyə olunmur?",MEDIUM
+45469972-06a5-48ff-ba8a-7a82b632a7c3,"Mikroservislər Memarlığı","Health check endpoint-ləri mikroservislərdə nə üçün istifadə olunur?",MEDIUM
+e8518d82-6c38-4ce4-bc44-e799ab4e7303,"Mikroservislər Memarlığı","Event-driven mikroservis memarlığı nə deməkdir?",MEDIUM
+f695d4f6-99b2-405b-b136-f50fbb538409,"Mikroservislər Memarlığı","Mikroservislərin versiyalaşdırılması niyə vacibdir?",MEDIUM
+35a4004f-80c6-4ef3-bc1a-5e8aba370dfb,"Mikroservislər Memarlığı","Mikroservislərdə 'sidecar' pattern nə üçün istifadə olunur (məs. service mesh-də)?",HARD
+96b13e1e-c46d-49a2-8949-72129773c5c8,"Proqram Memarlığı Üslubları","Layered (qatlı) memarlıq nə deməkdir?",EASY
+637a7600-af58-426c-b8bf-9bbfc764092e,"Proqram Memarlığı Üslubları","MVC (Model-View-Controller) memarlıq nümunəsi nəyi ayırır?",EASY
+f95c1d52-3ed0-40aa-8214-f5f8ac9b81d3,"Proqram Memarlığı Üslubları","Hexagonal Architecture (Ports and Adapters) nəyi hədəfləyir?",HARD
+753b2460-4e37-4bec-8c57-ccb5fce143e0,"Proqram Memarlığı Üslubları","Domain-Driven Design (DDD) nəyə fokuslanır?",MEDIUM
+d5d6431e-b93c-489a-b70e-24a6082dacce,"Proqram Memarlığı Üslubları","Event Sourcing memarlıq nümunəsi nə edir?",HARD
+f5858806-630e-493b-8c98-3949a61eb0ed,"Proqram Memarlığı Üslubları","CQRS (Command Query Responsibility Segregation) nəyi ayırır?",HARD
+46675e94-bcd8-4cf7-8260-17de32f7345b,"Proqram Memarlığı Üslubları","Clean Architecture-ın əsas prinsipi nədir?",HARD
+f47a88a4-5c4e-4a83-bac2-1aeb0fa59068,"Proqram Memarlığı Üslubları","Service-Oriented Architecture (SOA) mikroservislərdən nə ilə fərqlənir?",HARD
+6aa36a87-34a9-47ca-bd64-9a542154cef5,"Proqram Memarlığı Üslubları","Peer-to-Peer (P2P) memarlıq nümunəsində node-ların rolu nədir?",MEDIUM
+558eb13a-d316-48a1-933b-3be9afad88fe,"Proqram Memarlığı Üslubları","Serverless memarlıq nə deməkdir?",MEDIUM
+a29c52f7-b86c-4344-bc75-ed529c808a7e,"Proqram Memarlığı Üslubları","Repository Pattern nə üçün istifadə olunur?",MEDIUM
+c19992bd-9aed-45af-9488-353f81806a21,"Proqram Memarlığı Üslubları","Client-Server memarlıq modeli nəyi təsvir edir?",EASY
+6097935c-bace-41e8-839d-0d157628c4cd,"Proqram Memarlığı Üslubları","Onion Architecture Hexagonal Architecture ilə hansı ortaq ideyanı paylaşır?",HARD
+be1a6372-bbd4-4042-9999-ed8adb683fd6,"Proqram Memarlığı Üslubları","Pipe and Filter memarlıq nümunəsi nə edir?",MEDIUM
+513c5348-c4ed-420b-a484-6e958988e26d,"Proqram Memarlığı Üslubları","N-tier (çox qatlı) memarlıq layered memarlıqdan nə ilə fərqlənir?",MEDIUM
+3ea9969c-6fed-4aa4-bf9f-609c943a8a65,"Proqram Memarlığı Üslubları","Broker pattern paylanmış sistemlərdə nə edir?",MEDIUM
+6eae3d51-1286-44b0-8083-b645f80312b3,"Proqram Memarlığı Üslubları","Actor Model memarlıq üslubunda 'actor' nəyi təmsil edir?",HARD
+f2d70d91-391b-4e8c-a40c-d658ddda10cd,"Proqram Memarlığı Üslubları","Space-Based Architecture nə üçün nəzərdə tutulub?",HARD
+115b2729-8acf-443d-a3cb-205d7caf5c0e,"Proqram Memarlığı Üslubları","Memarlıq üslubu seçimi nədən asılıdır?",MEDIUM
+ab1cf430-e789-4e19-b3d4-22226db97e8c,"Proqram Memarlığı Üslubları","Big Ball of Mud anti-pattern-i nəyi ifadə edir?",MEDIUM
+5509fe5d-bd9c-4f78-8578-45f5ec24a0cc,"Təhlükəsizlik","OWASP Top 10 nədir?",EASY
+db4aeb3d-3576-4a4c-b098-77bcc64b047e,"Təhlükəsizlik","XSS (Cross-Site Scripting) həmləsi nədir?",MEDIUM
+0f8d4a6c-1699-480c-8f2b-8606d23c669e,"Təhlükəsizlik","SQL Injection həmləsindən qorunmanın ən effektiv üsulu hansıdır?",MEDIUM
+affeefbd-680e-4505-b401-bdc557032b7e,"Təhlükəsizlik","HTTPS, HTTP-dən nə ilə fərqlənir təhlükəsizlik baxımından?",EASY
+3318afab-0b1d-48c7-9d8c-6d582a3d48d5,"Təhlükəsizlik","Şifrələmə (encryption) və hashing arasındakı fərq nədir?",MEDIUM
+22df4f33-4234-4ea6-be29-498836f15ea0,"Təhlükəsizlik","Salt (duz) parol hashing-də nə üçün istifadə olunur?",MEDIUM
+e4bef6b0-9eed-49db-a93f-3431a839a69b,"Təhlükəsizlik","Man-in-the-Middle (MITM) həmləsi nədir?",MEDIUM
+815c7f0b-10d9-4a84-8b16-d8a7c73b79e2,"Təhlükəsizlik","Input validation (giriş validasiyası) niyə təhlükəsizlik üçün vacibdir?",EASY
+d51d875f-bf0d-4a38-87bb-04a8637e089b,"Təhlükəsizlik","DDoS (Distributed Denial of Service) həmləsi nə edir?",EASY
+2ab41401-90d8-4308-9310-86dbe3ca4f33,"Təhlükəsizlik","Security by design prinsipi nə deməkdir?",MEDIUM
+30548fa3-9a73-4b19-b5b4-95fe875a7a23,"Təhlükəsizlik","CSRF (Cross-Site Request Forgery) həmləsindən qorunmaq üçün ümumi üsul hansıdır?",MEDIUM
+c71931dc-4245-430d-a84b-46870e6be87d,"Təhlükəsizlik","Insecure Deserialization riski nədir?",HARD
+2f79398d-5445-43a0-a1e1-1f4c0c6b73ee,"Təhlükəsizlik","Principle of Defense in Depth (dərinlikdə müdafiə) nə deməkdir?",MEDIUM
+7cc27c0f-8e89-46a0-933c-cdaf7cbe0bf2,"Təhlükəsizlik","Security headers (məs. Content-Security-Policy) nə üçün istifadə olunur?",MEDIUM
+bc9ca85c-3a50-42ae-a2e1-3a2a0be1e332,"Təhlükəsizlik","Vulnerability scanning alətləri nə üçün istifadə olunur?",MEDIUM
+0a156210-6af5-4eaf-b642-d15de4cae402,"Təhlükəsizlik","Penetration testing (pentest) nədir?",MEDIUM
+63708dd2-1485-4884-b6e8-2adba774762b,"Təhlükəsizlik","Sensitive data exposure riskini azaltmaq üçün nə tövsiyə olunur?",MEDIUM
+79fd2f14-ddac-472f-ae95-2ed439ff1133,"Təhlükəsizlik","Broken Access Control OWASP Top 10-da nəyi ifadə edir?",MEDIUM
+c6bda72e-243d-4f5f-a45b-4867bd921bc5,"Təhlükəsizlik","Security Misconfiguration nədir?",MEDIUM
+ed848be7-919b-4af4-beff-0f285fa67d64,"Təhlükəsizlik","Zero Trust təhlükəsizlik modeli nə deməkdir?",MEDIUM
+be50bf8f-ce28-4476-a3ec-4bc38f122757,"Networking və HTTP Əsasları","TCP və UDP protokolları arasındakı əsas fərq nədir?",MEDIUM
+8d972daa-694f-4610-ac73-cb9b1ef95beb,"Networking və HTTP Əsasları","DNS (Domain Name System) nə üçün istifadə olunur?",EASY
+6e427013-2c8f-4feb-a313-c4323f13ab8d,"Networking və HTTP Əsasları","HTTP-nin default portu neçədir?",EASY
+57d6d6df-85a1-411c-b5c4-e1bffcc3e513,"Networking və HTTP Əsasları","HTTPS-in default portu neçədir?",EASY
+149d0856-0990-40a0-be42-56077677d852,"Networking və HTTP Əsasları","IP ünvanının məqsədi nədir?",EASY
+f86e2137-eb03-4278-8843-d570f2d398ee,"Networking və HTTP Əsasları","TCP three-way handshake prosesi nədir?",MEDIUM
+e13e70dd-f72e-47ea-aff2-6a8740ec30b1,"Networking və HTTP Əsasları","OSI modelinin neçə qatı var?",MEDIUM
+f0768111-6028-4624-af1b-bed2ddeb0fbf,"Networking və HTTP Əsasları","HTTP başlıqları (headers) nə üçün istifadə olunur?",EASY
+df673317-c5ad-4fbe-a60b-1b182f0b0378,"Networking və HTTP Əsasları","Cookie nə üçün istifadə olunur?",EASY
+4a567ff0-7cb6-4f13-ac28-56b226a303be,"Networking və HTTP Əsasları","Firewall nə üçün istifadə olunur?",EASY
+b56b3189-75fe-4979-b394-616fc7abd61b,"Networking və HTTP Əsasları","Load balancer-in Layer 4 və Layer 7 balanslaşdırması arasındakı fərq nədir?",HARD
+3f52ce6a-1194-4a52-8d4e-773c8e9da85f,"Networking və HTTP Əsasları","NAT (Network Address Translation) nə üçün istifadə olunur?",MEDIUM
+c6ca5733-85e5-48bd-bf07-5948d9d9155d,"Networking və HTTP Əsasları","HTTP/2, HTTP/1.1-dən nə ilə fərqlənir?",MEDIUM
+383df2bc-d8c6-4acc-bb86-a236d2c98519,"Networking və HTTP Əsasları","SSL/TLS handshake zamanı nə baş verir?",MEDIUM
+6157fa62-dbfc-487a-abbe-775f31b98584,"Networking və HTTP Əsasları","Proxy server nə üçün istifadə olunur?",MEDIUM
+98859f22-4a85-4f87-b6b6-3e81eacf27a1,"Networking və HTTP Əsasları","Latency (gecikmə) və bandwidth (buraxılış qabiliyyəti) arasındakı fərq nədir?",MEDIUM
+ed844cc9-5ac8-4fd6-acfc-053e1aa44a92,"Networking və HTTP Əsasları","WebSocket-dən fərqli olaraq adi HTTP sorğusu niyə hər dəfə yeni bağlantı tələb edə bilər (HTTP/1.0-da)?",HARD
+365e461c-d910-43c8-83f6-543c549e0c81,"Networking və HTTP Əsasları","IPv4 və IPv6 arasındakı əsas fərq nədir?",MEDIUM
+29d30bd8-ba56-4388-9b5d-a51fa75dd055,"Networking və HTTP Əsasları","HTTP-də 'keep-alive' başlığı nə edir?",MEDIUM
+0b95d2b0-f8ad-4ba8-af75-f4c4137dd50c,"Networking və HTTP Əsasları","Ping əmri nə üçün istifadə olunur?",EASY
+265534ad-0f11-4751-82d1-139a8ba76685,"İstisnalar","Checked və unchecked exception arasındakı fərq nədir?",MEDIUM
+923161b0-3ff4-4462-ba79-bb364043d839,"İstisnalar","finally bloku nə vaxt icra olunur?",EASY
+e0d8d043-d0d9-4eb5-b0aa-c2bb2a7c955a,"İstisnalar","Öz custom exception sinifinizi yaratmaq üçün hansı sinifi extend etməlisiniz?",MEDIUM
+d3d2027b-9bd0-45c8-9651-461cdc8a4572,"İstisnalar","try-with-resources nə üçün istifadə olunur?",MEDIUM
+e20558ce-2c61-4e6f-989c-73efe9828643,"İstisnalar","throw və throws açar sözləri arasındakı fərq nədir?",MEDIUM
+5f15c83d-e881-4359-86cc-3ad8d8909656,"İstisnalar","NullPointerException hansı halda yaranır?",EASY
+31c18c0c-bc1a-4675-91dc-79b3644d701b,"İstisnalar","Multi-catch bloku (catch (IOException | SQLException e)) nə üçün istifadə olunur?",MEDIUM
+edc627d1-ffad-4f39-8ebb-0828b734ca94,"İstisnalar","StackOverflowError nə vaxt yaranır?",MEDIUM
+1f035417-a6fd-4c88-a88c-5758818629b8,"İstisnalar","Exception chaining (səbəb zənciri) nə üçün istifadə olunur?",MEDIUM
+9ff42304-1bff-45fd-94b8-d0ac1687fb91,"İstisnalar","Error və Exception arasındakı fərq nədir?",MEDIUM
+3b33dde5-fb5b-4c13-a283-5f043a09f96f,"İstisnalar","Custom exception yaratarkən RuntimeException-dan miras almaq nə deməkdir?",MEDIUM
+e419e5fb-e377-4c28-9f21-ada8d8691ac5,"İstisnalar","finally blokunda return istifadə etməyin riski nədir?",HARD
+859ba4c6-fb00-4a74-8230-f25fe71dd5de,"İstisnalar","Checked exception-ları həddindən artıq istifadə etməyin mənfi tərəfi nədir?",MEDIUM
+9ed8e5a1-f1f7-4823-82bd-e6b98567cea8,"İstisnalar","Exception-ı 'udmaq' (catch edib heç nə etməmək) niyə pis praktika sayılır?",MEDIUM
+954a96ce-fec6-4cc4-a2ba-02aac1bf2939,"İstisnalar","IllegalArgumentException nə vaxt atılmalıdır?",MEDIUM
+76de7518-f3cf-4e14-8eb7-b6b05935c821,"İstisnalar","IllegalStateException nə vaxt atılmalıdır?",MEDIUM
+b6566532-b6ff-49e6-ba6c-c3820c343e1a,"İstisnalar","Exception hierarchy-də Throwable-dan hansı iki əsas sinif miras alır?",MEDIUM
+480284dc-3732-4f88-98bd-31591ae65776,"İstisnalar","Custom exception sinifində əlavə constructor-lar (mesaj, cause ilə) yaratmağın faydası nədir?",MEDIUM
+5864e6af-f2f7-42e3-8d07-6cdda8da3c6e,"İstisnalar","try bloku daxilində birdən çox resurs (try-with-resources) necə bağlanır?",HARD
+0d6f096f-3674-40dd-9f66-bccf9eb1cc7d,"İstisnalar","Exception mesajlarının aydın və məlumatlı olması niyə vacibdir?",EASY
+9aa47449-55c9-4013-9678-d1c8299c6460,"Git və Versiya Nəzarəti","Git nədir?",EASY
+d1be21ba-8d8f-46d7-a0f0-e540b9786b3f,"Git və Versiya Nəzarəti","git commit əmri nə edir?",EASY
+8e88ed27-ff69-4aef-9f7a-6ded6f2507fb,"Git və Versiya Nəzarəti","git push və git pull arasındakı fərq nədir?",EASY
+53a178ec-5209-4679-a60d-c5f9d714dc82,"Git və Versiya Nəzarəti","Git branch (budaq) nə üçün istifadə olunur?",EASY
+8e2c99d3-1e6e-4e2e-a2a8-14d1c3d712de,"Git və Versiya Nəzarəti","Merge conflict (birləşdirmə konflikti) nə vaxt yaranır?",MEDIUM
+ea45b6f4-2815-44c4-9760-ded5735e6952,"Git və Versiya Nəzarəti","git rebase və git merge arasındakı fərq nədir?",MEDIUM
+8e313ab1-ad34-4b98-93aa-8b9066637ebd,"Git və Versiya Nəzarəti","Pull Request (Merge Request) nə üçün istifadə olunur?",EASY
+f07a9506-7e51-4465-af90-e3605362af94,"Git və Versiya Nəzarəti",".gitignore faylı nə üçün istifadə olunur?",EASY
+94d6ea25-f73e-4a81-8897-c2a8476b4fcb,"Git və Versiya Nəzarəti","git stash əmri nə edir?",MEDIUM
+da2958b9-0054-482d-bb0f-22466b27967f,"Git və Versiya Nəzarəti","Git-də HEAD nəyi göstərir?",MEDIUM
+4d1c02cd-1b9e-4449-a994-26cba01e466d,"Git və Versiya Nəzarəti","git cherry-pick əmri nə edir?",MEDIUM
+2e993234-3978-4bce-bbdb-714c86e1c25f,"Git və Versiya Nəzarəti","Semantic commit mesajları (məs. Conventional Commits) niyə faydalıdır?",MEDIUM
+3a7853d8-99f6-4b02-9d01-e5ced4bbee42,"Git və Versiya Nəzarəti","Git-də fast-forward merge nə deməkdir?",HARD
+d8393d0f-4ba5-4943-8c8d-7d50bfc2f9b8,"Git və Versiya Nəzarəti","Git-də 'detached HEAD' vəziyyəti nə deməkdir?",HARD
+7a043685-954f-43da-8503-93bff1ba7b9c,"Git və Versiya Nəzarəti","Trunk-Based Development strategiyası nə deməkdir?",MEDIUM
+143dbf89-4150-4770-a01d-c4a18d0f8e4d,"Git və Versiya Nəzarəti","Git Flow branching strategiyası nəyi təklif edir?",MEDIUM
+b3e4103c-b53b-4bc5-94c7-0de5b6ae0acf,"Git və Versiya Nəzarəti","git blame əmri nə üçün istifadə olunur?",MEDIUM
+21e0a46f-4461-4817-93ba-39a2a60ca4d7,"Git və Versiya Nəzarəti","git reset və git revert arasındakı fərq nədir?",HARD
+e7024d56-26e7-4b08-ae57-a10a68b16a60,"Git və Versiya Nəzarəti","Code review zamanı Pull Request-lərin kiçik saxlanması niyə tövsiyə olunur?",MEDIUM
+822126c8-efb1-4811-8360-8225c74f62c8,"Git və Versiya Nəzarəti","Git-də tag (etiket) nə üçün istifadə olunur?",EASY
+f867a68c-c557-4ff0-b08f-0a441553e28e,"Agile və Scrum","Agile metodologiyasının əsas prinsipi nədir?",EASY
+90bee674-7195-4c56-9ab6-98927fd6e0d3,"Agile və Scrum","Scrum-da Sprint nədir?",EASY
+636c03ed-888c-41f4-af5c-a38f79179b1c,"Agile və Scrum","Scrum-da Product Owner-in rolu nədir?",EASY
+81d04f64-9958-4178-9693-8ac87068642a,"Agile və Scrum","Scrum-da Daily Standup (Daily Scrum) toplantısının məqsədi nədir?",EASY
+1b175655-0c80-4bcf-b714-bed4da67a1dc,"Agile və Scrum","Product Backlog nədir?",EASY
+da42d454-384f-4a90-b7b5-cacbfd183468,"Agile və Scrum","Sprint Retrospective toplantısının məqsədi nədir?",MEDIUM
+d2972d8f-9311-4e10-b9df-dbb864b49265,"Agile və Scrum","Scrum Master-in rolu nədir?",EASY
+7ff20dcc-fe86-4dd0-a4bf-45dabc9e50e5,"Agile və Scrum","User Story nə üçün istifadə olunur?",EASY
+7cba63ae-736d-466a-9ca3-c073c36f260f,"Agile və Scrum","Kanban, Scrum-dan nə ilə fərqlənir?",MEDIUM
+384c3322-ee46-4a25-899b-4170b7236088,"Agile və Scrum","Story point-lər nə üçün istifadə olunur?",MEDIUM
+0d2dd397-ae5e-4cfa-9692-89e7af42c05d,"Agile və Scrum","Definition of Done (DoD) nə üçün vacibdir?",MEDIUM
+215e920d-b20b-4eff-9a68-30f65857f580,"Agile və Scrum","Sprint Planning toplantısında nə baş verir?",EASY
+bad517ef-94c2-445e-9818-33de2a6f8fc9,"Agile və Scrum","Velocity Scrum-da nəyi ölçür?",MEDIUM
+5527d456-3912-475d-8513-f89e16061bf7,"Agile və Scrum","Agile Manifesto-nun dəyərlərindən biri hansıdır?",MEDIUM
+21d61834-2330-418e-8a00-2141ece6260e,"Agile və Scrum","Sprint Review toplantısının məqsədi nədir?",EASY
+ee8346e3-a31c-42e8-8e61-11a631e39303,"Agile və Scrum","Backlog grooming (refinement) nə üçün aparılır?",MEDIUM
+5d93cb90-86cd-47be-b232-6f163783bc16,"Agile və Scrum","Cross-functional team (çoxfunksiyalı komanda) Scrum-da nə deməkdir?",MEDIUM
+06d56ca4-cc10-434a-88ad-d6dbfbfda3fd,"Agile və Scrum","Scrum-da 'əngəl' (impediment) nə deməkdir?",EASY
+79032795-33a2-45a1-83c9-16a06359c2ba,"Agile və Scrum","Waterfall metodologiyası Agile-dan nə ilə fərqlənir?",MEDIUM
+fa797df0-f93c-4b21-8d7d-d569a8b5455e,"Agile və Scrum","Continuous feedback (davamlı geri bildirim) Agile-da niyə vacibdir?",MEDIUM
+6457e435-b15f-42cc-a421-a5683d187b82,"Logging və Monitorinq","Logging (loglama) nə üçün istifadə olunur?",EASY
+49a31269-bd78-44a9-afe4-6b94a2858875,"Logging və Monitorinq","Log level-ləri (DEBUG, INFO, WARN, ERROR) nə üçün istifadə olunur?",EASY
+3cfc5721-2bf9-4df7-9a8e-6ceeee4fd3a6,"Logging və Monitorinq","SLF4J nədir?",MEDIUM
+e05c2296-3c70-4bf8-9cc7-76f4e0e03b5f,"Logging və Monitorinq","Structured logging (strukturlaşdırılmış loglama) nə üçün faydalıdır?",MEDIUM
+42811ae5-e3dd-40a0-b620-45562e28abe9,"Logging və Monitorinq","Centralized logging (mərkəzləşdirilmiş loglama, məs. ELK stack) nə üçün istifadə olunur?",MEDIUM
+a0fbde04-8651-423d-889e-d1e88eb73d2b,"Logging və Monitorinq","Application Performance Monitoring (APM) alətləri nə edir?",MEDIUM
+3287ad62-bdcb-455d-a15b-f2cad894b75e,"Logging və Monitorinq","Metrics (metrikalar) və Logs arasındakı fərq nədir?",MEDIUM
+9dc4145d-7101-4f09-b4d0-e868d7ad2131,"Logging və Monitorinq","Alerting (xəbərdarlıq) monitorinq sistemlərində nə üçün istifadə olunur?",MEDIUM
+082fb1f5-7b98-4b9d-8299-9556545be66a,"Logging və Monitorinq","Correlation ID (izləmə ID-si) paylanmış sistemlərdə nə üçün istifadə olunur?",MEDIUM
+d2d58560-3c48-440a-aa53-a3a410df1201,"Logging və Monitorinq","Log rotation nə üçün lazımdır?",MEDIUM
+5a09fdff-ba81-4229-8b45-6ee691b1889c,"Logging və Monitorinq","Prometheus nədir?",MEDIUM
+8358af49-9096-4648-bba8-7ef8889b53ea,"Logging və Monitorinq","Grafana nə üçün istifadə olunur?",MEDIUM
+292ea088-019a-440b-8fe6-f9b8a4e6f5dc,"Logging və Monitorinq","Logging-də həssas məlumatları (şifrə, kredit kartı) loglamamaq niyə vacibdir?",MEDIUM
+c8567743-bb43-4d5e-b5b0-03ff4d221d10,"Logging və Monitorinq","Distributed tracing (paylanmış izləmə) loglamadan nə ilə fərqlənir?",MEDIUM
+64ac35ca-b6c0-476a-afad-04090957f1bd,"Logging və Monitorinq","Health check endpoint (məs. /actuator/health) nə üçün istifadə olunur?",EASY
+867257cc-fe93-4456-8fd9-12e6fefc00ee,"Logging və Monitorinq","MDC (Mapped Diagnostic Context) loglamada nə üçün istifadə olunur?",HARD
+fe1bc251-6dbb-460c-90f8-c5fdefabf37e,"Logging və Monitorinq","Log aggregation sistemlərində 'retention policy' nə üçün təyin edilir?",MEDIUM
+e0e1fec2-6dbb-4166-b6a0-8eacc44948bd,"Logging və Monitorinq","Excessive/verbose logging-in mənfi tərəfi nə ola bilər?",MEDIUM
+51fd4b2c-72ee-4721-89ac-f5a725c2ebc2,"Logging və Monitorinq","Dashboard-larda 'SLI' (Service Level Indicator) nəyi ölçür?",MEDIUM
+0f13a008-4669-4aa0-8849-643aebd4fffd,"Logging və Monitorinq","Monitoring və observability (müşahidə edilə bilənlik) arasındakı fərq nədir?",HARD
+246c707c-ed8a-40f5-879d-92d1e14b056b,"Xəta Loglama və Debugging Texnikaları","Debugger nə üçün istifadə olunur?",EASY
+e3fe8891-16ae-4bcd-86f6-60608003e30b,"Xəta Loglama və Debugging Texnikaları","Breakpoint (dayanma nöqtəsi) nə edir?",EASY
+9ecc37e7-1c19-4b4f-98c7-2ee347434fd7,"Xəta Loglama və Debugging Texnikaları","Stack trace nədir?",EASY
+5d460c18-a517-468c-8709-7595ef85fdd9,"Xəta Loglama və Debugging Texnikaları","Root cause analysis (kök səbəb analizi) nə üçün aparılır?",MEDIUM
+1c7be2bf-9ce8-4fc6-9f8d-17709d285ae7,"Xəta Loglama və Debugging Texnikaları","Rubber duck debugging texnikası nə deməkdir?",EASY
+121248ab-a477-4dee-891b-3c193e0b028d,"Xəta Loglama və Debugging Texnikaları","Reproducing a bug (bug-ı təkrarlamaq) niyə vacib addımdır?",MEDIUM
+397239e0-2ca6-4b59-8064-5243ecd2dcbd,"Xəta Loglama və Debugging Texnikaları","Conditional breakpoint nə üçün istifadə olunur?",MEDIUM
+54de4fa1-4652-4541-8f94-6fdde3ab2c16,"Xəta Loglama və Debugging Texnikaları","Remote debugging nə üçün istifadə olunur?",MEDIUM
+b12af27f-d102-4901-9569-ae9c43be3b7e,"Xəta Loglama və Debugging Texnikaları","Heisenbug termini nəyi ifadə edir?",HARD
+6d61dfdb-bc53-4327-aae5-a649a79e2a65,"Xəta Loglama və Debugging Texnikaları","Binary search debugging texnikası nə deməkdir?",MEDIUM
+4b529b06-0e3d-44b6-a224-aac5e0409f03,"Xəta Loglama və Debugging Texnikaları","git bisect əmri nə üçün istifadə olunur?",MEDIUM
+1cfe97c1-3bde-48c8-907d-c2c1c2206d0d,"Xəta Loglama və Debugging Texnikaları","Print/log-based debugging-in üstünlüyü nədir (debugger-ə qarşı)?",MEDIUM
+2df1795f-5806-43d5-b9fb-760727350b79,"Xəta Loglama və Debugging Texnikaları","Memory leak-i aşkarlamaq üçün hansı texnika istifadə olunur?",MEDIUM
+ca576669-fda4-4dc4-af7d-2f401aa60881,"Xəta Loglama və Debugging Texnikaları","Race condition bug-larını debug etmək niyə xüsusilə çətindir?",HARD
+7daac93c-83a2-4ada-80e8-3d3af01d16aa,"Xəta Loglama və Debugging Texnikaları","Watch expression debugger-də nə üçün istifadə olunur?",MEDIUM
+b6856134-29e0-42a0-8603-c1ca576e80e3,"Xəta Loglama və Debugging Texnikaları","Bug tracking sistemləri (məs. Jira) nə üçün istifadə olunur?",EASY
+4af38ba5-3115-4afc-b78c-58a962f3b5eb,"Xəta Loglama və Debugging Texnikaları","Post-mortem (hadisədən sonrakı təhlil) analiz nə üçün aparılır?",MEDIUM
+7a3ec40a-e511-452b-9728-e6be0d60e341,"Xəta Loglama və Debugging Texnikaları","Step Into, Step Over və Step Out debugger əməliyyatları arasındakı fərq nədir?",MEDIUM
+9a8191cd-3892-4c1d-b140-582367d6d8d4,"Xəta Loglama və Debugging Texnikaları","Logging səviyyəsini production-da DEBUG-a keçirməyin riski nədir?",MEDIUM
+8d7f238c-2628-431c-82f1-e291b177a7d5,"Xəta Loglama və Debugging Texnikaları","Effective debugging üçün 'minimal reproducible example' yaratmağın faydası nədir?",MEDIUM

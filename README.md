@@ -10,41 +10,48 @@ Java texniki müsahibəsini brauzerdə simulyasiya edən veb tətbiq.
 - Hər sualdan sonra "Asan / Orta / Çətin" seçimi ilə şəxsi qiymətləndirməyə imkan verir — "Asan" işarələnib düzgün cavablanan suallar həmin istifadəçiyə bir daha göstərilmir
 - Cavab variantlarının sırası hər sorğuda yenidən qarışdırılır (mövqeyə görə əzbərləmənin qarşısını almaq üçün — eyni sualı ikinci dəfə görəndə düzgün cavab fərqli yerdə ola bilər)
 
-Heç bir xarici asılılıq (Maven/Gradle/kitabxana) yoxdur — yalnız JDK.
+## Stack
+
+- **Gradle** (build)
+- **Spring Boot 3** (`spring-boot-starter-web`, `spring-boot-starter-data-jpa`)
+- **PostgreSQL** (məlumat bazası)
+- **Liquibase** (sxem və seed data miqrasiyaları)
 
 ## İşə salma
 
-```
-javac -d out $(find src -name "*.java")
-java -cp out web.Server
-```
+1. PostgreSQL-də baza və istifadəçi yaradın (bir dəfə):
 
-Sonra brauzerdə aç: http://localhost:8080
+   ```sql
+   CREATE DATABASE interview_simulator;
+   CREATE USER interview_app WITH PASSWORD 'interview_app_pw';
+   GRANT ALL PRIVILEGES ON DATABASE interview_simulator TO interview_app;
+   ```
 
-Fərqli port üçün: `java -cp out web.Server 9090`
+2. Tətbiqi işə salın (Liquibase miqrasiyaları avtomatik icra olunur, 1000 sual seed data kimi yüklənir):
 
-Server `public/` qovluğunu statik fayl kimi verir, ona görə əmri layihənin kök qovluğundan (bu README-nin olduğu yerdən) işə salmaq lazımdır.
+   ```
+   ./gradlew bootRun
+   ```
+
+   Bağlantı parametrləri `application.yml`-də mühit dəyişənləri ilə override oluna bilər: `DB_URL`, `DB_USER`, `DB_PASSWORD`, `SERVER_PORT`.
+
+3. Brauzerdə aç: http://localhost:8080
 
 ## Struktur
 
 ```
-src/
-  model/Question.java          - sual (mövzu, variantlar, düzgün cavab, çətinlik)
-  model/Difficulty.java        - EASY/MEDIUM/HARD, hər biri bal dəyəri ilə
-  model/InterviewSession.java  - tamamlanmış müsahibənin nəticəsi
-  model/GradeResult.java       - qiymətləndirmə nəticəsi (bal, düzgün cavablar, zəif mövzular)
-  model/QuestionResult.java    - hər sualın fərdi nəticəsi
-  model/AnswerSubmission.java  - cavab göndərişi (sual id, seçim, şəxsi çətinlik qiyməti)
-  repository/QuestionBank.java - 10 bank faylını birləşdirən aqreqator (1000 sual, 50 mövzu, hərəsi 20 sual)
-  repository/bank/*.java       - mövzu qruplarına görə bölünmüş sual faylları (hər biri 100 sual/5 mövzu)
-  repository/SessionRepository.java - keçmiş müsahibələrin yaddaşda saxlanması
-  repository/MasteryRepository.java - "Asan" işarələnib düzgün cavablanan sualların namizəd üzrə yaddaşda saxlanması
-  service/InterviewService.java     - müsahibənin qiymətləndirilməsi, bal hesablanması, statistika
-  web/Server.java              - JDK-nin daxili HttpServer-i ilə REST API + statik fayl serveri
-  web/JsonUtil.java            - asılılıqsız JSON parse/serialize
+src/main/java/com/interviewsimulator/
+  InterviewSimulatorApplication.java   - Spring Boot giriş nöqtəsi
+  entity/         - JPA entity-ləri (QuestionEntity, QuestionOptionEntity, InterviewSessionEntity, SessionTopicStatEntity, MasteredQuestionEntity)
+  repository/     - Spring Data JPA repository interfeysləri
+  service/        - InterviewService: sualların seçilməsi, qiymətləndirmə, statistika
+  dto/            - REST API üçün request/response modelləri
+  web/            - QuizController (REST endpoint-lər)
 
-public/
-  index.html, style.css, app.js - veb UI (sadə HTML/CSS/JS, framework yoxdur)
+src/main/resources/
+  application.yml               - server və verilənlər bazası konfiqurasiyası
+  db/changelog/                 - Liquibase changelog-ları (sxem + 1000 sualın seed data-sı)
+  static/                       - veb UI (sadə HTML/CSS/JS, framework yoxdur)
 ```
 
 ## API

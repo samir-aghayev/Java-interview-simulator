@@ -1,0 +1,30 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002-seed-questions
+      author: interview-simulator
+      changes:
+        - loadData:
+            tableName: question
+            file: db/changelog/data/questions.csv
+            relativeToChangelogFile: false
+            separator: ","
+            quotchar: '"'
+            usePreparedStatements: true
+            columns:
+              - column: {name: id, type: UUID}
+              - column: {name: topic, type: STRING}
+              - column: {name: text, type: STRING}
+              - column: {name: difficulty, type: STRING}
+        - loadData:
+            tableName: question_option
+            file: db/changelog/data/question_options.csv
+            relativeToChangelogFile: false
+            separator: ","
+            quotchar: '"'
+            usePreparedStatements: true
+            columns:
+              - column: {name: id, type: UUID}
+              - column: {name: question_id, type: UUID}
+              - column: {name: position, type: NUMERIC}
+              - column: {name: option_text, type: STRING}
+              - column: {name: is_correct, type: BOOLEAN}
