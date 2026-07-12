@@ -1,28 +1,45 @@
-# Java Interview Simulator
+# Interview Simulator
 
-Java texniki müsahibəsini brauzerdə simulyasiya edən veb tətbiq.
+A web application that simulates technical interviews in the browser. It ships with a bank of
+1000 Java questions across 50 topics, but the data model is subject-aware — question banks for
+other fields (frontend, SQL, data analysis, AI, Excel, SAP, mathematics, ...) can be added
+through the admin panel without any schema changes.
 
-- Java sualları verir (50 mövzu, 1000 sual — Core Java, kolleksiyalar/data strukturları, concurrency/JVM, dil xüsusiyyətləri, testing/keyfiyyət, Spring/veb, verilənlər bazası, DevOps/infra, memarlıq/təhlükəsizlik, proses/alətlər sahələrindən)
-- Cavabları yoxlayır
-- Çətinlik səviyyəsinə görə bal hesablayır
-- Zəif mövzuları göstərir
-- İnkişaf statistikasını (keçmiş müsahibələr üzrə bal və nəticələr) saxlayır
-- Hər sualdan sonra "Asan / Orta / Çətin" seçimi ilə şəxsi qiymətləndirməyə imkan verir — "Asan" işarələnib düzgün cavablanan suallar həmin istifadəçiyə bir daha göstərilmir
-- Cavab variantlarının sırası hər sorğuda yenidən qarışdırılır (mövqeyə görə əzbərləmənin qarşısını almaq üçün — eyni sualı ikinci dəfə görəndə düzgün cavab fərqli yerdə ola bilər)
-- Sign Up / Sign In ilə real istifadəçi hesabları (email + şifrə, bcrypt hash) — eyni anda yüzlərlə istifadəçi öz müsahibə tarixçəsini ayrıca saxlaya bilər
-- İstifadəçi rolları (USER/ADMIN) və Admin Panel: istifadəçi rollarının idarəsi, sual əlavə/redaktə/deaktiv/bərpa (soft delete — keçmiş nəticələrin bütövlüyü pozulmur), axtarış + səhifələmə, bütün admin əməliyyatlarının audit logu
+## Features
 
-## Stack
+- **Quizzes with topic selection** — pick a subject and specific topics (or go fully mixed),
+  choose the question count, and start
+- **Per-request answer shuffling** — option order is reshuffled on every request, so seeing a
+  question twice never reveals the answer's position
+- **Scoring by difficulty** — EASY 5 / MEDIUM 10 / HARD 15 points
+- **Weak-topic detection and progress history** — per-topic accuracy across all past sessions
+  and a session-by-session score timeline
+- **Self-rated difficulty with mastery** — after each question the user marks it Easy/Medium/Hard;
+  a question rated *Easy* and answered correctly is never shown to that user again
+- **Question reports** — users can flag a wrong question or answer with a message; admins
+  review, resolve, or dismiss the reports
+- **Accounts and roles** — email + password sign-up (bcrypt), stateless JWT sessions, USER/ADMIN
+  roles; registration optionally collects birth date, gender, country, employment and education
+  status for future analytics
+- **Admin panel** (separate `/admin` page) — user role management, question CRUD with search
+  and pagination, report handling, and an audit log of every admin action
+- **Soft delete for questions** — deactivated questions leave the quiz pool but past results
+  keep their integrity; questions can be restored
+- **Dark mode** — animated toggle, persisted per browser
 
-- **Gradle** (build)
-- **Spring Boot 3** (`spring-boot-starter-web`, `spring-boot-starter-data-jpa`, `spring-boot-starter-security`, `spring-boot-starter-validation`)
-- **PostgreSQL** (məlumat bazası)
-- **Liquibase** (sxem və seed data miqrasiyaları)
-- **JWT** (stateless autentifikasiya, `jjwt`)
+## Tech stack
 
-## İşə salma
+| Layer     | Technology |
+|-----------|------------|
+| Backend   | Java 21, Spring Boot 3 (Web, Data JPA, Security, Validation) |
+| Database  | PostgreSQL, Liquibase migrations (schema + 1000-question seed via CSV `loadData`) |
+| Auth      | JWT (jjwt, HS512), bcrypt password hashing, per-IP rate limiting on auth endpoints |
+| Frontend  | React 18 + TypeScript, Vite, react-router |
+| Build     | Gradle (the boot jar embeds the built frontend) |
 
-1. PostgreSQL-də baza və istifadəçi yaradın (bir dəfə):
+## Quick start
+
+1. Create the database and user (once):
 
    ```sql
    CREATE DATABASE interview_simulator;
@@ -30,62 +47,95 @@ Java texniki müsahibəsini brauzerdə simulyasiya edən veb tətbiq.
    GRANT ALL PRIVILEGES ON DATABASE interview_simulator TO interview_app;
    ```
 
-2. Tətbiqi işə salın (Liquibase miqrasiyaları avtomatik icra olunur, 1000 sual seed data kimi yüklənir):
+2. Run the application (Liquibase migrations run automatically and seed the question bank;
+   the React frontend is built by Gradle via npm and packaged into the jar):
 
+   ```bash
+   ADMIN_EMAIL=admin@example.com ADMIN_PASSWORD=change-me ./gradlew bootRun
    ```
-   ./gradlew bootRun
-   ```
 
-   Bağlantı parametrləri `application.yml`-də mühit dəyişənləri ilə override oluna bilər: `DB_URL`, `DB_USER`, `DB_PASSWORD`, `SERVER_PORT`, `JWT_SECRET`, `JWT_EXPIRATION_MINUTES`. **Production-a keçməzdən əvvəl `JWT_SECRET` mütləq dəyişdirilməlidir.**
+   `ADMIN_EMAIL`/`ADMIN_PASSWORD` bootstrap the first admin account: if the email exists it is
+   promoted to ADMIN, otherwise the account is created.
 
-   İlk admini yaratmaq üçün: `ADMIN_EMAIL=admin@example.com ADMIN_PASSWORD=... ./gradlew bootRun` — həmin email mövcuddursa ADMIN roluna yüksəldilir, yoxdursa bu şifrə ilə yaradılır.
+3. Open http://localhost:8080
 
-3. Brauzerdə aç: http://localhost:8080
+### Configuration (environment variables)
 
-## Struktur
+| Variable | Default | Description |
+|---|---|---|
+| `DB_URL` | `jdbc:postgresql://localhost:5432/interview_simulator` | JDBC URL |
+| `DB_USER` / `DB_PASSWORD` | `interview_app` / `interview_app_pw` | Database credentials |
+| `SERVER_PORT` | `8080` | HTTP port |
+| `JWT_SECRET` | insecure dev default | **Must be overridden in production** |
+| `JWT_EXPIRATION_MINUTES` | `1440` | Token lifetime |
+| `ADMIN_EMAIL` / `ADMIN_PASSWORD` | unset | First-admin bootstrap (optional) |
 
+### Frontend development
+
+The frontend lives in `frontend/` (Vite + React + TypeScript). For a fast dev loop run the
+backend and the Vite dev server side by side — Vite proxies `/api` to `localhost:8080`:
+
+```bash
+./gradlew bootRun -PskipFrontend        # backend only
+cd frontend && npm install && npm run dev   # http://localhost:5173
 ```
-src/main/java/com/interviewsimulator/
-  InterviewSimulatorApplication.java   - Spring Boot giriş nöqtəsi
-  entity/         - JPA entity-ləri (UserEntity, QuestionEntity, QuestionOptionEntity, InterviewSessionEntity, SessionTopicStatEntity, MasteredQuestionEntity)
-  repository/     - Spring Data JPA repository interfeysləri
-  service/        - InterviewService: sualların seçilməsi, qiymətləndirmə, statistika
-  security/       - JWT yaradılması/yoxlanması, Spring Security konfiqurasiyası, autentifikasiya endpoint-ləri üçün rate limiting
-  dto/            - REST API üçün request/response modelləri
-  web/            - QuizController və AuthController (REST endpoint-lər)
 
-src/main/resources/
-  application.yml               - server və verilənlər bazası konfiqurasiyası
-  db/changelog/                 - Liquibase changelog-ları (sxem + 1000 sualın seed data-sı)
-  static/                       - veb UI (sadə HTML/CSS/JS, framework yoxdur)
-```
+All UI strings are centralized in `frontend/src/i18n/strings.ts`, ready for additional
+languages (Turkish support is planned).
 
 ## API
 
-Autentifikasiya endpoint-ləri istisna olmaqla, bütün endpoint-lər `Authorization: Bearer <token>` header-i tələb edir.
+All endpoints except `/api/auth/**` require an `Authorization: Bearer <token>` header.
+Auth endpoints are rate-limited to 10 attempts per minute per IP.
 
-| Metod | Yol | Təsvir |
+### Auth
+
+| Method | Path | Description |
 |---|---|---|
-| POST | `/api/auth/register` | `{email, password, displayName}` → hesab yaradır, `{token, email, displayName, role}` qaytarır |
-| POST | `/api/auth/login` | `{email, password}` → `{token, email, displayName, role}` qaytarır |
-| POST | `/api/quiz/start` | `{questionCount}` → təsadüfi seçilmiş suallar (istifadəçinin "Asan+düzgün" işarələdiyi suallar çıxarılmış, hər sualın variantları həmin sorğu üçün təzədən qarışdırılmış, `options: [{index, text}]` formatında — `index` sualın kanonik/authoring indeksidir, göstərilən sıra deyil) |
-| POST | `/api/quiz/submit` | `{answers:[{questionId, selectedIndex, perceivedDifficulty}]}` → bal, düzgün cavablar, zəif mövzular (`selectedIndex` kanonik indeksdir, `/api/quiz/start`-da alınan `option.index` dəyəri) |
-| GET | `/api/stats/weak` | Cari istifadəçinin bütün müsahibələri üzrə mövzu statistikası |
-| GET | `/api/stats/progress` | Cari istifadəçinin müsahibə tarixçəsi və orta bal |
+| POST | `/api/auth/register` | `{email, password, firstName, lastName, birthDate?, gender?, country?, employmentStatus?, educationStatus?}` → `{token, email, displayName, role}` |
+| POST | `/api/auth/login` | `{email, password}` → `{token, email, displayName, role}` |
 
-Autentifikasiya endpoint-ləri IP üzrə sadə rate limiting ilə qorunur (dəqiqədə maks. 10 cəhd).
+### Quiz & stats
 
-### Admin API (yalnız ADMIN rolu)
-
-| Metod | Yol | Təsvir |
+| Method | Path | Description |
 |---|---|---|
-| GET | `/api/admin/users?search=&page=&size=` | İstifadəçi siyahısı (axtarış + səhifələmə) |
-| PATCH | `/api/admin/users/{id}/role` | `{role: USER\|ADMIN}` — rol dəyişikliyi (admin öz rolunu dəyişə bilməz) |
-| GET | `/api/admin/questions?search=&page=&size=` | Sual siyahısı (mövzu/mətn üzrə axtarış + səhifələmə, deaktivlər daxil) |
-| POST | `/api/admin/questions` | `{topic, text, difficulty, options[2-6], correctIndex}` — yeni sual |
-| PUT | `/api/admin/questions/{id}` | Sualın redaktəsi |
-| DELETE | `/api/admin/questions/{id}` | Soft delete — sual deaktiv olur, quiz hovuzundan çıxır, keçmiş nəticələr toxunulmaz qalır |
-| POST | `/api/admin/questions/{id}/restore` | Deaktiv sualın bərpası |
-| GET | `/api/admin/audit?page=&size=` | Admin əməliyyatlarının audit logu (kim, nə vaxt, nə etdi) |
+| GET | `/api/meta/topics` | `[{subject, topics[]}]` — active subjects and their topics |
+| POST | `/api/quiz/start` | `{questionCount, subject?, topics?}` → random questions from the filtered pool, excluding the user's mastered questions; options are `{index, text}` pairs freshly shuffled per request (`index` is the canonical authoring index) |
+| POST | `/api/quiz/submit` | `{answers: [{questionId, selectedIndex, perceivedDifficulty}]}` → score, correct answers, weak topics, per-question details |
+| GET | `/api/stats/weak` | Per-topic accuracy across the current user's sessions |
+| GET | `/api/stats/progress` | Session history and average score |
+| POST | `/api/reports` | `{questionId, message}` — flag a wrong question/answer |
 
-Qeyd: rol dəyişiklikləri dərhal təsirlidir — JWT filtri rolu tokendəki claim-dən deyil, hər sorğuda bazadan oxuyur (demote edilmiş adminin köhnə tokeni ilə admin qalması mümkün deyil). Admin panelin görünməsi üçün yüksəldilmiş istifadəçi yenidən daxil olmalıdır (frontend rolu login cavabından götürür).
+### Admin (ADMIN role only)
+
+| Method | Path | Description |
+|---|---|---|
+| GET | `/api/admin/users?search=&page=&size=` | User list incl. profile fields |
+| PATCH | `/api/admin/users/{id}/role` | `{role: USER\|ADMIN}` — admins cannot change their own role |
+| GET | `/api/admin/questions?search=&page=&size=` | Question list (search covers subject/topic/text, includes inactive) |
+| POST | `/api/admin/questions` | `{subject, topic, text, difficulty, options[2..6], correctIndex}` |
+| PUT | `/api/admin/questions/{id}` | Edit a question |
+| DELETE | `/api/admin/questions/{id}` | Soft delete (deactivate) |
+| POST | `/api/admin/questions/{id}/restore` | Reactivate |
+| GET | `/api/admin/reports?status=&page=&size=` | Question reports (filter by OPEN/RESOLVED/DISMISSED) |
+| PATCH | `/api/admin/reports/{id}` | `{status: RESOLVED\|DISMISSED}` |
+| GET | `/api/admin/audit?page=&size=` | Audit log of admin actions |
+
+## Design notes
+
+- **Role changes take effect immediately**: the JWT filter reads the user's current role from
+  the database on every request, so a demoted admin loses access even with an unexpired token,
+  and a deleted user's token stops working.
+- **Canonical option order is stored; shuffling happens at serve time.** Grading compares the
+  submitted canonical index against the stored correct option, so shuffling never affects
+  correctness.
+- **Soft delete** keeps foreign-key integrity for past interview sessions that reference a
+  question.
+- The repository layout:
+
+  ```
+  src/main/java/com/interviewsimulator/
+    entity/ repository/ service/ security/ dto/ web/
+  src/main/resources/db/changelog/   Liquibase changelogs + seed CSVs
+  frontend/                          React + TypeScript SPA (Vite)
+  ```
