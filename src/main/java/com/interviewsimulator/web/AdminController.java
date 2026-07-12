@@ -4,6 +4,7 @@ import com.interviewsimulator.dto.AdminQuestionDto;
 import com.interviewsimulator.dto.AuditLogDto;
 import com.interviewsimulator.dto.PagedResponse;
 import com.interviewsimulator.dto.QuestionUpsertRequest;
+import com.interviewsimulator.dto.ReportDto;
 import com.interviewsimulator.dto.RoleUpdateRequest;
 import com.interviewsimulator.dto.UserSummaryDto;
 import com.interviewsimulator.security.AuthenticatedUser;
@@ -77,6 +78,20 @@ public class AdminController {
     @PostMapping("/questions/{id}/restore")
     public AdminQuestionDto restoreQuestion(@AuthenticationPrincipal AuthenticatedUser principal, @PathVariable UUID id) {
         return adminService.restoreQuestion(principal.id(), id);
+    }
+
+    @GetMapping("/reports")
+    public PagedResponse<ReportDto> listReports(@RequestParam(defaultValue = "") String status,
+                                                 @RequestParam(defaultValue = "0") int page,
+                                                 @RequestParam(defaultValue = "20") int size) {
+        return adminService.listReports(status, page, size);
+    }
+
+    @PatchMapping("/reports/{id}")
+    public ReportDto resolveReport(@AuthenticationPrincipal AuthenticatedUser principal,
+                                    @PathVariable UUID id,
+                                    @RequestBody java.util.Map<String, String> body) {
+        return adminService.resolveReport(principal.id(), id, body.get("status"));
     }
 
     @GetMapping("/audit")

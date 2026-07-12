@@ -15,7 +15,12 @@ public interface QuestionRepository extends JpaRepository<QuestionEntity, UUID> 
             + "(select m.question.id from MasteredQuestionEntity m where m.user.id = :userId)")
     List<QuestionEntity> findAvailableForUser(UUID userId);
 
-    @Query("select q from QuestionEntity q where lower(q.topic) like lower(concat('%', :search, '%')) "
+    @Query("select q from QuestionEntity q where lower(q.subject) like lower(concat('%', :search, '%')) "
+            + "or lower(q.topic) like lower(concat('%', :search, '%')) "
             + "or lower(q.text) like lower(concat('%', :search, '%'))")
     Page<QuestionEntity> search(String search, Pageable pageable);
+
+    @Query("select q.subject, q.topic from QuestionEntity q where q.active = true "
+            + "group by q.subject, q.topic order by q.subject, q.topic")
+    List<Object[]> findActiveSubjectTopics();
 }

@@ -14,3 +14,9 @@ databaseChangeLog:
   - include:
       file: db/changelog/005-admin-panel.yaml
       relativeToChangelogFile: false
+  - include:
+      file: db/changelog/006-subjects-and-reports.yaml
+      relativeToChangelogFile: false
+  - include:
+      file: db/changelog/007-user-profile.yaml
+      relativeToChangelogFile: false

@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: 007-user-profile
+      author: interview-simulator
+      changes:
+        - addColumn:
+            tableName: app_user
+            columns:
+              - column: {name: first_name, type: VARCHAR(100)}
+              - column: {name: last_name, type: VARCHAR(100)}
+              - column: {name: birth_date, type: DATE}
+              - column: {name: gender, type: VARCHAR(10)}
+              - column: {name: country, type: VARCHAR(100)}
+              - column: {name: employment_status, type: VARCHAR(30)}
+              - column: {name: education_status, type: VARCHAR(30)}

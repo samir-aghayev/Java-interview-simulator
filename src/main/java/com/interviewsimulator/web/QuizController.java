@@ -31,7 +31,8 @@ public class QuizController {
     @PostMapping("/api/quiz/start")
     public QuizStartResponse start(@AuthenticationPrincipal AuthenticatedUser principal, @RequestBody QuizStartRequest request) {
         int count = request.questionCount() != null ? Math.max(0, request.questionCount()) : DEFAULT_QUESTION_COUNT;
-        return new QuizStartResponse(interviewService.pickRandomQuestions(principal.id(), count));
+        return new QuizStartResponse(interviewService.pickRandomQuestions(principal.id(), count,
+                request.subject(), request.topics()));
     }
 
     @PostMapping("/api/quiz/submit")

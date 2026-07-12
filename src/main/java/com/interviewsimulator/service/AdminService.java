@@ -5,11 +5,14 @@ import com.interviewsimulator.dto.AdminQuestionOptionDto;
 import com.interviewsimulator.dto.AuditLogDto;
 import com.interviewsimulator.dto.PagedResponse;
 import com.interviewsimulator.dto.QuestionUpsertRequest;
+import com.interviewsimulator.dto.ReportDto;
 import com.interviewsimulator.dto.UserSummaryDto;
 import com.interviewsimulator.entity.AdminAuditLogEntity;
 import com.interviewsimulator.entity.QuestionEntity;
+import com.interviewsimulator.entity.QuestionReportEntity;
 import com.interviewsimulator.entity.UserEntity;
 import com.interviewsimulator.repository.AdminAuditLogRepository;
+import com.interviewsimulator.repository.QuestionReportRepository;
 import com.interviewsimulator.repository.QuestionRepository;
 import com.interviewsimulator.repository.UserRepository;
 import org.springframework.data.domain.Page;
@@ -35,15 +38,20 @@ public class AdminService {
     private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
     private static final int MAX_PAGE_SIZE = 100;
 
+    private static final Set<String> REPORT_RESOLUTIONS = Set.of("RESOLVED", "DISMISSED");
+    private static final Set<String> REPORT_STATUSES = Set.of("OPEN", "RESOLVED", "DISMISSED");
+
     private final UserRepository userRepository;
     private final QuestionRepository questionRepository;
     private final AdminAuditLogRepository auditLogRepository;
+    private final QuestionReportRepository reportRepository;
 
     public AdminService(UserRepository userRepository, QuestionRepository questionRepository,
-                         AdminAuditLogRepository auditLogRepository) {
+                         AdminAuditLogRepository auditLogRepository, QuestionReportRepository reportRepository) {
         this.userRepository = userRepository;
         this.questionRepository = questionRepository;
         this.auditLogRepository = auditLogRepository;
+        this.reportRepository = reportRepository;
     }
 
     @Transactional(readOnly = true)
@@ -52,8 +60,7 @@ public class AdminService {
         Page<UserEntity> users = search == null || search.isBlank()
                 ? userRepository.findAll(pageable)
                 : userRepository.findByEmailContainingIgnoreCaseOrDisplayNameContainingIgnoreCase(search, search, pageable);
-        return toPagedResponse(users.map(u -> new UserSummaryDto(u.getId().toString(), u.getEmail(),
-                u.getDisplayName(), u.getRole(), u.getCreatedAt().format(DATE_FORMAT))));
+        return toPagedResponse(users.map(this::toUserSummary));
     }
 
     @Transactional
@@ -71,8 +78,14 @@ public class AdminService {
         target.setRole(newRole);
         userRepository.save(target);
         audit(adminId, "ROLE_CHANGED", "USER", targetUserId, target.getEmail() + ": " + oldRole + " → " + newRole);
-        return new UserSummaryDto(target.getId().toString(), target.getEmail(), target.getDisplayName(),
-                target.getRole(), target.getCreatedAt().format(DATE_FORMAT));
+        return toUserSummary(target);
+    }
+
+    private UserSummaryDto toUserSummary(UserEntity u) {
+        return new UserSummaryDto(u.getId().toString(), u.getEmail(), u.getDisplayName(), u.getRole(),
+                u.getCreatedAt().format(DATE_FORMAT), u.getFirstName(), u.getLastName(),
+                u.getBirthDate() == null ? null : u.getBirthDate().toString(), u.getGender(),
+                u.getCountry(), u.getEmploymentStatus(), u.getEducationStatus());
     }
 
     @Transactional(readOnly = true)
@@ -87,8 +100,8 @@ public class AdminService {
     @Transactional
     public AdminQuestionDto createQuestion(UUID adminId, QuestionUpsertRequest request) {
         validateQuestion(request);
-        QuestionEntity question = new QuestionEntity(request.topic().trim(), request.text().trim(),
-                request.difficulty().trim().toUpperCase());
+        QuestionEntity question = new QuestionEntity(request.subject().trim(), request.topic().trim(),
+                request.text().trim(), request.difficulty().trim().toUpperCase());
         question.replaceOptions(request.options(), request.correctIndex());
         questionRepository.save(question);
         audit(adminId, "QUESTION_CREATED", "QUESTION", question.getId(), truncate(request.text()));
@@ -99,7 +112,8 @@ public class AdminService {
     public AdminQuestionDto updateQuestion(UUID adminId, UUID questionId, QuestionUpsertRequest request) {
         validateQuestion(request);
         QuestionEntity question = findQuestion(questionId);
-        question.updateContent(request.topic().trim(), request.text().trim(), request.difficulty().trim().toUpperCase());
+        question.updateContent(request.subject().trim(), request.topic().trim(), request.text().trim(),
+                request.difficulty().trim().toUpperCase());
         question.replaceOptions(request.options(), request.correctIndex());
         questionRepository.save(question);
         audit(adminId, "QUESTION_UPDATED", "QUESTION", questionId, truncate(request.text()));
@@ -121,6 +135,43 @@ public class AdminService {
         questionRepository.save(question);
         audit(adminId, "QUESTION_RESTORED", "QUESTION", questionId, truncate(question.getText()));
         return toAdminDto(question);
+    }
+
+    @Transactional(readOnly = true)
+    public PagedResponse<ReportDto> listReports(String status, int page, int size) {
+        Pageable pageable = pageable(page, size, Sort.unsorted());
+        Page<QuestionReportEntity> reports;
+        if (status == null || status.isBlank()) {
+            reports = reportRepository.findAllByOrderByCreatedAtDesc(pageable);
+        } else {
+            String normalized = status.trim().toUpperCase();
+            if (!REPORT_STATUSES.contains(normalized)) {
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Status yalnız OPEN, RESOLVED və ya DISMISSED ola bilər");
+            }
+            reports = reportRepository.findByStatusOrderByCreatedAtDesc(normalized, pageable);
+        }
+        return toPagedResponse(reports.map(this::toReportDto));
+    }
+
+    @Transactional
+    public ReportDto resolveReport(UUID adminId, UUID reportId, String status) {
+        String normalized = status == null ? "" : status.trim().toUpperCase();
+        if (!REPORT_RESOLUTIONS.contains(normalized)) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Status yalnız RESOLVED və ya DISMISSED ola bilər");
+        }
+        QuestionReportEntity report = reportRepository.findById(reportId)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Report tapılmadı"));
+        report.resolve(normalized, userRepository.getReferenceById(adminId));
+        reportRepository.save(report);
+        audit(adminId, "REPORT_STATUS_CHANGED", "REPORT", reportId,
+                normalized + ": " + truncate(report.getMessage()));
+        return toReportDto(report);
+    }
+
+    private ReportDto toReportDto(QuestionReportEntity report) {
+        return new ReportDto(report.getId().toString(), report.getQuestion().getId().toString(),
+                truncate(report.getQuestion().getText()), report.getReporter().getEmail(),
+                report.getMessage(), report.getStatus(), report.getCreatedAt().format(DATE_FORMAT));
     }
 
     @Transactional(readOnly = true)
@@ -157,8 +208,8 @@ public class AdminService {
             var option = question.getOptions().get(i);
             options.add(new AdminQuestionOptionDto(i, option.getOptionText(), Boolean.TRUE.equals(option.getCorrect())));
         }
-        return new AdminQuestionDto(question.getId().toString(), question.getTopic(), question.getText(),
-                question.getDifficulty(), Boolean.TRUE.equals(question.getActive()), options);
+        return new AdminQuestionDto(question.getId().toString(), question.getSubject(), question.getTopic(),
+                question.getText(), question.getDifficulty(), Boolean.TRUE.equals(question.getActive()), options);
     }
 
     private Pageable pageable(int page, int size, Sort sort) {

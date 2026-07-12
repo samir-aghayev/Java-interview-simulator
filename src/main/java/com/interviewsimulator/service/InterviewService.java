@@ -54,8 +54,13 @@ public class InterviewService {
     }
 
     @Transactional(readOnly = true)
-    public List<QuestionDto> pickRandomQuestions(UUID userId, int count) {
+    public List<QuestionDto> pickRandomQuestions(UUID userId, int count, String subject, List<String> topics) {
         List<QuestionEntity> pool = new ArrayList<>(questionRepository.findAvailableForUser(userId));
+        if (topics != null && !topics.isEmpty()) {
+            pool.removeIf(q -> !topics.contains(q.getTopic()));
+        } else if (subject != null && !subject.isBlank()) {
+            pool.removeIf(q -> !subject.equals(q.getSubject()));
+        }
         Collections.shuffle(pool);
         List<QuestionEntity> selected = pool.subList(0, Math.min(count, pool.size()));
         List<QuestionDto> result = new ArrayList<>();

@@ -7,6 +7,7 @@ import jakarta.validation.constraints.Size;
 import java.util.List;
 
 public record QuestionUpsertRequest(
+        @NotBlank String subject,
         @NotBlank String topic,
         @NotBlank String text,
         @NotBlank String difficulty,

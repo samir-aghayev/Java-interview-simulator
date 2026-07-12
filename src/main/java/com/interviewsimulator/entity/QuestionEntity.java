@@ -20,6 +20,9 @@ public class QuestionEntity {
     private UUID id;
 
     @Column(nullable = false)
+    private String subject;
+
+    @Column(nullable = false)
     private String topic;
 
     @Column(nullable = false, columnDefinition = "TEXT")
@@ -38,8 +41,9 @@ public class QuestionEntity {
     protected QuestionEntity() {
     }
 
-    public QuestionEntity(String topic, String text, String difficulty) {
+    public QuestionEntity(String subject, String topic, String text, String difficulty) {
         this.id = UUID.randomUUID();
+        this.subject = subject;
         this.topic = topic;
         this.text = text;
         this.difficulty = difficulty;
@@ -48,6 +52,10 @@ public class QuestionEntity {
 
     public UUID getId() {
         return id;
+    }
+
+    public String getSubject() {
+        return subject;
     }
 
     public String getTopic() {
@@ -70,7 +78,8 @@ public class QuestionEntity {
         return options;
     }
 
-    public void updateContent(String topic, String text, String difficulty) {
+    public void updateContent(String subject, String topic, String text, String difficulty) {
+        this.subject = subject;
         this.topic = topic;
         this.text = text;
         this.difficulty = difficulty;

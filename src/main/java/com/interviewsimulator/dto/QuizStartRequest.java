@@ -1,4 +1,6 @@
 package com.interviewsimulator.dto;
 
-public record QuizStartRequest(Integer questionCount) {
+import java.util.List;
+
+public record QuizStartRequest(Integer questionCount, String subject, List<String> topics) {
 }

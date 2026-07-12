@@ -29,17 +29,43 @@ public class AuthController {
         this.jwtService = jwtService;
     }
 
+    private static final java.util.Set<String> GENDERS = java.util.Set.of("MALE", "FEMALE");
+    private static final java.util.Set<String> EMPLOYMENT_STATUSES =
+            java.util.Set.of("STUDENT", "EMPLOYED", "UNEMPLOYED", "FREELANCER", "OTHER");
+    private static final java.util.Set<String> EDUCATION_STATUSES =
+            java.util.Set.of("HIGH_SCHOOL", "BACHELOR", "MASTER", "PHD", "OTHER");
+
     @PostMapping("/api/auth/register")
     public AuthResponse register(@Valid @RequestBody RegisterRequest request) {
         String email = request.email().trim().toLowerCase();
         if (userRepository.existsByEmail(email)) {
             throw new ResponseStatusException(HttpStatus.CONFLICT, "Bu email artıq qeydiyyatdan keçib");
         }
+        String gender = optionalChoice(request.gender(), GENDERS, "gender");
+        String employment = optionalChoice(request.employmentStatus(), EMPLOYMENT_STATUSES, "employmentStatus");
+        String education = optionalChoice(request.educationStatus(), EDUCATION_STATUSES, "educationStatus");
+
+        String firstName = request.firstName().trim();
+        String lastName = request.lastName().trim();
         UserEntity user = new UserEntity(email, passwordEncoder.encode(request.password()),
-                request.displayName().trim(), DEFAULT_ROLE);
+                firstName + " " + lastName, DEFAULT_ROLE);
+        user.setProfile(firstName, lastName, request.birthDate(), gender,
+                request.country() == null || request.country().isBlank() ? null : request.country().trim(),
+                employment, education);
         userRepository.save(user);
         String token = jwtService.generateToken(user.getId(), user.getEmail(), user.getRole());
         return new AuthResponse(token, user.getEmail(), user.getDisplayName(), user.getRole());
+    }
+
+    private String optionalChoice(String value, java.util.Set<String> allowed, String fieldName) {
+        if (value == null || value.isBlank()) {
+            return null;
+        }
+        String normalized = value.trim().toUpperCase();
+        if (!allowed.contains(normalized)) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, fieldName + " üçün yanlış dəyər");
+        }
+        return normalized;
     }
 
     @PostMapping("/api/auth/login")
