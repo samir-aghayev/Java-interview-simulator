@@ -33,6 +33,14 @@ public class QuestionOptionEntity {
     protected QuestionOptionEntity() {
     }
 
+    public QuestionOptionEntity(QuestionEntity question, int position, String optionText, boolean correct) {
+        this.id = UUID.randomUUID();
+        this.question = question;
+        this.position = position;
+        this.optionText = optionText;
+        this.correct = correct;
+    }
+
     public UUID getId() {
         return id;
     }

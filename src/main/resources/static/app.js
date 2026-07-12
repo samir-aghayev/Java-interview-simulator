@@ -56,6 +56,7 @@ function showAppView() {
   userDisplayName.textContent = user ? user.displayName : '';
   userBar.classList.remove('hidden');
   appTabs.classList.remove('hidden');
+  document.getElementById('adminTab').classList.toggle('hidden', !user || user.role !== 'ADMIN');
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
   document.getElementById('view-quiz').classList.add('active');
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
@@ -126,6 +127,7 @@ document.querySelectorAll('.tab').forEach(tab => {
     document.getElementById('view-' + tab.dataset.view).classList.add('active');
     if (tab.dataset.view === 'weak') loadWeakTopics();
     if (tab.dataset.view === 'progress') loadProgress();
+    if (tab.dataset.view === 'admin') loadAdminQuestions(0);
   });
 });
 
@@ -405,6 +407,296 @@ async function loadProgress() {
   });
   table.appendChild(tbody);
   container.appendChild(table);
+}
+
+// ===== Admin Panel =====
+
+const OPTION_COUNT = 4;
+let editingQuestionId = null;
+
+document.querySelectorAll('.subtab').forEach(st => {
+  st.addEventListener('click', () => {
+    document.querySelectorAll('.subtab').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.admin-pane').forEach(p => p.classList.remove('active'));
+    st.classList.add('active');
+    document.getElementById('admin-pane-' + st.dataset.pane).classList.add('active');
+    if (st.dataset.pane === 'questions') loadAdminQuestions(0);
+    if (st.dataset.pane === 'users') loadAdminUsers(0);
+    if (st.dataset.pane === 'audit') loadAudit(0);
+  });
+});
+
+function renderPager(containerId, data, loadFn) {
+  const pager = document.getElementById(containerId);
+  pager.innerHTML = '';
+  if (data.totalPages <= 1) return;
+  const prev = document.createElement('button');
+  prev.className = 'small';
+  prev.textContent = '← Əvvəlki';
+  prev.disabled = data.page === 0;
+  prev.addEventListener('click', () => loadFn(data.page - 1));
+  const info = document.createElement('span');
+  info.textContent = `Səhifə ${data.page + 1}/${data.totalPages} (cəmi ${data.totalElements})`;
+  const next = document.createElement('button');
+  next.className = 'small';
+  next.textContent = 'Növbəti →';
+  next.disabled = data.page >= data.totalPages - 1;
+  next.addEventListener('click', () => loadFn(data.page + 1));
+  pager.appendChild(prev);
+  pager.appendChild(info);
+  pager.appendChild(next);
+}
+
+function badge(text, cls) {
+  const b = document.createElement('span');
+  b.className = 'badge ' + cls;
+  b.textContent = text;
+  return b;
+}
+
+// --- Suallar ---
+
+document.getElementById('questionSearchBtn').addEventListener('click', () => loadAdminQuestions(0));
+document.getElementById('questionSearch').addEventListener('keydown', e => {
+  if (e.key === 'Enter') { e.preventDefault(); loadAdminQuestions(0); }
+});
+document.getElementById('newQuestionBtn').addEventListener('click', () => openQuestionForm(null));
+document.getElementById('qfCancelBtn').addEventListener('click', closeQuestionForm);
+document.getElementById('qfSaveBtn').addEventListener('click', saveQuestion);
+
+function buildOptionInputs(options) {
+  const wrap = document.getElementById('qfOptions');
+  wrap.innerHTML = '';
+  for (let i = 0; i < OPTION_COUNT; i++) {
+    const row = document.createElement('div');
+    row.className = 'qf-option-row';
+    const radio = document.createElement('input');
+    radio.type = 'radio';
+    radio.name = 'qfCorrect';
+    radio.value = i;
+    if (options ? options[i] && options[i].correct : i === 0) radio.checked = true;
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.placeholder = `Variant ${i + 1}`;
+    input.dataset.optIndex = i;
+    if (options && options[i]) input.value = options[i].text;
+    row.appendChild(radio);
+    row.appendChild(input);
+    wrap.appendChild(row);
+  }
+}
+
+function openQuestionForm(question) {
+  editingQuestionId = question ? question.id : null;
+  document.getElementById('question-form-title').textContent = question ? 'Sualı redaktə et' : 'Yeni sual';
+  document.getElementById('qfTopic').value = question ? question.topic : '';
+  document.getElementById('qfText').value = question ? question.text : '';
+  document.getElementById('qfDifficulty').value = question ? question.difficulty : 'MEDIUM';
+  buildOptionInputs(question ? question.options : null);
+  document.getElementById('qf-error').textContent = '';
+  document.getElementById('question-form').classList.remove('hidden');
+  document.getElementById('question-form').scrollIntoView({ behavior: 'smooth' });
+}
+
+function closeQuestionForm() {
+  editingQuestionId = null;
+  document.getElementById('question-form').classList.add('hidden');
+}
+
+async function saveQuestion() {
+  const errorEl = document.getElementById('qf-error');
+  errorEl.textContent = '';
+  const options = [...document.querySelectorAll('#qfOptions input[type="text"]')].map(i => i.value.trim());
+  const correctRadio = document.querySelector('input[name="qfCorrect"]:checked');
+  const body = {
+    topic: document.getElementById('qfTopic').value.trim(),
+    text: document.getElementById('qfText').value.trim(),
+    difficulty: document.getElementById('qfDifficulty').value,
+    options,
+    correctIndex: correctRadio ? parseInt(correctRadio.value, 10) : 0
+  };
+  const url = editingQuestionId ? '/api/admin/questions/' + editingQuestionId : '/api/admin/questions';
+  const res = await authFetch(url, {
+    method: editingQuestionId ? 'PUT' : 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  });
+  if (!res.ok) {
+    errorEl.textContent = await errorMessage(res, 'Yadda saxlamaq mümkün olmadı.');
+    return;
+  }
+  closeQuestionForm();
+  loadAdminQuestions(0);
+}
+
+let adminQuestionsPage = 0;
+
+async function loadAdminQuestions(page) {
+  adminQuestionsPage = page;
+  const container = document.getElementById('admin-questions-list');
+  container.innerHTML = '<p class="muted">Yüklənir...</p>';
+  const search = encodeURIComponent(document.getElementById('questionSearch').value.trim());
+  const res = await authFetch(`/api/admin/questions?search=${search}&page=${page}&size=10`);
+  if (!res.ok) {
+    container.innerHTML = '<p class="error">Yükləmək mümkün olmadı.</p>';
+    return;
+  }
+  const data = await res.json();
+  container.innerHTML = '';
+  if (data.content.length === 0) {
+    container.innerHTML = '<p class="muted">Sual tapılmadı.</p>';
+  }
+  data.content.forEach(q => {
+    const row = document.createElement('div');
+    row.className = 'admin-row';
+
+    const main = document.createElement('div');
+    main.className = 'admin-row-main';
+    const title = document.createElement('div');
+    title.className = 'admin-row-title';
+    title.textContent = q.text;
+    const sub = document.createElement('div');
+    sub.className = 'admin-row-sub';
+    sub.textContent = `${q.topic} · ${q.difficulty} `;
+    sub.appendChild(q.active ? badge('aktiv', 'active-q') : badge('deaktiv', 'inactive'));
+    main.appendChild(title);
+    main.appendChild(sub);
+
+    const actions = document.createElement('div');
+    actions.className = 'admin-row-actions';
+    const editBtn = document.createElement('button');
+    editBtn.className = 'small';
+    editBtn.textContent = 'Redaktə';
+    editBtn.addEventListener('click', () => openQuestionForm(q));
+    actions.appendChild(editBtn);
+    if (q.active) {
+      const delBtn = document.createElement('button');
+      delBtn.className = 'small danger';
+      delBtn.textContent = 'Deaktiv et';
+      delBtn.addEventListener('click', async () => {
+        await authFetch('/api/admin/questions/' + q.id, { method: 'DELETE' });
+        loadAdminQuestions(adminQuestionsPage);
+      });
+      actions.appendChild(delBtn);
+    } else {
+      const restoreBtn = document.createElement('button');
+      restoreBtn.className = 'small';
+      restoreBtn.textContent = 'Bərpa et';
+      restoreBtn.addEventListener('click', async () => {
+        await authFetch('/api/admin/questions/' + q.id + '/restore', { method: 'POST' });
+        loadAdminQuestions(adminQuestionsPage);
+      });
+      actions.appendChild(restoreBtn);
+    }
+
+    row.appendChild(main);
+    row.appendChild(actions);
+    container.appendChild(row);
+  });
+  renderPager('admin-questions-pager', data, loadAdminQuestions);
+}
+
+// --- İstifadəçilər ---
+
+document.getElementById('userSearchBtn').addEventListener('click', () => loadAdminUsers(0));
+document.getElementById('userSearch').addEventListener('keydown', e => {
+  if (e.key === 'Enter') { e.preventDefault(); loadAdminUsers(0); }
+});
+
+let adminUsersPage = 0;
+
+async function loadAdminUsers(page) {
+  adminUsersPage = page;
+  const container = document.getElementById('admin-users-list');
+  container.innerHTML = '<p class="muted">Yüklənir...</p>';
+  const search = encodeURIComponent(document.getElementById('userSearch').value.trim());
+  const res = await authFetch(`/api/admin/users?search=${search}&page=${page}&size=10`);
+  if (!res.ok) {
+    container.innerHTML = '<p class="error">Yükləmək mümkün olmadı.</p>';
+    return;
+  }
+  const data = await res.json();
+  const me = getUser();
+  container.innerHTML = '';
+  data.content.forEach(u => {
+    const row = document.createElement('div');
+    row.className = 'admin-row';
+
+    const main = document.createElement('div');
+    main.className = 'admin-row-main';
+    const title = document.createElement('div');
+    title.className = 'admin-row-title';
+    title.textContent = `${u.displayName} (${u.email}) `;
+    title.appendChild(badge(u.role, u.role === 'ADMIN' ? 'admin' : 'user'));
+    const sub = document.createElement('div');
+    sub.className = 'admin-row-sub';
+    sub.textContent = 'Qeydiyyat: ' + u.createdAt;
+    main.appendChild(title);
+    main.appendChild(sub);
+
+    const actions = document.createElement('div');
+    actions.className = 'admin-row-actions';
+    if (me && u.email !== me.email) {
+      const toggleBtn = document.createElement('button');
+      toggleBtn.className = 'small';
+      const newRole = u.role === 'ADMIN' ? 'USER' : 'ADMIN';
+      toggleBtn.textContent = newRole === 'ADMIN' ? 'Admin et' : 'User et';
+      toggleBtn.addEventListener('click', async () => {
+        const errEl = document.getElementById('admin-users-error');
+        errEl.textContent = '';
+        const r = await authFetch('/api/admin/users/' + u.id + '/role', {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ role: newRole })
+        });
+        if (!r.ok) {
+          errEl.textContent = await errorMessage(r, 'Rolu dəyişmək mümkün olmadı.');
+          return;
+        }
+        loadAdminUsers(adminUsersPage);
+      });
+      actions.appendChild(toggleBtn);
+    }
+
+    row.appendChild(main);
+    row.appendChild(actions);
+    container.appendChild(row);
+  });
+  renderPager('admin-users-pager', data, loadAdminUsers);
+}
+
+// --- Audit ---
+
+async function loadAudit(page) {
+  const container = document.getElementById('admin-audit-list');
+  container.innerHTML = '<p class="muted">Yüklənir...</p>';
+  const res = await authFetch(`/api/admin/audit?page=${page}&size=15`);
+  if (!res.ok) {
+    container.innerHTML = '<p class="error">Yükləmək mümkün olmadı.</p>';
+    return;
+  }
+  const data = await res.json();
+  container.innerHTML = '';
+  if (data.content.length === 0) {
+    container.innerHTML = '<p class="muted">Audit qeydi yoxdur.</p>';
+  }
+  data.content.forEach(l => {
+    const row = document.createElement('div');
+    row.className = 'admin-row';
+    const main = document.createElement('div');
+    main.className = 'admin-row-main';
+    const title = document.createElement('div');
+    title.className = 'admin-row-title';
+    title.textContent = `${l.action} — ${l.details || ''}`;
+    const sub = document.createElement('div');
+    sub.className = 'admin-row-sub';
+    sub.textContent = `${l.createdAt} · ${l.adminEmail}`;
+    main.appendChild(title);
+    main.appendChild(sub);
+    row.appendChild(main);
+    container.appendChild(row);
+  });
+  renderPager('admin-audit-pager', data, loadAudit);
 }
 
 if (getToken()) {

@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Java Interview Simulator</title>
+<link rel="icon" href="data:,">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,6 +20,7 @@
   <button class="tab active" data-view="quiz">Müsahibə</button>
   <button class="tab" data-view="weak">Zəif Mövzular</button>
   <button class="tab" data-view="progress">İnkişaf Statistikası</button>
+  <button class="tab hidden" data-view="admin" id="adminTab">Admin</button>
 </nav>
 
 <main>
@@ -76,6 +78,64 @@
       <h2>İnkişaf statistikası</h2>
       <div id="progress-content">
         <p class="muted">Yüklənir...</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-admin" class="view">
+    <div class="card">
+      <h2>Admin Panel</h2>
+      <div class="subtabs">
+        <button class="subtab active" data-pane="questions">Suallar</button>
+        <button class="subtab" data-pane="users">İstifadəçilər</button>
+        <button class="subtab" data-pane="audit">Audit</button>
+      </div>
+
+      <div id="admin-pane-questions" class="admin-pane active">
+        <div class="admin-toolbar">
+          <input id="questionSearch" type="text" placeholder="Mövzu və ya mətn üzrə axtar...">
+          <button id="questionSearchBtn" class="secondary">Axtar</button>
+          <button id="newQuestionBtn" class="primary">+ Yeni sual</button>
+        </div>
+
+        <form id="question-form" class="hidden">
+          <h3 id="question-form-title">Yeni sual</h3>
+          <label for="qfTopic">Mövzu</label>
+          <input id="qfTopic" type="text">
+          <label for="qfText">Sual mətni</label>
+          <textarea id="qfText" rows="3"></textarea>
+          <label for="qfDifficulty">Çətinlik</label>
+          <select id="qfDifficulty">
+            <option value="EASY">EASY (5 bal)</option>
+            <option value="MEDIUM" selected>MEDIUM (10 bal)</option>
+            <option value="HARD">HARD (15 bal)</option>
+          </select>
+          <label>Variantlar (düzgün olanı seçin)</label>
+          <div id="qfOptions"></div>
+          <div class="admin-toolbar">
+            <button type="button" id="qfSaveBtn" class="primary">Yadda saxla</button>
+            <button type="button" id="qfCancelBtn" class="secondary">Ləğv et</button>
+          </div>
+          <p id="qf-error" class="error"></p>
+        </form>
+
+        <div id="admin-questions-list"><p class="muted">Yüklənir...</p></div>
+        <div id="admin-questions-pager" class="pager"></div>
+      </div>
+
+      <div id="admin-pane-users" class="admin-pane">
+        <div class="admin-toolbar">
+          <input id="userSearch" type="text" placeholder="Email və ya ad üzrə axtar...">
+          <button id="userSearchBtn" class="secondary">Axtar</button>
+        </div>
+        <div id="admin-users-list"><p class="muted">Yüklənir...</p></div>
+        <div id="admin-users-pager" class="pager"></div>
+        <p id="admin-users-error" class="error"></p>
+      </div>
+
+      <div id="admin-pane-audit" class="admin-pane">
+        <div id="admin-audit-list"><p class="muted">Yüklənir...</p></div>
+        <div id="admin-audit-pager" class="pager"></div>
       </div>
     </div>
   </section>

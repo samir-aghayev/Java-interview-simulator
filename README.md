@@ -10,6 +10,7 @@ Java texniki müsahibəsini brauzerdə simulyasiya edən veb tətbiq.
 - Hər sualdan sonra "Asan / Orta / Çətin" seçimi ilə şəxsi qiymətləndirməyə imkan verir — "Asan" işarələnib düzgün cavablanan suallar həmin istifadəçiyə bir daha göstərilmir
 - Cavab variantlarının sırası hər sorğuda yenidən qarışdırılır (mövqeyə görə əzbərləmənin qarşısını almaq üçün — eyni sualı ikinci dəfə görəndə düzgün cavab fərqli yerdə ola bilər)
 - Sign Up / Sign In ilə real istifadəçi hesabları (email + şifrə, bcrypt hash) — eyni anda yüzlərlə istifadəçi öz müsahibə tarixçəsini ayrıca saxlaya bilər
+- İstifadəçi rolları (USER/ADMIN) və Admin Panel: istifadəçi rollarının idarəsi, sual əlavə/redaktə/deaktiv/bərpa (soft delete — keçmiş nəticələrin bütövlüyü pozulmur), axtarış + səhifələmə, bütün admin əməliyyatlarının audit logu
 
 ## Stack
 
@@ -36,6 +37,8 @@ Java texniki müsahibəsini brauzerdə simulyasiya edən veb tətbiq.
    ```
 
    Bağlantı parametrləri `application.yml`-də mühit dəyişənləri ilə override oluna bilər: `DB_URL`, `DB_USER`, `DB_PASSWORD`, `SERVER_PORT`, `JWT_SECRET`, `JWT_EXPIRATION_MINUTES`. **Production-a keçməzdən əvvəl `JWT_SECRET` mütləq dəyişdirilməlidir.**
+
+   İlk admini yaratmaq üçün: `ADMIN_EMAIL=admin@example.com ADMIN_PASSWORD=... ./gradlew bootRun` — həmin email mövcuddursa ADMIN roluna yüksəldilir, yoxdursa bu şifrə ilə yaradılır.
 
 3. Brauzerdə aç: http://localhost:8080
 
@@ -71,3 +74,18 @@ Autentifikasiya endpoint-ləri istisna olmaqla, bütün endpoint-lər `Authoriza
 | GET | `/api/stats/progress` | Cari istifadəçinin müsahibə tarixçəsi və orta bal |
 
 Autentifikasiya endpoint-ləri IP üzrə sadə rate limiting ilə qorunur (dəqiqədə maks. 10 cəhd).
+
+### Admin API (yalnız ADMIN rolu)
+
+| Metod | Yol | Təsvir |
+|---|---|---|
+| GET | `/api/admin/users?search=&page=&size=` | İstifadəçi siyahısı (axtarış + səhifələmə) |
+| PATCH | `/api/admin/users/{id}/role` | `{role: USER\|ADMIN}` — rol dəyişikliyi (admin öz rolunu dəyişə bilməz) |
+| GET | `/api/admin/questions?search=&page=&size=` | Sual siyahısı (mövzu/mətn üzrə axtarış + səhifələmə, deaktivlər daxil) |
+| POST | `/api/admin/questions` | `{topic, text, difficulty, options[2-6], correctIndex}` — yeni sual |
+| PUT | `/api/admin/questions/{id}` | Sualın redaktəsi |
+| DELETE | `/api/admin/questions/{id}` | Soft delete — sual deaktiv olur, quiz hovuzundan çıxır, keçmiş nəticələr toxunulmaz qalır |
+| POST | `/api/admin/questions/{id}/restore` | Deaktiv sualın bərpası |
+| GET | `/api/admin/audit?page=&size=` | Admin əməliyyatlarının audit logu (kim, nə vaxt, nə etdi) |
+
+Qeyd: rol dəyişiklikləri dərhal təsirlidir — JWT filtri rolu tokendəki claim-dən deyil, hər sorğuda bazadan oxuyur (demote edilmiş adminin köhnə tokeni ilə admin qalması mümkün deyil). Admin panelin görünməsi üçün yüksəldilmiş istifadəçi yenidən daxil olmalıdır (frontend rolu login cavabından götürür).
