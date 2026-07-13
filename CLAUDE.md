@@ -41,12 +41,27 @@ Fully wired but inactive without real credentials — the app starts and runs no
   `${app.frontend-url}/oauth-callback?token=...`; the frontend's `OAuthCallbackPage` reads the token,
   calls `GET /api/auth/me` to populate the session, then redirects to `/`.
 
-## Password reset
+## Password reset / SMTP
 
-`EmailSender` is a pluggable interface; `ConsoleEmailSender` (the only implementation so far) just
-logs the reset link instead of sending it. Swap in an SMTP-backed implementation
-(`spring-boot-starter-mail` + `JavaMailSender`) once real mail credentials are available — no other
-code needs to change.
+`EmailSender` is a pluggable interface with two implementations, chosen deterministically by a
+single `@Bean` method with an if/else (`EmailConfig`) — not competing `@Conditional` beans, to
+avoid any ordering ambiguity:
+
+- No `SMTP_HOST` set → `ConsoleEmailSender` (just logs the email). This is what plain
+  `gradlew bootRun` gets with no env vars, same as before.
+- `SMTP_HOST` set → `SmtpEmailSender` (real `JavaMailSenderImpl`). Auth is optional — only
+  applied when `SMTP_USERNAME`/`SMTP_PASSWORD` are both non-blank, since Mailpit (the local dev
+  catcher wired into `docker-compose.yml`) and other unauthenticated relays don't need it, but
+  most real providers (Gmail, SendGrid, ...) do.
+- `SmtpEmailSender` catches `MailException` and logs instead of throwing: a transient SMTP outage
+  must not turn `POST /api/auth/forgot-password` into a 500, and must not let the response shape
+  leak whether the email existed (the reset token is still created either way — verified by
+  starting the app with an unreachable `SMTP_HOST` and confirming both the 200 response and the
+  persisted token).
+- `docker-compose.yml` runs `axllent/mailpit:v1.30` (SMTP on 1025, web UI on `:8025`) and points
+  the app at it by default — `docker compose up` lets you see password-reset emails at
+  http://localhost:8025 with zero configuration. Override `SMTP_HOST`/`SMTP_USERNAME`/etc. in
+  `.env` to send through a real provider instead.
 
 ## Docker
 
