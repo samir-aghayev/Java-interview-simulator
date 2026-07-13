@@ -1,10 +1,9 @@
-out/
-*.class
+.git/
+.gradle/
 .idea/
 *.iml
+out/
 build/
-.gradle/
-!gradle/wrapper/gradle-wrapper.jar
 frontend/node_modules/
 frontend/dist/
 .env

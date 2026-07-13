@@ -48,6 +48,29 @@ logs the reset link instead of sending it. Swap in an SMTP-backed implementation
 (`spring-boot-starter-mail` + `JavaMailSender`) once real mail credentials are available — no other
 code needs to change.
 
+## Docker
+
+`Dockerfile` (multi-stage, `eclipse-temurin:25-jdk-noble` build → `eclipse-temurin:25-jre-noble`
+runtime, non-root user) + `docker-compose.yml` (`app` + `db` services, `postgres:17-alpine`,
+healthcheck-gated startup, named volume for data). Versions were picked as the current latest
+stable as of 2026-07 (verified via web search, not guessed): Postgres 17.x (18 not released yet),
+Node 24.x (current Active LTS, installed via NodeSource in the build stage since Gradle's
+`buildFrontend` task shells out to `npm`), Eclipse Temurin 25 (matches the toolchain above).
+
+Config comes from `.env` (see `.env.example`); unset variables fall back to the same insecure
+dev defaults `application.yml` already uses, so `docker compose up --build` works with zero
+setup — override `JWT_SECRET` etc. for anything beyond local use.
+
+Not verified end-to-end in this sandbox: the Docker daemon isn't reachable here
+(`/var/run/docker.sock` doesn't exist, and `service docker start` fails on a `ulimit` permission
+error), so `docker build`/`docker compose up` could not actually be run. What *was* verified here:
+`docker compose config` resolves the compose file and env-var interpolation correctly, and both
+`eclipse-temurin:25-jdk-noble`/`25-jre-noble` and `postgres:17-alpine` are real, existing tags
+(checked against Docker Hub). The Dockerfile's build steps (`gradlew build`, jar selection
+excluding `-plain.jar`) mirror exactly what's already been verified working via plain `gradle
+build` elsewhere in this doc — but the containerized build itself should get a real
+`docker compose up --build` run on a machine with a working Docker daemon before relying on it.
+
 ## Other conventions
 
 - Build: Gradle (not Maven). DB migrations: Liquibase (not Flyway). DB: PostgreSQL.

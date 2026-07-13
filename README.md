@@ -28,25 +28,29 @@ through the admin panel without any schema changes.
 - **Dark mode** — animated toggle, persisted per browser
 - **Two UI languages** — Azerbaijani and Turkish (AZ/TR toggle, persisted per browser); questions
   are served in the selected language when a translation exists, falling back to the original.
-  The first 100 questions (OOP, String, Collections, Exceptions, Stream & Lambda) ship with
-  hand-written Turkish translations; more are added incrementally via the
-  `question_translation` / `question_option_translation` tables
+  All 1000 questions ship with hand-written Turkish translations
+- **Leaderboard** — users ranked by average correct-answer percentage (minimum 3 sessions to
+  qualify), with total score as a tiebreaker
+- **Password reset** — tokenized forgot/reset-password flow; single-use, 30-minute tokens
+- **Google OAuth login** — sign in with Google, wired end-to-end but inactive until
+  `GOOGLE_CLIENT_ID`/`GOOGLE_CLIENT_SECRET` are configured (see CLAUDE.md)
 
 ## Tech stack
 
 | Layer     | Technology |
 |-----------|------------|
-| Backend   | Java 21, Spring Boot 3 (Web, Data JPA, Security, Validation) |
+| Backend   | Java 25, Spring Boot 3.5 (Web, Data JPA, Security, Security OAuth2 Client, Validation) |
 | Database  | PostgreSQL, Liquibase migrations (schema + 1000-question seed via CSV `loadData`) |
 | Auth      | JWT (jjwt, HS512), bcrypt password hashing, per-IP rate limiting on auth endpoints |
 | Frontend  | React 18 + TypeScript, Vite, react-router |
 | Build     | Gradle (the boot jar embeds the built frontend) |
+| Container | Docker (multi-stage build) + Docker Compose |
 
 ## Quick start
 
 ### Prerequisites
 
-- **Java 17+** on your PATH to launch Gradle (the build itself auto-downloads **JDK 21** via the
+- **Java 17+** on your PATH to launch Gradle (the build itself auto-downloads **JDK 25** via the
   Foojay toolchain resolver if it's not installed)
 - **Node.js 18+** (`npm` must be on your PATH) — used to build the React frontend
 - **PostgreSQL** running locally (any recent version)
@@ -79,12 +83,39 @@ through the admin panel without any schema changes.
 
 3. Open http://localhost:8080
 
+### Run with Docker
+
+No local Java, Node, or PostgreSQL needed — everything runs in containers.
+
+```bash
+cp .env.example .env   # edit ADMIN_EMAIL/ADMIN_PASSWORD etc. as needed
+docker compose up --build
+```
+
+Then open http://localhost:8080. The `db` service (PostgreSQL) and `app` service (the built jar)
+are wired together automatically; `app` waits for `db`'s healthcheck before starting, and
+Liquibase runs the migrations + seed on first boot. Data persists in the `db_data` named volume
+across restarts — `docker compose down -v` to wipe it.
+
+The image (`Dockerfile`) is a two-stage build: `eclipse-temurin:25-jdk-noble` (+ Node.js 24 for
+the frontend's `npm run build`) compiles everything with `./gradlew build`, and the runtime stage
+copies only the resulting jar onto `eclipse-temurin:25-jre-noble`, running as a non-root user.
+
+| Variable (`.env`) | Default | Notes |
+|---|---|---|
+| `DB_PASSWORD` | `interview_app_pw` | Also used for the `db` container's Postgres password |
+| `JWT_SECRET` | insecure dev default | **Override for anything beyond local use** |
+| `JWT_EXPIRATION_MINUTES` | `1440` | Token lifetime |
+| `ADMIN_EMAIL` / `ADMIN_PASSWORD` | unset | First-admin bootstrap (optional) |
+| `FRONTEND_URL` | `http://localhost:8080` | Used to build password-reset and OAuth redirect links |
+| `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` | unset | Google login stays disabled until both are set |
+
 ### Troubleshooting
 
 | Symptom | Fix |
 |---|---|
 | `Cannot run program "npm"` / `npm: command not found` | Install Node.js 18+ and reopen the terminal so `npm` is on PATH |
-| `No matching toolchains found for Java 21` | Pull the latest code (the Foojay resolver auto-downloads JDK 21), or install JDK 21 manually |
+| `No matching toolchains found for Java 25` | Pull the latest code (the Foojay resolver auto-downloads JDK 25), or install JDK 25 manually |
 | `Connection to localhost:5432 refused` | PostgreSQL is not running — start the service |
 | `FATAL: password authentication failed for user "interview_app"` | Re-run the `CREATE USER` / `GRANT` statements from step 1, or set `DB_USER`/`DB_PASSWORD` |
 | `FATAL: database "interview_simulator" does not exist` | Run the `CREATE DATABASE` statement from step 1 |

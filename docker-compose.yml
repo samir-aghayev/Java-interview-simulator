@@ -1,0 +1,40 @@
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: interview_simulator
+      POSTGRES_USER: interview_app
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-interview_app_pw}
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U interview_app -d interview_simulator"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_URL: jdbc:postgresql://db:5432/interview_simulator
+      DB_USER: interview_app
+      DB_PASSWORD: ${DB_PASSWORD:-interview_app_pw}
+      SERVER_PORT: 8080
+      # Insecure placeholder, same as application.yml's own default — override in .env for anything real.
+      JWT_SECRET: ${JWT_SECRET:-dev-only-insecure-secret-please-override-in-production-1234567890}
+      JWT_EXPIRATION_MINUTES: ${JWT_EXPIRATION_MINUTES:-1440}
+      ADMIN_EMAIL: ${ADMIN_EMAIL:-}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-}
+      FRONTEND_URL: ${FRONTEND_URL:-http://localhost:8080}
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET:-}
+    ports:
+      - "8080:8080"
+
+volumes:
+  db_data:
