@@ -116,6 +116,7 @@ const az = {
   noWeakTopics: 'Zəif mövzu aşkarlanmadı. Əla nəticə!',
   weakTopicsLabel: 'Zəif mövzular:',
   retryButton: 'Yenidən başla',
+  notAnswered: 'Cavab verilməyib',
 
   // Statistika
   weakTitle: 'Mövzu üzrə statistika',
@@ -283,6 +284,7 @@ const tr: typeof az = {
   noWeakTopics: 'Zayıf konu bulunamadı. Harika sonuç!',
   weakTopicsLabel: 'Zayıf konular:',
   retryButton: 'Yeniden başla',
+  notAnswered: 'Cevap verilmedi',
 
   // İstatistikler
   weakTitle: 'Konu bazında istatistikler',

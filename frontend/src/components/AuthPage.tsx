@@ -159,7 +159,7 @@ export default function AuthPage() {
 
   return (
     <div className="auth-page">
-      <div className="container">
+      <div className={`container ${mode === 'register' ? 'container-wide' : ''}`}>
         {mode === 'login' ? (
           <div className="form">
             <header>{t.loginTitle}</header>
@@ -250,53 +250,49 @@ export default function AuthPage() {
                 <i className="fas fa-calendar-alt input-icon" />
               </div>
 
-              <div className="input-row">
-                <div className="input-wrapper">
-                  <select id="gender" value={gender} onChange={e => setGender(e.target.value)}>
-                    <option value="">{t.genderPlaceholder}</option>
-                    <option value="MALE">{t.genderMale}</option>
-                    <option value="FEMALE">{t.genderFemale}</option>
-                  </select>
-                  <i className="fas fa-venus-mars input-icon" />
-                  <i className="fas fa-chevron-down select-arrow" />
-                </div>
-                <div className="input-wrapper">
-                  <input
-                    type="text"
-                    id="country"
-                    value={country}
-                    placeholder={t.countryPlaceholder}
-                    onChange={e => setCountry(e.target.value)}
-                  />
-                  <i className="fas fa-globe input-icon" />
-                </div>
+              <div className="input-wrapper">
+                <select id="gender" value={gender} onChange={e => setGender(e.target.value)}>
+                  <option value="">{t.genderPlaceholder}</option>
+                  <option value="MALE">{t.genderMale}</option>
+                  <option value="FEMALE">{t.genderFemale}</option>
+                </select>
+                <i className="fas fa-venus-mars input-icon" />
+                <i className="fas fa-chevron-down select-arrow" />
+              </div>
+              <div className="input-wrapper">
+                <input
+                  type="text"
+                  id="country"
+                  value={country}
+                  placeholder={t.countryPlaceholder}
+                  onChange={e => setCountry(e.target.value)}
+                />
+                <i className="fas fa-globe input-icon" />
               </div>
 
-              <div className="input-row">
-                <div className="input-wrapper">
-                  <select id="employment" value={employment} onChange={e => setEmployment(e.target.value)}>
-                    <option value="">{t.employmentPlaceholder}</option>
-                    <option value="STUDENT">{t.employmentStudent}</option>
-                    <option value="EMPLOYED">{t.employmentEmployed}</option>
-                    <option value="UNEMPLOYED">{t.employmentUnemployed}</option>
-                    <option value="FREELANCER">{t.employmentFreelancer}</option>
-                    <option value="OTHER">{t.employmentOther}</option>
-                  </select>
-                  <i className="fas fa-briefcase input-icon" />
-                  <i className="fas fa-chevron-down select-arrow" />
-                </div>
-                <div className="input-wrapper">
-                  <select id="education" value={education} onChange={e => setEducation(e.target.value)}>
-                    <option value="">{t.educationPlaceholder}</option>
-                    <option value="HIGH_SCHOOL">{t.educationHighSchool}</option>
-                    <option value="BACHELOR">{t.educationBachelor}</option>
-                    <option value="MASTER">{t.educationMaster}</option>
-                    <option value="PHD">{t.educationPhd}</option>
-                    <option value="OTHER">{t.educationOther}</option>
-                  </select>
-                  <i className="fas fa-graduation-cap input-icon" />
-                  <i className="fas fa-chevron-down select-arrow" />
-                </div>
+              <div className="input-wrapper">
+                <select id="employment" value={employment} onChange={e => setEmployment(e.target.value)}>
+                  <option value="">{t.employmentPlaceholder}</option>
+                  <option value="STUDENT">{t.employmentStudent}</option>
+                  <option value="EMPLOYED">{t.employmentEmployed}</option>
+                  <option value="UNEMPLOYED">{t.employmentUnemployed}</option>
+                  <option value="FREELANCER">{t.employmentFreelancer}</option>
+                  <option value="OTHER">{t.employmentOther}</option>
+                </select>
+                <i className="fas fa-briefcase input-icon" />
+                <i className="fas fa-chevron-down select-arrow" />
+              </div>
+              <div className="input-wrapper">
+                <select id="education" value={education} onChange={e => setEducation(e.target.value)}>
+                  <option value="">{t.educationPlaceholder}</option>
+                  <option value="HIGH_SCHOOL">{t.educationHighSchool}</option>
+                  <option value="BACHELOR">{t.educationBachelor}</option>
+                  <option value="MASTER">{t.educationMaster}</option>
+                  <option value="PHD">{t.educationPhd}</option>
+                  <option value="OTHER">{t.educationOther}</option>
+                </select>
+                <i className="fas fa-graduation-cap input-icon" />
+                <i className="fas fa-chevron-down select-arrow" />
               </div>
 
               <div className="input-wrapper">

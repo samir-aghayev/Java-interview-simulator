@@ -251,29 +251,33 @@ export default function QuizView() {
         </button>
       </div>
 
-      {result?.details.map((detail, index) => (
-        <div className="question-card" key={detail.id}>
-          <div className="question-head">
-            <div className="question-meta">
-              {index + 1}. {detail.topic}
-            </div>
-            <button className="btn-report" onClick={() => setReportFor(detail.id)}>
-              <i className="fas fa-flag" /> {t.reportButton}
-            </button>
-          </div>
-          <div className="question-text">{detail.text}</div>
-          {detail.options.map(option => {
-            let cls = 'option readonly';
-            if (option.index === detail.correctIndex) cls += ' correct';
-            else if (option.index === detail.selectedIndex && !detail.correct) cls += ' incorrect';
-            return (
-              <div className={cls} key={option.index}>
-                {option.text}
+      {result?.details.map((detail, index) => {
+        const skipped = detail.selectedIndex < 0;
+        return (
+          <div className="question-card" key={detail.id}>
+            <div className="question-head">
+              <div className="question-meta">
+                {index + 1}. {detail.topic}
+                {skipped && <span className="not-answered-badge">{t.notAnswered}</span>}
               </div>
-            );
-          })}
-        </div>
-      ))}
+              <button className="btn-report" onClick={() => setReportFor(detail.id)}>
+                <i className="fas fa-flag" /> {t.reportButton}
+              </button>
+            </div>
+            <div className="question-text">{detail.text}</div>
+            {detail.options.map(option => {
+              let cls = 'option readonly';
+              if (option.index === detail.correctIndex) cls += ' correct';
+              else if (option.index === detail.selectedIndex && !detail.correct) cls += ' incorrect';
+              return (
+                <div className={cls} key={option.index}>
+                  {option.text}
+                </div>
+              );
+            })}
+          </div>
+        );
+      })}
       {reportFor && <ReportModal questionId={reportFor} onClose={() => setReportFor(null)} />}
     </div>
   );

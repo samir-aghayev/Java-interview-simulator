@@ -50,7 +50,9 @@ export async function api<T>(path: string, options: RequestInit = {}): Promise<T
   };
   const res = await fetch(path, { ...options, headers });
 
-  if (res.status === 401) {
+  // /api/auth/** 401-i "sessiya bitib" demək deyil, "email/şifrə yanlışdır" deməkdir —
+  // bu halda tam səhifə yönləndirməsi React-in xəta mesajını göstərməsinə mane olur.
+  if (res.status === 401 && !path.startsWith('/api/auth/')) {
     clearSession();
     window.location.assign('/login');
     throw new ApiError(401, 'Unauthorized');

@@ -162,6 +162,12 @@ body.dark-mode .lang-toggle {
   transition: all 0.3s ease;
 }
 
+/* Qeydiyyat formu login-dən daha çox sahə (ad-soyad, cins/ölkə, iş/təhsil statusu) daşıyır —
+   470px-də seçim mətnləri ("Təhsil statusu (istəyə bağlı)" kimi) sıxışırdı. */
+.container-wide {
+  max-width: 620px;
+}
+
 .container .form {
   padding: 2rem;
   animation: fadeIn 0.5s ease;
@@ -774,6 +780,18 @@ body.dark-mode .success-message {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.03em;
+}
+
+.not-answered-badge {
+  margin-left: 8px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--warn-bg);
+  color: var(--warn-color);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: normal;
 }
 
 .question-text {
