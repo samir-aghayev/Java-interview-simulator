@@ -15,7 +15,7 @@ export function setLang(lang: Lang): void {
 }
 
 const az = {
-  appName: '☕ Java Interview Simulator',
+  appName: 'Skill Interview Simulator',
 
   // Auth
   loginTitle: 'Giriş',
@@ -183,7 +183,7 @@ const az = {
 };
 
 const tr: typeof az = {
-  appName: '☕ Java Interview Simulator',
+  appName: 'Skill Interview Simulator',
 
   // Auth
   loginTitle: 'Giriş',

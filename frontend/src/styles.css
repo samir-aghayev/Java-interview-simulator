@@ -1,54 +1,52 @@
 :root {
-  --primary-color: #2563eb;
-  --primary-dark: #1d4ed8;
-  --secondary-color: #60a5fa;
-  --error-color: #ef4444;
-  --success-color: #10b981;
+  --primary-color: #4f46e5;
+  --primary-dark: #4338ca;
+  --secondary-color: #818cf8;
+  --error-color: #dc2626;
+  --success-color: #059669;
   --warn-color: #d97706;
-  --text-color: #1f2937;
-  --muted-color: #6b7280;
+  --text-color: #18181b;
+  --muted-color: #71717a;
   --bg-light: #ffffff;
-  --input-bg: #f3f4f6;
-  --border-color: #e5e7eb;
-  --shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  --bg-page: #fafafa;
+  --input-bg: #f4f4f5;
+  --border-color: #e4e4e7;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
   --success-bg: #ecfdf5;
   --error-bg: #fef2f2;
-  --warn-bg: #fef3c7;
+  --warn-bg: #fffbeb;
 }
 
 body.dark-mode {
-  --primary-color: #3b82f6;
-  --primary-dark: #2563eb;
-  --text-color: #f3f4f6;
-  --muted-color: #9ca3af;
-  --bg-light: #1f2937;
-  --input-bg: #374151;
-  --border-color: #374151;
-  --shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-  --success-bg: #064e3b;
-  --error-bg: #7f1d1d;
-  --warn-bg: #3a2c0d;
+  --primary-color: #818cf8;
+  --primary-dark: #6366f1;
+  --text-color: #f4f4f5;
+  --muted-color: #a1a1aa;
+  --bg-light: #18181b;
+  --bg-page: #09090b;
+  --input-bg: #27272a;
+  --border-color: #27272a;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 2px 8px rgba(0, 0, 0, 0.24);
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --success-bg: #052e21;
+  --error-bg: #450a0a;
+  --warn-bg: #2c1c05;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 body {
   min-height: 100vh;
   width: 100%;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  background-attachment: fixed;
+  background: var(--bg-page);
   color: var(--text-color);
-  transition: all 0.3s ease;
-}
-
-body.dark-mode {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-  background-attachment: fixed;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 @keyframes fadeIn {
@@ -66,63 +64,50 @@ body.dark-mode {
   position: fixed;
   top: 16px;
   right: 16px;
-  width: 46px;
-  height: 46px;
-  background: rgba(255, 255, 255, 0.2);
+  width: 42px;
+  height: 42px;
+  background: var(--bg-light);
   border-radius: 50%;
   cursor: pointer;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-sm);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: border-color 0.2s ease, transform 0.2s ease;
   z-index: 1000;
 }
 
 .dark-mode-toggle i {
-  font-size: 20px;
-  color: #f59e0b;
-  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  font-size: 18px;
+  color: #d97706;
+  transition: transform 0.4s ease;
 }
 
 body.dark-mode .dark-mode-toggle i {
   color: #fbbf24;
-  transform: rotate(360deg);
+  transform: rotate(180deg);
 }
 
 .dark-mode-toggle:hover {
-  transform: scale(1.1);
-  background: rgba(255, 255, 255, 0.4);
-}
-
-body.dark-mode .dark-mode-toggle {
-  background: rgba(0, 0, 0, 0.3);
-  border-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--primary-color);
 }
 
 /* ===== Dil seçici ===== */
 .lang-toggle {
   position: fixed;
   top: 16px;
-  right: 72px;
-  height: 46px;
+  right: 68px;
+  height: 42px;
   display: flex;
   align-items: center;
   gap: 2px;
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: var(--bg-light);
+  border: 1px solid var(--border-color);
   border-radius: 999px;
   padding: 4px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
   z-index: 1000;
-}
-
-body.dark-mode .lang-toggle {
-  background: rgba(0, 0, 0, 0.3);
-  border-color: rgba(255, 255, 255, 0.1);
 }
 
 .lang-toggle button {
@@ -155,7 +140,7 @@ body.dark-mode .lang-toggle {
   max-width: 470px;
   width: 100%;
   background: var(--bg-light);
-  border-radius: 20px;
+  border-radius: 14px;
   box-shadow: var(--shadow);
   border: 1px solid var(--border-color);
   overflow: hidden;
@@ -238,7 +223,7 @@ body.dark-mode .lang-toggle {
 .form input:focus,
 .form select:focus {
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
   background: var(--bg-light);
 }
 
@@ -370,14 +355,13 @@ body.dark-mode .lang-toggle {
   border: none;
   height: 56px;
   width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.4);
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(79, 70, 229, 0.3);
 }
 
 .form .button:hover:not(:disabled) {
   background: var(--primary-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.5);
+  box-shadow: 0 2px 6px rgba(79, 70, 229, 0.35);
 }
 
 .form .button:disabled {
@@ -411,7 +395,7 @@ body.dark-mode .lang-toggle {
   justify-content: center;
   gap: 10px;
   color: var(--text-color) !important;
-  background: var(--bg-light);
+  background: var(--bg-light) !important;
   border: 1px solid var(--border-color) !important;
   box-shadow: none !important;
   text-decoration: none;
@@ -623,7 +607,7 @@ body.dark-mode .success-message {
 .card select:focus,
 .card textarea:focus {
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
 }
 
 .muted {
@@ -642,12 +626,11 @@ body.dark-mode .success-message {
   color: #fff;
   border: none;
   padding: 10px 20px;
-  border-radius: 10px;
+  border-radius: 8px;
   font-size: 0.92rem;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 3px 5px -1px rgba(37, 99, 235, 0.4);
+  transition: background 0.15s ease, transform 0.15s ease;
 }
 
 .btn-primary.big {
@@ -819,7 +802,7 @@ body.dark-mode .success-message {
 
 .option.selected {
   border-color: var(--primary-color);
-  background: rgba(37, 99, 235, 0.06);
+  background: rgba(79, 70, 229, 0.06);
 }
 
 .option input {
