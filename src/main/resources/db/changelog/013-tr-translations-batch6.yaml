@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: 013-tr-translations-batch6
+      author: interview-simulator
+      changes:
+        - loadData:
+            tableName: question_translation
+            file: db/changelog/data/question_translations_tr_batch6.csv
+            relativeToChangelogFile: false
+            separator: ","
+            quotchar: '"'
+            usePreparedStatements: true
+            columns:
+              - column: {name: id, type: UUID}
+              - column: {name: question_id, type: UUID}
+              - column: {name: locale, type: STRING}
+              - column: {name: text, type: STRING}
+        - loadData:
+            tableName: question_option_translation
+            file: db/changelog/data/question_option_translations_tr_batch6.csv
+            relativeToChangelogFile: false
+            separator: ","
+            quotchar: '"'
+            usePreparedStatements: true
+            columns:
+              - column: {name: id, type: UUID}
+              - column: {name: option_id, type: UUID}
+              - column: {name: locale, type: STRING}
+              - column: {name: text, type: STRING}
