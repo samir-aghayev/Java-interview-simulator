@@ -379,6 +379,43 @@ body.dark-mode .lang-toggle {
   cursor: not-allowed;
 }
 
+.auth-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--muted-color);
+  font-size: 13px;
+  margin: 1.2rem 0;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.auth-divider span {
+  padding: 0 10px;
+}
+
+.google-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: var(--text-color) !important;
+  background: var(--bg-light);
+  border: 1px solid var(--border-color) !important;
+  box-shadow: none !important;
+  text-decoration: none;
+}
+
+.google-button:hover {
+  background: var(--input-bg);
+  transform: none !important;
+}
+
 .forgot-password-link {
   text-align: right;
   margin: -8px 0 12px;

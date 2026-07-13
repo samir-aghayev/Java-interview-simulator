@@ -25,3 +25,8 @@ app:
     email: ${ADMIN_EMAIL:}
     password: ${ADMIN_PASSWORD:}
   frontend-url: ${FRONTEND_URL:http://localhost:8080}
+  oauth2:
+    google:
+      # Boş qalarsa Google login sadəcə deaktiv olur, tətbiq normal işləyir (GoogleOAuthEnabledCondition).
+      client-id: ${GOOGLE_CLIENT_ID:}
+      client-secret: ${GOOGLE_CLIENT_SECRET:}

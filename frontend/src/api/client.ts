@@ -7,6 +7,11 @@ export function getToken(): string | null {
   return localStorage.getItem(TOKEN_KEY);
 }
 
+/** OAuth callback üçün: user məlumatı hələ bilinmir, əvvəlcə tokeni saxlayıb /api/auth/me çağırılır. */
+export function setToken(token: string): void {
+  localStorage.setItem(TOKEN_KEY, token);
+}
+
 export function getStoredUser(): AuthUser | null {
   const raw = localStorage.getItem(USER_KEY);
   if (!raw) return null;

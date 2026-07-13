@@ -1,17 +1,21 @@
 package com.interviewsimulator.web;
 
 import com.interviewsimulator.dto.AuthResponse;
+import com.interviewsimulator.dto.AuthUserDto;
 import com.interviewsimulator.dto.ForgotPasswordRequest;
 import com.interviewsimulator.dto.LoginRequest;
 import com.interviewsimulator.dto.RegisterRequest;
 import com.interviewsimulator.dto.ResetPasswordRequest;
 import com.interviewsimulator.entity.UserEntity;
 import com.interviewsimulator.repository.UserRepository;
+import com.interviewsimulator.security.AuthenticatedUser;
 import com.interviewsimulator.security.JwtService;
 import com.interviewsimulator.service.PasswordResetService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -96,5 +100,12 @@ public class AuthController {
         UserEntity user = passwordResetService.resetPassword(request.token(), request.newPassword());
         String token = jwtService.generateToken(user.getId(), user.getEmail(), user.getRole());
         return new AuthResponse(token, user.getEmail(), user.getDisplayName(), user.getRole());
+    }
+
+    @GetMapping("/api/auth/me")
+    public AuthUserDto me(@AuthenticationPrincipal AuthenticatedUser principal) {
+        UserEntity user = userRepository.findById(principal.id())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.UNAUTHORIZED, "İstifadəçi tapılmadı"));
+        return new AuthUserDto(user.getEmail(), user.getDisplayName(), user.getRole());
     }
 }

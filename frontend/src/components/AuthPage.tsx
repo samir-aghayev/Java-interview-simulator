@@ -193,6 +193,10 @@ export default function AuthPage() {
                 </button>
               </div>
             </form>
+            <div className="auth-divider"><span>{t.authDivider}</span></div>
+            <a href="/oauth2/authorization/google" className="button google-button">
+              <i className="fab fa-google" /> {t.googleSignIn}
+            </a>
             <div className="signup">
               <span>
                 {t.noAccount}{' '}

@@ -1,5 +1,5 @@
 import { createContext, useCallback, useContext, useState, type ReactNode } from 'react';
-import { api, clearSession, getStoredUser, getToken, storeSession } from '../api/client';
+import { api, clearSession, getStoredUser, getToken, setToken, storeSession } from '../api/client';
 import type { AuthResponse, AuthUser, RegisterPayload } from '../types';
 
 interface AuthContextValue {
@@ -9,6 +9,7 @@ interface AuthContextValue {
   register: (payload: RegisterPayload) => Promise<AuthUser>;
   forgotPassword: (email: string) => Promise<void>;
   resetPassword: (token: string, newPassword: string) => Promise<AuthUser>;
+  loginWithToken: (token: string) => Promise<AuthUser>;
   logout: () => void;
 }
 
@@ -68,6 +69,19 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     [applyAuth]
   );
 
+  const loginWithToken = useCallback(async (token: string) => {
+    setToken(token);
+    try {
+      const me = await api<AuthUser>('/api/auth/me');
+      storeSession(token, me);
+      setUser(me);
+      return me;
+    } catch (err) {
+      clearSession();
+      throw err;
+    }
+  }, []);
+
   const logout = useCallback(() => {
     clearSession();
     setUser(null);
@@ -75,7 +89,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   return (
     <AuthContext.Provider
-      value={{ user, isAuthenticated: user !== null, login, register, forgotPassword, resetPassword, logout }}
+      value={{
+        user,
+        isAuthenticated: user !== null,
+        login,
+        register,
+        forgotPassword,
+        resetPassword,
+        loginWithToken,
+        logout
+      }}
     >
       {children}
     </AuthContext.Provider>
