@@ -5,8 +5,9 @@ import { t } from '../i18n/strings';
 import QuizView from './QuizView';
 import WeakTopics from './WeakTopics';
 import Progress from './Progress';
+import Leaderboard from './Leaderboard';
 
-type Tab = 'quiz' | 'weak' | 'progress';
+type Tab = 'quiz' | 'weak' | 'progress' | 'leaderboard';
 
 export default function MainPage() {
   const { user, logout } = useAuth();
@@ -50,12 +51,19 @@ export default function MainPage() {
         >
           {t.tabProgress}
         </button>
+        <button
+          className={`tab ${tab === 'leaderboard' ? 'active' : ''}`}
+          onClick={() => setTab('leaderboard')}
+        >
+          {t.tabLeaderboard}
+        </button>
       </nav>
 
       <main className="content">
         {tab === 'quiz' && <QuizView />}
         {tab === 'weak' && <WeakTopics />}
         {tab === 'progress' && <Progress />}
+        {tab === 'leaderboard' && <Leaderboard />}
       </main>
     </div>
   );

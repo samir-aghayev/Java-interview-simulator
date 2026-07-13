@@ -54,6 +54,20 @@ export interface ProgressResponse {
   improvementPercent: number | null;
 }
 
+export interface LeaderboardEntry {
+  rank: number;
+  displayName: string;
+  sessionsCount: number;
+  totalScore: number;
+  averagePercent: number;
+  isCurrentUser: boolean;
+}
+
+export interface LeaderboardResponse {
+  entries: LeaderboardEntry[];
+  minSessionsRequired: number;
+}
+
 export interface AuthUser {
   email: string;
   displayName: string;

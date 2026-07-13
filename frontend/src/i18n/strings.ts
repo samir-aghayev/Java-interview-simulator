@@ -63,6 +63,7 @@ const az = {
   tabQuiz: 'Müsahibə',
   tabWeak: 'Zəif Mövzular',
   tabProgress: 'İnkişaf Statistikası',
+  tabLeaderboard: 'Liderlər Cədvəli',
   adminPanelLink: 'Admin Panel',
   backToApp: '← Əsas səhifə',
   logout: 'Çıxış',
@@ -113,6 +114,15 @@ const az = {
   scoreColumn: 'Bal',
   correctColumn: 'Düzgün',
   percentColumn: 'Faiz',
+
+  // Liderlər cədvəli
+  leaderboardTitle: 'Liderlər cədvəli',
+  leaderboardHint: 'Sıralamaya daxil olmaq üçün ən azı 3 müsahibə tamamlamalısınız.',
+  rankColumn: 'Sıra',
+  nameColumn: 'İstifadəçi',
+  sessionsColumn: 'Müsahibə sayı',
+  noLeaderboardData: 'Hələ heç kim sıralamaya daxil olmayıb.',
+  youBadge: 'Siz',
 
   // Admin
   adminTitle: 'Admin Panel',
@@ -206,6 +216,7 @@ const tr: typeof az = {
   tabQuiz: 'Mülakat',
   tabWeak: 'Zayıf Konular',
   tabProgress: 'Gelişim İstatistikleri',
+  tabLeaderboard: 'Liderlik Tablosu',
   adminPanelLink: 'Yönetici Paneli',
   backToApp: '← Ana sayfa',
   logout: 'Çıkış',
@@ -256,6 +267,15 @@ const tr: typeof az = {
   scoreColumn: 'Puan',
   correctColumn: 'Doğru',
   percentColumn: 'Yüzde',
+
+  // Liderlik tablosu
+  leaderboardTitle: 'Liderlik tablosu',
+  leaderboardHint: 'Sıralamaya girmek için en az 3 mülakat tamamlamalısınız.',
+  rankColumn: 'Sıra',
+  nameColumn: 'Kullanıcı',
+  sessionsColumn: 'Mülakat sayısı',
+  noLeaderboardData: 'Henüz kimse sıralamaya girmedi.',
+  youBadge: 'Siz',
 
   // Yönetici
   adminTitle: 'Yönetici Paneli',

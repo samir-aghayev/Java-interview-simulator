@@ -892,6 +892,15 @@ th {
   font-weight: 600;
 }
 
+.leaderboard-you {
+  background: color-mix(in srgb, var(--primary-color) 12%, transparent);
+}
+
+.you-badge {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
 /* ===== Admin ===== */
 .admin-toolbar {
   display: flex;

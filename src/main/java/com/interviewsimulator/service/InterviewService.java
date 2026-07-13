@@ -2,6 +2,8 @@ package com.interviewsimulator.service;
 
 import com.interviewsimulator.dto.AnswerSubmissionDto;
 import com.interviewsimulator.dto.GradeResponse;
+import com.interviewsimulator.dto.LeaderboardEntryDto;
+import com.interviewsimulator.dto.LeaderboardResponse;
 import com.interviewsimulator.dto.ProgressResponse;
 import com.interviewsimulator.dto.QuestionDto;
 import com.interviewsimulator.dto.QuestionOptionDto;
@@ -39,6 +41,7 @@ public class InterviewService {
     private static final double WEAK_TOPIC_THRESHOLD = 0.6;
     private static final String EASY_RATING = "EASY";
     private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
+    private static final long LEADERBOARD_MIN_SESSIONS = 3;
 
     private final QuestionRepository questionRepository;
     private final InterviewSessionRepository sessionRepository;
@@ -202,6 +205,30 @@ public class InterviewService {
                 : null;
 
         return new ProgressResponse(sessionList, round1(averagePercent), improvementPercent);
+    }
+
+    @Transactional(readOnly = true)
+    public LeaderboardResponse leaderboard(UUID currentUserId, int limit) {
+        List<InterviewSessionRepository.LeaderboardRow> rows =
+                sessionRepository.aggregateLeaderboard(LEADERBOARD_MIN_SESSIONS);
+
+        List<LeaderboardEntryDto> entries = new ArrayList<>();
+        rows.stream()
+                .sorted(Comparator
+                        .comparingDouble((InterviewSessionRepository.LeaderboardRow r) ->
+                                r.getTotalSum() == 0 ? 0 : 100.0 * r.getCorrectSum() / r.getTotalSum())
+                        .reversed()
+                        .thenComparing(Comparator.comparingLong(InterviewSessionRepository.LeaderboardRow::getTotalScore).reversed()))
+                .limit(limit)
+                .forEach(row -> {
+                    double percent = row.getTotalSum() == 0 ? 0
+                            : round1(100.0 * row.getCorrectSum() / row.getTotalSum());
+                    entries.add(new LeaderboardEntryDto(entries.size() + 1, row.getDisplayName(),
+                            row.getSessionsCount().intValue(), row.getTotalScore().intValue(), percent,
+                            row.getUserId().equals(currentUserId)));
+                });
+
+        return new LeaderboardResponse(entries, (int) LEADERBOARD_MIN_SESSIONS);
     }
 
     private double sessionPercent(InterviewSessionEntity session) {

@@ -2,6 +2,7 @@ package com.interviewsimulator.web;
 
 import com.interviewsimulator.dto.AnswerSubmissionDto;
 import com.interviewsimulator.dto.GradeResponse;
+import com.interviewsimulator.dto.LeaderboardResponse;
 import com.interviewsimulator.dto.ProgressResponse;
 import com.interviewsimulator.dto.QuizStartRequest;
 import com.interviewsimulator.dto.QuizStartResponse;
@@ -21,6 +22,7 @@ import java.util.List;
 public class QuizController {
 
     private static final int DEFAULT_QUESTION_COUNT = 10;
+    private static final int LEADERBOARD_LIMIT = 20;
 
     private final InterviewService interviewService;
 
@@ -49,5 +51,10 @@ public class QuizController {
     @GetMapping("/api/stats/progress")
     public ProgressResponse progress(@AuthenticationPrincipal AuthenticatedUser principal) {
         return interviewService.progressSummary(principal.id());
+    }
+
+    @GetMapping("/api/stats/leaderboard")
+    public LeaderboardResponse leaderboard(@AuthenticationPrincipal AuthenticatedUser principal) {
+        return interviewService.leaderboard(principal.id(), LEADERBOARD_LIMIT);
     }
 }
