@@ -1,11 +1,14 @@
 package com.interviewsimulator.web;
 
 import com.interviewsimulator.dto.AuthResponse;
+import com.interviewsimulator.dto.ForgotPasswordRequest;
 import com.interviewsimulator.dto.LoginRequest;
 import com.interviewsimulator.dto.RegisterRequest;
+import com.interviewsimulator.dto.ResetPasswordRequest;
 import com.interviewsimulator.entity.UserEntity;
 import com.interviewsimulator.repository.UserRepository;
 import com.interviewsimulator.security.JwtService;
+import com.interviewsimulator.service.PasswordResetService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -22,11 +25,14 @@ public class AuthController {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
+    private final PasswordResetService passwordResetService;
 
-    public AuthController(UserRepository userRepository, PasswordEncoder passwordEncoder, JwtService jwtService) {
+    public AuthController(UserRepository userRepository, PasswordEncoder passwordEncoder, JwtService jwtService,
+                           PasswordResetService passwordResetService) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.jwtService = jwtService;
+        this.passwordResetService = passwordResetService;
     }
 
     private static final java.util.Set<String> GENDERS = java.util.Set.of("MALE", "FEMALE");
@@ -76,6 +82,18 @@ public class AuthController {
         if (!passwordEncoder.matches(request.password(), user.getPasswordHash())) {
             throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Yanlış email və ya şifrə");
         }
+        String token = jwtService.generateToken(user.getId(), user.getEmail(), user.getRole());
+        return new AuthResponse(token, user.getEmail(), user.getDisplayName(), user.getRole());
+    }
+
+    @PostMapping("/api/auth/forgot-password")
+    public void forgotPassword(@Valid @RequestBody ForgotPasswordRequest request) {
+        passwordResetService.requestReset(request.email());
+    }
+
+    @PostMapping("/api/auth/reset-password")
+    public AuthResponse resetPassword(@Valid @RequestBody ResetPasswordRequest request) {
+        UserEntity user = passwordResetService.resetPassword(request.token(), request.newPassword());
         String token = jwtService.generateToken(user.getId(), user.getEmail(), user.getRole());
         return new AuthResponse(token, user.getEmail(), user.getDisplayName(), user.getRole());
     }

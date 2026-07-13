@@ -1,5 +1,5 @@
 import { useMemo, useState, type FormEvent } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { t } from '../i18n/strings';
 import { ApiError } from '../api/client';
@@ -184,6 +184,9 @@ export default function AuthPage() {
                 autoComplete="current-password"
                 onChange={setLoginPassword}
               />
+              <div className="forgot-password-link">
+                <Link to="/forgot-password">{t.forgotPasswordLink}</Link>
+              </div>
               <div className="submit-wrapper">
                 <button type="submit" className="button" disabled={loading}>
                   {t.loginButton}

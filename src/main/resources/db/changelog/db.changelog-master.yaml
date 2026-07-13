@@ -50,3 +50,6 @@ databaseChangeLog:
   - include:
       file: db/changelog/017-tr-translations-batch10.yaml
       relativeToChangelogFile: false
+  - include:
+      file: db/changelog/018-password-reset.yaml
+      relativeToChangelogFile: false

@@ -379,6 +379,21 @@ body.dark-mode .lang-toggle {
   cursor: not-allowed;
 }
 
+.forgot-password-link {
+  text-align: right;
+  margin: -8px 0 12px;
+}
+
+.forgot-password-link a {
+  font-size: 13px;
+  color: var(--muted-color);
+  text-decoration: none;
+}
+
+.forgot-password-link a:hover {
+  color: var(--primary-color);
+}
+
 .signup {
   font-size: 15px;
   text-align: center;

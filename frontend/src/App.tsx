@@ -6,6 +6,8 @@ import MainPage from './components/MainPage';
 import AdminPage from './components/admin/AdminPage';
 import DarkModeToggle from './components/DarkModeToggle';
 import LanguageToggle from './components/LanguageToggle';
+import ForgotPasswordPage from './components/ForgotPasswordPage';
+import ResetPasswordPage from './components/ResetPasswordPage';
 
 function RequireAuth({ children }: { children: ReactNode }) {
   const { isAuthenticated } = useAuth();
@@ -25,6 +27,8 @@ export default function App() {
       <LanguageToggle />
       <Routes>
         <Route path="/login" element={<AuthPage />} />
+        <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+        <Route path="/reset-password" element={<ResetPasswordPage />} />
         <Route
           path="/"
           element={
