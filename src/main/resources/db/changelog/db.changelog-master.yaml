@@ -32,3 +32,6 @@ databaseChangeLog:
   - include:
       file: db/changelog/011-tr-translations-batch4.yaml
       relativeToChangelogFile: false
+  - include:
+      file: db/changelog/012-tr-translations-batch5.yaml
+      relativeToChangelogFile: false
