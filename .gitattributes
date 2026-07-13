@@ -1,0 +1,7 @@
+# Windows Git defaults to converting LF -> CRLF on checkout for anything it treats as text.
+# gradlew's shebang line breaks the moment it gets a trailing \r, so force LF regardless of
+# the platform or the user's core.autocrlf setting (this is what bit us in Docker on Windows:
+# "/bin/sh: 1: ./gradlew: not found" — the interpreter path itself was corrupted).
+gradlew text eol=lf
+*.sh text eol=lf
+gradlew.bat text eol=crlf

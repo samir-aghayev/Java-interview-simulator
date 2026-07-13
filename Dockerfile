@@ -13,6 +13,12 @@ RUN apt-get update \
 
 WORKDIR /workspace
 COPY . .
+# Windows Git checkouts (core.autocrlf=true) can corrupt gradlew's shebang with a trailing \r,
+# which breaks `./gradlew` with "not found" (the interpreter path itself is invalid) — normalize
+# line endings and re-set the executable bit unconditionally so the build works regardless of
+# how the build context was checked out (.gitattributes prevents this for fresh clones, but
+# this stays as a defensive fallback for existing corrupted checkouts).
+RUN sed -i 's/\r$//' gradlew && chmod +x gradlew
 RUN ./gradlew build -x test --no-daemon \
     && find build/libs -maxdepth 1 -name '*.jar' ! -name '*-plain.jar' -exec cp {} app.jar \;
 

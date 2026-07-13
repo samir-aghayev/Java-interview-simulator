@@ -86,6 +86,17 @@ excluding `-plain.jar`) mirror exactly what's already been verified working via 
 build` elsewhere in this doc — but the containerized build itself should get a real
 `docker compose up --build` run on a machine with a working Docker daemon before relying on it.
 
+**Windows gotcha (hit and fixed, 2026-07-13):** the owner's first real `docker compose up --build`
+on Windows failed with `/bin/sh: 1: ./gradlew: not found` (exit 127). Root cause: Windows Git's
+default `core.autocrlf=true` had converted `gradlew`'s line endings to CRLF on checkout, which
+corrupts its `#!/bin/sh` shebang (`/bin/sh\r` isn't a real interpreter path) — this is a well-known
+issue with the Gradle wrapper script specifically, not a permissions problem (that would be
+"Permission denied", exit 126, not "not found"). Fixed two ways: `.gitattributes` forces `gradlew`
+to LF regardless of platform/local git config (prevents it for fresh clones going forward), and
+the Dockerfile now runs `sed -i 's/\r$//' gradlew && chmod +x gradlew` before invoking it
+(defensive fallback that works even for already-corrupted local checkouts, so people don't have
+to re-clone).
+
 ## Other conventions
 
 - Build: Gradle (not Maven). DB migrations: Liquibase (not Flyway). DB: PostgreSQL.
