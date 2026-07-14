@@ -31,7 +31,6 @@ public interface InterviewSessionRepository extends JpaRepository<InterviewSessi
     @Query("select s.user.id as userId, s.user.displayName as displayName, count(s) as sessionsCount, "
             + "sum(s.score) as totalScore, sum(s.correctAnswers) as correctSum, sum(s.totalQuestions) as totalSum "
             + "from InterviewSessionEntity s group by s.user.id, s.user.displayName "
-            + "having count(s) >= :minSessions and sum(s.totalQuestions) >= :minQuestions")
-    List<LeaderboardRow> aggregateLeaderboard(@Param("minSessions") long minSessions,
-                                               @Param("minQuestions") long minQuestions);
+            + "having count(s) >= :minSessions")
+    List<LeaderboardRow> aggregateLeaderboard(@Param("minSessions") long minSessions);
 }

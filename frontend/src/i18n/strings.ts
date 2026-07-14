@@ -133,8 +133,7 @@ const az = {
 
   // Liderlər cədvəli
   leaderboardTitle: 'Liderlər cədvəli',
-  leaderboardHint: (minSessions: number, minQuestions: number) =>
-    `Sıralamaya daxil olmaq üçün ən azı ${minSessions} müsahibə və cəmi ${minQuestions} sual cavablamalısınız.`,
+  leaderboardHint: 'Sıralamaya daxil olmaq üçün ən azı 3 müsahibə tamamlamalısınız.',
   rankColumn: 'Sıra',
   nameColumn: 'İstifadəçi',
   sessionsColumn: 'Müsahibə sayı',
@@ -306,8 +305,7 @@ const tr: typeof az = {
 
   // Liderlik tablosu
   leaderboardTitle: 'Liderlik tablosu',
-  leaderboardHint: (minSessions: number, minQuestions: number) =>
-    `Sıralamaya girmek için en az ${minSessions} mülakat ve toplam ${minQuestions} soru cevaplamalısınız.`,
+  leaderboardHint: 'Sıralamaya girmek için en az 3 mülakat tamamlamalısınız.',
   rankColumn: 'Sıra',
   nameColumn: 'Kullanıcı',
   sessionsColumn: 'Mülakat sayısı',

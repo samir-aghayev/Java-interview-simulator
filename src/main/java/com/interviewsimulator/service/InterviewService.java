@@ -42,9 +42,6 @@ public class InterviewService {
     private static final String EASY_RATING = "EASY";
     private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
     private static final long LEADERBOARD_MIN_SESSIONS = 3;
-    // Without this, a handful of trivially easy 1-question sessions could hit 100% and
-    // outrank someone who answered hundreds of questions at a slightly lower percentage.
-    private static final long LEADERBOARD_MIN_QUESTIONS = 30;
 
     private final QuestionRepository questionRepository;
     private final InterviewSessionRepository sessionRepository;
@@ -213,7 +210,7 @@ public class InterviewService {
     @Transactional(readOnly = true)
     public LeaderboardResponse leaderboard(UUID currentUserId, int limit) {
         List<InterviewSessionRepository.LeaderboardRow> rows =
-                sessionRepository.aggregateLeaderboard(LEADERBOARD_MIN_SESSIONS, LEADERBOARD_MIN_QUESTIONS);
+                sessionRepository.aggregateLeaderboard(LEADERBOARD_MIN_SESSIONS);
 
         List<LeaderboardEntryDto> entries = new ArrayList<>();
         rows.stream()
@@ -231,7 +228,7 @@ public class InterviewService {
                             row.getUserId().equals(currentUserId)));
                 });
 
-        return new LeaderboardResponse(entries, (int) LEADERBOARD_MIN_SESSIONS, (int) LEADERBOARD_MIN_QUESTIONS);
+        return new LeaderboardResponse(entries, (int) LEADERBOARD_MIN_SESSIONS);
     }
 
     private double sessionPercent(InterviewSessionEntity session) {

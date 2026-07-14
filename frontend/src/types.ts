@@ -66,7 +66,6 @@ export interface LeaderboardEntry {
 export interface LeaderboardResponse {
   entries: LeaderboardEntry[];
   minSessionsRequired: number;
-  minQuestionsRequired: number;
 }
 
 export interface AuthUser {
