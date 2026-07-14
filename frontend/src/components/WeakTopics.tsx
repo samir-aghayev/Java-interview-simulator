@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { api } from '../api/client';
 import { t } from '../i18n/strings';
+import { translateTopic } from '../i18n/topics';
 import type { WeakTopicsResponse } from '../types';
 
 export default function WeakTopics() {
@@ -26,7 +27,7 @@ export default function WeakTopics() {
             <div className="topic-row" key={row.topic}>
               <div className="topic-row-header">
                 <span>
-                  {row.topic}
+                  {translateTopic(row.topic)}
                   {isWeak ? ' ⚠' : ''}
                 </span>
                 <span>

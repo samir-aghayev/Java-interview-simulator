@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { api, ApiError } from '../api/client';
 import { getLang, t } from '../i18n/strings';
+import { translateTopic } from '../i18n/topics';
 import type { GradeResponse, Question, QuizStartResponse, SubjectTopics } from '../types';
 import ReportModal from './ReportModal';
 
@@ -145,7 +146,7 @@ export default function QuizView() {
                   className={`chip ${selectedTopics.includes(topic) ? 'active' : ''}`}
                   onClick={() => toggleTopic(topic)}
                 >
-                  {topic}
+                  {translateTopic(topic)}
                 </button>
               ))}
             </div>
@@ -167,7 +168,7 @@ export default function QuizView() {
           <div className="question-card" key={q.id}>
             <div className="question-head">
               <div className="question-meta">
-                {index + 1}/{questions.length} · {q.topic}
+                {index + 1}/{questions.length} · {translateTopic(q.topic)}
               </div>
               <button className="btn-report" onClick={() => setReportFor(q.id)}>
                 <i className="fas fa-flag" /> {t.reportButton}
@@ -235,7 +236,7 @@ export default function QuizView() {
             {t.weakTopicsLabel}{' '}
             {result?.weakTopics.map(topic => (
               <span className="weak-badge" key={topic}>
-                {topic}
+                {translateTopic(topic)}
               </span>
             ))}
           </p>
@@ -257,7 +258,7 @@ export default function QuizView() {
           <div className="question-card" key={detail.id}>
             <div className="question-head">
               <div className="question-meta">
-                {index + 1}. {detail.topic}
+                {index + 1}. {translateTopic(detail.topic)}
                 {skipped && <span className="not-answered-badge">{t.notAnswered}</span>}
               </div>
               <button className="btn-report" onClick={() => setReportFor(detail.id)}>
