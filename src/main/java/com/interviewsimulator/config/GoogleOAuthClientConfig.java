@@ -17,13 +17,18 @@ public class GoogleOAuthClientConfig {
     @Bean
     public ClientRegistrationRepository clientRegistrationRepository(
             @Value("${app.oauth2.google.client-id}") String clientId,
-            @Value("${app.oauth2.google.client-secret}") String clientSecret) {
+            @Value("${app.oauth2.google.client-secret}") String clientSecret,
+            @Value("${app.frontend-url}") String frontendUrl) {
         ClientRegistration google = ClientRegistration.withRegistrationId("google")
                 .clientId(clientId)
                 .clientSecret(clientSecret)
                 .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
-                .redirectUri("{baseUrl}/login/oauth2/code/{registrationId}")
+                // Derived from FRONTEND_URL instead of the request-based {baseUrl} template:
+                // behind Railway's proxy the request scheme was seen as http even with
+                // forward-headers-strategy enabled, producing a redirect_uri Google rejected
+                // as a mismatch. FRONTEND_URL is an explicit, known-correct https value.
+                .redirectUri(frontendUrl + "/login/oauth2/code/{registrationId}")
                 .scope("openid", "email", "profile")
                 .authorizationUri("https://accounts.google.com/o/oauth2/v2/auth")
                 .tokenUri("https://www.googleapis.com/oauth2/v4/token")
