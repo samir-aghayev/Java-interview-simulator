@@ -44,6 +44,13 @@ public class EmailConfig {
         props.put("mail.transport.protocol", "smtp");
         props.put("mail.smtp.auth", String.valueOf(authenticated));
         props.put("mail.smtp.starttls.enable", String.valueOf(authenticated));
+        // Jakarta Mail has no timeout by default (waits forever), so a blocked network path
+        // (firewall silently dropping packets, wrong port) freezes the request instead of
+        // failing fast. 10s is generous for a real SMTP handshake but short enough that the
+        // forgot-password endpoint doesn't hang the UI.
+        props.put("mail.smtp.connectiontimeout", "10000");
+        props.put("mail.smtp.timeout", "10000");
+        props.put("mail.smtp.writetimeout", "10000");
 
         return new SmtpEmailSender(mailSender, from);
     }
