@@ -100,6 +100,7 @@ const az = {
   difficultyHard: 'Çətin',
   submitAnswers: 'Cavabları göndər',
   reportButton: 'Səhv bildir',
+  confirmLeaveQuiz: 'Müsahibə davam edir. Çıxsanız, nəticələr yadda saxlanılmayacaq. Davam etmək istəyirsiniz?',
 
   // Report modal
   reportTitle: 'Sual/cavab səhvini bildir',
@@ -268,6 +269,7 @@ const tr: typeof az = {
   difficultyHard: 'Zor',
   submitAnswers: 'Cevapları gönder',
   reportButton: 'Hata bildir',
+  confirmLeaveQuiz: 'Mülakat devam ediyor. Çıkarsanız sonuçlar kaydedilmeyecek. Devam etmek istiyor musunuz?',
 
   // Report modalı
   reportTitle: 'Soru/cevap hatası bildir',

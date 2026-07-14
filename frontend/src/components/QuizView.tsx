@@ -5,7 +5,7 @@ import { translateTopic } from '../i18n/topics';
 import type { GradeResponse, Question, QuizStartResponse, SubjectTopics } from '../types';
 import ReportModal from './ReportModal';
 
-type Phase = 'setup' | 'running' | 'result';
+export type Phase = 'setup' | 'running' | 'result';
 
 const DIFFICULTIES = [
   { value: 'EASY', label: t.difficultyEasy },
@@ -13,7 +13,7 @@ const DIFFICULTIES = [
   { value: 'HARD', label: t.difficultyHard }
 ];
 
-export default function QuizView() {
+export default function QuizView({ onPhaseChange }: { onPhaseChange?: (phase: Phase) => void }) {
   const [phase, setPhase] = useState<Phase>('setup');
   const [meta, setMeta] = useState<SubjectTopics[]>([]);
   const [count, setCount] = useState(10);
@@ -32,6 +32,21 @@ export default function QuizView() {
       .then(setMeta)
       .catch(() => setMeta([]));
   }, []);
+
+  useEffect(() => {
+    onPhaseChange?.(phase);
+    return () => onPhaseChange?.('setup');
+  }, [phase]);
+
+  useEffect(() => {
+    if (phase !== 'running') return;
+    function handleBeforeUnload(e: BeforeUnloadEvent) {
+      e.preventDefault();
+      e.returnValue = '';
+    }
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    return () => window.removeEventListener('beforeunload', handleBeforeUnload);
+  }, [phase]);
 
   const currentTopics = meta.find(s => s.subject === subject)?.topics ?? [];
 
