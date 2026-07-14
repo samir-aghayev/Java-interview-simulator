@@ -823,6 +823,11 @@ body.dark-mode .success-message {
   background: var(--error-bg);
 }
 
+.option.skipped-correct {
+  border-color: var(--warn-color);
+  background: var(--warn-bg);
+}
+
 .difficulty-picker {
   display: flex;
   align-items: center;

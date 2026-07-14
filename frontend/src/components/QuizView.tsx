@@ -283,7 +283,7 @@ export default function QuizView({ onPhaseChange }: { onPhaseChange?: (phase: Ph
             <div className="question-text">{detail.text}</div>
             {detail.options.map(option => {
               let cls = 'option readonly';
-              if (option.index === detail.correctIndex) cls += ' correct';
+              if (option.index === detail.correctIndex) cls += skipped ? ' skipped-correct' : ' correct';
               else if (option.index === detail.selectedIndex && !detail.correct) cls += ' incorrect';
               return (
                 <div className={cls} key={option.index}>
