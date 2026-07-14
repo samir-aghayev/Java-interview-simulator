@@ -120,10 +120,10 @@ export default function QuizView({ onPhaseChange }: { onPhaseChange?: (phase: Ph
         <input
           id="questionCount"
           type="number"
-          min={1}
+          min={10}
           max={1000}
           value={count}
-          onChange={e => setCount(parseInt(e.target.value, 10) || 10)}
+          onChange={e => setCount(Math.max(10, parseInt(e.target.value, 10) || 10))}
         />
 
         <label htmlFor="subjectSelect">{t.subjectLabel}</label>

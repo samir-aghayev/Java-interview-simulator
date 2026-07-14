@@ -42,6 +42,9 @@ public class InterviewService {
     private static final String EASY_RATING = "EASY";
     private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
     private static final long LEADERBOARD_MIN_SESSIONS = 3;
+    // Enforced server-side (not just as a UI hint) so a short, easy-to-game quiz can't be
+    // requested directly against the API either.
+    private static final int MIN_QUESTION_COUNT = 10;
 
     private final QuestionRepository questionRepository;
     private final InterviewSessionRepository sessionRepository;
@@ -98,7 +101,8 @@ public class InterviewService {
             pool.removeIf(q -> !subject.equals(q.getSubject()));
         }
         Collections.shuffle(pool);
-        List<QuestionEntity> selected = pool.subList(0, Math.min(count, pool.size()));
+        int effectiveCount = Math.max(count, MIN_QUESTION_COUNT);
+        List<QuestionEntity> selected = pool.subList(0, Math.min(effectiveCount, pool.size()));
         Translations translations = loadTranslations(locale, selected);
         List<QuestionDto> result = new ArrayList<>();
         for (QuestionEntity question : selected) {
@@ -215,10 +219,10 @@ public class InterviewService {
         List<LeaderboardEntryDto> entries = new ArrayList<>();
         rows.stream()
                 .sorted(Comparator
-                        .comparingDouble((InterviewSessionRepository.LeaderboardRow r) ->
-                                r.getTotalSum() == 0 ? 0 : 100.0 * r.getCorrectSum() / r.getTotalSum())
+                        .comparingLong(InterviewSessionRepository.LeaderboardRow::getTotalScore)
                         .reversed()
-                        .thenComparing(Comparator.comparingLong(InterviewSessionRepository.LeaderboardRow::getTotalScore).reversed()))
+                        .thenComparing(Comparator.comparingDouble((InterviewSessionRepository.LeaderboardRow r) ->
+                                r.getTotalSum() == 0 ? 0 : 100.0 * r.getCorrectSum() / r.getTotalSum()).reversed()))
                 .limit(limit)
                 .forEach(row -> {
                     double percent = row.getTotalSum() == 0 ? 0
