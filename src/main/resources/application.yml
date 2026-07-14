@@ -2,6 +2,10 @@ server:
   # Railway (and most PaaS hosts) inject PORT and expect the app to bind to it; SERVER_PORT
   # stays as the docker-compose/local-dev override, 8080 as the final fallback.
   port: ${PORT:${SERVER_PORT:8080}}
+  # Railway terminates TLS at its edge and forwards requests to the container as plain HTTP;
+  # without this, Spring thinks every request is http:// (wrong scheme in OAuth2's {baseUrl}
+  # redirect-uri, secure-cookie flags, etc.) and trusts the proxy's X-Forwarded-* headers instead.
+  forward-headers-strategy: framework
   error:
     include-message: always
 
