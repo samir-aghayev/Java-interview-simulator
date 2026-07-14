@@ -7,6 +7,7 @@ import com.interviewsimulator.entity.QuestionEntity;
 import com.interviewsimulator.entity.QuestionReportEntity;
 import com.interviewsimulator.entity.UserEntity;
 import com.interviewsimulator.repository.AdminAuditLogRepository;
+import com.interviewsimulator.repository.InterviewSessionRepository;
 import com.interviewsimulator.repository.QuestionReportRepository;
 import com.interviewsimulator.repository.QuestionRepository;
 import com.interviewsimulator.repository.UserRepository;
@@ -39,13 +40,16 @@ class AdminServiceTest {
     private AdminAuditLogRepository auditLogRepository;
     @Mock
     private QuestionReportRepository reportRepository;
+    @Mock
+    private InterviewSessionRepository sessionRepository;
 
     private AdminService adminService;
     private UUID adminId;
 
     @BeforeEach
     void setUp() {
-        adminService = new AdminService(userRepository, questionRepository, auditLogRepository, reportRepository);
+        adminService = new AdminService(userRepository, questionRepository, auditLogRepository, reportRepository,
+                sessionRepository);
         adminId = UUID.randomUUID();
     }
 

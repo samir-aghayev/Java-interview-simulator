@@ -162,3 +162,14 @@ export interface AuditLog {
   details: string | null;
   createdAt: string;
 }
+
+export interface AdminSession {
+  id: string;
+  userEmail: string;
+  userDisplayName: string;
+  totalQuestions: number;
+  correctAnswers: number;
+  score: number;
+  percent: number;
+  dateTime: string;
+}

@@ -1,6 +1,7 @@
 package com.interviewsimulator.web;
 
 import com.interviewsimulator.dto.AdminQuestionDto;
+import com.interviewsimulator.dto.AdminSessionDto;
 import com.interviewsimulator.dto.AuditLogDto;
 import com.interviewsimulator.dto.PagedResponse;
 import com.interviewsimulator.dto.QuestionUpsertRequest;
@@ -98,5 +99,12 @@ public class AdminController {
     public PagedResponse<AuditLogDto> listAudit(@RequestParam(defaultValue = "0") int page,
                                                  @RequestParam(defaultValue = "20") int size) {
         return adminService.listAudit(page, size);
+    }
+
+    @GetMapping("/sessions")
+    public PagedResponse<AdminSessionDto> listSessions(@RequestParam(defaultValue = "") String search,
+                                                        @RequestParam(defaultValue = "0") int page,
+                                                        @RequestParam(defaultValue = "20") int size) {
+        return adminService.listSessions(search, page, size);
     }
 }

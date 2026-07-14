@@ -1,6 +1,8 @@
 package com.interviewsimulator.repository;
 
 import com.interviewsimulator.entity.InterviewSessionEntity;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -11,6 +13,11 @@ import java.util.UUID;
 public interface InterviewSessionRepository extends JpaRepository<InterviewSessionEntity, UUID> {
 
     List<InterviewSessionEntity> findByUser_IdOrderByDateTimeDesc(UUID userId);
+
+    Page<InterviewSessionEntity> findAllByOrderByDateTimeDesc(Pageable pageable);
+
+    Page<InterviewSessionEntity> findByUser_EmailContainingIgnoreCaseOrUser_DisplayNameContainingIgnoreCaseOrderByDateTimeDesc(
+            String email, String displayName, Pageable pageable);
 
     interface LeaderboardRow {
         UUID getUserId();

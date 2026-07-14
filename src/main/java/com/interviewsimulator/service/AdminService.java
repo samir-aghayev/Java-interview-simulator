@@ -2,16 +2,19 @@ package com.interviewsimulator.service;
 
 import com.interviewsimulator.dto.AdminQuestionDto;
 import com.interviewsimulator.dto.AdminQuestionOptionDto;
+import com.interviewsimulator.dto.AdminSessionDto;
 import com.interviewsimulator.dto.AuditLogDto;
 import com.interviewsimulator.dto.PagedResponse;
 import com.interviewsimulator.dto.QuestionUpsertRequest;
 import com.interviewsimulator.dto.ReportDto;
 import com.interviewsimulator.dto.UserSummaryDto;
 import com.interviewsimulator.entity.AdminAuditLogEntity;
+import com.interviewsimulator.entity.InterviewSessionEntity;
 import com.interviewsimulator.entity.QuestionEntity;
 import com.interviewsimulator.entity.QuestionReportEntity;
 import com.interviewsimulator.entity.UserEntity;
 import com.interviewsimulator.repository.AdminAuditLogRepository;
+import com.interviewsimulator.repository.InterviewSessionRepository;
 import com.interviewsimulator.repository.QuestionReportRepository;
 import com.interviewsimulator.repository.QuestionRepository;
 import com.interviewsimulator.repository.UserRepository;
@@ -45,13 +48,16 @@ public class AdminService {
     private final QuestionRepository questionRepository;
     private final AdminAuditLogRepository auditLogRepository;
     private final QuestionReportRepository reportRepository;
+    private final InterviewSessionRepository sessionRepository;
 
     public AdminService(UserRepository userRepository, QuestionRepository questionRepository,
-                         AdminAuditLogRepository auditLogRepository, QuestionReportRepository reportRepository) {
+                         AdminAuditLogRepository auditLogRepository, QuestionReportRepository reportRepository,
+                         InterviewSessionRepository sessionRepository) {
         this.userRepository = userRepository;
         this.questionRepository = questionRepository;
         this.auditLogRepository = auditLogRepository;
         this.reportRepository = reportRepository;
+        this.sessionRepository = sessionRepository;
     }
 
     @Transactional(readOnly = true)
@@ -181,6 +187,24 @@ public class AdminService {
         return toPagedResponse(logs.map(l -> new AuditLogDto(l.getId().toString(), l.getAdmin().getEmail(),
                 l.getAction(), l.getTargetType(), l.getTargetId() == null ? null : l.getTargetId().toString(),
                 l.getDetails(), l.getCreatedAt().format(DATE_FORMAT))));
+    }
+
+    @Transactional(readOnly = true)
+    public PagedResponse<AdminSessionDto> listSessions(String search, int page, int size) {
+        Pageable pageable = pageable(page, size, Sort.unsorted());
+        Page<InterviewSessionEntity> sessions = search == null || search.isBlank()
+                ? sessionRepository.findAllByOrderByDateTimeDesc(pageable)
+                : sessionRepository.findByUser_EmailContainingIgnoreCaseOrUser_DisplayNameContainingIgnoreCaseOrderByDateTimeDesc(
+                        search, search, pageable);
+        return toPagedResponse(sessions.map(this::toSessionDto));
+    }
+
+    private AdminSessionDto toSessionDto(InterviewSessionEntity session) {
+        int percent = session.getTotalQuestions() == 0 ? 0
+                : Math.round(100f * session.getCorrectAnswers() / session.getTotalQuestions());
+        return new AdminSessionDto(session.getId().toString(), session.getUser().getEmail(),
+                session.getUser().getDisplayName(), session.getTotalQuestions(), session.getCorrectAnswers(),
+                session.getScore(), percent, session.getDateTime().format(DATE_FORMAT));
     }
 
     private void validateQuestion(QuestionUpsertRequest request) {

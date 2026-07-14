@@ -6,14 +6,16 @@ import QuestionsPane from './QuestionsPane';
 import UsersPane from './UsersPane';
 import ReportsPane from './ReportsPane';
 import AuditPane from './AuditPane';
+import SessionsPane from './SessionsPane';
 
-type Pane = 'questions' | 'users' | 'reports' | 'audit';
+type Pane = 'questions' | 'users' | 'reports' | 'audit' | 'sessions';
 
 const PANES: { key: Pane; label: string }[] = [
   { key: 'questions', label: t.adminTabQuestions },
   { key: 'users', label: t.adminTabUsers },
   { key: 'reports', label: t.adminTabReports },
-  { key: 'audit', label: t.adminTabAudit }
+  { key: 'audit', label: t.adminTabAudit },
+  { key: 'sessions', label: t.adminTabSessions }
 ];
 
 export default function AdminPage() {
@@ -62,6 +64,7 @@ export default function AdminPage() {
         {pane === 'users' && <UsersPane />}
         {pane === 'reports' && <ReportsPane />}
         {pane === 'audit' && <AuditPane />}
+        {pane === 'sessions' && <SessionsPane />}
       </main>
     </div>
   );
