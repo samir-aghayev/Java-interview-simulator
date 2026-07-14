@@ -92,7 +92,7 @@ public class AuthController {
 
     @PostMapping("/api/auth/forgot-password")
     public void forgotPassword(@Valid @RequestBody ForgotPasswordRequest request) {
-        passwordResetService.requestReset(request.email());
+        passwordResetService.requestReset(request.email(), request.locale());
     }
 
     @PostMapping("/api/auth/reset-password")

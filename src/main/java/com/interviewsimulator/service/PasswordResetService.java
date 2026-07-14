@@ -39,14 +39,14 @@ public class PasswordResetService {
 
     /** İstifadəçi mövcud olmasa belə eyni cavab qaytarılır ki, email siyahısı sızdırılmasın. */
     @Transactional
-    public void requestReset(String email) {
+    public void requestReset(String email, String locale) {
         String normalized = email.trim().toLowerCase();
         userRepository.findByEmail(normalized).ifPresent(user -> {
             String token = generateToken();
             tokenRepository.save(new PasswordResetTokenEntity(user, token,
                     LocalDateTime.now().plusMinutes(TOKEN_VALIDITY_MINUTES)));
             String resetLink = frontendUrl + "/reset-password?token=" + token;
-            emailSender.sendPasswordResetEmail(user.getEmail(), resetLink);
+            emailSender.sendPasswordResetEmail(user.getEmail(), resetLink, locale);
         });
     }
 

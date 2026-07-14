@@ -12,7 +12,8 @@ public class ConsoleEmailSender implements EmailSender {
     private static final Logger log = LoggerFactory.getLogger(ConsoleEmailSender.class);
 
     @Override
-    public void sendPasswordResetEmail(String toEmail, String resetLink) {
-        log.info("[EMAIL] Şifrə bərpası linki {} ünvanına: {}", toEmail, resetLink);
+    public void sendPasswordResetEmail(String toEmail, String resetLink, String locale) {
+        PasswordResetEmailContent content = PasswordResetEmailContent.forLocale(locale, resetLink);
+        log.info("[EMAIL] {} ({}) -> {}: {}", content.subject, locale, toEmail, resetLink);
     }
 }

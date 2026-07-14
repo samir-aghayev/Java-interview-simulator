@@ -19,13 +19,13 @@ public class SmtpEmailSender implements EmailSender {
     }
 
     @Override
-    public void sendPasswordResetEmail(String toEmail, String resetLink) {
+    public void sendPasswordResetEmail(String toEmail, String resetLink, String locale) {
+        PasswordResetEmailContent content = PasswordResetEmailContent.forLocale(locale, resetLink);
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom(from);
         message.setTo(toEmail);
-        message.setSubject("Şifrə bərpası");
-        message.setText("Şifrənizi bərpa etmək üçün linkə keçin:\n\n" + resetLink
-                + "\n\nBu link 30 dəqiqə etibarlıdır. Bu tələbi siz etməmisinizsə, mesajı gözardı edin.");
+        message.setSubject(content.subject);
+        message.setText(content.body);
         try {
             mailSender.send(message);
         } catch (MailException e) {

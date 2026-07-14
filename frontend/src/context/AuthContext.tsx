@@ -1,5 +1,6 @@
 import { createContext, useCallback, useContext, useState, type ReactNode } from 'react';
 import { api, clearSession, getStoredUser, getToken, setToken, storeSession } from '../api/client';
+import { getLang } from '../i18n/strings';
 import type { AuthResponse, AuthUser, RegisterPayload } from '../types';
 
 interface AuthContextValue {
@@ -54,7 +55,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const forgotPassword = useCallback(async (email: string) => {
     await api<void>('/api/auth/forgot-password', {
       method: 'POST',
-      body: JSON.stringify({ email })
+      body: JSON.stringify({ email, locale: getLang() })
     });
   }, []);
 
