@@ -16,7 +16,7 @@ export default function Leaderboard() {
   return (
     <div className="card">
       <h2>{t.leaderboardTitle}</h2>
-      <p className="muted">{t.leaderboardHint}</p>
+      {data && <p className="muted">{t.leaderboardHint(data.minSessionsRequired, data.minQuestionsRequired)}</p>}
       {failed && <p className="error-message">{t.loadFailed}</p>}
       {!data && !failed && <p className="muted">{t.loading}</p>}
       {data && data.entries.length === 0 && <p className="muted">{t.noLeaderboardData}</p>}
