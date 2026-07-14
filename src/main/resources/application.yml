@@ -1,5 +1,7 @@
 server:
-  port: ${SERVER_PORT:8080}
+  # Railway (and most PaaS hosts) inject PORT and expect the app to bind to it; SERVER_PORT
+  # stays as the docker-compose/local-dev override, 8080 as the final fallback.
+  port: ${PORT:${SERVER_PORT:8080}}
   error:
     include-message: always
 

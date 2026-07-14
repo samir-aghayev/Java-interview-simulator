@@ -145,6 +145,44 @@ cd frontend && npm install && npm run dev   # http://localhost:5173
 All UI strings are centralized in `frontend/src/i18n/strings.ts` with Azerbaijani and Turkish
 maps; the language choice is stored in `localStorage` and applied on reload.
 
+## Deployment (Railway)
+
+The repo builds and runs as-is on [Railway](https://railway.app) — it auto-detects the
+`Dockerfile` (config pinned in `railway.json`), so no separate build setup is needed.
+
+1. **New Project → Deploy from GitHub repo** and pick this repo. Railway builds the `Dockerfile`
+   automatically (same multi-stage build as local Docker — compiles the jar and the React
+   frontend, runs as a non-root user).
+2. **Add a Postgres database**: New → Database → PostgreSQL, in the same project.
+3. **Set the app service's variables** (Settings → Variables). Reference the Postgres plugin's
+   own variables instead of copy-pasting values, so they stay correct if the database ever
+   changes:
+
+   | Variable | Value |
+   |---|---|
+   | `DB_URL` | `jdbc:postgresql://${{Postgres.PGHOST}}:${{Postgres.PGPORT}}/${{Postgres.PGDATABASE}}` |
+   | `DB_USER` | `${{Postgres.PGUSER}}` |
+   | `DB_PASSWORD` | `${{Postgres.PGPASSWORD}}` |
+   | `JWT_SECRET` | a real random secret — **not** the insecure dev default |
+   | `ADMIN_EMAIL` / `ADMIN_PASSWORD` | your first admin login |
+   | `FRONTEND_URL` | the service's public Railway URL (Settings → Networking → Generate Domain), e.g. `https://your-app.up.railway.app` |
+   | `SMTP_HOST` / `SMTP_PORT` / `SMTP_USERNAME` / `SMTP_PASSWORD` / `MAIL_FROM` | real SMTP creds — omit all of these to leave password-reset emails logged instead of sent |
+   | `GOOGLE_CLIENT_ID` / `GOOGLE_CLIENT_SECRET` | omit to leave Google login disabled, or see below |
+
+   Railway injects its own `PORT`; `application.yml` already binds to it
+   (`${PORT:${SERVER_PORT:8080}}`), so `SERVER_PORT` doesn't need to be set here.
+
+4. **First deploy**: Liquibase runs the migrations and question seed automatically on startup —
+   no manual DB setup step, same as local Docker.
+5. **If using Google OAuth**, update the redirect URI in Google Cloud Console (APIs & Services →
+   Credentials → your OAuth client) to `https://<FRONTEND_URL>/login/oauth2/code/google` — the
+   `localhost` redirect URI used for local dev won't work in production.
+6. **Health check**: `railway.json` points Railway's healthcheck at `/`; a deploy isn't marked
+   live until the app responds, so traffic isn't routed to an instance still running migrations.
+
+Custom domain: Settings → Networking → Custom Domain, then update `FRONTEND_URL` (and the Google
+OAuth redirect URI, if used) to match.
+
 ## API
 
 All endpoints except `/api/auth/**` require an `Authorization: Bearer <token>` header.
