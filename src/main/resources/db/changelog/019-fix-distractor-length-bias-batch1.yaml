@@ -1,0 +1,2105 @@
+databaseChangeLog:
+- changeSet:
+    id: 019-fix-distractor-length-bias-batch1
+    author: interview-simulator
+    changes:
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: 1 (yalnız Runnable interfeysini implement etməklə)
+        where: id = '544c6552-ee59-42fb-8d05-2c021331ab12'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: 3 (Thread, Runnable və Callable interfeysləri ilə)
+        where: id = '3066e96d-983f-4cac-8188-32b08a431a19'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: 4 (Thread, Runnable, Callable və ExecutorService ilə)
+        where: id = '09b6afb8-b65a-4ad2-a634-a247623a35dc'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Xeyr, hər DELETE sorğusu fərqli nəticə ilə nəticələnə bilər
+        where: id = 'b541ad67-6eb5-41c9-8b31-fe2ccffb2110'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız POST idempotentdir, digər metodlar deyil
+        where: id = '4780a144-b03a-4373-97ee-7ccfb30ab49f'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç bir HTTP metodu, o cümlədən DELETE, spesifikasiyaya görə idempotent hesab edilə bilməz
+        where: id = 'a3e70e82-d889-4575-bb1b-1ce4d035183c'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç nə, çünki yüksək coverage faizi testlərin real ssenariləri düzgün yoxladığını heç bir halda təsdiqləmir
+        where: id = 'cd28f45b-6385-46a4-9fda-7e2f6f4ba55a'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Bütün testlərin uğurla keçdiyini və heç bir bug olmadığını
+        where: id = 'd719b9eb-2b40-473e-823e-ffece041a9cd'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Kompilyasiyanın və bütün asılılıqların düzgün yükləndiyini
+        where: id = 'bfb70c73-5d7f-48dc-8380-059e0af24cbc'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Həmişə, çünki NoSQL həmişə bütün ssenarilərdə RDBMS-dən daha sürətli və etibarlı işləyir
+        where: id = '3e9a6ca8-a082-4d13-b0ea-06fd90d3f09d'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç vaxt, RDBMS bütün hallarda daha etibarlıdır
+        where: id = 'cf87f7fd-b31b-4d8d-bd6f-9dfeef5f8578'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız kiçik həcmli, sabit strukturlu data üçün
+        where: id = 'facc1dea-72db-463c-9204-797816d51ae5'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: HTTP (REST üzərindən mesaj ötürmə protokolu)
+        where: id = '44ec5ccf-71df-4aeb-b586-dbe61b84c903'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: FTP (fayl transfer protokolu əsasında)
+        where: id = '005b01ae-979a-4487-bfe6-5d498d5becd9'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç birini, öz xüsusi bağlantı protokolunu istifadə edir
+        where: id = 'e79ea56a-6aa3-4690-93f6-e167d68053cf'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Alt sinifin valideyndə mövcud olmayan tamamilə yeni metod əlavə etməsi (bu, əslində LSP pozuntusu sayılmır)
+        where: id = '026f7f79-3169-4008-98b8-ed4eb86f12c9'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Alt sinifin metodu override edib eyni davranışı saxlaması (normal overriding)
+        where: id = 'e4560446-c2f2-47b7-888c-191bb0ab15d0'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç biri, LSP yalnız nəzəri prinsipdir, praktikada pozula bilməz
+        where: id = 'b253ff24-5119-42d7-adb8-9d3f7564f3e9'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi də eyni mexanizmlə həll olunur
+        where: id = '3451e6ff-aec4-4684-874e-90d7c953368a'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Overriding compile-time-da statik bağlanma ilə, overloading isə runtime-da dinamik dispatch mexanizmi vasitəsilə seçilərək həll olunur
+        where: id = 'c46c3bea-2e0c-4fa8-ab5f-59267b2db0ad'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Overloading runtime-da dinamik polimorfizmlə həll olunur
+        where: id = '3e4c6f19-797b-4da0-8fd3-af6771c9580c'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Annotasiyanın IDE-də hansı rənglə göstəriləcəyini
+        where: id = '3d7cc270-84a6-473a-8b7d-513a4c7537b0'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Annotasiyanın runtime-da reflection vasitəsilə hansı unikal adla çağırılıb identifikasiya olunacağını
+        where: id = 'aefec60f-81e2-47cf-9f64-1a22a45d1a5b'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç nəyi, yalnız sənədləşmə məqsədi daşıyır
+        where: id = '9f596f64-dd67-49b1-b7a4-692d4bf920ee'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yeni generic interfeys və ya sinif yaratmağa
+        where: id = '3ad983d4-2ec7-4fb9-8c25-a2b8c1a3e5f8'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Compile zamanı JVM-in tətbiq etdiyi type erasure prosesini tamamilə ləğv edib generic tipləri saxlamağa
+        where: id = '65984488-c8e7-4745-8cd7-55d8a88c490f'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç nəyə, yalnız kosmetik sintaksis fərqidir
+        where: id = '4bd3c4cb-62a2-47b4-877f-89f1bf374df3'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: İnterfeysi final açar sözü ilə elan edib başqa siniflər tərəfindən implement edilməsinin qarşısını almağa
+        where: id = '53d4de1c-30e1-4522-960a-1f1f06f90872'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: İnterfeysdən `new` açar sözü ilə birbaşa obyekt yaratmağa
+        where: id = '86cfdc4c-0424-4a75-9287-ddcd9e27835c'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç nəyə, yalnız Java 9+ versiyalarında dəstəklənir
+        where: id = 'eacdcc52-d04c-4a16-a744-92d21a36b4be'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi də eyni şəkildə pod-ları idarə edir
+        where: id = '2f518c8d-84d2-43e5-8fbe-1be91c9779cb'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Deployment məhz stabil şəbəkə identikliyi və davamlı fərdi saxlama tələb edən verilənlər bazası kimi tətbiqlər üçün nəzərdə tutulub
+        where: id = 'a23a9cb1-1510-4d76-b980-4a7d0cb4c9a9'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç bir fərqi yoxdur, yalnız adlandırma fərqlidir
+        where: id = 'a9d18f43-92b6-4b4f-a37e-232ca9b20e36'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, hər ikisi də Throwable sinifinin tamamilə eyni davranışı göstərən, eyni qaydada tutulub emal edilən alt sinifləridir
+        where: id = 'e5063e01-61c1-4878-842f-f544c9eb4acf'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Error həmişə checked exception kimi tutulmalıdır
+        where: id = '90202338-8630-45f3-af35-5d62442d97e4'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Exception yalnız RuntimeException formasında mövcuddur
+        where: id = '1d61489f-30c5-4283-9575-434bd95e99a8'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi də tamamilə eyni alətlər, eyni dashboard-lar və eyni metrikalar toplusu vasitəsilə həyata keçirilən sinonim anlayışlardır
+        where: id = 'd1364929-f3b0-4df7-8bc2-376a5b9d6113'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Eyni şeydir həmişə, sadəcə fərqli terminlərdir
+        where: id = 'eeb9f5a5-ae4d-42b2-accc-97f99fba7f1a'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Observability yalnız log toplama və saxlama deməkdir
+        where: id = 'eceb4d2e-77f1-4d8b-8331-6fb361df4aaa'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç vaxt, yalnız bounded wildcard-lar istifadə olunur
+        where: id = '53b81c48-e969-4ee1-a634-bfdb42450918'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız Integer və digər primitiv wrapper tipləri üçün
+        where: id = '56b4b4c6-d14a-41a1-a1df-f15244286ac7'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız kolleksiyaya yeni element yazma (add) əməliyyatları aparılan zamanlarda istifadə edilir
+        where: id = 'eb831441-725c-4b1b-96dc-cdefec83268f'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Thread-in adına və identifikasiya nömrəsinə
+        where: id = 'bc6e9eb7-5ab7-4951-b80b-2892f8bdcd86'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Thread-in unikal ID-sinin təyin olunmasına
+        where: id = '2a5a0fa3-58c7-4529-b9f2-68b51cba0892'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç nəyə, JVM planlaşdırma zamanı bu metodun çağırışını tamamilə nəzərə almadan davam edir
+        where: id = '7869d9a0-6f97-4f2b-a886-b159f349458f'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi də eyni prinsiplərə əsaslanır
+        where: id = '5e08e2b0-c2bb-4c94-9d1d-be619046977b'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: SOA daha kiçik, sərbəst servislərdən ibarətdir
+        where: id = 'aafb9fd3-5aa3-49a3-9690-2d785b5ee8c2'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Mikroservis memarlığı da SOA kimi həmişə mərkəzi enterprise service bus vasitəsilə servislər arası kommunikasiya qurmağı tələb edir
+        where: id = 'bdb53838-38b0-40d8-8f60-f1c530b0311d'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: false (bütün sorğular manual commit tələb edir)
+        where: id = '5f413b70-1fd4-40ad-a81a-f111cc04db95'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç bir default dəyəri yoxdur, hər drayver özü təyin edir
+        where: id = '5254a1fa-cdd2-40e4-9115-b1e752ac5cd0'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız explisit olaraq true/false təyin edilməlidir
+        where: id = '73b02b5f-9ba5-4005-8e5f-ce9cae42642d'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Abstract class-da heç vaxt constructor ola bilməz, halbuki bu, yalnız adi interfeyslərdə mümkün olan bir xüsusiyyətdir
+        where: id = 'fe2096f9-4520-41a2-99e7-1a7ec6f748f5'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, Java 8-dən sonra ikisi tam eynidir
+        where: id = '2ef697bc-dbb0-4e2c-82f8-c8808fab437b'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Interface-dən `new` açar sözü ilə birbaşa obyekt yaratmaq mümkündür
+        where: id = '6070accd-d3f0-4cc5-b675-095b515bc7c6'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi eyni funksiyanı yerinə yetirir
+        where: id = '3a770467-91c4-4bc7-a92c-6e74e8fac832'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: CMD `docker run` zamanı dəyişdirilə bilməz, sabitdir
+        where: id = '1ee720ab-c1b0-4aed-b9af-941ca7018878'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: ENTRYPOINT heç bir halda, hətta `docker run --entrypoint` bayrağı istifadə edilsə belə, yenidən təyin edilə və ya dəyişdirilə bilməz
+        where: id = 'fb50ccc0-24ab-463b-97b8-f23ba36e420c'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: İnterfeysi final açar sözü ilə elan edərək onun əlavə genişləndirilməsinin tamamilə qarşısını almağa
+        where: id = '02497b52-3851-4a06-9684-876637bbc5a2'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: İnterfeysdən default konstruktorla obyekt yaratmağa
+        where: id = '5d79f1a2-fd02-409b-bea6-41de5fd20606'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç nəyə, yalnız sənədləşdirmə üçün istifadə olunur
+        where: id = 'b234736e-d8ec-40e6-86b3-4c7761051bc7'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Bean konteynerə qeydiyyatdan keçməzdən əvvəl
+        where: id = 'dca570c0-1325-4a33-99d4-8c5f72166c97'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Bean-in yaşam dövrü sona çatıb context bağlanarkən, @PreDestroy annotasiyası əvəzinə
+        where: id = '60db0300-67bb-488e-b12c-b61b0ec95b86'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç vaxt, yalnız XML konfiqurasiyasında dəstəklənir
+        where: id = 'e8ae68dd-1651-4634-92cc-2dc6d9c5cb0c'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi də eyni əmrin sinonimidir
+        where: id = '35282a94-a693-4de4-8f73-def15b29784c'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: revert commit tarixçəsini tamamilə silib yenidən yazır
+        where: id = 'bae7f8f1-84a0-4f7e-8901-8c79b2910b02'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: reset əməliyyatı həmişə yeni bir commit yaradaraq əvvəlki dəyişiklikləri tarixçədə təhlükəsiz şəkildə saxlayır və heç nəyi silmir
+        where: id = 'a760da7c-ec79-42a0-b327-039831cc7a04'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Server, mesajları emal edən ayrıca proses
+        where: id = '7ecef338-6ea3-4d62-9e58-08844ea49fb4'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Verilənlər bazası cədvəli kimi sətir-sütun strukturunda saxlanılan mənbə
+        where: id = '912e0c22-1769-47df-832d-d01d3a64aaba'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç bir mənası yoxdur, sadəcə konfiqurasiya parametridir
+        where: id = '3cfb478d-4108-4b74-8082-c26268acb93b'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Elementlərin tam sıralanmamış, tamamilə təsadüfi qaydada yerləşdirildiyi sadə massivdir
+        where: id = 'd60f93df-9a28-4ec8-a1d1-188b948dbd38'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: LIFO (last-in-first-out) prinsipi ilə işləyir
+        where: id = '4c31cfdf-fb49-43e7-840a-908a750b2f59'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız string və simvol tipli məlumatları saxlayır
+        where: id = 'f0a26bd4-3630-47d1-a112-df880ab0b3c3'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi eyni sorğu dilindən istifadə edir
+        where: id = 'f42bd19b-62f7-4e82-b932-5fba3aead31f'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: GraphQL protokolu yalnız serverdəki data dəyişdirmək (mutasiya əməliyyatları) üçün nəzərdə tutulub, oxumaq mümkün deyil
+        where: id = 'ad573297-227e-4153-ab31-62e63336e413'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: REST həmişə daha çevik sorğu strukturuna malikdir
+        where: id = '07b7a321-2bb4-4c38-90f2-41c9933a9215'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Həmişə, hətta kiçik data toplularında da
+        where: id = '721d1491-3bc3-4ebb-8c56-db052db4712d'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç vaxt istifadə edilməməlidir, sequential həmişə daha yaxşıdır
+        where: id = 'e3d4eec4-a2f8-40e7-b336-ef8634d8afc8'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız kiçik, bir neçə elementlik data toplularında
+        where: id = '4684cda6-2f54-423e-91c3-f2693ce5617b'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız public elan olunmuş sahələri
+        where: id = '0c3d45bd-e672-4df6-a58d-72078e491e57'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Sinifin bütün elan olunmuş metodlarını
+        where: id = 'cb958146-4e17-4707-ad16-2d49d76f630b'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç nə qaytarmır, sadəcə NoSuchFieldException tipli istisna atır
+        where: id = 'f18c4453-76c0-4c1e-849a-c9bdb16d983f'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Kiçik, tək məqsədli, çox spesifik interfeyslərin klientlərə görə ayrı-ayrı yaradılması təcrübəsi
+        where: id = '7eee0abf-ab31-4fb1-8998-83876892b6ac'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız bir metoddan ibarət funksional interfeys
+        where: id = '2d8c63fb-801c-4b67-bc5a-84dee114faa2'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç biri, ISP yalnız nəzəri konsepsiyadır
+        where: id = '6625e34f-fcbf-4e05-acc0-852c933ab425'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi də eyni sorğu dilini (SQL) istifadə edir
+        where: id = 'c718bee7-d8c7-4ab0-a661-348177198b9a'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: NoSQL verilənlər bazaları da daxili olaraq SQL dilindən istifadə edir
+        where: id = '783880db-3be9-4db8-8461-68d311ddb279'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: NoSQL verilənlər bazaları yalnız çox kiçik həcmli, ciddi şəkildə strukturlaşdırılmış data saxlamaq üçün nəzərdə tutulub
+        where: id = 'b1f12c93-03c2-4ba3-b30c-d9fbf0d5b75b'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Boolean dəyər, obyektlərin tam bərabər olub-olmadığını göstərir
+        where: id = 'f0cfbd9a-2561-49e8-bb59-1b8e5e587901'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: String, müqayisə nəticəsinin mətn izahını
+        where: id = '369d385c-b2b2-4d6b-9705-1c5233d1c447'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç nə, void tipli metoddur
+        where: id = '04140a42-855c-47a3-ba6d-c1095adfe361'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Konstantanın String formatında adını
+        where: id = '49ea236d-4526-4b16-9caf-4d90f39e6e97'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Konstantanın unikal hash kod dəyərini
+        where: id = '7b9bf49f-291e-4f69-aea1-1f0563093ae7'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç nə qaytarmır, yalnız JVM-in daxili istifadəsi üçün nəzərdə tutulub
+        where: id = 'a1192cdc-f7bf-42d0-81ca-e037af585a68'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, hər ikisi eyni buferləmə mexanizmini istifadə edir
+        where: id = 'b36d57a3-71fc-4ca8-bb4e-48dddd7de83e'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: BufferedWriter formatlanmış print/println metodları təqdim edir
+        where: id = '8fa91ecd-2e85-4da6-96a1-9e06feefc87b'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: PrintWriter sinifi yalnız fayl sisteminə birbaşa yazma əməliyyatları aparmaq üçün xüsusi nəzərdə tutulmuş vasitədir
+        where: id = 'af64b509-3b3d-4cc8-8b83-b468a35282d0'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi tamamilə eyni protokoldur
+        where: id = '99412454-bca4-463a-97d3-92668d60fc2a'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: OpenID Connect protokolu əslində yalnız serverdəki resurslara giriş icazəsi vermək (avtorizasiya) üçün nəzərdə tutulub
+        where: id = 'a685c30f-d05d-4936-97a9-91ade14b6b97'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç bir əlaqəsi yoxdur, tamam ayrı standartlardır
+        where: id = '7ecc86b8-acf0-4591-a8a8-2696ccedd0a8'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi də eyni bağlantı mexanizmini istifadə edir
+        where: id = '1d56c4a9-1a3e-4a5f-9388-0296d77417b5'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: WebSocket protokolu tətbiq tamamilə bağlı olub arxa planda ümumiyyətlə işləmədiyi hallarda belə mesajları davamlı çatdıra bilər
+        where: id = 'd854457e-5452-4259-9f3e-350fe69b6897'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç bir fərqi yoxdur, sadəcə fərqli adlandırmadır
+        where: id = '7fccd8e6-a8c7-45d8-8b27-eb5085d89857'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Komandanın texniki lideri kimi kod yazmaq
+        where: id = 'dfaf7e4a-9cb2-4ba0-91eb-d6d43fbf435a'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Backlog-dakı bütün elementlərin işlərin prioritetini komandadan asılı olmadan müstəqil şəkildə təyin etmək
+        where: id = '2ed760a0-a3ba-4014-be3d-273926491e19'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç bir rəsmi rolu yoxdur, sadəcə müşahidəçidir
+        where: id = 'ec4631b7-5994-4ac7-ac7c-e37120af783e'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Eynidir, üçü də bir-birinin sinonimidir
+        where: id = '7f6a5895-584f-4bb8-aa61-06c7597a24e6'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: JVM yalnız mənbə kodunu bytecode-a compile edir
+        where: id = 'f749e021-4228-45a8-9f15-9ef24b929edd'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: JRE yalnız developer-lərin tətbiq yazma mühiti üçün nəzərdə tutulmuş komponentdir
+        where: id = '57ffbcc7-9402-43a4-82c7-7df62eed73cf'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi eyni endpoint-i yoxlayır
+        where: id = 'c6e204dc-faef-4a3c-8b36-79ed3cd97a72'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Readiness probe uğursuz nəticə verdikdə Kubernetes həmin konteyneri avtomatik olaraq dərhal dayandırıb yenidən başladır
+        where: id = '70a4ba62-6e16-47d4-9276-d3e7fd0e9aa1'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Liveness trafikin hansı pod-a yönləndiriləcəyini idarə edir
+        where: id = 'be657ab8-6957-4ff3-ad17-4221f688966a'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız frontend UI komponentlərini qurmaq üçün
+        where: id = 'abcc7fc6-7808-4454-b233-7136a412969d'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız unit test yazmaq məqsədilə
+        where: id = 'bd9d47b8-8833-4ede-979f-ef6661d8bc18'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç bir praktik məqsədi yoxdur, layihəyə sadəcə əlavə yük gətirən tamamilə lazımsız asılılıqdır
+        where: id = 'c7ea9990-55d9-4b24-9455-c23f4fa9110a'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Resursun uğurla silinməsi (DELETE)
+        where: id = '8593a18e-deae-4452-a2f1-b079090f4cd0'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Mövcud resursun uğurla oxunması (GET)
+        where: id = '61ac3fb2-e5c7-4dcc-852a-fc49ebfd8e88'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Klient tərəfindən göndərilən sorğuda xəta
+        where: id = '0395887c-d638-4d6e-bc7b-0720db2a0026'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi eyni nəticəni qaytarır
+        where: id = 'b1fcfc6a-0b8b-40b2-81e8-7ed236092d24'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: LEFT JOIN həmişə INNER JOIN-dan az sətir qaytarır
+        where: id = '9f69dd97-d584-4a0c-a29e-a0bb4b87d968'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: INNER JOIN, LEFT JOIN kimi, hər iki cədvəlin bütün sətirlərini uyğunluq olub-olmamasından asılı olmayaraq qaytarır
+        where: id = 'eb6e34a4-af9f-417c-90c9-9aff816b83ad'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, hər iki yanaşma eyni nəticəyə gətirir
+        where: id = '0d1e3d3d-c893-4e1b-8ff8-bac57108178f'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Code-First yanaşması həmişə daha keyfiyyətli API təmin edir
+        where: id = '42dc3f8c-a160-4c74-aa65-54a57873b5ee'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Design-First yanaşması yalnız çox kiçik, sadə strukturlu, komanda tərəfindən idarə olunan layihələrdə praktik olaraq tətbiq edilə bilər
+        where: id = '86972029-2ee1-4274-a493-c222bac30a7a'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Elementlərin ardıcıl, sıra ilə yaddaşın ayrılmış hissəsində saxlanıldığı adi, sadə array strukturudur
+        where: id = '7b9a216a-0141-4281-9c00-c8fa6516eaff'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Balanslaşdırılmış binary tree-nin xüsusi növü
+        where: id = '87acea4c-f160-4476-ac29-28a4f5182d1d'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Hash funksiyası əsasında işləyən hash table növü
+        where: id = '6160af55-c956-4320-87e0-d15960fd0ae9'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Həmişə, bütün növ obyektlərdə performansı əhəmiyyətli dərəcədə artırır
+        where: id = '38b85926-ccb0-4f23-aff0-46ff9173e13e'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç vaxt faydalı olmur, həmişə əlavə yük yaradır
+        where: id = '7ba190e8-980b-4480-9461-558da14c9d87'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız yaddaşda az yer tutan kiçik obyektlər üçün
+        where: id = '42078b47-a8e8-46dc-863b-5eeed3eb9b66'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yazılan kod sətirlərinin ümumi sayını
+        where: id = '76d8b60d-42be-41e7-beb8-df4e1044cb78'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Sprint ərzində aşkarlanan bug-ların sayını
+        where: id = '99ac51e6-5426-4630-abbd-bdbb3d0006ad'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç nəyi, komandanın motivasiyasını artırmaq üçün istifadə olunan dekorativ göstəricidir
+        where: id = '79575647-02fc-4097-a077-f1b270232cdc'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi də eyni keş serverini istifadə edir
+        where: id = '034f0f5e-2be1-4853-9a2c-7308f449c68c'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: HTTP caching prosesi yalnız server tərəfində, tətbiq kodundan tamamilə asılı olmadan avtomatik olaraq baş verir
+        where: id = '82625eb6-9935-4709-a7c2-52ef77672272'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Application-level caching yalnız brauzer yaddaşında saxlanılır
+        where: id = '36f567b9-7b43-42fb-bffd-048e387d660e'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Hamısı eynidir, sadəcə fərqli adlandırılıb
+        where: id = '235e2dba-1f91-44ad-8f48-53e577963825'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız Function interfeysi praktikada istifadə olunur
+        where: id = 'a8936358-8872-41bf-b6cb-01fd810a0e3f'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç bir fərqi yoxdur, üçü də tamamilə eyni sayda parametr qəbul edib eyni tipdə nəticə qaytaran, sadəcə fərqli adlandırılan funksional interfeyslərdir
+        where: id = '9a9670e9-73dd-4252-8b13-d3e5cf875d33'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi eyni səviyyədə qorunur
+        where: id = 'f633e35d-ebaa-46ab-b1f8-2240682a4819'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: ConfigMap Kubernetes-də şifrələnmiş həssas məlumatları (parol, token) təhlükəsiz saxlamaq üçün nəzərdə tutulub
+        where: id = '8145bd01-8733-4c71-b922-13c5a2314366'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç bir fərqi yoxdur, sadəcə fərqli adlandırmadır
+        where: id = 'be5765e4-a475-4d86-b65d-34459ea59dce'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi eyni vahidlə ölçülür
+        where: id = '0ea8de95-9dc7-481f-9bc7-486d7c270484'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Bandwidth şəbəkə üzərindən mesajın mənbədən təyinat nöqtəsinə çatması üçün lazım olan ümumi vaxtı ölçür
+        where: id = 'bd74585f-b6c3-4a25-82b0-2437325403f7'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Latency vahid zamanda ötürülən data həcmini ölçür
+        where: id = '4f1fd3b4-d1ee-4235-888c-60fbc3c25ea1'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi eyni metodu implement edir
+        where: id = 'd3271d14-711b-40b7-9a46-27fad7b7880e'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Comparator yalnız String tipli obyektlər üçün istifadə edilə bilər
+        where: id = 'b28d53c7-a403-48a2-a2da-b78fbb4beb63'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Comparable xarici, ayrıca yaradılmış köməkçi sinif vasitəsilə xüsusi sıralama aparmaq üçün nəzərdə tutulub
+        where: id = '8fa8da1f-fb17-4037-907e-687c3c0e31ad'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Layihədə yazılmış ümumi kod sətir sayını
+        where: id = '5b89b6ae-2663-4891-b9d4-95bf8103b76c'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç nəyi ölçmür, sadəcə idarəetmə hesabatlarında görünən dekorativ göstəricidir
+        where: id = 'af2200a6-dbea-4dbf-b748-6bc779f8aaf2'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız avtomatlaşdırılmış testlərin uğur nisbətini
+        where: id = '974d4c07-2ade-4b39-8f6a-c2e23eee6626'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi eyni memarlıq üslubunun sinonimidir
+        where: id = '25325e43-682d-487e-92be-97b66bab9704'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: N-tier memarlıq həmişə yalnız 2 qatla məhdudlaşır
+        where: id = '5ccf042b-a4eb-462d-bbc9-3f08e0a19b50'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Layered memarlıq həmişə hər bir qatın mütləq fiziki olaraq ayrıca serverdə yerləşdirilməsini tələb edir
+        where: id = 'f8e01e61-e39a-4a34-9bab-84f5faf25377'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, üçü də Garbage Collector tərəfindən tamamilə eyni prioritet və eyni qaydada təmizlənən referans növləridir
+        where: id = 'be08731d-5cde-4e8d-bbd4-b80163a7a4f3'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Hamısı strong reference kimi davranır
+        where: id = 'aaef9e4e-0df3-45df-947e-3e788e83cbbf'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız adları fərqlidir, daxili implementasiyaları eynidir
+        where: id = '0e458781-383c-4657-90bf-2f8ff820ff94'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi də hər sorğuda yenidən hesablanır
+        where: id = '6e295c72-072d-4335-97d6-06abe3539211'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Adi view nəticəni fiziki disklərdə daimi saxlayır
+        where: id = '1fe60d7e-90e9-43b2-9086-b7e0439fdcb6'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Materialized view bir dəfə yaradıldıqdan sonra heç vaxt, heç bir üsulla və ya manual sorğu ilə belə yenilənmir
+        where: id = '8edc8ea9-f303-462d-9636-b668765faa7d'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç vaxt yaranmır, Git avtomatik həll edir
+        where: id = '3ae93bfe-41eb-40ab-998a-0c5b5eecbc19'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız yeni branch yaradılan zaman
+        where: id = '7e3b32ef-1180-43b3-b1f8-ff320f6ff8ea'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız lokal dəyişikliklər commit edilib remote-a göndərildiyi anda yaranır
+        where: id = '88ebc868-6335-44d8-a2b0-fc92b0543f84'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi eyni alətlərlə yazılır
+        where: id = '1d3198ee-9d0a-45bf-85bd-4643a8f69d59'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Integration test həmişə unit testdən daha sürətli icra olunur
+        where: id = '574a16af-5ed2-4a5e-9b61-d45556fe9441'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Unit test hər zaman birbaşa real verilənlər bazasına qoşularaq bütün SQL sorğularını icra edib yoxlayır
+        where: id = '3efa4592-9a0c-4300-9adc-cab40f19c66c'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Köhnəlmiş keş məlumatlarını tamamilə silmək
+        where: id = '2462e9c9-8ed7-48d2-8a9b-777513ca4480'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç bir real texniki mənası yoxdur, sadəcə DevOps sahəsində geniş istifadə olunan marketinq termini
+        where: id = '0b3fde26-c1f3-4537-9545-f670745bb67b'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız test mühitində istifadə olunan texnika
+        where: id = '5883b362-15fe-4acf-9c46-b15f22c8690f'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Sprint ərzində qalan kod tapşırıqlarını yazmaq
+        where: id = '4c04970c-0068-444d-ac45-e6e4dbb863bb'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç bir konkret məqsədi yoxdur, formal görüşdür
+        where: id = 'da5c83dd-e2a3-408e-8c8b-451e564f8e6a'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız Product Owner-in tək başına iştirak etdiyi, digər komanda üzvlərinə qapalı olan məxfi görüşdür
+        where: id = '6b497414-7c5a-4824-87ef-55983e418455'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi tamamilə eyni istiqamətdə, tamamilə eyni əmr sintaksisi ilə işləyir
+        where: id = '3fdc0901-b80e-4c52-9918-a58f3e9e43b3'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: pull lokal dəyişiklikləri remote-a göndərir
+        where: id = 'b9250c83-4293-4ef2-b681-f7f169c54c0a'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: push remote-dan yeni dəyişiklikləri alır
+        where: id = 'd93c2e4d-ea87-4ffb-9123-ccd778daba21'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: İstifadə olunmayan, artıq lazım olmayan obyektləri Heap yaddaşında uzun müddət saxlayaraq ciddi yaddaş sızmasına birbaşa səbəb olur
+        where: id = 'abfe4b10-5712-4629-87ab-e89dff50f153'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Hər obyekt üçün ayrıca thread yaradır
+        where: id = '65516752-47e2-4d0b-8c8e-37d18b0a34ff'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç bir məqsədi yoxdur, sadəcə debug alətidir
+        where: id = '83b49a15-6400-40c2-9106-eb60987037dc'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız qoşulma üçün istifadəçi adını
+        where: id = '81457947-75c4-4a8c-bba0-e77c4649fdc0'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız autentifikasiya şifrəsini
+        where: id = 'ec9efc20-c149-4d99-87dc-d26199f88303'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç nə göstərmir, yalnız drayver sinfinin tam adını əks etdirir
+        where: id = 'f4083063-e603-4280-859e-9b96a642e863'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi də eyni müddətə etibarlıdır
+        where: id = '9d78c7f1-1983-478f-9fe4-61a795e17dc8'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Refresh token həmişə access token-dan qat-qat daha qısa müddətə etibarlı hesab edilən köməkçi tokendir
+        where: id = '45be91af-c4bb-4f1c-a79e-bbf9d26cb36a'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Access token heç vaxt vaxtı bitmir, daimi etibarlıdır
+        where: id = 'f0ddd749-5ea2-456e-9421-ded5987ec8bb'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi də tamamilə eyni sprint strukturunu, eyni rolları və eyni prosesləri istifadə edir
+        where: id = '6e33c910-d438-426e-8189-7ecc3f1695f9'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Kanban da sabit müddətli sprint-lərdən istifadə edir
+        where: id = '6d6ac728-f92a-487a-b546-6cd011e2ea91'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Scrum fasiləsiz axın (continuous flow) prinsipinə əsaslanır
+        where: id = '11cd02f2-7644-4419-9841-ea4d8d9506ea'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Annotasiyanın IDE-də hansı rənglə göstəriləcəyini
+        where: id = '34a18746-62b9-4bfa-85fa-d3f405e03248'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Annotasiyanın kod daxilində proqramçı tərəfindən hansı adla çağırılacağını
+        where: id = '7730d6ab-b782-4498-b318-c02f3b326f19'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç nəyi, yalnız kosmetik məqsəd daşıyır
+        where: id = 'e10011b9-ea03-442d-8223-c307b32d3ddf'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Metoda ötürülən arqument yanlış olduqda
+        where: id = '35bccc13-9e1f-417f-be91-3dcb62708e68'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Tələb olunan fayl fayl sistemində tapılmadıqda
+        where: id = '89bdc821-f474-471f-9408-cfc3353cf237'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç vaxt atılmamalıdır, Java-nın son versiyalarında deprecated hesab olunur
+        where: id = 'a978799a-7072-41a2-9dd7-6d22a4124b2e'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Sinifin tam qısaldılmış adını sadə String formatında qaytarır
+        where: id = 'dadae5d8-3d83-4f1d-8733-b40496338625'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Obyektin unikal hash kod dəyərini
+        where: id = '8d4bbda4-b0ae-4de6-9867-3b1c0d661dbc'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç nə, void tipli metoddur
+        where: id = '47e1cf1d-86e6-428a-a816-e4ca0f9dcebe'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Mümkün deyil, Java-da bütün enum konstantları mütləq tamamilə eyni davranışı paylaşmaq məcburiyyətindədir
+        where: id = '584e329d-9cdc-45e0-96ca-31b9879475bb'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız xarici switch operatoru vasitəsilə
+        where: id = '56e5c0f5-c25a-4461-801c-cd93ce434207'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız statik köməkçi metodlar yaradaraq
+        where: id = '8d93d29f-f9e7-4c84-9583-cc5610f1b1d4'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Hər ayrı test metodundan əvvəl və sonra
+        where: id = 'b8d3bfe1-c9b0-49d0-8fbc-5c61ea3fea28'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç vaxt avtomatik icra olunmur, əl ilə çağırılmalıdır
+        where: id = '00a26749-9176-418c-8e25-7a6ebb36fc6b'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız instance (statik olmayan) adi metod kimi yazıla bilməsi tələb olunur
+        where: id = '9c7ea5cd-37a4-4588-90ca-fb6174204924'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız əvvəlki build zamanı yaranan bütün artefaktları silir, amma heç bir yeni compile əməliyyatı aparmır
+        where: id = 'b90517e7-38e7-44f7-ac09-aa552877d04d'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız testləri icra edir, artefakt yaratmır
+        where: id = '6501da44-aee3-4934-8e04-14087877d0b5'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç nə etmir, sadəcə konfiqurasiyanı yoxlayır
+        where: id = 'b30fcb91-6c17-42a7-932e-90c48bd411a7'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Developer-lərin kod yazma sürətini
+        where: id = '5fb443c4-9154-4697-91e8-4545f555e00d'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yazılmış avtomatlaşdırılmış test sayını
+        where: id = 'dab66e67-72aa-4e46-9309-f2458b01606a'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç nəyi real olaraq ölçmür, yalnız hesabatlarda görünən dekorativ bir metrikadır
+        where: id = '781abbeb-f4ed-4453-a03f-07e61299f456'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Mesajları emal edən fiziki server vahidi
+        where: id = '8034c62b-ff86-48f4-9c59-b0a27e85ad82'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Vəziyyəti daimi saxlayan verilənlər bazası cədvəli
+        where: id = '880918b4-935d-4285-b150-2f35ebd1ed91'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç bir real texniki mənası yoxdur, sadəcə köhnə akademik ədəbiyyatda istifadə olunan dizayn şablonunun adıdır
+        where: id = '25176f51-7b15-431d-b336-23ec58ca5776'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi də eyni thread-i yaradır
+        where: id = '6906b1f2-f25a-4b74-9a95-eac8a6a77fb9'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: run() metodu yeni thread yaradıb onu icra edir, start() isə sadəcə həmin metodu adi şəkildə çağırır
+        where: id = 'd5425020-29a5-45f7-9e2a-86143a707137'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: start() yalnız statik kontekstdə çağırıla bilər
+        where: id = '4392c059-8bed-4d9c-9e91-ca1183c2f6ac'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi eyni davranışı göstərir
+        where: id = '94fa4654-3940-4401-acb0-2c961cfeb7cb'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: shutdownNow() hazırda icra olunmaqda olan bütün tapşırıqları sadəcə müvəqqəti olaraq pauzaya salır
+        where: id = 'fcf07c1a-6072-47ce-b318-6d2c56ab6882'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: shutdown() bütün tapşırıqları dərhal, gözləmədən dayandırır
+        where: id = '23a76189-6715-414a-96c6-3e5157506773'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi də eyni performansa malikdir
+        where: id = 'dd5a9604-e3e2-4380-8f29-cc31a9b9aba9'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: orElse() dəyər boş olduqda supplier-i lazy çağırır
+        where: id = '52fad29a-fffc-4f28-b8ca-aaba5ca4fcab'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: orElseGet() metodu Optional dəyəri boş olduqda heç bir halda supplier çağırmadan həmişə null qaytarır
+        where: id = '78ba2aaa-28eb-483a-97d1-a0958ee4ca83'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Şəbəkə bağlantısının ümumi sürəti
+        where: id = '299e68d9-46ff-497b-908c-634e24d48dcc'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Serverin ümumi CPU və yaddaş yükü
+        where: id = '2e1ec790-402a-43cf-aafa-3fa0ab897641'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç bir real texniki mənası yoxdur, sadəcə streaming sənayesində geniş istifadə olunan marketinq termini
+        where: id = '242de0b1-00b6-4474-a535-b825c5671b14'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi eyni yerdə istifadə olunur
+        where: id = 'fad9f476-d201-49b2-b322-0f12ddc69f99'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: throws açar sözü yalnız checked deyil, məhz RuntimeException tipli istisnalar üçün mütləq tələb olunur
+        where: id = 'b0b6c5eb-2ced-4a20-8023-04981329a34a'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: throw metodun imzasında istisnaları elan etmək üçün yazılır
+        where: id = 'e0928af9-b777-4bfe-9d83-a158882218fa'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi eyni ölçüdə data yaradır
+        where: id = '7377e0c8-43d9-4424-af34-554bcbed0754'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Protobuf serialization zamanı həmişə JSON-dan yavaş işləyir
+        where: id = 'b2003a3b-d684-4aeb-b2ca-f2a3aeea6e56'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Protobuf formatı yalnız Google şirkətinin öz daxili, qapalı sistemlərində istifadə edilə bilər
+        where: id = 'e952cbac-09a9-4038-8428-885071422811'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi də eyni fiziki strukturu istifadə edir
+        where: id = '75eec62a-fa96-4eda-8f63-1a29eff4e021'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Non-clustered index məhz data-nın cədvəldəki fiziki saxlanma sırasını özü birbaşa təyin edir
+        where: id = 'e3788c93-1009-4f6e-9f97-227a84379d17'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Bir cədvəldə istənilən sayda clustered index yaradıla bilər
+        where: id = '912e05a9-e188-4eb0-98c8-8432c2caf348'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi eyni UML simvolu ilə göstərilir
+        where: id = 'cee290fd-90f6-4efb-946d-81f8e1f15cbb'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Composition əslində hissə ilə bütöv arasında Aggregation-a nisbətən həmişə daha zəif əlaqə yaradır
+        where: id = '367dc4e1-b250-4eb3-813c-54f3bd74b197'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Aggregation yalnız interfeys tipli sahələrlə mümkündür
+        where: id = '7fe3166c-6d2b-4a55-9eed-3953c95ea2aa'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi də eyni kitabxana ilə yaradılır
+        where: id = '68117d81-8a28-4ae2-8e4e-231eda4a06ea'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Mock real layihələrdə demək olar heç vaxt istifadə edilmir
+        where: id = '6f4aea2d-2ebe-46ed-82f0-f5e309064501'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Stub yalnız verilənlər bazasına edilən sorğu çağırışlarını simulyasiya etmək üçün istifadə olunur
+        where: id = '81a28460-b00b-4761-b3d7-9d4db1e35d11'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız elan olunduğu konkret sinifin daxilində istifadəyə icazə verir
+        where: id = '1b7ed432-7d05-4517-bbb0-bd30cc9dd51f'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç kimə, private ilə eyni məhdudiyyəti daşıyır
+        where: id = '39b20d55-500e-426a-9fcf-92ee08083820'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız eyni `.java` faylı daxilindəki siniflərə
+        where: id = 'f3d094d4-fb88-4164-84bb-42ae5e4adc58'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Sinifdə yalnız bir metodun mövcud olmasını
+        where: id = 'b5b25fbe-2284-4452-b046-10730ebf3b46'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Alt sinifin final elan olunmasını
+        where: id = '3311ad5e-13b1-4f30-835d-a1333b714019'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç nəyi təyin etmir, sadəcə tarixi adlandırma konvensiyasının qalığıdır
+        where: id = '27526842-461b-4178-a79f-7fc2686aebc2'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi eyni interfeysin alias-ıdır
+        where: id = '8bad651c-75fa-4c24-98ce-ce42e9d30f17'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Serializasiya prosesi üzərində Serializable interfeysinə nisbətən xeyli daha az nəzarət təmin edir
+        where: id = '00d177f5-c0b7-4a58-9e94-4d75af5421b3'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç bir əlaqəsi yoxdur, tamam fərqli məqsəd daşıyır
+        where: id = '203bd719-b57f-450e-a4f4-94fe8f274b91'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, hər ikisi eyni WSDL formatını istifadə edir
+        where: id = '93dbd0b5-ecdf-4759-b391-750c76be7bbe'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: REST SOAP-dan xronoloji olaraq daha köhnə standartdır
+        where: id = '5350b60a-23ad-43a9-a6bc-4d402e5b1a57'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: SOAP protokolu bütün mesaj mübadiləsi üçün əslində yalnız yüngül JSON formatından istifadə edir
+        where: id = '23c411b6-a9ab-47c7-a027-d315428e8ce0'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi eyni yoxlama mərhələsidir
+        where: id = '1a4d35cb-9e9a-49d7-8a6f-15a54b94722b'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Avtorizasiya əslində istifadəçinin kimliyini təsdiqləmək üçün istifadə olunan ilkin mərhələdir
+        where: id = 'f709dabc-d8bd-4f70-95a3-44249e6bfa4f'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Eyni şeydir həmişə, sadəcə fərqli terminologiyadır
+        where: id = 'bb330b36-0eb4-46b0-9106-4aefa0d6a70d'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: String həqiqətən mutable-dır, StringBuilder isə tamamilə dəyişməz (immutable) obyekt yaradır
+        where: id = '5ac9e059-9430-4d43-8177-3d0aea4da8fc'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, üçü də daxili olaraq eyni massivi istifadə edir
+        where: id = '69f3adca-5639-4dbf-a9bf-0206d0ed4072'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: StringBuffer immutable-dır, StringBuilder isə thread-safe-dir
+        where: id = '07dc3217-f936-4193-92ae-9a2f25a8223b'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız @RestController annotasiyası əlavə olunduqda avtomatik aktivləşir
+        where: id = '7ef12d23-9d36-4aa2-b75c-8e5a20d40647'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: '@Repository annotasiyası vasitəsilə konfiqurasiya olunur'
+        where: id = 'e5b8a253-6ac2-4ff6-ba91-8d00b8dd6c3e'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç biri, WebSocket Spring-də annotasiyasız işləyir
+        where: id = '57a06af4-6f2c-4a97-8fe7-d48f039c911d'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız SELECT sorğuları icra edildikdə
+        where: id = 'c193b372-9c98-4382-87d8-a0b88779d2f6'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç vaxt istifadə edilməməlidir, çünki performansı ciddi şəkildə azaldır
+        where: id = '45fc2f09-66a5-48f7-b50d-1bad911ce951'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız test mühitində, production-da lazım deyil
+        where: id = 'bd36083a-2caf-4e17-8e5f-b17ac63ac03b'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi eyni nəticə strukturunu qaytarır
+        where: id = 'd4e7da49-7612-4bb3-ae9d-fc2a9d0f4bc5'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: map() iç-içə strukturları avtomatik düzləşdirir
+        where: id = 'dcfef670-f1de-443c-973f-a3cda279e2ed'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: flatMap() metodu, map()-dən fərqli olaraq, elementləri yalnız müəyyən şərtə əsasən süzgəcdən keçirir
+        where: id = '39e9d264-924e-4ed4-9418-019465a1a16f'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi də əslində tamamilə eyni sorğu-cavab əsaslı bağlantı modelini istifadə edir
+        where: id = '63142707-def5-4180-ab33-586d5b300e09'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: WebSocket yalnız GET metodlu sorğuları dəstəkləyir
+        where: id = '7dc8f656-5cf2-4c7b-97ae-a4b5969c7612'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: HTTP həmişə WebSocket-dən daha sürətli mesaj ötürür
+        where: id = '4b6e7535-233e-4e41-be75-3ae06eb85228'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Layihəyə pom.xml faylı vasitəsilə əlavə olunan tamamilə xüsusi, ayrıca kateqoriyalı asılılıq növüdür
+        where: id = '868e0692-3df9-411e-8a37-660787e9b0ea'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Avtomatik yaradılan xüsusi test sinifi
+        where: id = '1255ff81-6172-454d-963f-1cea376c32ca'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç bir mənası yoxdur, köhnəlmiş termindir
+        where: id = '249a93a3-37c0-4946-abb6-52319ff48e79'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi tamamilə eyni etibarlılıq və çatdırılma zəmanəti səviyyəsinə malikdir
+        where: id = '754a4eb6-b6c1-4fc1-973a-313517b56eac'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: UDP çatdırılmanı zəmanət etdiyi üçün daha etibarlıdır
+        where: id = '08d3d303-b6cb-490d-b994-fe9fd7cd9a95'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: TCP həmişə UDP-dən daha sürətli məlumat ötürür
+        where: id = 'dc44e237-2d13-4a4d-b7da-b3fb93af0a60'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç vaxt istifadə edilməməlidir, həmişə ciddi performans problemi yaradır
+        where: id = '870fa4d0-9ed4-48de-bf67-bcdf42baad86'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız bir neçə sətirlik kiçik cədvəllərdə
+        where: id = '4e950a47-c25e-4abc-b7a1-99c9cf8bf1e4'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız test mühitində, production-da qadağandır
+        where: id = '9dd091d8-c4ea-4072-bfd4-fc737e911f73'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi eyni səviyyədə təhlükəsizlik təmin edir
+        where: id = '2848bfd1-cc21-4c18-b746-e9696707cd03'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Statement sinfi hər zaman PreparedStatement-dən qat-qat daha sürətli şəkildə icra olunur
+        where: id = '57c1658c-73a4-40da-a4ce-1d054490a5ff'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: PreparedStatement yalnız SELECT sorğularında istifadə edilə bilər
+        where: id = '64571bf8-668d-41e7-9768-96e93ee07d02'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi də eyni anda kilidləmə aparır
+        where: id = 'ff219d4b-de56-4ca4-9b42-a42388e74eee'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Pessimistic locking heç bir halda resursu kilidləmir
+        where: id = 'fd3834e8-7dce-4ee8-824e-556e369a6786'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Optimistic locking heç bir halda konflikt yoxlanışı aparmadan sadəcə birbaşa yazma əməliyyatı icra edir
+        where: id = '80bbed6c-cf6d-4071-82f0-e957d0fba210'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Toplantı ərzində birbaşa kod yazılmağa başlanır
+        where: id = 'e3ca41ee-8d78-4852-89e4-e52ccc85fe8c'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç bir konkret plan qurulmur, sadəcə komanda üzvləri arasında sərbəst müzakirə aparılır
+        where: id = 'c61f820a-504a-4a2a-98f6-2c981b287f79'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız keçən sprint-in retrospektivi müzakirə olunur
+        where: id = '79c12709-dddb-4aee-b9a1-ee3f4a019562'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, ikisi eyni formatda saxlanılır
+        where: id = 'fccb1e56-c259-4484-ae19-44f43d74757a'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Logs həmişə tamamilə rəqəmsal, statistik olaraq əvvəlcədən aqreqasiya edilmiş dəyərlərdən ibarətdir
+        where: id = 'f46ed7d7-8056-4b82-94b8-8b0d877bfaf7'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Metrics sərbəst mətn formatında hadisə qeydləridir
+        where: id = 'f045a66b-578d-4523-8f0e-70c2141bf6ba'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç bir məhdudiyyəti olmayan sərhədsiz tip parametri
+        where: id = '54f5eb65-949d-4f0d-aad6-7ff1dba69df5'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız primitiv (int, boolean, char və s.) tiplərin generic parametr kimi məhdud istifadə edilməsi imkanı
+        where: id = '00df3c35-d95a-4d65-9d9a-4462b19b1b99'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç bir mənası yoxdur, sadəcə sintaktik dekorasiyadır
+        where: id = 'd7fd4b96-9501-410e-994e-cb73e7defea9'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Öz tamamilə ayrıca əməliyyat sistemi nüvəsinə və virtual avadanlığa malik ənənəvi bir virtual machine növüdür
+        where: id = 'c3875bf1-6fae-49ea-93f7-0226f5c94ce3'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Tətbiqin işlədiyi fiziki server avadanlığı
+        where: id = '5d775967-044f-46a4-8e73-7ca6cc5f532c'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Heç bir mənası yoxdur, sadəcə marketinq termini
+        where: id = 'ba97bfc1-4e2e-4e01-b669-05587df11a30'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Həmişə boş ('') string qaytarır
+        where: id = '0b93c8e3-db44-4959-ac48-e93238e5c301'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: null dəyərini qaytarır
+        where: id = '934f825b-228c-4556-a30b-b89c8c6080cd'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Obyektin bütün sahələrinin dəyərlərini vergüllə ayırıb
+        where: id = 'c802e437-e94f-47be-9186-0d321d648eec'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Fərq yoxdur, üçü də eyni məlumatı saxlayır
+        where: id = 'c8fe8d85-4bcc-497f-95ed-cbf2d0257fca'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Hamısı eyni daxili strukturu istifadə edir
+        where: id = '0070f5f0-c762-4053-ad10-f3256d267b72'
+    - update:
+        tableName: question_option
+        columns:
+        - column:
+            name: option_text
+            value: Yalnız LocalDateTime real layihələrdə praktik olaraq istifadə olunur, digər ikisi tamamilə deprecated-dır
+        where: id = 'dda84732-a1db-431f-a1fe-c1cfb555e9dc'

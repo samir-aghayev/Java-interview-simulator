@@ -53,3 +53,6 @@ databaseChangeLog:
   - include:
       file: db/changelog/018-password-reset.yaml
       relativeToChangelogFile: false
+  - include:
+      file: db/changelog/019-fix-distractor-length-bias-batch1.yaml
+      relativeToChangelogFile: false
